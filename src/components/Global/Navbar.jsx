@@ -53,8 +53,8 @@ const Navbar = () => {
                 <div className="w-full p-4 flex justify-between items-center">
                     <div className="flex items-center">
                         {scrollPosition > scrollThreshold ?                        
-                            (<Link to="/"><img src="../../../src/assets/images/global/logodark.png" className='w-[220px] xl:w-[250px]'  alt="" /></Link>)
-                            : (<Link to="/"><img src="../../../src/assets/images/global/logo.png"  className='w-[220px] xl:w-[250px]' alt="" /></Link>)}
+                            (<Link to="/"><img src="../../../src/assets/images/global/logodark.PNG" className='w-[220px] xl:w-[250px]'  alt="" /></Link>)
+                            : (<Link to="/"><img src="../../../src/assets/images/global/logo.PNG"  className='w-[220px] xl:w-[250px]' alt="" /></Link>)}
                     </div>
                     <div className="hidden lg:flex space-x-2 lg:space-x-4 xl:space-x-8 font-FuturaHeavy">
                         <Link to="/developmentssearch" className="hover:underline">New Developments</Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
                             <a href="#" className="hover:underline flex items-center py-4"
                                 onMouseEnter={() => setIsDropdownOpenLang(true)}
                                 onMouseLeave={() => setIsDropdownOpenLang(false)}>
-                                <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
+                                <img src="../../../src/assets/images/global/flag.PNG" alt="Flag" className="hidden sm:block h-4 w-6" />
 
                                 {isDropdownOpenLang ? (<FontAwesomeIcon icon={faChevronUp} size='xs' className='ml-1' />) : (<FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-1' />)}
                             </a>
@@ -115,10 +115,10 @@ const Navbar = () => {
                                     onMouseLeave={() => setIsDropdownOpenLang(false)}
                                 >
                                     <a href="#" className="flex flex-row px-4 py-2 font-semibold text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                        <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
+                                        <img src="../../../src/assets/images/global/flag.PNG" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
                                     </a>
                                     <a href="#" className="flex flex-row px-4 py-2 font-semibold  text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                        <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
+                                        <img src="../../../src/assets/images/global/flag.PNG" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
                                     </a>
                                 </motion.div>
                             )}
@@ -139,7 +139,7 @@ const Navbar = () => {
                         <div className="bg-white h-full pb-5 shadow-md rounded-lg overflow-hidden relative">
                             <div className="flex items-center justify-between p-4 ">
                                 <div className="w-full flex flex-col xl:flex-row items-center justify-between space-y-4 lg:space-y-0 lg:space-x-4">
-                                    <img src="../../../src/assets/images/global/logodark.png" alt="Logo" className="w-[320px] lg:w-[30%]" />
+                                    <img src="../../../src/assets/images/global/logodark.PNG" alt="Logo" className="w-[320px] lg:w-[30%]" />
                                     <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
                                         <button className="flex items-center bg-[#005334] text-white p-2 px-4 rounded-lg">
                                             <FontAwesomeIcon icon={faUser} className='mr-2' size='sm' />
@@ -157,7 +157,7 @@ const Navbar = () => {
                                             <button href="#" className="bg-transparent text-primarycolor px-4 py-2 rounded-lg border border-zinc-300 flex flex-row items-center gap-2"
                                                 onClick={() => setIsDropdownOpenBigLang(!isDropdownOpenBigLang)}
                                             >
-                                                <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="block h-4 w-6" />
+                                                <img src="../../../src/assets/images/global/flag.PNG" alt="Flag" className="block h-4 w-6" />
                                                 <span>English</span>
 
                                                 {isDropdownOpenBigLang ? (<FontAwesomeIcon icon={faChevronUp} size='xs' className='ml-1' />) : (<FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-1' />)}
@@ -172,10 +172,10 @@ const Navbar = () => {
                                                     onMouseLeave={() => setIsDropdownOpenBigLang(false)}
                                                 >
                                                     <a href="#" className="flex flex-row px-4 py-2d text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                                        <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
+                                                        <img src="../../../src/assets/images/global/flag.PNG" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
                                                     </a>
                                                     <a href="#" className="flex flex-row px-4 py-2 text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                                        <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
+                                                        <img src="../../../src/assets/images/global/flag.PNG" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
                                                     </a>
                                                 </motion.div>
                                             )}
@@ -191,7 +191,7 @@ const Navbar = () => {
                             </div>
                             <div className="flex flex-col md:flex-row">
                                 <div className="p-4 lg:w-1/3">
-                                    <img src="../../../src/assets/images/global/bigmenuiamge.png" alt="Property Image" className=" hidden lg:block rounded-lg w-full" />
+                                    <img src="../../../src/assets/images/global/bigmenuiamge.PNG" alt="Property Image" className=" hidden lg:block rounded-lg w-full" />
                                 </div>
                                 <div className="p-4 w-full md:w-[46%] lg:w-1/3  border-r-2 ">
                                     <div className="flex flex-col space-y-3 text-black font-FuturaHeavy text-2xl">
