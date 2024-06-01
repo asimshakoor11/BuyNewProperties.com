@@ -197,12 +197,12 @@ const Navbar = () => {
                                 </div>
                                 <div className="p-4 w-full md:w-[46%] lg:w-1/3  border-r-2 ">
                                     <div className="flex flex-col space-y-3 text-black font-FuturaHeavy text-2xl">
-                                        <Link to={"/"} className='font-bold'>Home</Link>
-                                        <Link to={"/developmentssearch"} className='font-bold'>New Developments</Link>
-                                        <Link to={"/ouragents"} className='font-bold'>Agents</Link>
-                                        <Link to={"/"} className='font-bold'>Services</Link>
-                                        <Link to={"/"} className='font-bold'>Guides</Link>
-                                        <Link to={"/"} className='font-bold'>Contact</Link>
+                                        <Link to={"/"} className='font-bold' onClick={() => setIsPopupOpen(false)}>Home</Link>
+                                        <Link to={"/developmentssearch"} className='font-bold' onClick={() => setIsPopupOpen(false)}>New Developments</Link>
+                                        <Link to={"/ouragents"} className='font-bold' onClick={() => setIsPopupOpen(false)}>Agents</Link>
+                                        <Link to={"/"} className='font-bold' onClick={() => setIsPopupOpen(false)}>Services</Link>
+                                        <Link to={"/"} className='font-bold' onClick={() => setIsPopupOpen(false)}>Guides</Link>
+                                        <Link to={"/"} className='font-bold' onClick={() => setIsPopupOpen(false)}>Contact</Link>
 
                                         <a href="#" className="font-bold flex items-center">
                                             Henderson Realty
