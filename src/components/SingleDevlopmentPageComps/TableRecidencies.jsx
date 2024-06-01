@@ -214,7 +214,7 @@ const TableRecidencies = ({ booking }) => {
                             <td className="py-2 px-4 text-center">{row.price}</td>
                             <td className="py-2 px-4 text-center">
                                 <button className="bg-transparent">
-                                    <img alt="download" src="./src/assets/images/icons/download.png" />
+                                    <img alt="download" src="/images/icons/download.png" />
                                 </button>
                             </td>
                             <td className="py-2 px-4 text-center">
