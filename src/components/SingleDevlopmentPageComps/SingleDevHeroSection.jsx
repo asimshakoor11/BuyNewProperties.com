@@ -16,9 +16,9 @@ const SingleDevHeroSection = () => {
 
 
     const images = [
-        './src/assets/images/homepage/heroimage.png',
-        './src/assets/images/global/bgimage.jpeg',
-        './src/assets/images/homepage/heroimage.png',
+        '/images/homepage/heroimage.png',
+        '/images/global/bgimage.jpeg',
+        '/images/homepage/heroimage.png',
         // Add more images as needed
     ];
 
@@ -68,7 +68,7 @@ const SingleDevHeroSection = () => {
     return (
         <>
             <section className="h-screen bg-cover bg-center relative">
-                {/* style={{ backgroundImage: "url(./src/assets/images/homepage/heroimage.png)" }} */}
+                {/* style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }} */}
                 <div className="relative w-full h-screen overflow-hidden">
                     <img
                         src={images[0]}
@@ -231,17 +231,17 @@ const SingleDevHeroSection = () => {
                                 <Carousel className="h-[80vh]"
                                     loop={true}>
                                     <img
-                                        src="./src/assets/images/homepage/cardimage.png"
+                                        src="/images/homepage/cardimage.png"
                                         alt="image 1"
                                         className="h-full w-full object-contain"
                                     />
                                     <img
-                                        src="./src/assets/images/global/bgimage.jpeg"
+                                        src="/images/global/bgimage.jpeg"
                                         alt="image 2"
                                         className="h-full w-full object-contain"
                                     />
                                     <img
-                                        src="./src/assets/images/homepage/cardimage.png"
+                                        src="/images/homepage/cardimage.png"
                                         alt="image 3"
                                         className="h-full w-full object-contain"
                                     />

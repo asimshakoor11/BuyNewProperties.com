@@ -13,27 +13,27 @@ const DevlopmentLocations = () => {
     const getBackgroundImage = () => {
         // Define conditions to determine which background image to use
         if (hoveredButton === 'Algarve') {
-            return 'url(./src/assets/images/homepage/hoverimg1.jpg)';
+            return 'url(/images/homepage/hoverimg1.jpg)';
         } else if (hoveredButton === 'Newyork') {
-            return 'url(./src/assets/images/homepage/hoverimg2.jpg)';
+            return 'url(/images/homepage/hoverimg2.jpg)';
 
         } else if (hoveredButton === 'Lisbon') {
-            return 'url(./src/assets/images/homepage/hoverimage3.jpg)';
+            return 'url(/images/homepage/hoverimage3.jpg)';
 
         } else if (hoveredButton === 'Porto') {
-            return 'url(./src/assets/images/homepage/hoverimg1.jpg)';
+            return 'url(/images/homepage/hoverimg1.jpg)';
 
 
         } else if (hoveredButton === 'Florida') {
-            return 'url(./src/assets/images/homepage/hoverimg2.jpg)';
+            return 'url(/images/homepage/hoverimg2.jpg)';
 
 
         } else if (hoveredButton === 'LongIsland') {
-            return 'url(./src/assets/images/homepage/hoverimage3.jpg)';
+            return 'url(/images/homepage/hoverimage3.jpg)';
 
 
         } else if (hoveredButton === 'Georgia') {
-            return 'url(./src/assets/images/homepage/hoverimg1.jpg)';
+            return 'url(/images/homepage/hoverimg1.jpg)';
 
 
         } else {

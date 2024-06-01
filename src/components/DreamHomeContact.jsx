@@ -2,7 +2,7 @@ import React from 'react'
 
 const DreamHomeContact = () => {
     return (
-        <section className="section flex flex-col lg:flex-row bg-cover bg-center relative" style={{ backgroundImage: "url(./src/assets/images/homepage/heroimage.png)" }}>
+        <section className="section flex flex-col lg:flex-row bg-cover bg-center relative" style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
             <div className='absolute  inset-0 bg-primarycolor opacity-65'></div>
 
             <div className="flex-1 z-10 flex items-center justify-center">

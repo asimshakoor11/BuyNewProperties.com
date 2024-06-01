@@ -34,7 +34,7 @@ const Cards = ({ item }) => {
                         <Carousel className="rounded-xl"
                             navigation={false}>
                             <img
-                                src="./src/assets/images/homepage/cardimage.png"
+                                src="/images/homepage/cardimage.png"
                                 alt="image 1"
                                 className="h-full w-full object-cover"
                             />
@@ -44,7 +44,7 @@ const Cards = ({ item }) => {
                                 className="h-full w-full object-cover"
                             />
                             <img
-                                src="./src/assets/images/homepage/cardimage.png"
+                                src="/images/homepage/cardimage.png"
                                 alt="image 3"
                                 className="h-full w-full object-cover"
                             />
@@ -176,7 +176,7 @@ const Cards = ({ item }) => {
                                     <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="phone">Phone Number</label>
                                     <div className="flex">
                                         <button className="flex items-center justify-center bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-l px-4 py-2">
-                                            <img src="./src/assets/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
+                                            <img src="/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                             </svg>

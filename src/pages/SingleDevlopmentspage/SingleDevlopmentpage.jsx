@@ -24,7 +24,7 @@ const SingleDevlopmentpage = () => {
                 <div className="flex flex-row flex-wrap  border-2 border-fontdark rounded-lg w-full">
                     <div className="w-[100%] sm:w-[33.33%] xl:w-[20%] flex flex-col py-4 xl:px-4 gap-4 items-start justify-center space-x-2 border-2
                  border-fontdark">
-                        <img src="./src/assets/images/icons/double-bed 1.png" className='ml-2' alt="" />
+                        <img src="/images/icons/double-bed 1.png" className='ml-2' alt="" />
                         <div className='flex flex-col gap-1'>
                             <p className="text-3xl font-FuturaHeavy text-primarycolor">2 - 3</p>
                             <p className="text-2xl text-Black font-FuturaDemi">Beds</p>
@@ -32,7 +32,7 @@ const SingleDevlopmentpage = () => {
                     </div>
                     <div className="w-[100%] sm:w-[33.33%] xl:w-[20%] flex flex-col py-4 xl:px-4 gap-4 items-start justify-center space-x-2 border-2
                  border-fontdark">
-                        <img src="./src/assets/images/icons/bath.png" className='ml-2' alt="" />
+                        <img src="/images/icons/bath.png" className='ml-2' alt="" />
 
                         <div className='flex flex-col gap-1'>
                             <p className="text-3xl font-FuturaHeavy text-primarycolor">2.0 - 3.5</p>
@@ -41,7 +41,7 @@ const SingleDevlopmentpage = () => {
                     </div>
                     <div className="w-[100%] sm:w-[33.33%] xl:w-[20%] flex flex-col py-4 xl:px-4 gap-4 items-start justify-center space-x-2 border-2
                  border-fontdark">
-                        <img src="./src/assets/images/icons/home.png" className='ml-2' alt="" />
+                        <img src="/images/icons/home.png" className='ml-2' alt="" />
 
                         <div className='flex flex-col gap-1'>
                             <p className="text-3xl font-FuturaHeavy text-primarycolor">39</p>
@@ -50,7 +50,7 @@ const SingleDevlopmentpage = () => {
                     </div>
                     <div className="w-[100%] xl:w-[40%] flex flex-col py-4 xl:px-4 gap-4 items-start justify-center space-x-2 border-2
                  border-fontdark">
-                        <img src="./src/assets/images/icons/home.png" className='ml-2' alt="" />
+                        <img src="/images/icons/home.png" className='ml-2' alt="" />
 
                         <div className='flex flex-col gap-1'>
                             <p className="text-3xl font-FuturaHeavy text-primarycolor">€300,000 - €2,000,000</p>
@@ -133,11 +133,11 @@ const SingleDevlopmentpage = () => {
                             <h2 className="text-5xl font-FuturaHeavy text-primarycolor">Features & Amenities</h2>
                             <div className="flex space-x-4 my-8">
                                 <div className="border border-primarycolor py-4 px-6 rounded-lg flex flex-col items-center">
-                                    <img src="./src/assets/images/icons/swimming-pool 2.png" alt="Indoor Pool" className="mb-2" />
+                                    <img src="/images/icons/swimming-pool 2.png" alt="Indoor Pool" className="mb-2" />
                                     <span className='text-sm mt-3'>Indoor Pool</span>
                                 </div>
                                 <div className="bg-primarycolor text-white py-4 px-6 rounded-lg flex flex-col items-center">
-                                    <img src="./src/assets/images/icons/gym-2.png" alt="Gym" className="mb-2" />
+                                    <img src="/images/icons/gym-2.png" alt="Gym" className="mb-2" />
                                     <span className='text-sm mt-3'>Gym</span>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@ const SingleDevlopmentpage = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-16 p-4">
                             <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                                <img src="./src/assets/images/icons/broucher.png" alt="Brochure" className="mb-4" />
+                                <img src="/images/icons/broucher.png" alt="Brochure" className="mb-4" />
                                 <h3 className="font-FuturaHeavy text-xl mb-2">Brochure</h3>
                                 <p className="text-center mb-4">
                                     Access all in-depth information, latest price lists, floor plans, brochures & more.
@@ -153,7 +153,7 @@ const SingleDevlopmentpage = () => {
                                 <button className="bg-primarycolor text-white py-2 px-4 rounded-lg">View Brochure</button>
                             </div>
                             <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                                <img src="./src/assets/images/icons/price-list 2.png" alt="Pricelist" className="mb-4" />
+                                <img src="/images/icons/price-list 2.png" alt="Pricelist" className="mb-4" />
                                 <h3 className="font-FuturaHeavy text-xl mb-2">Pricelist</h3>
                                 <p className="text-center mb-4">
                                     Access all in-depth information, latest price lists, floor plans, brochures & more.
@@ -258,7 +258,7 @@ const SingleDevlopmentpage = () => {
                                     <h3 className="text-3xl font-FuturaHeavy text-zinc-800 dark:text-zinc-200 mb-2">Save €3,000 on legal fees when you purchase with us</h3>
                                     <p className="text-md text-primarycolor">Our legal team will review every contract clause, ensure all documents are in order and handle the administrative tasks for the CPCV and Deed.</p>
                                 </div>
-                                <img src="./src/assets/images/homepage/newpackage.png" alt="legal fees" className="w-20 h-20 ml-4" />
+                                <img src="/images/homepage/newpackage.png" alt="legal fees" className="w-20 h-20 ml-4" />
                             </div>
                         </div>
 

@@ -11,7 +11,7 @@ const OurAgentsPagination = () => {
             id: 1,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -21,7 +21,7 @@ const OurAgentsPagination = () => {
             id: 2,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -31,7 +31,7 @@ const OurAgentsPagination = () => {
             id: 3,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -40,7 +40,7 @@ const OurAgentsPagination = () => {
             id: 4,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -50,7 +50,7 @@ const OurAgentsPagination = () => {
             id: 5,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -60,7 +60,7 @@ const OurAgentsPagination = () => {
             id: 6,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -69,7 +69,7 @@ const OurAgentsPagination = () => {
             id: 7,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -79,7 +79,7 @@ const OurAgentsPagination = () => {
             id: 8,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -89,7 +89,7 @@ const OurAgentsPagination = () => {
             id: 9,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -98,7 +98,7 @@ const OurAgentsPagination = () => {
             id: 10,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -108,7 +108,7 @@ const OurAgentsPagination = () => {
             id: 11,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -118,7 +118,7 @@ const OurAgentsPagination = () => {
             id: 12,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -127,7 +127,7 @@ const OurAgentsPagination = () => {
             id: 13,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -137,7 +137,7 @@ const OurAgentsPagination = () => {
             id: 14,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -147,7 +147,7 @@ const OurAgentsPagination = () => {
             id: 15,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -156,7 +156,7 @@ const OurAgentsPagination = () => {
             id: 16,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -166,7 +166,7 @@ const OurAgentsPagination = () => {
             id: 17,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -176,7 +176,7 @@ const OurAgentsPagination = () => {
             id: 18,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -185,7 +185,7 @@ const OurAgentsPagination = () => {
             id: 19,
             name: "Russell Henderson",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -195,7 +195,7 @@ const OurAgentsPagination = () => {
             id: 20,
             name: "Natalia Loginova",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: false,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]
@@ -205,7 +205,7 @@ const OurAgentsPagination = () => {
             id: 21,
             name: "Stefanie Mendes",
             rating: 5.0,
-            image: "./src/assets/images/homepage/cardimage.png",
+            image: "/images/homepage/cardimage.png",
             openForagentdatas: true,
             recentSales: 20,
             colors: ["bg-[#5298CA]", "bg-[#FFDEAB]"]

@@ -63,7 +63,7 @@ const ProFeaturesAmenities = () => {
 
             <div className="w-full xl:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
                 <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                    <img src="./src/assets/images/icons/broucher.png" alt="Brochure" className="mb-2" />
+                    <img src="/images/icons/broucher.png" alt="Brochure" className="mb-2" />
                     <h3 className="font-FuturaHeavy text-xl mb-2">Brochure</h3>
                     <p className="text-center mb-2">
                         Access all in-depth information, latest price lists, floor plans, brochures & more.
@@ -71,7 +71,7 @@ const ProFeaturesAmenities = () => {
                     <button className="bg-primarycolor text-white py-2 px-4 rounded-lg">View Brochure</button>
                 </div>
                 <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                    <img src="./src/assets/images/icons/price-list 2.png" alt="Pricelist" className="mb-2" />
+                    <img src="/images/icons/price-list 2.png" alt="Pricelist" className="mb-2" />
                     <h3 className="font-FuturaHeavy text-xl mb-2">Pricelist</h3>
                     <p className="text-center mb-2">
                         Access all in-depth information, latest price lists, floor plans, brochures & more.
@@ -83,7 +83,7 @@ const ProFeaturesAmenities = () => {
             <div className="w-full bg-bggray dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden">
                 <div className="flex flex-col xl:flex-row">
                     <div className="w-full xl:w-1/2">
-                        <img className="w-full h-1/2 xl:h-full object-cover" src="./src/assets/images/homepage/heroimage.png" alt="Property Image" />
+                        <img className="w-full h-1/2 xl:h-full object-cover" src="/images/homepage/heroimage.png" alt="Property Image" />
                     </div>
                     <div className="flex flex-col justify-between py-4 px-8 w-full xl:w-1/2">
                         <div className="uppercase tracking-wide text-md text-black font-bold">Lisbon, Portugal</div>

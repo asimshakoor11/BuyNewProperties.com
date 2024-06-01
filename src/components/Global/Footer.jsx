@@ -127,7 +127,7 @@ const Footer = () => {
 
             <section className="border-b border-zinc-300 px-[7%] py-[40px] flex flex-col md:flex-row md:justify-between items-center">
                 <div className="flex items-center space-x-2">
-                    <img src="./src/assets/images/global/logodark.png" style={{ width: "250px" }} alt="" />
+                    <img src="/images/global/logodark.png" style={{ width: "250px" }} alt="" />
                 </div>
 
                 <div className="flex space-x-2 mt-6 md:mt-0">

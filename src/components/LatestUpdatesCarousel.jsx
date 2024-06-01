@@ -42,7 +42,7 @@ const LatestUpdatesCarousel = () => {
                     min-w-[100%] sm:min-w-[60%] md:min-w-[40%] lg:min-w-[30%] xl:min-w-[25%]">
                         <div className='relative'>
                             <img
-                                src="./src/assets/images/homepage/heroimage.png"
+                                src="/images/homepage/heroimage.png"
                                 alt="Property Image"
                                 className="w-full h-48 object-cover"
                             />

@@ -62,7 +62,7 @@ const Homepage = () => {
     return (
         <>
             <section className="section h-auto bg-cover bg-center relative"
-                style={{ backgroundImage: "url(./src/assets/images/homepage/heroimage.png)" }}>
+                style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center  py-40">
                     <h1 className="text-4xl md:text-6xl font-bold font-FuturaHeavy">A New Standard In <br /> Real Estate</h1>
@@ -150,7 +150,7 @@ const Homepage = () => {
                                     Deed.
                                 </p>
 
-                                <img src="./src/assets/images/homepage/newpackage.png" alt="Gavel and books" style={{ height: '150px' }} />
+                                <img src="/images/homepage/newpackage.png" alt="Gavel and books" style={{ height: '150px' }} />
                             </div>
                         </div>
                         <button className='text-primarycolor font-FuturaBold text-3xl mt-6'>Buy Now Package</button>
@@ -168,7 +168,7 @@ const Homepage = () => {
                                     with your dedicated buyer's agent.
                                 </p>
 
-                                <img src="./src/assets/images/homepage/clientarea.png" alt="Client Area" className='h-[250px] xl:h-[200px]' />
+                                <img src="/images/homepage/clientarea.png" alt="Client Area" className='h-[250px] xl:h-[200px]' />
                             </div>
                         </div>
                         <button className='text-primarycolor font-FuturaBold text-3xl mt-6'>Client Area</button>
@@ -180,7 +180,7 @@ const Homepage = () => {
                 <div className="flex flex-col flex-wrap md:flex-row justify-center items-center gap-10 p-6">
                     <div className='flex flex-col justify-center w-full lg:w-[46%] xl:w-[30%]'>
                         <div className="flex flex-col items-center text-center border-2 border-black  bg-white  rounded-lg p-6 ">
-                            <img src="./src/assets/images/homepage/free.png" alt="Free Tag" className="mb-4" crossOrigin="anonymous" />
+                            <img src="/images/homepage/free.png" alt="Free Tag" className="mb-4" crossOrigin="anonymous" />
                             <h3 className="text-[1.6rem] font-bold mb-2 text-primarycolor">Our buyers services is 100% FREE!!</h3>
                             <p className="text-fontlight mb-4">Our services are completely free from start to finish.</p>
                         </div>
@@ -190,7 +190,7 @@ const Homepage = () => {
                     <div className='flex flex-1 flex-col justify-center w-full lg:w-[46%] xl:w-[30%]'>
 
                         <div className="flex flex-col items-center text-center border-2 border-black  bg-white  rounded-lg p-6">
-                            <img src="./src/assets/images/homepage/localagents.png" alt="Agent" className="mb-4" crossOrigin="anonymous" />
+                            <img src="/images/homepage/localagents.png" alt="Agent" className="mb-4" crossOrigin="anonymous" />
                             <h3 className="text-[1.6rem] font-bold text-primarycolor mb-2">Local agents that speak your language</h3>
                             <p className="text-fontlight mb-4">We have many international agents that speak a variety of languages
                             </p>
@@ -202,7 +202,7 @@ const Homepage = () => {
                     <div className='flex flex-1 flex-col justify-center w-full lg:w-[46%] xl:w-[30%]'>
 
                         <div className="flex flex-col items-center text-center border-2 border-black  bg-white  rounded-lg p-6">
-                            <img src="./src/assets/images/homepage/easyprocess.png" alt="Celebration" className="mb-4" crossOrigin="anonymous" />
+                            <img src="/images/homepage/easyprocess.png" alt="Celebration" className="mb-4" crossOrigin="anonymous" />
                             <h3 className="text-[1.6rem] font-bold mb-2 text-primarycolor">Easy process from start to finish</h3>
                             <p className="text-fontlight mb-4">Here's to smooth transactions and bubbly celebrations – cheers!</p>
                         </div>
@@ -226,7 +226,7 @@ const Homepage = () => {
                     <p className="text-fontdark text-center mt-3">Join the best team and brokerage in Europe.</p>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10 mb-8">
                         <div className="flex justify-center">
-                            <img src="./src/assets/images/homepage/becomeanagent.png" alt="Team collaboration" className="rounded-lg shadow-md" />
+                            <img src="/images/homepage/becomeanagent.png" alt="Team collaboration" className="rounded-lg shadow-md" />
                         </div>
                         <div>
                             <h2 className="text-2xl  mb-2 font-FuturaHeavy text-primarycolor">Generate more clients</h2>

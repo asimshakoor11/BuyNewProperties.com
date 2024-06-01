@@ -4,7 +4,7 @@ const CardCarousel = () => {
     return (
         <div className='relative slider-card'>
             <img
-                src="../../../src/assets/images/homepage/cardimage.PNG"
+                src="/images/homepage/cardimage.png"
                 alt="image 3"
                 className="h-full w-full rounded-none"
             />

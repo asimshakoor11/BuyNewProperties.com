@@ -55,17 +55,17 @@ const PopupSingleDevPage = ( { isOpen, onClose } ) => {
                             <Carousel className="max-h-[400px]"
                                 loop={true}>
                                 <img
-                                    src="./src/assets/images/global/bgimage.jpeg"
+                                    src="/images/global/bgimage.jpeg"
                                     alt="image 1"
                                     className="max-h-[400px] w-full object-cover"
                                 />
                                 <img
-                                    src="./src/assets/images/homepage/heroimage.png"
+                                    src="/images/homepage/heroimage.png"
                                     alt="image 2"
                                     className="max-h-[400px] w-full object-cover"
                                 />
                                 <img
-                                    src="./src/assets/images/global/bgimage.jpeg"
+                                    src="/images/global/bgimage.jpeg"
                                     alt="image 3"
                                     className="max-h-[400px] w-full object-cover"
                                 />
@@ -94,7 +94,7 @@ const PopupSingleDevPage = ( { isOpen, onClose } ) => {
                             </div>
                             <div className="flex flex-wrap items-start justify-center gap-4">
                                 <button className="inline-flex items-center justify-center px-6 py-2 bg-[#D9D9D9] border-2 font-FuturaHeavy border-fontdark text-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700">
-                                    <img src="./src/assets/images/icons/heart.png" alt="heart" className='mr-2' />
+                                    <img src="/images/icons/heart.png" alt="heart" className='mr-2' />
                                     Save to Favourite
                                 </button>
                                 <button className="flex items-center justify-center px-6 py-2 font-FuturaHeavy bg-primarycolor text-white rounded-lg">
@@ -113,7 +113,7 @@ const PopupSingleDevPage = ( { isOpen, onClose } ) => {
                                         <h3 className="text-3xl font-FuturaHeavy text-zinc-800 mb-2">Save €3,000 on legal fees when you purchase with us</h3>
                                         <p className="text-md text-primarycolor">Our legal team will review every contract clause, ensure all documents are in order and handle the administrative tasks for the CPCV and Deed.</p>
                                     </div>
-                                    <img src="./src/assets/images/homepage/newpackage.png" alt="legal fees" className="w-20 h-20" />
+                                    <img src="/images/homepage/newpackage.png" alt="legal fees" className="w-20 h-20" />
                                 </div>
                             </div>
 
