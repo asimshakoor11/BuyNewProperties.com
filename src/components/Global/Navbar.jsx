@@ -101,7 +101,7 @@ const Navbar = () => {
                             <a href="#" className="hover:underline flex items-center py-4"
                                 onMouseEnter={() => setIsDropdownOpenLang(true)}
                                 onMouseLeave={() => setIsDropdownOpenLang(false)}>
-                                <img src="../../../src/assets/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
+                                <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
 
                                 {isDropdownOpenLang ? (<FontAwesomeIcon icon={faChevronUp} size='xs' className='ml-1' />) : (<FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-1' />)}
                             </a>
