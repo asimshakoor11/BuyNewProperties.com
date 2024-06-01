@@ -15,7 +15,7 @@ const AgentsList = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {agents.map((agent) => (
           <div key={agent.id} className="text-black flex rounded-lg h-fit">
-            <img src="/assets/images/homepage/cardimage.png" alt="Agent Image" className="rounded-tl-lg rounded-bl-lg object-cover w-[40%]" />
+            <img src="/images/homepage/cardimage.png" alt="Agent Image" className="rounded-tl-lg rounded-bl-lg object-cover w-[40%]" />
             <div className='bg-white p-2 rounded-tr-lg rounded-br-lg w-[60%]'>
               <h3 className="font-FuturaBold text-lg">{agent.name}</h3>
               <p className=' text-[#B69474] text-lg'>★★★★★ 5.0</p>
