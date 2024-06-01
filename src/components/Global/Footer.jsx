@@ -3,6 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faEnvelope, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faSquareFacebook, faLinkedin, faYoutube, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -43,24 +44,12 @@ const Footer = () => {
 
                 <div className="flex flex-col md:flex-row md:space-x-20 mt-0 md:mt-0">
                     <div className="flex flex-col space-y-2 text-primarycolor font-FuturaHeavy text-2xl">
-                        <a href="#" className="font-bold">
-                            Home
-                        </a>
-                        <a href="#" className="font-bold">
-                            New Developments
-                        </a>
-                        <a href="#" className="font-bold">
-                            Agents
-                        </a>
-                        <a href="#" className="font-bold">
-                            Services
-                        </a>
-                        <a href="#" className="font-bold">
-                            Guides
-                        </a>
-                        <a href="#" className="font-bold">
-                            Contact
-                        </a>
+                        <Link to={"/"} className='font-bold'>Home</Link>
+                        <Link to={"/developmentssearch"} className='font-bold'>New Developments</Link>
+                        <Link to={"/ouragents"} className='font-bold'>Agents</Link>
+                        <Link to={"/"} className='font-bold'>Services</Link>
+                        <Link to={"/"} className='font-bold'>Guides</Link>
+                        <Link to={"/"} className='font-bold'>Contact</Link>
                         <a href="#" className="font-bold flex items-center">
                             Henderson Realty
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='ml-2' size='sm' />
@@ -127,7 +116,10 @@ const Footer = () => {
 
             <section className="border-b border-zinc-300 px-[7%] py-[40px] flex flex-col md:flex-row md:justify-between items-center">
                 <div className="flex items-center space-x-2">
-                    <img src="/images/global/logodark.png" style={{ width: "250px" }} alt="" />
+                    <Link to={"/"}>
+                        <img src="/images/global/logodark.png" style={{ width: "250px" }} alt="" />
+                    </Link>
+
                 </div>
 
                 <div className="flex space-x-2 mt-6 md:mt-0">

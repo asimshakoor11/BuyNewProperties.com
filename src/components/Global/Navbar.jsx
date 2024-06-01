@@ -52,9 +52,9 @@ const Navbar = () => {
                 {/* Your navbar content goes here */}
                 <div className="w-full p-4 flex justify-between items-center">
                     <div className="flex items-center">
-                        {scrollPosition > scrollThreshold ?                        
-                            (<Link to="/"><img src="/images/global/logodark.png" className='w-[220px] xl:w-[250px]'  alt="" /></Link>)
-                            : (<Link to="/"><img src="/images/global/logo.png"  className='w-[220px] xl:w-[250px]' alt="" /></Link>)}
+                        {scrollPosition > scrollThreshold ?
+                            (<Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="" /></Link>)
+                            : (<Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="" /></Link>)}
                     </div>
                     <div className="hidden lg:flex space-x-2 lg:space-x-4 xl:space-x-8 font-FuturaHeavy">
                         <Link to="/developmentssearch" className="hover:underline">New Developments</Link>
@@ -191,28 +191,19 @@ const Navbar = () => {
                             </div>
                             <div className="flex flex-col md:flex-row">
                                 <div className="p-4 lg:w-1/3">
-                                    <img src="/images/global/bigmenuiamge.png" alt="Property Image" className=" hidden lg:block rounded-lg w-full" />
+                                    <Link to={"/"}>
+                                        <img src="/images/global/bigmenuiamge.png" alt="Property Image" className=" hidden lg:block rounded-lg w-full" />
+                                    </Link>
                                 </div>
                                 <div className="p-4 w-full md:w-[46%] lg:w-1/3  border-r-2 ">
                                     <div className="flex flex-col space-y-3 text-black font-FuturaHeavy text-2xl">
-                                        <a href="#" className="font-bold">
-                                            Home
-                                        </a>
-                                        <a href="#" className="font-bold">
-                                            New Developments
-                                        </a>
-                                        <a href="#" className="font-bold">
-                                            Agents
-                                        </a>
-                                        <a href="#" className="font-bold">
-                                            Services
-                                        </a>
-                                        <a href="#" className="font-bold">
-                                            Guides
-                                        </a>
-                                        <a href="#" className="font-bold">
-                                            Contact
-                                        </a>
+                                        <Link to={"/"} className='font-bold'>Home</Link>
+                                        <Link to={"/developmentssearch"} className='font-bold'>New Developments</Link>
+                                        <Link to={"/ouragents"} className='font-bold'>Agents</Link>
+                                        <Link to={"/"} className='font-bold'>Services</Link>
+                                        <Link to={"/"} className='font-bold'>Guides</Link>
+                                        <Link to={"/"} className='font-bold'>Contact</Link>
+
                                         <a href="#" className="font-bold flex items-center">
                                             Henderson Realty
                                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='ml-2' size='sm' />
