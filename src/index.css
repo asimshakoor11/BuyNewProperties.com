@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  /* border: 1px solid red; */
+}
+.widthh{
+  width: fit-content;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.section{
+  padding: 80px 7%;
+}
+
+
+body{
+  background-color: #F7F7F7;
+}
+.test{
+  /* background-image: url('./fontawesome.js'); */
+  /* background-size: ; */
+}
+/* src/fonts.css */
+
+
+@font-face {
+  font-family: 'FuturaExBold';
+  src: url('./assets/font/FuturaCyrillicExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FuturaBold';
+  src: url('./assets/font/FuturaCyrillicBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FuturaBook';
+  src: url('./assets/font/FuturaCyrillicBook.ttf') format('truetype'),
+}
+
+@font-face {
+  font-family: 'FuturaDemi';
+  src: url('./assets/font/FuturaCyrillicDemi.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FuturaHeavy';
+  src: url('./assets/font/FuturaCyrillicHeavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FuturaLight';
+  src: url('./assets/font/FuturaCyrillicLight.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'FuturaMedium';
+  src: url('./assets/font/FuturaCyrillicMedium.ttf') format('truetype');
+}

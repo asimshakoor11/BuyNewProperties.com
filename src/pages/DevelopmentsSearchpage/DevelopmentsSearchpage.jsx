@@ -1,0 +1,70 @@
+import React from 'react'
+import DevlopmentLocations from '../../components/DevlopmentLocations'
+import OwlCarousell from '../../components/Global/OwlCarousell';
+import DreamHomeContact from '../../components/DreamHomeContact';
+import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import DevelopmentsSearchSec from '../../components/DevelopmentsSearchPageComps/DevelopmentsSearchSec';
+
+
+const DevelopmentsSearchpage = () => {
+    return (
+        <>
+            <section className="section h-full bg-cover bg-center relative"
+                style={{ backgroundImage: "url(./src/assets/images/homepage/heroimage.png)" }}>
+                <div className='absolute inset-0 bg-black opacity-50'></div>
+                <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
+                    <h1 className="text-4xl md:text-6xl font-bold font-FuturaHeavy">Find Your New <br /> Property</h1>
+
+                    <button
+                        className="flex items-center justify-between font-FuturaHeavy mx-auto mt-8 bg-primarycolor text-white px-4 py-3 rounded-xl shadow">
+
+                        <span> Explore New Developemnts</span>
+                        <FontAwesomeIcon icon={faChevronDown} size='sm' className='ml-6' />
+                    </button>
+                </div>
+            </section>
+
+            <section>
+                <DevlopmentLocations />
+            </section>
+
+            <section>
+                <DevelopmentsSearchSec />
+            </section>
+
+
+
+            <section className='section bg-black relative' style={{ padding: "140px 0%" }}>
+                <h1 className='text-white text-4xl font-FuturaExBold text-center lg:absolute xl:left-[6rem]'>Buy New <br /> Properties</h1>
+
+                <OwlCarousell />
+            </section>
+
+            <section className="section text-center ">
+                <p className="text-fontdark italic uppercase tracking-wide mb-4">
+                    Our Success Stories
+                </p>
+                <h2 className=" text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-6">
+                    Sold Developments
+                </h2>
+                <p className="text-[#2A2A2A] mb-8 max-w-md mx-auto">
+                    With our expert team and extensive network, you are in the best hands to achieve swift and
+                    successful sales.
+                </p>
+                <button
+                    className="flex items-center mx-auto bg-primarycolor text-white px-6 py-3 rounded-lg shadow">
+                    <span> View our sales</span>
+                    <FontAwesomeIcon icon={faChevronRight} size='sm' className='ml-6' />
+                </button>
+            </section>
+
+
+            <section>
+                <DreamHomeContact />
+            </section>
+        </>
+    )
+}
+
+export default DevelopmentsSearchpage
