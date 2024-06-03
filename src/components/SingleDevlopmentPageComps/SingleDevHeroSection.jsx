@@ -122,7 +122,7 @@ const SingleDevHeroSection = () => {
                                         initial={{ opacity: 0, y: 0 }}
                                         animate={{ opacity: 1, y: 10 }}
                                         transition={{ duration: 0.3 }}
-                                        className="absolute right-0 bottom-16 w-[280px] bg-white shadow-lg rounded-md py-2 z-50"
+                                        className="absolute right-0 bottom-16 w-[200px] md:w-[280px] bg-white shadow-lg rounded-md py-2 z-50"
                                     >
                                         <div
                                             className="flex flex-col px-4 py-2 gap-4 font-FuturaHeavy cursor-pointer border-black transition-colors text-primarycolor "
@@ -165,17 +165,17 @@ const SingleDevHeroSection = () => {
             {isPopupOpen && (
                 <div className="fixed min-h-screen inset-0 bg-black z-50">
                     <div className="min-h-screen bg-zinc-100 p-6 text-white">
-                        <div className="flex items-center justify-between p-4 bg-black">
+                        <div className="flex flex-col-reverse md:flex-row gap-4 items-center justify-between p-0 md:p-4 bg-black">
                             <div className="flex space-x-2">
-                                <button className="px-2 md:px-8 py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('image')}>Photos</button>
-                                <button className="px-2 md:px-8 py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('map')}>Map</button>
-                                <button className="px-2 md:px-8 py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('streetview')}>
+                                <button className="px-3 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('image')}>Photos</button>
+                                <button className="px-4 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('map')}>Map</button>
+                                <button className="px-4 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('streetview')}>
                                     Street View
                                 </button>
                             </div>
                             <div className="flex items-center space-x-4">
                                 <div className='relative' ref={dropdownRef2}>
-                                    <button className="flex items-center space-x-1 px-2 md:px-8 py-2 border rounded-full dark:text-white" onClick={() => { setOpenDropdown2(!openDropdown2) }}>
+                                    <button className="flex items-center space-x-1 px-3 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => { setOpenDropdown2(!openDropdown2) }}>
                                         <span>Share</span>
                                         <FontAwesomeIcon icon={faShare} className='ml-4 text-xs md:text-lg' />
                                     </button>
@@ -184,7 +184,7 @@ const SingleDevHeroSection = () => {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.3 }}
-                                            className="absolute right-0 top-14 w-[280px] bg-white shadow-lg rounded-md py-2 z-50"
+                                            className="absolute right-0 top-14 w-[200px] md:w-[280px] bg-white shadow-lg rounded-md py-2 z-50"
                                         >
                                             <div
                                                 className="flex flex-col px-4 py-2 gap-4 font-FuturaHeavy cursor-pointer border-black transition-colors text-primarycolor "
@@ -219,7 +219,7 @@ const SingleDevHeroSection = () => {
                                 </div>
 
                                 <button
-                                    className="bg-transparent text-white border rounded-full py-2 px-3"
+                                    className="bg-transparent text-white border rounded-full px-2 py-1 md:py-2 md:px-3"
                                     onClick={() => setIsPopupOpen(false)}
                                 >
                                     <FontAwesomeIcon icon={faXmark} size='lg' />
