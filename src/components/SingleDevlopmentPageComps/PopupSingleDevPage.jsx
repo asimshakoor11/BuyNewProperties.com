@@ -118,7 +118,7 @@ const PopupSingleDevPage = ( { isOpen, onClose } ) => {
                             </div>
 
                             <div className="w-full my-10">
-                                <h2 className="text-5xl font-FuturaHeavy text-primarycolor mb-4">Extra Details</h2>
+                                <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-4">Extra Details</h2>
 
                                 <div className="border border-primarycolor text-white bg-primarycolor rounded-xl py-6 px-8
                  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -159,7 +159,7 @@ const PopupSingleDevPage = ( { isOpen, onClose } ) => {
                             </div>
 
                             <div class="">
-                                <h2 class="text-5xl font-FuturaBold text-primarycolor">Description</h2>
+                                <h2 class="text-3xl md:text-5xl font-FuturaBold text-primarycolor">Description</h2>
                                 <p class="mt-4 text-lg text-black">
                                     Welcome to an extraordinary new construction contemporary home in the highly sought-after
                                     Bridgehampton, NY. This stunning property is perfectly designed for those seeking the ultimate

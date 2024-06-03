@@ -136,13 +136,13 @@ const Homepage = () => {
                 <h2 className="text-2xl md:text-4xl font-bold font-FuturaBold text-primarycolor text-center">Why Work With Us?</h2>
                 <p className="text-fontdark text-center mt-3">Setting a new standard in new development sales.</p>
 
-                <div className="flex flex-col lg:flex-row justify-center items-center gap-10 p-10">
+                <div className="flex flex-col lg:flex-row justify-center items-center gap-10 py-10">
                     <div className='flex flex-1 flex-col justify-center'>
                         <div className="border-2 border-black bg-white rounded-lg p-4 flex flex-col items-center h-auto xl:h-[300px] ">
                             <h2 className="text-2xl md:text-4xl text-primarycolor font-bold text-left">
                                 Save €3,000 on legal fees when you purchase with us
                             </h2>
-                            <div className='flex flex-col  items-center xl:flex-row justify-between xl:items-end gap-4 mt-6'>
+                            <div className='flex flex-col items-center xl:flex-row justify-between xl:items-start gap-4 mt-6'>
 
                                 <p className="text-left text-[18px] text-fontlight w-full xl:w-[60%] pb-0">
                                     Our legal team will review every contract clause, ensure all documents are in order,
@@ -163,7 +163,7 @@ const Homepage = () => {
                             </h2>
                             <div className='flex flex-col items-center xl:flex-row justify-between xl:items-start gap-2 mt-6'>
 
-                                <p className="text-left text-[18px] text-fontlight w-full xl:w-[45%]">
+                                <p className="text-left text-[18px] text-fontlight w-full xl:w-[50%]">
                                     The Client Area streamlines your property search by allowing you to collaborate directly
                                     with your dedicated buyer's agent.
                                 </p>
@@ -177,9 +177,9 @@ const Homepage = () => {
                 </div>
 
 
-                <div className="flex flex-col flex-wrap md:flex-row justify-center items-center gap-10 p-6">
+                <div className="flex flex-col flex-wrap md:flex-row justify-center items-center gap-10 py-6">
                     <div className='flex flex-col justify-center w-full lg:w-[46%] xl:w-[30%]'>
-                        <div className="flex flex-col items-center text-center border-2 border-black  bg-white  rounded-lg p-6 ">
+                        <div className="flex flex-col items-center  h-auto xl:h-[300px] text-center border-2 border-black  bg-white  rounded-lg p-6 ">
                             <img src="/images/homepage/free.png" alt="Free Tag" className="mb-4" crossOrigin="anonymous" />
                             <h3 className="text-[1.6rem] font-bold mb-2 text-primarycolor">Our buyers services is 100% FREE!!</h3>
                             <p className="text-fontlight mb-4">Our services are completely free from start to finish.</p>
@@ -189,7 +189,7 @@ const Homepage = () => {
                     </div>
                     <div className='flex flex-1 flex-col justify-center w-full lg:w-[46%] xl:w-[30%]'>
 
-                        <div className="flex flex-col items-center text-center border-2 border-black  bg-white  rounded-lg p-6">
+                        <div className="flex flex-col items-center  h-auto xl:h-[300px] text-center border-2 border-black  bg-white  rounded-lg p-6">
                             <img src="/images/homepage/localagents.png" alt="Agent" className="mb-4" crossOrigin="anonymous" />
                             <h3 className="text-[1.6rem] font-bold text-primarycolor mb-2">Local agents that speak your language</h3>
                             <p className="text-fontlight mb-4">We have many international agents that speak a variety of languages
@@ -201,7 +201,7 @@ const Homepage = () => {
 
                     <div className='flex flex-1 flex-col justify-center w-full lg:w-[46%] xl:w-[30%]'>
 
-                        <div className="flex flex-col items-center text-center border-2 border-black  bg-white  rounded-lg p-6">
+                        <div className="flex flex-col items-center  h-auto xl:h-[300px] text-center border-2 border-black  bg-white  rounded-lg p-6">
                             <img src="/images/homepage/easyprocess.png" alt="Celebration" className="mb-4" crossOrigin="anonymous" />
                             <h3 className="text-[1.6rem] font-bold mb-2 text-primarycolor">Easy process from start to finish</h3>
                             <p className="text-fontlight mb-4">Here's to smooth transactions and bubbly celebrations – cheers!</p>

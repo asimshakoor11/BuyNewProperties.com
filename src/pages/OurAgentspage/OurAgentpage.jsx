@@ -82,14 +82,14 @@ const OurAgentpage = () => {
 
             <section className='section bg-white'>
 
-                <div className="flex justify-between items-center p-4">
+                <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
                     <h2 className="text-xl lg:text-4xl text-black font-FuturaHeavy">Found 23 agents</h2>
                     <div className="flex space-x-4">
 
                         {titles.map((title, index) => (
                             <div key={index} className="relative" ref={(el) => (dropdownRefs.current[index] = el)}>
                                 <button
-                                    className="bg-transparent w-full font-FuturaHeavy border-black px-4 py-3 rounded-lg border-2 flex flex-row justify-between items-center gap-2"
+                                    className="bg-transparent w-full font-FuturaHeavy border-black  px-3 py-1 md:px-4 md:py-3 rounded-lg border-2 flex flex-row justify-between items-center gap-2"
                                     onClick={() => toggleDropdown(index)}
                                 >
                                     <span>{title}</span>

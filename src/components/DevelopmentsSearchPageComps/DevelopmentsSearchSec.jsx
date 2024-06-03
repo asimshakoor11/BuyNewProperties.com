@@ -244,8 +244,8 @@ const DevelopmentsSearchSec = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between mt-10">
-                <button className="bg-white border-2 border-black py-2 px-4 rounded-lg flex items-center">
+            <div className="flex flex-col md:flex-row gap-4 justify-between mt-10">
+                <button className="bg-white border-2 border-black py-2 px-4 rounded-lg flex justify-between items-center">
                     <span>Advance Search</span>
 
                     <FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-10' />

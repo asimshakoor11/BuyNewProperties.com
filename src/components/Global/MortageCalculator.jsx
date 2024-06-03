@@ -68,7 +68,7 @@ const MortageCalculator = () => {
                 </div>
 
                 <div className="bg-zinc-100 w-full lg:w-[40%] border p-4">
-                    <div className="w-[200px] h-[200px] mx-auto relative">
+                    <div className="w-[180px] md:w-[200px] h-[200px] mx-auto relative">
                         <CircularProgressbar
                             value={principalPercentage}
                             styles={buildStyles({

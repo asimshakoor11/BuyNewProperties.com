@@ -4,7 +4,7 @@ const ProFeaturesAmenities = () => {
     return (
         <>
             <div className="w-full xl:w-[70%] bg-white dark:bg-zinc-800">
-                <h2 class="text-4xl font-FuturaBold text-primarycolor mb-4">Property Features & Amenities</h2>
+                <h2 class="text-3xl md:text-4xl font-FuturaBold text-primarycolor mb-4">Property Features & Amenities</h2>
                 <div class="mb-6">
                     <h3 class="text-2xl font-FuturaHeavy text-primarycolor dark:text-blue-400 mb-2">Interior</h3>
                     <ul class="space-y-2 w-full md:w-[40%]">
@@ -85,7 +85,7 @@ const ProFeaturesAmenities = () => {
                     <div className="w-full xl:w-1/2">
                         <img className="w-full h-1/2 xl:h-full object-cover" src="/images/homepage/heroimage.png" alt="Property Image" />
                     </div>
-                    <div className="flex flex-col justify-between py-4 px-8 w-full xl:w-1/2">
+                    <div className="flex flex-col justify-between py-4 px-0 md:px-8 w-full xl:w-1/2">
                         <div className="uppercase tracking-wide text-md text-black font-bold">Lisbon, Portugal</div>
                         <h2 className="block mt-1 text-xl leading-tight font-medium text-black">Spectacular Development With Ocean Views In Cascais, Lisbon</h2>
                         <p className="mt-2 text-zinc-600 text-md">Discover the peak of Algarve living at this remarkable estate near the desirable 'Golden Triangle'. Positioned on a quiet road just outside the luxury resort of Quinta do Lago, this property offers a perfect mix of calm and convenience...</p>

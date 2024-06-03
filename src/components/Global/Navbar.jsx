@@ -48,9 +48,9 @@ const Navbar = () => {
 
     return (
         <nav className={`fixed w-full top-0 transition-all duration-300 z-30 ${navbarVisible ? '' : '-translate-y-full'} `}>
-            <div className={`mx-4 px-3 mt-4 rounded-full ${scrollPosition > scrollThreshold ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white '}`}>
+            <div className={`mx-2 md:mx-4 px-2 md:px-3 mt-4 rounded-full ${scrollPosition > scrollThreshold ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white '}`}>
                 {/* Your navbar content goes here */}
-                <div className="w-full p-4 flex justify-between items-center">
+                <div className="w-full p-2 md:p-4 flex justify-between items-center">
                     <div className="flex items-center">
                         {scrollPosition > scrollThreshold ?
                             (<Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="" /></Link>)
@@ -92,7 +92,7 @@ const Navbar = () => {
                         <button className="hidden sm:block rounded-md bg-primarycolor border border-primarycolor text-white py-2 px-4 space-x-2 ">
                             <FontAwesomeIcon icon={faUser} size='sm' /> <span> Profile</span>
                         </button>
-                        <button className="bg-transparent border border-fontdark py-2 px-4 rounded-md flex items-center space-x-2" onClick={() => setIsPopupOpen(true)}>
+                        <button className="bg-transparent border border-fontdark py-1 px-2 md:py-2 md:px-4 rounded-md flex items-center space-x-2" onClick={() => setIsPopupOpen(true)}>
                             <span>Menu</span>
                             <FontAwesomeIcon icon={faBars} />
                         </button>

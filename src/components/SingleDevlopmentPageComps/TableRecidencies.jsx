@@ -184,15 +184,17 @@ const TableRecidencies = ({ booking }) => {
         <>
             <table className="min-w-full">
                 <thead className='text-md text-black font-bold'>
-                    <tr className="w-full  border-b-2 border-black">
+                    <tr className="w-full border-b-2 border-black">
                         {columns.map((col, index) => (
                             <th
                                 key={index}
                                 className="py-2 px-4 text-center cursor-pointer"
                                 onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
-                                {col.label}
-                                <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
+                                <div className='w-max'>
+                                    <span>{col.label}</span>
+                                    <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
+                                </div>
                             </th>
                         ))}
                         <th className="py-2 px-4 text-center">Plans</th>

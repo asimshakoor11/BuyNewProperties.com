@@ -1,6 +1,6 @@
 
-import React, { useState,  } from 'react';
-import { faChevronDown, faImage,  } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, } from 'react';
+import { faChevronDown, faImage, } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TableRecidencies from '../../components/SingleDevlopmentPageComps/TableRecidencies';
@@ -10,13 +10,13 @@ import SingleDevHeroSection from '../../components/SingleDevlopmentPageComps/Sin
 
 
 
-const SingleDevlopmentpage = () => { 
+const SingleDevlopmentpage = () => {
     const [view, setView] = useState('list');
 
     return (
         <>
             <section>
-                <SingleDevHeroSection/>
+                <SingleDevHeroSection />
             </section>
 
             <section id='sectionid' className="section relative bg-white rounded-tl-[40px] rounded-tr-[40px] -mt-10 z-20">
@@ -61,31 +61,31 @@ const SingleDevlopmentpage = () => {
             </section>
 
             <section className='flex flex-col lg:flex-row gap-4 justify-between items-center px-[7%] py-4 '>
-                <div className="flex space-x-10">
+                <div className="flex space-x-4 md:space-x-10">
                     <a
                         href="#"
-                        className="text-black hover:text-black hover:text-opacity-50 text-xl font-FuturaHeavy">
+                        className="text-black hover:text-black hover:text-opacity-50 text-lg md:text-xl font-FuturaHeavy">
                         Overview
                     </a>
                     <a
                         href="#"
-                        className="text-black hover:text-black hover:text-opacity-50 text-xl font-FuturaHeavy">
+                        className="text-black hover:text-black hover:text-opacity-50 text-lg md:text-xl font-FuturaHeavy">
                         Feature & Amenities
                     </a>
                     <a
                         href="#"
-                        className="text-black hover:text-black hover:text-opacity-50 text-xl font-FuturaHeavy">
+                        className="text-black hover:text-black hover:text-opacity-50 text-lg md:text-xl font-FuturaHeavy">
                         Lifestyle Index
                     </a>
                 </div>
-                <div className="flex  space-x-4">
+                <div className="flex space-x-4">
                     <button className="flex items-center justify-center w-10 h-10 bg-primarycolor text-white rounded-lg px-6 py-2">
                         <FontAwesomeIcon icon={faImage} />
                     </button>
-                    <button className="flex items-center justify-center px-6 py-2 border-2 font-FuturaHeavy border-fontdark text-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700">
+                    <button className="flex items-center justify-center px-1 md:px-6 py-1 md:py-2 border-2 font-FuturaHeavy border-fontdark text-zinc-700 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700">
                         Get in touch
                     </button>
-                    <button className="flex items-center justify-center px-6 py-2 font-FuturaHeavy bg-primarycolor text-white rounded-lg hover:bg-blue-700">
+                    <button className="flex items-center justify-center px-1 md:px-6 py-1 md:py-2 font-FuturaHeavy bg-primarycolor text-white rounded-lg hover:bg-blue-700">
                         Schedule a tour
                     </button>
                 </div>
@@ -98,7 +98,7 @@ const SingleDevlopmentpage = () => {
 
                     <div className='w-full lg:w-3/5'>
                         <div className="">
-                            <h2 className="text-5xl font-FuturaBold text-primarycolor">Property Description</h2>
+                            <h2 className="text-3xl md:text-5xl font-FuturaBold text-primarycolor">Property Description</h2>
                             <p className="mt-4 text-lg text-balck">
                                 Welcome to an extraordinary new construction contemporary home in the highly sought-after
                                 Bridgehampton, NY. This stunning property is perfectly designed for those seeking the ultimate
@@ -112,8 +112,8 @@ const SingleDevlopmentpage = () => {
                         </div>
 
                         <div className='mt-16 p-4' >
-                            <h2 className="text-5xl font-FuturaHeavy text-primarycolor">Payment Schedule</h2>
-                            <div className="grid grid-cols-3 gap-6 mt-4">
+                            <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor">Payment Schedule</h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4">
                                 <div className="text-center py-4 px-2 border-2 border-primarycolor rounded-lg">
                                     <div className="text-5xl font-FuturaHeavy">10%</div>
                                     <div className='text-sm mt-3' >At the time of booking</div>
@@ -130,7 +130,7 @@ const SingleDevlopmentpage = () => {
                         </div>
 
                         <div className="mt-16 p-6">
-                            <h2 className="text-5xl font-FuturaHeavy text-primarycolor">Features & Amenities</h2>
+                            <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor">Features & Amenities</h2>
                             <div className="flex space-x-4 my-8">
                                 <div className="border border-primarycolor py-4 px-6 rounded-lg flex flex-col items-center">
                                     <img src="/images/icons/swimming-pool 2.png" alt="Indoor Pool" className="mb-2" />
@@ -163,39 +163,42 @@ const SingleDevlopmentpage = () => {
                         </div>
 
                         <div className="my-16 p-4">
-                            <h2 className="text-5xl font-FuturaHeavy text-primarycolor mb-4">Extra Details</h2>
-                            <div className="border border-primarycolor text-primarycolor rounded-lg py-4 px-6 flex flex-wrap gap-1 space-y-2">
-                                <div className="flex-1  min-w-[150px]">
+                            <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-4">Extra Details</h2>
+                            <div className="border border-primarycolor text-primarycolor rounded-lg py-4 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div className="">
                                     <p className="w-fit  mx-auto font-FuturaHeavy text-xl">N1001</p>
                                     <p className="w-fit  mx-auto ">Reference ID</p>
                                 </div>
-                                <div className="flex-1 min-w-[150px]">
+                                <div className="">
                                     <p className="w-fit  mx-auto font-FuturaHeavy text-xl">Apartment</p>
                                     <p className="w-fit  mx-auto ">Type</p>
                                 </div>
-                                <div className="flex-1 min-w-[150px]">
+                                <div className="">
                                     <p className="w-fit  mx-auto font-FuturaHeavy text-xl">€15,000</p>
                                     <p className="w-fit  mx-auto ">Save up to</p>
                                 </div>
-                                <div className="flex-1 min-w-[150px]">
+                                <div className="">
                                     <p className="w-fit  mx-auto font-FuturaHeavy text-xl">103m² - 450m²</p>
                                     <p className="w-fit  mx-auto ">Living area</p>
                                 </div>
-                                <div className="flex-1 min-w-[150px]  max-w-[150px]">
+                                <div className="">
+
                                     <p className="w-fit  mx-auto font-FuturaHeavy text-xl">0m² - 130m²</p>
                                     <p className="w-fit mx-auto ">Exterior area</p>
                                 </div>
-                                <div className="flex-1 min-w-[150px]  max-w-[150px]">
+                                <div className="">
+
                                     <p className="w-fit  mx-auto font-FuturaHeavy text-xl">10 years</p>
                                     <p className="w-fit  mx-auto ">Construction warranty</p>
                                 </div>
+
                             </div>
                         </div>
 
                         <div className="my-16 p-4">
-                            <h2 className="text-5xl font-FuturaHeavy text-primarycolor mb-4">Construction Status</h2>
+                            <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-4">Construction Status</h2>
                             <div className="bg-white py-8 px-4 rounded-lg shadow-md border border-primarycolor mb-6">
-                                <div className="flex gap-4">
+                                <div className="flex flex-col md:flex-row gap-4">
                                     <div className="flex-1">
                                         <div className='flex w-full'>
                                             <div className="flex items-center w-[20%]">
@@ -234,14 +237,14 @@ const SingleDevlopmentpage = () => {
                                         </div>
 
                                         <div className="flex text-fontdark text-sm">
-                                            <div className='ml-[12%] text-primarycolor font-FuturaHeavy'>Pre-Launch</div>
-                                            <div className='ml-[12%]'>Sales</div>
-                                            <div className='ml-[9%]'>Under Construction</div>
-                                            <div className='ml-[8%]'>Delivered</div>
+                                            <div className='ml-[10%] xl:ml-[11%] text-primarycolor font-FuturaHeavy'>Pre-Launch</div>
+                                            <div className='hidden md:block ml-[8%] xl:ml-[11%]'>Sales</div>
+                                            <div className='hidden md:block ml-[5%] xl:ml-[7%]'>Under Construction</div>
+                                            <div className='hidden md:block ml-[5%] xl:ml-[8%]'>Delivered</div>
                                         </div>
                                     </div>
 
-                                    <div className="flex jsutify-center ml-4">
+                                    <div className="flex justify-center ml-0 md:ml-4">
                                         <div className="text-primarycolor text-center text-xs font-FuturaDemi">Ready <br />
                                             3rd quarter 2024
                                         </div>
@@ -253,7 +256,8 @@ const SingleDevlopmentpage = () => {
                         </div>
 
                         <div className='my-16 p-4'>
-                            <div className="bg-white dark:bg-zinc-800 py-6 px-10 rounded-lg shadow-md border border-primarycolor flex items-center">
+                            <div className="bg-white dark:bg-zinc-800 py-6 px-6 md:px-10 rounded-lg shadow-md border 
+                            border-primarycolor flex flex-col lg:flex-row gap-4  justify-center items-center">
                                 <div className="flex-1">
                                     <h3 className="text-3xl font-FuturaHeavy text-zinc-800 dark:text-zinc-200 mb-2">Save €3,000 on legal fees when you purchase with us</h3>
                                     <p className="text-md text-primarycolor">Our legal team will review every contract clause, ensure all documents are in order and handle the administrative tasks for the CPCV and Deed.</p>
@@ -299,13 +303,13 @@ const SingleDevlopmentpage = () => {
                             </div>
                             <div className="w-fit mx-auto flex justify-center py-1 px-2 bg-[#667f99] rounded-full space-x-2 mt-4">
                                 <button
-                                    className={`px-7 py-2 ${view === 'list' ? 'bg-primarycolor text-white' : ' text-white'} rounded-full`}
+                                    className={`px-3 py-1 md:px-7 md:py-2 ${view === 'list' ? 'bg-primarycolor text-white' : ' text-white'} rounded-full`}
                                     onClick={() => setView('list')}
                                 >
                                     In person
                                 </button>
                                 <button
-                                    className={`px-6 py-2 ${view === 'map' ? 'bg-primarycolor text-white' : ' text-white'} rounded-full`}
+                                    className={`px-3 py-1 md:px-7 md:py-2 ${view === 'map' ? 'bg-primarycolor text-white' : ' text-white'} rounded-full`}
                                     onClick={() => setView('map')}
                                 >
                                     Via video chat
@@ -323,7 +327,7 @@ const SingleDevlopmentpage = () => {
 
             <section className="section">
                 <div className="">
-                    <h2 className="text-5xl font-FuturaHeavy text-primarycolor mb-4">Available Residences</h2>
+                    <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-4">Available Residences</h2>
                     <div className="overflow-x-auto mt-14 scrollbar-hide">
                         <TableRecidencies booking={true} />
                     </div>
@@ -332,8 +336,8 @@ const SingleDevlopmentpage = () => {
 
             <section className="section">
                 <div className="">
-                    <h2 className="text-5xl font-FuturaHeavy text-primarycolor mb-4">Sold or Rented Residences</h2>
-                    <div className="overflow-x-auto mt-14 scrollbar-hide">
+                    <h2 className="text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-4">Sold or Rented Residences</h2>
+                    <div className="overflow-x-auto mt-14 md:scrollbar-hide">
                         <TableRecidencies booking={false} />
                     </div>
                 </div>
@@ -344,11 +348,11 @@ const SingleDevlopmentpage = () => {
             </section>
 
             <section>
-                <ContactTabsSection/>
+                <ContactTabsSection />
             </section>
 
-            
-           
+
+
 
         </>
     )

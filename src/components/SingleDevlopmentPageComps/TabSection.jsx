@@ -38,11 +38,11 @@ const TabSection = () => {
                 </p>
             </div>
             <div className="flex justify-center">
-                <div className="inline-flex gap-2 rounded-full bg-gray-300 p-1">
+                 <div className="inline-flex flex-wrap justify-center items-center gap-2 rounded-full bg-gray-300 p-1">
                     {tabs.map(tab => (
                         <button
                             key={tab.name}
-                            className={`px-4 py-2 text-lg hover:bg-white  font-FuturaDemi rounded-full ${
+                            className={`px-2 py-1 text-md md:px-4 md:py-2 md:text-lg hover:bg-white  font-FuturaDemi rounded-full ${
                                 activeTab === tab.name ? 'bg-white text-zinc-800 dark:bg-zinc-900 dark:text-zinc-50' : 'text-zinc-600 dark:text-zinc-300'
                             }`}
                             onClick={() => setActiveTab(tab.name)}

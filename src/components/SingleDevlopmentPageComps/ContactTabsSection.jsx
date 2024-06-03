@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import AgentsList from '../../components/SingleDevlopmentPageComps/AgentsList';
 import ContactForm from '../../components/SingleDevlopmentPageComps/ContactForm';
 import DateTimePicker from '../../components/SingleDevlopmentPageComps/DateTimePicker';
-import { faPhone, faVideo, faPerson } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faVideo, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -15,24 +15,24 @@ const ContactTabsSection = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-10">
                 <button
-                    className={`px-8 py-3 border-2 text-xl  font-FuturaDemi rounded border-white ${selectedTab === 'contact' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
+                    className={`px-8 py-3 border-2  text-lg md:text-xl  font-FuturaDemi rounded border-white ${selectedTab === 'contact' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
                     onClick={() => setSelectedTab('contact')}
                 >
-                    <FontAwesomeIcon icon={faPhone} size='lg' className='mr-4' />
+                    <FontAwesomeIcon icon={faPhone} size='md' className='mr-4' />
                     Contact
                 </button>
                 <button
-                    className={`px-8 py-3 border-2 text-xl font-FuturaDemi rounded border-white ${selectedTab === 'videoChat' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
+                    className={`px-8 py-3 border-2 text-lg md:text-xl font-FuturaDemi rounded border-white ${selectedTab === 'videoChat' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
                     onClick={() => setSelectedTab('videoChat')}
                 >
-                    <FontAwesomeIcon icon={faVideo} size='lg' className='mr-4' />
+                    <FontAwesomeIcon icon={faVideo} size='md' className='mr-4' />
                     View via video chat
                 </button>
                 <button
-                    className={`px-8 py-3 border-2 text-xl font-FuturaDemi  rounded border-white  ${selectedTab === 'inPersonViewing' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
+                    className={`px-8 py-3 border-2 text-lg md:text-xl font-FuturaDemi  rounded border-white  ${selectedTab === 'inPersonViewing' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
                     onClick={() => setSelectedTab('inPersonViewing')}
                 >
-                    <FontAwesomeIcon icon={faPerson} size='lg' className='mr-4' />
+                    <FontAwesomeIcon icon={faUser} size='md' className='mr-4' />
                     Book in person viewing
                 </button>
             </div>
