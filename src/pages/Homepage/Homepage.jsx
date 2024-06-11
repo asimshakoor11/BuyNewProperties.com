@@ -85,7 +85,7 @@ const Homepage = () => {
                 }
             }
             if (heroContent) {
-                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`; // Adjusts slower scrolling for hero content
+                heroContent.style.transform = `translateY(${scrolled * 10}px)`; // Adjusts slower scrolling for hero content
             }
 
         };
