@@ -1,0 +1,454 @@
+import React, { useState, useEffect } from 'react'
+import { Carousel } from "@material-tailwind/react";
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faPhone, faEnvelope, faSort } from '@fortawesome/free-solid-svg-icons';
+import { Checkbox } from "@material-tailwind/react";
+
+import { faCheckSquare, faSquare } from '@fortawesome/free-regular-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
+
+import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
+
+
+const Cards = ({ item }) => {
+    const [isTableVisible, setIsTableVisible] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    useEffect(() => {
+        if (isPopupOpen) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [isPopupOpen]);
+
+
+    const handleClick = () => {
+        setIsTableVisible(!isTableVisible);
+    };
+
+    // bookmark 
+    const [isSaved, setIsSaved] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
+
+    const handleSaveClick = () => {
+        setIsSaved(!isSaved);
+    };
+
+    const handleMouseEnter = () => {
+        setShowTooltip(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowTooltip(false);
+    };
+
+    // table 
+
+    const [sortConfig, setSortConfig] = useState({ key: 'ref', direction: 'asc' });
+
+    const data = [
+        {
+            beds: 3,
+            interior: '103m²',
+            price: '€1,600,000',
+        },
+        {
+            beds: 4,
+            interior: '150m²',
+            price: '€2,500,000',
+        },
+        {
+            beds: 1,
+            interior: '45m²',
+            price: '€400,000',
+        },
+        {
+            beds: 2,
+            interior: '80m²',
+            price: '€900,000',
+        },
+        {
+            beds: 4,
+            interior: '200m²',
+            price: '€3,000,000',
+        },
+        {
+            beds: 2,
+            interior: '85m²',
+            price: '€950,000',
+        },
+    ];
+
+
+    const sortedData = [...data].sort((a, b) => {
+        if (sortConfig.key) {
+            const aValue = a[sortConfig.key];
+            const bValue = b[sortConfig.key];
+
+            if (aValue < bValue) {
+                return sortConfig.direction === 'asc' ? -1 : 1;
+            }
+            if (aValue > bValue) {
+                return sortConfig.direction === 'asc' ? 1 : -1;
+            }
+            return 0;
+        }
+        return 0;
+    });
+
+    const requestSort = (key) => {
+        let direction = 'asc';
+        if (sortConfig.key === key && sortConfig.direction === 'asc') {
+            direction = 'desc';
+        }
+        setSortConfig({ key, direction });
+    };
+
+    const tableHeaders = [
+        { label: 'Beds', key: 'beds' },
+        { label: 'Area', key: 'interior' },
+        { label: 'Price', key: 'price' },
+    ];
+
+    const tableData = sortedData.map(row => ({
+        beds: row.beds,
+        interior: row.interior,
+        price: row.price,
+    }));
+
+    const [isSavedT, setIsSavedT] = useState(false);
+    const [showTooltipT, setShowTooltipT] = useState(false);
+
+    const handleSaveClickT = () => {
+        setIsSavedT(!isSavedT);
+    };
+
+    const handleMouseEnterT = () => {
+        setShowTooltipT(true);
+    };
+
+    const handleMouseLeaveT = () => {
+        setShowTooltipT(false);
+    };
+
+
+    return (
+        <>
+            <div className='flex flex-col '>
+
+                <div className="rounded-lg overflow-hidden">
+                    <div className='relative'>
+                        <Carousel className="rounded-xl"
+                            navigation={false}>
+                            <img
+                                src="/images/homepage/cardimage.png"
+                                alt="image 1"
+                                className="h-full w-full object-cover"
+                            />
+                            <img
+                                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+                                alt="image 2"
+                                className="h-full w-full object-cover"
+                            />
+                            <img
+                                src="/images/homepage/cardimage.png"
+                                alt="image 3"
+                                className="h-full w-full object-cover"
+                            />
+                        </Carousel>
+
+                        <div className="absolute top-4 w-full flex justify-between items-center px-4">
+                            <span className="text-black bg-bggray text-md font-semibold px-4 py-2 rounded">Algarve</span>
+                            <span className="bg-primarycolor text-white text-md px-4 py-2 rounded">Delivery: 3rd Quarter 2024</span>
+                        </div>
+                        <div className='absolute bottom-0 flex justify-between items-center w-full'>
+                            <p className="text-black bg-bggray font-semibold text-md  py-4 px-6 w-fit rounded-tr-[25px]">Status: Completed</p>
+
+                            <div className="flex items-center">
+                                {showTooltip && (
+                                    <motion.p
+                                        className={`mr-2 text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                                        initial={{ x: -20, opacity: 0 }} // Initial position and opacity
+                                        animate={{ x: 0, opacity: 1 }} // Animation properties
+                                        transition={{ duration: 0.3 }} // Animation duration
+                                    >
+                                        {isSaved ? "Remove from favourites" : "Add to favourites"}
+                                    </motion.p>
+                                )}
+
+                                <button
+                                    onClick={handleSaveClick}
+                                    className="bg-transparent border-none cursor-pointer pr-4"
+                                    title={isSaved ? "Remove from favourites" : "Add to favourites"}
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={solidBookmark}
+                                        style={{
+                                            color: isSaved ? 'green' : 'silver',
+                                            stroke: 'black',
+                                            strokeWidth: '40px'
+                                        }}
+                                        className="text-2xl"
+                                    />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="py-2 ">
+                        <Link to={"/singledevelopmenpage"}>
+                            <div className="mt-3 flex flex-col gap-3 text-black">
+                                <p className="font-semibold text-lg ">$500,000 to $800,000</p>
+                                <p className="font-semibold text-2xl">{item.title}</p>
+                                <div className="flex flex-wrap justify-between gap-3 text-primarycolor">
+                                    <div>
+                                        <div className="text-xl">D1001</div>
+                                        <div className="text-sm font-bold" >Reference</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-xl">2 to 5</div>
+                                        <div className="text-sm font-bold">Beds</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-xl">68m<sup>2</sup> to 304m<sup>2</sup></div>
+                                        <div className="text-sm font-bold">Build</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-xl">23m<sup>2</sup> to 78m<sup>2</sup></div>
+                                        <div className="text-sm font-bold">Terrace/Plot</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                        <div className="mt-3">
+                            <button className="bg-secondrycolor text-white px-4 py-2 rounded-lg w-full" onClick={() => { setIsPopupOpen(true) }}>Contact</button>
+                            <button className="bg-primarycolor text-white px-4 py-2 rounded-lg w-full mt-3" onClick={handleClick}>9 AVAILABLE PROPERTIES</button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* table  */}
+
+                {
+                    isTableVisible && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            id='devtable' className={`w-full mx-auto overflow-x-scroll scrollbar-hide mt-2`}
+                        >
+
+                            <table className="min-w-full">
+                                <thead className='text-md text-black font-bold'>
+                                    <tr className="w-full border-b-2 border-black">
+                                        {tableHeaders.map((col, index) => (
+                                            <th
+                                                key={index}
+                                                className="py-2 px-4 text-center cursor-pointer"
+                                                onClick={col.key ? () => requestSort(col.key) : undefined}
+                                            >
+                                                <div className='w-max'>
+                                                    <span>{col.label}</span>
+                                                    <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
+                                                </div>
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody className='text-md text-primarycolor font-FuturaDemi'>
+                                    {tableData.map((row, index) => (
+                                        <tr key={index} className="border-b border-gray-300 cursor-pointer">
+                                            <td className="py-2 px-4 text-center">{row.beds}</td>
+                                            <td className="py-2 px-4 text-center">{row.interior}</td>
+                                            <td className="py-2 px-4 text-center">{row.price}</td>
+
+                                            <td className="py-2 px-4 text-center" >
+                                                <div className="relative">
+                                                    {showTooltipT && (
+                                                        <motion.p
+                                                            className={` absolute -left-[120px] w-max text-xs bg-bggray py-1 px-2 text-black rounded-lg`}
+                                                            initial={{ x: -20, opacity: 0 }} // Initial position and opacity
+                                                            animate={{ x: 0, opacity: 1 }} // Animation properties
+                                                            transition={{ duration: 0.3 }} // Animation duration
+                                                        >
+                                                            {isSavedT ? "Remove from favourites" : "Add to favourites"}
+                                                        </motion.p>
+                                                    )}
+
+                                                    <button
+                                                        onClick={handleSaveClickT}
+                                                        className="bg-transparent border-none cursor-pointer"
+                                                        title={isSavedT ? "Remove from favourites" : "Add to favourites"}
+                                                        onMouseEnter={handleMouseEnterT}
+                                                        onMouseLeave={handleMouseLeaveT}
+                                                    >
+                                                        <Checkbox color="green"
+                                                            className='h-5 w-5'
+                                                            containerProps={{
+                                                                className: "p-0 rounded-none",
+                                                            }}
+                                                        />
+                                                    </button>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+
+                            {/* <table
+                                className="w-full border-collapse over rounded-xl">
+                                <thead>
+                                    <tr className="bg-primarycolor text-white">
+                                        <th className="px-4 py-2 rounded-tl-xl">Type </th>
+                                        <th className="px-4 py-2">Beds</th>
+                                        <th className="px-4 py-2">Price</th>
+                                        <th className="px-4 py-2 rounded-tr-xl"></th>
+                                    </tr>
+                                </thead>
+                                <tbody className='overflow-x-scroll'>
+                                    <tr className="bg-zinc-100">
+                                        <td className="border px-4 py-2">Appt</td>
+                                        <td className="border px-4 py-2">4</td>
+                                        <td className="border px-4 py-2 bg-[#D9D9D9]">$23,000,000</td>
+                                        <td className="border px-4 py-2 text-center"><input type="checkbox" /></td>
+                                    </tr>
+                                    <tr className=" bg-[#D9D9D9]">
+                                        <td className="border px-4 py-2">Appt</td>
+                                        <td className="border px-4 py-2">4</td>
+                                        <td className="border px-4 py-2  bg-[#D9D9D9]">$23,000,000</td>
+                                        <td className="border px-4 py-2 text-center"><input type="checkbox" /></td>
+                                    </tr>
+                                    <tr className="bg-zinc-100">
+                                        <td className="border px-4 py-2">Appt</td>
+                                        <td className="border px-4 py-2">4</td>
+                                        <td className="border px-4 py-2  bg-[#D9D9D9]">$23,000,000</td>
+                                        <td className="border px-4 py-2 text-center"><input type="checkbox" /></td>
+                                    </tr>
+                                    <tr className="bg-[#D9D9D9]">
+                                        <td className="border px-4 py-2">Appt</td>
+                                        <td className="border px-4 py-2">4</td>
+                                        <td className="border px-4 py-2  bg-[#D9D9D9]">$23,000,000</td>
+                                        <td className="border px-4 py-2 text-center"><input type="checkbox" /></td>
+                                    </tr>
+                                    <tr className="bg-zinc-100">
+                                        <td className="border px-4 py-2">Appt</td>
+                                        <td className="border px-4 py-2">4</td>
+                                        <td className="border px-4 py-2  bg-[#D9D9D9]">$23,000,000</td>
+                                        <td className="border px-4 py-2 text-center"><input type="checkbox" /></td>
+                                    </tr>
+                                    <tr className="bg-[#D9D9D9]">
+                                        <td className="border px-4 py-2">Appt</td>
+                                        <td className="border px-4 py-2">4</td>
+                                        <td className="border px-4 py-2  bg-[#D9D9D9]">$23,000,000</td>
+                                        <td className="border px-4 py-2 text-center"><input type="checkbox" /></td>
+                                    </tr>
+                                </tbody>
+                            </table> */}
+
+                            <div className="bg-primarycolor w-full text-white text-center py-2 rounded-bl-xl rounded-br-xl">
+                                <button className="uppercase font-bold">See the Development</button>
+                            </div>
+                        </motion.div>
+                    )
+                }
+
+
+            </div>
+
+            {isPopupOpen && (
+                <div
+
+                    className="fixed inset-0 bg-black bg-opacity-90 z-50"
+                >
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }} className="min-h-screen bg-zinc-100 p-6">
+                        <div className="max-w-md mx-auto h-[92vh] bg-white overflow-y-scroll rounded-lg shadow-lg p-6">
+
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-2xl font-FuturaHeavy font-bold text-primarycolor">Contact an Agent</h2>
+                                <button className="text-zinc-400 hover:text-zinc-600" onClick={() => { setIsPopupOpen(false) }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div className="flex items-center mb-4">
+                                <img className="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100" alt="Agent" />
+                                <div>
+                                    <h3 className="text-balck text-xl font-FuturaMedium dark:text-white font-semibold">Sam Floris Marjot</h3>
+                                    <p className="text-zinc-500 dark:text-zinc-400 text-sm">No reviews</p>
+                                </div>
+                            </div>
+                            <form>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="name">Name</label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="phone">Phone Number</label>
+                                    <div className="flex">
+                                        <button className="flex items-center justify-center bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-l px-4 py-2">
+                                            <img src="/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+                                        <input className="shadow appearance-none border rounded-r w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" placeholder="Phone Number" />
+                                    </div>
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="email">Email</label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="budget">Budget</label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="budget" type="text" placeholder="Budget" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="message">Message</label>
+                                    <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text-area" rows={"5"} placeholder="Message"></textarea>
+                                </div>
+                                <div className='mb-4'>
+                                    <button className='w-full bg-primarycolor py-2 px-4 rounded-md text-white'>Send Message</button>
+                                </div>
+                            </form>
+                            <div className="flex justify-between">
+                                <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-2">
+                                    <FontAwesomeIcon icon={faPhone} className='mr-2' size='sm' />
+
+                                    Call
+                                </button>
+                                <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-2">
+                                    <FontAwesomeIcon icon={faEnvelope} className='mr-2' size='sm' />
+
+                                    Email
+                                </button>
+                                <button className="flex items-center justify-center bg-secondrycolor text-white border rounded px-6 py-2">
+                                    <FontAwesomeIcon icon={faWhatsapp} className='mr-2' size='sm' />
+
+                                    WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
+
+
+        </>
+    )
+}
+
+export default Cards

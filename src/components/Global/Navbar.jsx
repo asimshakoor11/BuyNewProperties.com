@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faUser, faPhone, faBars, faChevronDown, faChevronUp, faEnvelope, faXmark, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPhone, faBars, faChevronDown, faChevronUp, faXmark, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -12,18 +11,19 @@ const Navbar = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isDropdownOpenLang, setIsDropdownOpenLang] = useState(false);
-    const [isDropdownOpenBigLang, setIsDropdownOpenBigLang] = useState(false);
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isDropdownOpenContact, setIsDropdownOpenContact] = useState(false);
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [navbarVisible, setNavbarVisible] = useState(true);
+    const [isHovered, setIsHovered] = useState(false);
+    const [isHoveredLang, setIsHoveredLang] = useState(false);
 
     useEffect(() => {
-        if (isPopupOpen) {
+        if (isDropdownOpenContact) {
             document.body.classList.add('no-scroll');
         } else {
             document.body.classList.remove('no-scroll');
         }
-    }, [isPopupOpen]);
+    }, [isDropdownOpenContact]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -46,79 +46,166 @@ const Navbar = () => {
         };
     }, [lastScrollTop]);
 
+    const [contentIndex, setContentIndex] = useState(0);
+    const [showContent, setShowContent] = useState(true);
+    const contentList = [
+        {
+            location: "Call us free from UK",
+            number: "+44 0765 987654"
+        },
+        {
+            location: "Portugal Office",
+            number: "+351 919 931 440"
+        },
+        {
+            location: " Call us free from USA",
+            number: "+1 (484) 521 9665"
+        }
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setShowContent(false); // Start fade-out animation
+            setTimeout(() => {
+                setContentIndex(prevIndex => (prevIndex + 1) % contentList.length);
+                setShowContent(true); // Start fade-in animation
+            }, 500); // Adjust the delay based on your CSS transition duration
+        }, 7000);
+
+        return () => clearInterval(interval);
+    }, [contentList.length]);
+
+    const handleContactDropdown = () => {
+        setIsDropdownOpenContact(!isDropdownOpenContact)
+    }
+
+
     return (
-        <nav className={`fixed w-full top-0 transition-all duration-300 z-30 ${navbarVisible ? '' : '-translate-y-full'} `}>
-            <div className={`mx-2 md:mx-4 px-2 md:px-3 mt-4 rounded-full ${scrollPosition > scrollThreshold ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white '}`}>
+        <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-full'} ${isDropdownOpenContact ? 'bg-white' : 'bg-transparent'}`}>
+            <div className={`mx-2 px-2 md:px-3 my-4  rounded-full ${(scrollPosition > scrollThreshold) || isDropdownOpenContact ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white'} `}>
                 {/* Your navbar content goes here */}
-                <div className="w-full p-2 md:p-4 flex justify-between items-center">
-                    <div className="flex items-center">
-                        {scrollPosition > scrollThreshold ?
-                            (<Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="" /></Link>)
-                            : (<Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="" /></Link>)}
+                <div className="w-full px-2 md:px-4 flex justify-between items-center">
+                    <div className="flex">
+                        {scrollPosition > scrollThreshold ? (
+                            <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Light" /></Link>
+                        ) : (
+                            isDropdownOpenContact ? (
+                                <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Dark" /></Link>
+                            ) : (
+                                <Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="Logo Dark" /></Link>
+                            )
+                        )}
+
+
                     </div>
-                    <div className="hidden lg:flex space-x-2 lg:space-x-4 xl:space-x-8 font-FuturaHeavy">
-                        <Link to="/developmentssearch" className="hover:underline">New Developments</Link>
-                        {/* <a href="#" className="hover:underline">New Developments</a> */}
-                        <div className="relative" >
-                            <Link to="/ouragents" className="hover:underline flex items-center"
-                                onMouseEnter={() => setIsDropdownOpen(true)}
-                                onMouseLeave={() => setIsDropdownOpen(false)}>
-                                <span >Agents</span>
-                                {isDropdownOpen ? (<FontAwesomeIcon icon={faChevronUp} size='xs' className='ml-1' />) : (<FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-1' />)}
+                    <div className="hidden 2xl:flex xl:space-x-6 font-semibold">
+                        <Link to="/developmentssearch" className="py-6">
+                            <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}> New Developments</span>
+                        </Link>
+                        <div
+                            className="relative"
+                            onMouseEnter={() => {
+                                setIsDropdownOpen(true);
+                                setIsHovered(true);
+                            }}
+                            onMouseLeave={() => {
+                                setIsDropdownOpen(false);
+                                setIsHovered(false);
+                            }}
+                        >
+                            <Link to="/ouragents" className="flex items-center py-6">
+                                <span className={`hover-underline-animation  ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}    ${isDropdownOpen || isHovered ? 'active-underline' : ''} `}>
+                                    Agents
+                                </span>
+                                <motion.span
+                                    animate={{ rotate: isHovered ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="ml-4"
+                                >
+                                    <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                </motion.span>
                             </Link>
+
                             {isDropdownOpen && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: isDropdownOpen ? 1 : 0, y: isDropdownOpen ? 0 : 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.3 }}
-                                    className={`absolute -left-8 w-max bg-white shadow-lg rounded-md py-2 z-50`}
-                                    onMouseEnter={() => setIsDropdownOpen(true)}
-                                    onMouseLeave={() => setIsDropdownOpen(false)}
+                                    className="absolute right-0 w-max bg-white shadow-lg rounded-md py-2 z-50"
                                 >
-                                    <a href="#" className="block px-4 py-2 font-semibold text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                        Find an agent
+                                    <a href="#" className="block w-full px-6 py-3 font-semibold text-sm text-black hover:bg-bggray">
+                                        <span className='hover-underline-animation after:bg-primarycolor'> Find an agent </span>
                                     </a>
-                                    <a href="#" className="block px-4 py-2 font-semibold  text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                        Become an agent
+                                    <a href="#" className="block px-6 py-4 font-semibold text-sm text-black  hover:bg-bggray">
+                                        <span className='hover-underline-animation after:bg-primarycolor'> Become an agent </span>
                                     </a>
                                 </motion.div>
                             )}
                         </div>
-                        <a href="#" className="hover:underline">Services</a>
-                        <a href="#" className="hover:underline">Guides</a>
-                        <a href="#" className="hover:underline">Contact</a>
+                        <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Services</span></a>
+                        {/* <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></a> */}
+                        <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Contact</span></a>
                     </div>
-                    <div className="flex items-center space-x-2 lg:space-x-4">
-                        <button className="hidden sm:block rounded-md bg-primarycolor border border-primarycolor text-white py-2 px-4 space-x-2 ">
-                            <FontAwesomeIcon icon={faUser} size='sm' /> <span> Profile</span>
-                        </button>
-                        <button className="bg-transparent border border-fontdark py-1 px-2 md:py-2 md:px-4 rounded-md flex items-center space-x-2" onClick={() => setIsPopupOpen(true)}>
-                            <span>Menu</span>
-                            <FontAwesomeIcon icon={faBars} />
-                        </button>
 
-                        <div className="relative hidden xl:block" >
+                    <div className="flex items-center space-x-2 lg:space-x-3 py-4">
+
+                        <div className='hidden w-[185px] 2xl:flex  items-center gap-2'>
+                            <div>
+                                <FontAwesomeIcon icon={faPhone} size='lg' />
+                            </div>
+                            <div className={`content-container ${showContent ? 'show' : ''}`}>
+                                <p className='text-sm'>{contentList[contentIndex].location}:</p>
+                                <p className='text-sm'>{contentList[contentIndex].number}</p>
+                            </div>
+                        </div>
+
+                        <div className={`flex items-center w-fit gap-2 2xl:hidden bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer `} onClick={handleContactDropdown}>
+                            <FontAwesomeIcon icon={faPhone} size='md' />
+                            <p className='hidden lg:inline-block'>Call Us</p>
+                        </div>
+
+                        <button className="sm:block rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
+                            <FontAwesomeIcon icon={faUser} size='md' /> <span className='hidden lg:inline-block'> My Profile</span>
+                        </button>
+                        <Link to={'/menu'} className="bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2">
+                            <span className='hidden lg:inline-block'>Menu</span>
+                            <FontAwesomeIcon icon={faBars} size='md' />
+                        </Link>
+
+                        <div className="relative hidden lg:block" >
                             <a href="#" className="hover:underline flex items-center py-4"
-                                onMouseEnter={() => setIsDropdownOpenLang(true)}
-                                onMouseLeave={() => setIsDropdownOpenLang(false)}>
+                                onMouseEnter={() => {
+                                    setIsDropdownOpenLang(true);
+                                    setIsHoveredLang(true);
+                                }}
+                                onMouseLeave={() => {
+                                    setIsDropdownOpenLang(false);
+                                    setIsHoveredLang(false);
+                                }}>
                                 <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
 
-                                {isDropdownOpenLang ? (<FontAwesomeIcon icon={faChevronUp} size='xs' className='ml-1' />) : (<FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-1' />)}
+                                <motion.span
+                                    animate={{ rotate: isHoveredLang ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="ml-2"
+                                >
+                                    <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                </motion.span>
                             </a>
                             {isDropdownOpenLang && (
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: isDropdownOpenLang ? 1 : 0, y: isDropdownOpenLang ? 0 : 10 }}
                                     transition={{ duration: 0.3 }}
-                                    className={`absolute right-0  w-[120px] bg-white shadow-lg rounded-md py-2 z-50`}
+                                    className={`absolute right-0 w-[150px] bg-white shadow-lg rounded-md py-2 z-50`}
                                     onMouseEnter={() => setIsDropdownOpenLang(true)}
                                     onMouseLeave={() => setIsDropdownOpenLang(false)}
                                 >
-                                    <a href="#" className="flex flex-row px-4 py-2 font-semibold text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
+                                    <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
+                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
                                     </a>
-                                    <a href="#" className="flex flex-row px-4 py-2 font-semibold  text-sm text-primarycolor transition-colors hover:underline duration-150">
-                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 mr-2" /> <span>English</span>
+                                    <a href="#" className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
+                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
                                     </a>
                                 </motion.div>
                             )}
@@ -126,8 +213,45 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            {
+                isDropdownOpenContact && (
 
-            {isPopupOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 300 }}
+                        animate={{ opacity: isDropdownOpenContact ? 1 : 0, y: isDropdownOpenContact ? 0 : 300 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-bggray h-[90vh] w-screen flex flex-col gap-6 justify-center items-center text-black relative ">
+                        <button
+                            className="absolute top-2 right-2 md:top-5 md:right-5 xl:static bg-transparent text-black border border-zinc-700 rounded-full py-2 px-3"
+                            onClick={() => setIsDropdownOpenContact(false)}
+                        >
+                            <FontAwesomeIcon icon={faXmark} size='lg' />
+                        </button>
+                        <div className='flex flex-col gap-1 justify-center font-semibold text-black hover:text-primarycolor'>
+                            <FontAwesomeIcon icon={faPhone} size='xl' />
+                            <p className='text-center'> Call us free on</p>
+                            <p className='text-center  text-xl text-primarycolor font-bold'>+44 0765 987654</p>
+                            <p className='text-center'>If you are in UK</p>
+                        </div>
+
+                        <div className='flex flex-col gap-1 justify-center font-semibold text-black hover:text-primarycolor'>
+                            <FontAwesomeIcon icon={faPhone} size='xl' />
+                            <p className='text-center'>Call us free on</p>
+                            <p className='text-center  text-xl text-primarycolor font-bold'>+351 919 931 440</p>
+                            <p className='text-center'>Portugal Office</p>
+                        </div>
+
+                        <div className='flex flex-col gap-1 justify-center  font-semibold text-black hover:text-primarycolor'>
+                            <FontAwesomeIcon icon={faPhone} size='xl' />
+                            <p className='text-center'>Call us free on</p>
+                            <p className='text-center  text-xl text-primarycolor  font-bold'>+1 (484) 521 9665</p>
+                            <p className='text-center'>If you are in USA</p>
+                        </div>
+                    </motion.div>
+                )
+            }
+
+            {/* {isPopupOpen && (
                 <motion.div
                     initial={{ scale: 0, borderRadius: "50%", transformOrigin: 'top right' }}
                     animate={{ scale: 1, borderRadius: "0%" }}
@@ -253,7 +377,7 @@ const Navbar = () => {
                         </div>
                     </div>
                 </motion.div>
-            )}
+            )} */}
         </nav>
     );
 };

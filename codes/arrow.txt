@@ -1,0 +1,21 @@
+
+
+    const [isHoveredLang, setIsHoveredLang] = useState(false);
+
+    onMouseEnter={() => {
+                                setIsDropdownOpen(true);
+                                setIsHovered(true);
+                            }}
+                            onMouseLeave={() => {
+                                setIsDropdownOpen(false);
+                                setIsHovered(false);
+                            }}
+
+ <motion.span
+                                    animate={{ rotate: isHoveredLang ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="ml-2"
+                                >
+                                    <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                </motion.span>
+

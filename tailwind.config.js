@@ -11,13 +11,7 @@ export default withMT({
   theme: {
     extend: {
       fontFamily: {
-        FuturaExBold: ['FuturaExBold'],
-        FuturaBold: ['FuturaBold'],
-        FuturaBook: ['FuturaBook'],
-        FuturaDemi: ['FuturaDemi'],
-        FuturaHeavy: ['FuturaHeavy'],
-        FuturaLight: ['FuturaLight'],
-        FuturaMedium: ['FuturaMedium'],
+        BebasNeueSemiExpBold: ['BebasNeueSemiExpBold'],
       },
       colors: {
         'bggray' : '#F7F7F7',

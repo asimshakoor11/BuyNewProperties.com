@@ -2,41 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   /* border: 1px solid red; */
 }
-.widthh{
-  width: fit-content;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+
+@font-face {
+  font-family: 'BebasNeueSemiExpBold';
+  src: url('/font/BebasNeuePro-SemiExpBold.ttf') format('truetype');
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.section{
-  padding: 80px 7%;
-}
-
-
-body{
-  background-color: #F7F7F7;
-}
-.test{
-  /* background-image: url('./fontawesome.js'); */
-  /* background-size: ; */
-}
 /* src/fonts.css */
+/* 
+@font-face {
+  font-family: 'BebasNeueBold';
+  src: url('/public/font/BebasNeuePro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BebasNeueBoldItalic';
+  src: url('/public/font/BebasNeuePro-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BebasNeueBook';
+  src: url('/public/font/BebasNeuePro-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BebasNeueBookItalic';
+  src: url('/public/font/BebasNeuePro-BookItalic.ttf') format('truetype');
+}
 
 
+@font-face {
+  font-family: 'BebasNeueExpandedBold';
+  src: url('/public/font/BebasNeuePro-ExpandedBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BebasNeueExpandedExtraBoldItalic';
+  src: url('/public/font/BebasNeuePro-ExpandedBoldItalic.ttf') format('truetype');
+} */
+
+/* 
 @font-face {
   font-family: 'FuturaExBold';
   src: url('./assets/font/FuturaCyrillicExtraBold.ttf') format('truetype');
@@ -71,4 +79,159 @@ body{
 @font-face {
   font-family: 'FuturaMedium';
   src: url('./assets/font/FuturaCyrillicMedium.ttf') format('truetype');
+} */
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .buttonShort {
+    padding: 8px 20px !important;
+  }
+
+  .buttonLong {
+    padding: 8px 80px !important;
+  }
+
+}
+
+.buttonShort {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: normal;
+  border-radius: 8px;
+}
+
+.buttonLong {
+  padding: 12px 80px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.trnasformscale {
+  transition: all 0.3s ease;
+}
+
+.trnasformscale:hover {
+  transform: scale(1.04);
+}
+
+.trnasformscale img{
+  transition: all 0.3s ease;
+}
+
+.trnasformscale:hover img{
+  transform: scale(1.03);
+}
+
+
+.bg-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-zoom {
+  transition: transform 0.5s ease;
+}
+
+.bg-container:hover .bg-zoom {
+  transform: scale(1.1);
+}
+
+
+
+.hover-underline-animation {
+  position: relative;
+  /* Adjust as needed */
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  /* Adjust the height of the line */
+  bottom: -6px;
+  left: 0;
+  /* background-color: white; Adjust the color of the line */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-underline-animation:hover::after,
+.active-underline::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+
+.hover-underline-animationbm {
+  position: relative;
+  /* Adjust as needed */
+}
+
+.hover-underline-animationbm::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  /* Adjust the height of the line */
+  bottom: -2px;
+  left: 0;
+  background-color: #002038;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-underline-animationbm:hover::after,
+.active-underlinebm::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.content-container {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  /* Adjust the transition duration as needed */
+}
+
+.content-container.show {
+  opacity: 1;
+}
+
+.widthh {
+  width: fit-content;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.section {
+  padding: 80px 7%;
+}
+
+body {
+  background-color: #F7F7F7;
 }
