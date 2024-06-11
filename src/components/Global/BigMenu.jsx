@@ -81,7 +81,7 @@ const BigMenu = () => {
                                         </div>
                                         <div className='flex items-center gap-2'>
                                             <div>
-                                                <img src="/images/icons/mail.png" alt="" className='w-10' />
+                                                <img src="/images/icons/mail.png" alt="" className=' h-6  lg:w-10' />
                                             </div>
                                             <div >
                                                 <p className='text-sm'>Email us at:</p>
