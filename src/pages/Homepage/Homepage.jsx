@@ -70,9 +70,8 @@ const Homepage = () => {
             const scrolled = window.scrollY;
             const parallax = document.querySelector('.parallax-bg');
             const overlay = overlayRef.current;
-            const heroContent = heroContentRef.current;
             if (parallax) {
-                parallax.style.backgroundPositionY = `-${scrolled * 0.3}px`; // Adjusts slower parallax scrolling
+                parallax.style.backgroundPositionY = `-${scrolled * 0.1}px`; // Adjusts slower parallax scrolling
             }
             if (overlay) {
                 const maxOpacity = 0.8;
@@ -84,9 +83,9 @@ const Homepage = () => {
                     overlay.classList.add('hidden'); // Add the hidden class when back to top
                 }
             }
-            if (heroContent) {
-                heroContent.style.transform = `translateY(${scrolled * 10}px)`; // Adjusts slower scrolling for hero content
-            }
+            // if (heroContent) {
+            //     heroContent.style.transform = `translateY(${scrolled * 10}px)`; // Adjusts slower scrolling for hero content
+            // }
 
         };
 
@@ -112,11 +111,11 @@ const Homepage = () => {
 
     return (
         <>
-            <section className="section h-screen bg-cover bg-center relative parallax-bg"
+            <section className=" h-screen bg-cover bg-center relative parallax-bg"
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={overlayRef} className='absolute hidden inset-0 bg-black opacity-0 transition-opacity duration-300 z-20'></div>
-                <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-[170px] ">
+                <div  className="fixed w-full z-10 flex flex-col items-center justify-center h-full text-white text-center py-[170px] ">
                     <h1 className="text-5xl lg:text-6xl font-bold font-BebasNeueSemiExpBold">A New Standard In <br /> Real Estate</h1>
                     <div className="mt-8 bg-bggray p-4 rounded-lg shadow-md flex flex-col lg:flex-row items-center space-y-3 lg:space-y-0 lg:space-x-4 text-black">
                         {titles.map((title, index) => (
