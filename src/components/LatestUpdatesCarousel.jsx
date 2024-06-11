@@ -12,7 +12,7 @@ import 'aos/dist/aos.css';
 const LatestUpdatesCarousel = () => {
     const carouselRef = useRef(null);
     const divRef = useRef(null);
-    const additionalPixels = 10
+    const additionalPixels = 20
     const [divWidth, setDivWidth] = useState(0);
 
     const scrollLeft = () => {

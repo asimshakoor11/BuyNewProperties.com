@@ -125,11 +125,11 @@ const BigMenu = () => {
                                                 >
                                                     <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
                                                         onClick={() => setIsDropdownOpenBigLang(!isDropdownOpenBigLang)}>
-                                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
+                                                        <img src="/images/global/flag.png" alt="Flag" className="h-4 w-6 " /> <span>English</span>
                                                     </a>
                                                     <a href="#" className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
                                                         onClick={() => setIsDropdownOpenBigLang(!isDropdownOpenBigLang)}>
-                                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
+                                                        <img src="/images/global/flag.png" alt="Flag" className="h-4 w-6 " /> <span>English</span>
                                                     </a>
                                                 </motion.div>
                                             )}

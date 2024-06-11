@@ -251,7 +251,7 @@ const Cards = ({ item, index }) => {
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
                             className="min-h-screen bg-zinc-100 p-6">
-                            <div className="max-w-md mx-auto h-[92vh] bg-white overflow-y-scroll rounded-lg shadow-lg p-6">
+                            <div className="max-w-[300px] lg:max-w-md mx-auto h-[92vh] bg-white overflow-y-scroll rounded-lg shadow-lg p-6">
 
                                 <div className="flex justify-between items-center mb-4">
                                     <h2 className="text-2xl font-FuturaHeavy font-bold text-primarycolor">Contact an Agent</h2>

@@ -9,7 +9,7 @@ import 'aos/dist/aos.css';
 const LuxuryDevelopments = () => {
     const carouselRef = useRef(null);
     const divRef = useRef(null);
-    const additionalPixels = 0;
+    const additionalPixels = 20;
     const [divWidth, setDivWidth] = useState(0);
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
