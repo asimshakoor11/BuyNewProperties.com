@@ -141,7 +141,7 @@ const Cards = ({ item, index }) => {
                             <span className="bg-primarycolor text-white  text-sm md:text-md px-2 md: py-2 md:py-3 rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
                         <div className='absolute bottom-0 flex justify-between items-center w-full'>
-                            <p className="text-black bg-bggray font-semibold text-md py-3 md:py-4 px-6 w-fit rounded-tr-[25px]">Status: Completed</p>
+                            <p className="text-black bg-bggray font-semibold text-md py-2 md:py-3 px-6 w-fit rounded-tr-[25px]">Status: Completed</p>
 
                             <div className="flex items-center">
                                 {showTooltip && (
