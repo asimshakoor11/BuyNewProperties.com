@@ -137,11 +137,11 @@ const Cards = ({ item, index }) => {
                         </Carousel>
 
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 gap-3">
-                            <span className="text-black bg-bggray text-xs lg:text-md font-semibold px-2 lg:px-3  lg:py-2 rounded">Algarve</span>
-                            <span className="bg-primarycolor text-white  text-xs  lg:text-md px-3 lg:px-3  lg:py-2 rounded">Delivery: 3rd Quarter 2024</span>
+                            <span className="text-black bg-bggray font-semibold text-sm md:text-md  px-3 py-2 rounded">Algarve</span>
+                            <span className="bg-primarycolor text-white  text-sm md:text-md px-3  py-2 rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
                         <div className='absolute bottom-0 flex justify-between items-center w-full'>
-                            <p className="text-black bg-bggray font-semibold text-md py-3 lg:py-4 px-6 w-fit rounded-tr-[25px]">Status: Completed</p>
+                            <p className="text-black bg-bggray font-semibold text-md py-3 md:py-4 px-6 w-fit rounded-tr-[25px]">Status: Completed</p>
 
                             <div className="flex items-center">
                                 {showTooltip && (
