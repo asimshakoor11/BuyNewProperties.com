@@ -69,18 +69,19 @@ const BigMenu = () => {
                                 <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
 
                                     <div className='flex flex-col sm:flex-row gap-3 sm:gap-6'>
-                                        <div className='flex w-[190px] items-center gap-2'>
+                                        <div className='flex w-[210px] items-center gap-2'>
                                             <div>
-                                                <FontAwesomeIcon icon={faPhone} size='lg' />
+                                                <img src="/images/icons/telephone.png" alt="" className='h-6' />
+
                                             </div>
                                             <div className={`content-container ${showContent ? 'show' : ''}`}>
                                                 <p className='text-sm'>{contentList[contentIndex].location}:</p>
                                                 <p className='text-md'>{contentList[contentIndex].number}</p>
                                             </div>
                                         </div>
-                                        <div className='flex  items-center gap-2'>
+                                        <div className='flex items-center gap-2'>
                                             <div>
-                                                <FontAwesomeIcon icon={faEnvelope} size='lg' />
+                                                <img src="/images/icons/mail.png" alt="" className='w-10' />
                                             </div>
                                             <div >
                                                 <p className='text-sm'>Email us at:</p>
