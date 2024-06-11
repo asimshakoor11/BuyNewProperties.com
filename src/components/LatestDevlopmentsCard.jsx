@@ -17,7 +17,7 @@ const Cards = ({ item, index }) => {
     const [isTableVisible, setIsTableVisible] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [screenSize, setScreenSize] = useState(window.innerWidth);
-    
+
     useEffect(() => {
         if (isPopupOpen) {
             document.body.classList.add('no-scroll');
@@ -111,6 +111,13 @@ const Cards = ({ item, index }) => {
         }
     }
 
+    const handleScrollDown = () => {
+        window.scrollTo({
+            top: window.scrollY + 100, // Scrolls the document to the bottom
+            behavior: "smooth" // Optional: adds smooth scrolling effect
+        });
+    };
+
     return (
         <>
             <div className='flex flex-col '>
@@ -202,7 +209,7 @@ const Cards = ({ item, index }) => {
                             </div>
                         </Link>
                         <div className="mt-3">
-                            <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg w-full" onClick={() => { setIsPopupOpen(true) }}>Contact</button>
+                            <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
                             <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg w-full mt-3" onClick={handleClick}>9 Available Properties</button>
                         </div>
                     </div>
@@ -233,10 +240,11 @@ const Cards = ({ item, index }) => {
             </div>
 
 
-            <AnimatePresence>
+            <AnimatePresence >
 
 
                 {isPopupOpen && (
+
                     <motion.div
                         className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
                         initial={{ opacity: 0 }}
@@ -251,8 +259,8 @@ const Cards = ({ item, index }) => {
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="min-h-screen bg-zinc-100 p-10">
-                            <div className="max-w-[300px] lg:max-w-md mx-auto h-[85vh] lg:h-[92vh] bg-white overflow-y-scroll rounded-lg shadow-lg p-6">
+                            className="min-h-screen bg-zinc-100 p-10 relative z-50">
+                            <div className="max-w-[300px] sm:max-w-md mx-auto h-[85vh]  relative z-50 lg:h-[92vh] bg-white overflow-y-scroll rounded-lg p-6">
 
                                 <div className="flex justify-between items-center mb-4">
                                     <h2 className="text-2xl font-FuturaHeavy font-bold text-primarycolor">Contact an Agent</h2>
@@ -302,7 +310,7 @@ const Cards = ({ item, index }) => {
                                         <button className='w-full bg-primarycolor py-3 px-4 rounded-md text-white'>Send Message</button>
                                     </div>
                                 </form>
-                                <div className="flex justify-between">
+                                <div className="flex flex-col sm:flex-row gap-4 justify-between">
                                     <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-3">
                                         <FontAwesomeIcon icon={faPhone} className='mr-2' size='sm' />
 

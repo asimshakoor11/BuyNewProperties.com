@@ -119,7 +119,7 @@ const WhyWorkWithUsCarousel = () => {
                                     <p className="text-black text-md pr-6">{item.description}</p>
                                 </div>
                                 <div className='text-right'>
-                                    <button className='py-2 px-3 rounded-full bg-primarycolor' onClick={() => handlePlusClick(item)}>
+                                    <button className='py-2 px-3 rounded-full bg-primarycolor' onClick={() => {handlePlusClick(item); }}>
                                         <FontAwesomeIcon icon={faPlus} size='lg' color='white' className='font-semibold' />
                                     </button>
                                 </div>

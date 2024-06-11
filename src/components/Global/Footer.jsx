@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
-            <section className="px-[7%] py-[40px] rounded-lg ">
+            <section className="px-[7%] py-[40px]  bg-bggray rounded-lg relative z-20">
                 <div className='w-full flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0'>
                     <div className="text-2xl lg:text-3xl font-semibold text-primarycolor w-full xl:w-1/2">
                         Get The Latest Updates though Our Newsletter.
@@ -29,7 +29,7 @@ const Footer = () => {
 
             </section>
 
-            <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[7%] py-[40px] bg-white">
+            <section className="relative z-20 w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[7%] py-[40px] bg-white">
                 <div className="flex flex-col space-y-4">
                     <button className="w-fit  rounded-md bg-primarycolor border border-primarycolor text-white py-2 px-8 lg:py-3 lg:space-x-2 ">
                         <FontAwesomeIcon icon={faUser} size='md' /> <span className=''> My Profile</span>
@@ -186,7 +186,7 @@ const Footer = () => {
 
             </section>
 
-            <section className="border-b border-zinc-300 px-[7%] py-[40px] flex flex-col md:flex-row md:justify-between items-center">
+            <section className="relative z-20 border-b border-zinc-300 px-[7%] py-[40px] flex flex-col md:flex-row md:justify-between items-center">
                 <div className="flex items-center space-x-2">
                     <Link to={"/"}>
                         <img src="/images/global/logodark.png" style={{ width: "250px" }} alt="" />

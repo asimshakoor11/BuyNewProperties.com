@@ -59,7 +59,7 @@ const DevlopmentLocations = () => {
     }, []);
 
     return (
-        <section className="section relative bg-bggray rounded-tl-[40px] rounded-tr-[40px] -mt-8 z-30 " >
+        <section className="section relative bg-bggray rounded-tl-[40px] rounded-tr-[40px] -mt-8 z-20 " >
             <AnimatePresence>
                 {backgroundImage && (
                     <motion.div
