@@ -17,6 +17,7 @@ const Cards = ({ item, index }) => {
     const [isTableVisible, setIsTableVisible] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [screenSize, setScreenSize] = useState(window.innerWidth);
+    
     useEffect(() => {
         if (isPopupOpen) {
             document.body.classList.add('no-scroll');
@@ -250,8 +251,8 @@ const Cards = ({ item, index }) => {
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="min-h-screen bg-zinc-100 p-6">
-                            <div className="max-w-[300px] lg:max-w-md mx-auto h-[92vh] bg-white overflow-y-scroll rounded-lg shadow-lg p-6">
+                            className="min-h-screen bg-zinc-100 p-10">
+                            <div className="max-w-[300px] lg:max-w-md mx-auto h-[85vh] lg:h-[92vh] bg-white overflow-y-scroll rounded-lg shadow-lg p-6">
 
                                 <div className="flex justify-between items-center mb-4">
                                     <h2 className="text-2xl font-FuturaHeavy font-bold text-primarycolor">Contact an Agent</h2>
