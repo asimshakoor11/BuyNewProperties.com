@@ -110,7 +110,7 @@ const LuxuryDevelopments = () => {
                         key={index}
                         ref={divRef}
                         data-aos="fade-up" data-aos-delay={index * 100}
-                        className="relative rounded-3xl overflow-hidden min-h-[600px] min-w-[350px] max-w-[350px] bg-container"
+                        className="relative rounded-3xl overflow-hidden min-h-[600px] md:min-h-[650px] min-w-[320px] max-w-[320px] md:min-w-[380px] md:max-w-[380px] bg-container"
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
                     >
