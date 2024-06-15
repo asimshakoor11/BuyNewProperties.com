@@ -104,7 +104,7 @@ const LuxuryDevelopments = () => {
 
     return (
         <>
-            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-4 scrollbar-hide mt-10 pl-[7%] pr-[7%]">
+            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll overflow-y-hidden gap-4 scrollbar-hide mt-10 pl-[7%] pr-[7%]">
                 {items.map((item, index) => (
                     <div
                         key={index}

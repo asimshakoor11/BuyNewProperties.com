@@ -51,7 +51,7 @@ const LatestUpdatesCarousel = () => {
 
         <>
             {/* navbar w-full text-xl flex flex-nowrap justify-around overflow-x-hidden */}
-            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-4 scrollbar-hide mt-10  pl-[7%] pr-[7%]">
+            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll overflow-y-hidden gap-4 scrollbar-hide mt-10  pl-[7%] pr-[7%]">
                 {[...Array(6)].map((_, index) => (
                     <div key={index} ref={divRef} data-aos="fade-up" data-aos-delay={index * 100}
                         className="overflow-hidden min-w-[320px] max-w-[320px] md:min-w-[350px] md:max-w-[350px] bg-container">
