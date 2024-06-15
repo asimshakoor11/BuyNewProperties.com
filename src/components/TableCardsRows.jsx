@@ -34,7 +34,7 @@ const TableCardsRows = ({ row, index }) => {
                 <div className="relative flex items-center">
                     {showTooltip && (
                         <motion.p
-                            className={`absolute w-max right-12 mb-1 border lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                            className={`absolute w-max right-10 mb-1 border lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
                             initial={{ x: -20, opacity: 0 }} // Initial position and opacity
                             animate={{ x: 0, opacity: 1 }} // Animation properties
                             transition={{ duration: 0.3 }} // Animation duration

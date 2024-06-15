@@ -113,7 +113,7 @@ const Cards = ({ item, index }) => {
 
     const handleScrollDown = () => {
         window.scrollTo({
-            top: window.scrollY + 100, // Scrolls the document to the bottom
+            top: window.scrollY + 30, // Scrolls the document to the bottom
             behavior: "smooth" // Optional: adds smooth scrolling effect
         });
     };
