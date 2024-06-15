@@ -107,7 +107,7 @@ const WhyWorkWithUsCarousel = () => {
 
     return (
         <>
-            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-6 scrollbar-hide mt-10 pr-[7%] pl-[7%]">
+            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll overflow-y-hidden gap-6 scrollbar-hide mt-10 pr-[7%] pl-[7%]">
                 {items.map((item, index) => (
                     <div data-aos="fade-up"
                         data-aos-delay={index * 100} className='trnasformscale cursor-pointer' onClick={() => { handlePlusClick(item); }}>
