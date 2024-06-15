@@ -23,7 +23,14 @@ const LuxuryDevelopments = () => {
     const scrollRight = () => {
         if (carouselRef.current) {
             setDivWidth(divRef.current.offsetWidth);
-            carouselRef.current.scrollBy({ left: divWidth + additionalPixels, behavior: 'smooth' });
+            const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.clientWidth + 300;
+            const scrollAmount = divWidth + additionalPixels;
+
+            if (carouselRef.current.scrollLeft + scrollAmount >= maxScrollLeft) {
+                carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         }
     };
 
@@ -42,7 +49,7 @@ const LuxuryDevelopments = () => {
         },
         {
             imgSrc: "/images/global/bigmenuiamge.png",
-            title: "New Apartments In Portimao",
+            title: "New Apartments In Portimao, Algarve",
             isSaved: false,
             showTooltip: false
         },
@@ -201,7 +208,7 @@ const LuxuryDevelopments = () => {
                 ))}
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
-                <button className="bg-primarycolor text-white py-2 lg:py-3 px-8 rounded-lg ">See All Developments</button>
+                <button className="bg-primarycolor text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg ">See All Developments</button>
 
                 <div className="flex justify-between items-center mb-4">
 

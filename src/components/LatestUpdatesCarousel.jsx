@@ -25,7 +25,14 @@ const LatestUpdatesCarousel = () => {
     const scrollRight = () => {
         if (carouselRef.current) {
             setDivWidth(divRef.current.offsetWidth);
-            carouselRef.current.scrollBy({ left: divWidth + additionalPixels, behavior: 'smooth' });
+            const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.clientWidth + 300;
+            const scrollAmount = divWidth + additionalPixels;
+
+            if (carouselRef.current.scrollLeft + scrollAmount >= maxScrollLeft) {
+                carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         }
     };
 
