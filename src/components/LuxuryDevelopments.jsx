@@ -92,7 +92,7 @@ const LuxuryDevelopments = () => {
 
     useEffect(() => {
         AOS.init({
-            offset: 0, // offset (in px) from the original trigger point
+            offset: 120, // offset (in px) from the original trigger point
             delay: 0, // values from 0 to 3000, with step 50ms
             duration: 800, // values from 0 to 3000, with step 50ms
             once: false, // whether animation should happen only once - while scrolling down
@@ -104,22 +104,22 @@ const LuxuryDevelopments = () => {
 
     return (
         <>
-            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-4 scrollbar-hide mt-10 pr-[7%]">
+            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-4 scrollbar-hide mt-10 pl-[7%] pr-[7%]">
                 {items.map((item, index) => (
                     <div
                         key={index}
                         ref={divRef}
                         data-aos="fade-up" data-aos-delay={index * 100}
-                        className="relative rounded-xl overflow-hidden min-h-[500px] min-w-[300px] max-w-[300px] bg-container"
+                        className="relative rounded-3xl overflow-hidden min-h-[600px] min-w-[350px] max-w-[350px] bg-container"
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
                     >
                         <div className='absolute inset-0 bg-black opacity-30 z-10'></div>
 
-                        <div className="flex items-center absolute top-2 right-2 z-30">
+                        <div className="flex items-center absolute top-4 right-4 z-30">
                             {item.showTooltip && (
                                 <motion.p
-                                    className={`mr-2 text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                                    className={`absolute w-max right-6 mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
                                     initial={{ x: -20, opacity: 0 }} // Initial position and opacity
                                     animate={{ x: 0, opacity: 1 }} // Animation properties
                                     transition={{ duration: 0.3 }} // Animation duration
@@ -130,7 +130,7 @@ const LuxuryDevelopments = () => {
 
                             <button
                                 onClick={() => handleSaveClick(index)}
-                                className="bg-transparent border-none cursor-pointer pr-4"
+                                className="bg-transparent border-none cursor-pointer"
                                 title={item.isSaved ? "Remove from favourites" : "Add to favourites"}
                                 onMouseEnter={() => handleMouseEnter(index)}
                                 onMouseLeave={() => handleMouseLeave(index)}
@@ -179,7 +179,7 @@ const LuxuryDevelopments = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ duration: 0.3 }}
-                                    className="flex flex-wrap gap-2"
+                                    className="flex flex-wrap gap-4"
                                 >
                                     <div>
                                         <div className="text-lg">D1001</div>
@@ -200,17 +200,19 @@ const LuxuryDevelopments = () => {
                     </div>
                 ))}
             </div>
-            <div className="flex justify-between items-start mt-4 pr-[7%]">
-                <div className="flex justify-between items-center mb-4 w-full">
-                    <button className=""></button>
-                    <div>
-                        <button onClick={scrollLeft} className="py-2 lg:py-3 px-3 border border-black rounded-md mr-2">
-                            <FontAwesomeIcon icon={faChevronLeft} />
-                        </button>
-                        <button onClick={scrollRight} className="py-2 lg:py-3 px-3 border border-black rounded-md">
-                            <FontAwesomeIcon icon={faChevronRight} />
-                        </button>
-                    </div>
+            <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
+                <button className="bg-primarycolor text-white py-2 lg:py-3 px-8 rounded-lg ">See All Developments</button>
+
+                <div className="flex justify-between items-center mb-4">
+
+                    <button onClick={scrollLeft} className="py-2 lg:py-3 px-3 border border-black rounded-lg mr-2">
+                        <FontAwesomeIcon icon='chevron-left' />
+
+                    </button>
+                    <button onClick={scrollRight} className="py-2 lg:py-3 px-3 border border-black rounded-lg">
+                        <FontAwesomeIcon icon='chevron-right' />
+
+                    </button>
                 </div>
             </div>
         </>

@@ -12,6 +12,8 @@ export default withMT({
     extend: {
       fontFamily: {
         BebasNeueSemiExpBold: ['BebasNeueSemiExpBold'],
+        PlayfairItalic: ['PlayfairItalic'],
+        Playfair: ['Playfair'],
       },
       colors: {
         'bggray' : '#F7F7F7',

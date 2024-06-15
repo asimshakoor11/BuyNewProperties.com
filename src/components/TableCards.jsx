@@ -87,21 +87,23 @@ const TableCards = () => {
                         {tableHeaders.map((col, index) => (
                             <th
                                 key={index}
-                                className={`py-2 lg:py-3 px-4 text-center cursor-pointer ${index === 0 ? 'rounded-tl-xl ' : ''}`}
-                                onClick={col.key ? () => requestSort(col.key) : undefined}
+                                className={`py-2 lg:py-3 px-4 text-center cursor-pointer ${index === 0 ? 'rounded-tl-[18px] ' : ''}`}
+                                // onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
-                                <div className='w-max'>
-                                    <span>{col.label}</span>
+                                <span >{col.label}</span>
+
+                                {/* <div className='w-max'>
+                                    <span >{col.label}</span>
                                     <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
-                                </div>
+                                </div> */}
                             </th>
                         ))}
-                        <th className='rounded-tr-xl'></th>
+                        <th className='rounded-tr-[18px]'></th>
                     </tr>
                 </thead>
                 <tbody className="text-md text-primarycolor font-FuturaDemi">
                     {tableData.map((row, index) => (
-                        <TableCardsRows key={index} row={row} index={index}/>
+                        <TableCardsRows key={index} row={row} index={index} />
                     ))}
                 </tbody>
             </table>

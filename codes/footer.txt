@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faPhone, faEnvelope, faArrowUpRightFromSquare, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPhone, faEnvelope, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faSquareFacebook, faLinkedin, faYoutube, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -15,17 +15,11 @@ const Footer = () => {
                         Get The Latest Updates though Our Newsletter.
                     </div>
                     <div className="flex flex-col space-y-2 w-full xl:w-1/2">
-                        <div className=' bg-white border-2 border-black rounded-lg relative p-1'>
-                            <input
-                                type="text"
-                                placeholder="Contact Preference"
-                                className="outline-none rounded-lg p-2 w-full"
-                            />
-                            <span className='absolute right-2  py-2 px-4 rounded-lg bg-[#E9F6FF]'>
-                                <FontAwesomeIcon icon={faChevronRight} size='xs' />
-                            </span>
-                        </div>
-
+                        <input
+                            type="text"
+                            placeholder="Contact Preference"
+                            className="border-2 border-black rounded-lg py-3 px-3 w-full"
+                        />
                         <div className="mb-4 flex items-center">
                             <input type="checkbox" id="agreef" className="mr-2" />
                             <label htmlFor="agreef" className="text-sm text-fontdark">I agree to receive info by email and I agree to the <a href="#" className="text-primarycolor font-bold">privacy policy</a>.</label>
@@ -107,8 +101,8 @@ const Footer = () => {
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='ml-2' size='sm' />
                         </a>
                     </div>
-                    <div className="flex flex-col space-y-1  text-primarycolor text-sm">
-                        <span className="text-fontdark text-sm font-semibold mb-2">Company</span>
+                    <div className="flex flex-col space-y-1  text-primarycolor text-md">
+                        <span className="text-fontdark text-md font-semibold mb-2">Company</span>
 
                         <a href="#" className="font-medium">
                             <span className='hover-underline-animationbm '>About</span>
@@ -131,8 +125,8 @@ const Footer = () => {
                         </a>
                     </div>
 
-                    <div className="flex flex-col space-y-1  text-primarycolor text-sm">
-                        <span className="text-fontdark text-sm font-semibold mb-2">Services</span>
+                    <div className="flex flex-col space-y-1  text-primarycolor text-md">
+                        <span className="text-fontdark text-md font-semibold mb-2">Services</span>
                         <a href="#" className="font-medium">
                             <span className='hover-underline-animationbm '>Aftercare</span>
                         </a>
@@ -156,8 +150,8 @@ const Footer = () => {
                         </a>
                     </div>
 
-                    <div className="flex flex-col space-y-1  text-primarycolor text-sm">
-                        <span className="text-fontdark text-sm font-semibold mb-2">Guides</span>
+                    <div className="flex flex-col space-y-1  text-primarycolor text-md">
+                        <span className="text-fontdark text-md font-semibold mb-2">Guides</span>
                         <a href="#" className="font-medium">
                             <span className='hover-underline-animationbm '>Buyers Guide</span>
                         </a>

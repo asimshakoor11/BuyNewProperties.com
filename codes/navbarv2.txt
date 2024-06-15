@@ -23,20 +23,12 @@ const Navbar = () => {
 
 
     useEffect(() => {
-        if (isDropdownOpenContact || isPopupOpenBM) {
+        if (isDropdownOpenContact) {
             document.body.classList.add('no-scroll');
         } else {
             document.body.classList.remove('no-scroll');
         }
-    }, [isDropdownOpenContact, isPopupOpenBM]);
-
-    // useEffect(() => {
-    //     if (isPopupOpenBM) {
-    //         document.body.classList.add('no-scroll');
-    //     } else {
-    //         document.body.classList.remove('no-scroll');
-    //     }
-    // }, [isPopupOpenBM]);
+    }, [isDropdownOpenContact]);
 
 
     useEffect(() => {
@@ -91,9 +83,7 @@ const Navbar = () => {
     }, [contentList.length]);
 
     const handleContactDropdown = () => {
-        window.scrollBy(0, -20);
         setIsDropdownOpenContact(!isDropdownOpenContact)
-
     }
 
     // bigmenu 
@@ -117,187 +107,195 @@ const Navbar = () => {
         };
     }, [isDropdownOpenBigLang]);
 
+
+    useEffect(() => {
+        if (isPopupOpenBM) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [isPopupOpenBM]);
+
+
     return (
-        <>
-            <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-[120px]'} ${isDropdownOpenContact ? 'bg-white' : 'bg-transparent'}`}>
-                <div className={`mx-2 px-2 md:px-3 my-4 rounded-full ${(scrollPosition > scrollThreshold) || isDropdownOpenContact ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white'} `}>
-                    {/* Your navbar content goes here */}
-                    <div className="w-full px-2 md:px-4 flex justify-between items-center">
-                        <div className="flex">
-                            {scrollPosition > scrollThreshold ? (
-                                <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Light" /></Link>
+        <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-full'} ${isDropdownOpenContact ? 'bg-white' : 'bg-transparent'}`}>
+            <div className={`mx-2 px-2 md:px-3 my-4   rounded-full ${(scrollPosition > scrollThreshold) || isDropdownOpenContact ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white'} `}>
+                {/* Your navbar content goes here */}
+                <div className="w-full px-2 md:px-4 flex justify-between items-center">
+                    <div className="flex">
+                        {scrollPosition > scrollThreshold ? (
+                            <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Light" /></Link>
+                        ) : (
+                            isDropdownOpenContact ? (
+                                <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Dark" /></Link>
                             ) : (
-                                isDropdownOpenContact ? (
-                                    <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Dark" /></Link>
-                                ) : (
-                                    <Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="Logo Dark" /></Link>
-                                )
+                                <Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="Logo Dark" /></Link>
+                            )
+                        )}
+                    </div>
+                    <div className="hidden 2xl:flex xl:space-x-6 font-semibold">
+                        <Link to="/developmentssearch" className="py-6">
+                            <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}> New Developments</span>
+                        </Link>
+                        <div
+                            className="relative"
+                            onMouseEnter={() => {
+                                setIsDropdownOpen(true);
+                                setIsHovered(true);
+                            }}
+                            onMouseLeave={() => {
+                                setIsDropdownOpen(false);
+                                setIsHovered(false);
+                            }}
+                        >
+                            <Link to="/ouragents" className="flex items-center py-6">
+                                <span className={`hover-underline-animation  ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}    ${isDropdownOpen || isHovered ? 'active-underline' : ''} `}>
+                                    Agents
+                                </span>
+                                <motion.span
+                                    animate={{ rotate: isHovered ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="ml-4"
+                                >
+                                    <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                </motion.span>
+                            </Link>
+
+                            {isDropdownOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute right-0 w-max bg-white shadow-lg rounded-md py-2 z-30"
+                                >
+                                    <a href="#" className="block w-full px-6 py-3 font-semibold text-sm text-black hover:bg-bggray">
+                                        <span className='hover-underline-animation after:bg-primarycolor'> Find an agent </span>
+                                    </a>
+                                    <a href="#" className="block px-6 py-4 font-semibold text-sm text-black  hover:bg-bggray">
+                                        <span className='hover-underline-animation after:bg-primarycolor'> Become an agent </span>
+                                    </a>
+                                </motion.div>
                             )}
                         </div>
-                        <div className="hidden 2xl:flex xl:space-x-6 font-semibold">
-                            <Link to="/developmentssearch" className="py-6">
-                                <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}> New Developments</span>
-                            </Link>
-                            <div
-                                className="relative"
-                                onMouseEnter={() => {
-                                    setIsDropdownOpen(true);
-                                    setIsHovered(true);
-                                }}
-                                onMouseLeave={() => {
-                                    setIsDropdownOpen(false);
-                                    setIsHovered(false);
-                                }}
-                            >
-                                <Link to="/ouragents" className="flex items-center py-6">
-                                    <span className={`hover-underline-animation  ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}    ${isDropdownOpen || isHovered ? 'active-underline' : ''} `}>
-                                        Agents
-                                    </span>
-                                    <motion.span
-                                        animate={{ rotate: isHovered ? 180 : 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="ml-4"
-                                    >
-                                        <FontAwesomeIcon icon={faChevronDown} size='xs' />
-                                    </motion.span>
-                                </Link>
+                        <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Services</span></a>
+                        {/* <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></a> */}
+                        <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Contact</span></a>
+                    </div>
 
-                                {isDropdownOpen && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="absolute right-0 w-max bg-white shadow-lg rounded-md py-2 z-30"
-                                    >
-                                        <a href="#" className="block w-full px-6 py-3 font-semibold text-sm text-black hover:bg-bggray">
-                                            <span className='hover-underline-animation after:bg-primarycolor'> Find an agent </span>
-                                        </a>
-                                        <a href="#" className="block px-6 py-4 font-semibold text-sm text-black  hover:bg-bggray">
-                                            <span className='hover-underline-animation after:bg-primarycolor'> Become an agent </span>
-                                        </a>
-                                    </motion.div>
-                                )}
+                    <div className="flex items-center space-x-2 lg:space-x-3 py-4">
+
+                        <div className='hidden w-[185px] 2xl:flex  items-center gap-2'>
+                            <div>
+                                <FontAwesomeIcon icon={faPhone} size='lg' />
                             </div>
-                            <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Services</span></a>
-                            {/* <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></a> */}
-                            <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Contact</span></a>
+                            <div className={`content-container ${showContent ? 'show' : ''}`}>
+                                <p className='text-sm'>{contentList[contentIndex].location}:</p>
+                                <p className='text-sm'>{contentList[contentIndex].number}</p>
+                            </div>
                         </div>
 
-                        <div className="flex items-center space-x-2 lg:space-x-3 py-4">
+                        <div className={`flex items-center w-fit gap-2 2xl:hidden bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer `} onClick={handleContactDropdown}>
+                            <FontAwesomeIcon icon={faPhone} size='md' />
+                            <p className='hidden lg:inline-block'>Call Us</p>
+                        </div>
 
-                            <div className='hidden w-[185px] 2xl:flex  items-center gap-2'>
-                                <div>
-                                    <FontAwesomeIcon icon={faPhone} size='lg' />
-                                </div>
-                                <div className={`content-container ${showContent ? 'show' : ''}`}>
-                                    <p className='text-sm'>{contentList[contentIndex].location}:</p>
-                                    <p className='text-sm'>{contentList[contentIndex].number}</p>
-                                </div>
-                            </div>
+                        <button className="sm:block rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
+                            <FontAwesomeIcon icon={faUser} size='md' /> <span className='hidden lg:inline-block'> My Profile</span>
+                        </button>
+                        <button className="bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
+                            <span className='hidden lg:inline-block'>Menu</span>
+                            <FontAwesomeIcon icon={faBars} size='md' />
+                        </button>
 
-                            <div className={`flex items-center w-fit gap-2 2xl:hidden bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer `} onClick={handleContactDropdown}>
-                                <FontAwesomeIcon icon={faPhone} size='md' />
-                                <p className='hidden lg:inline-block'>Call Us</p>
-                            </div>
+                        <div className="relative hidden lg:block" >
+                            <a href="#" className="hover:underline flex items-center py-4"
+                                onMouseEnter={() => {
+                                    setIsDropdownOpenLang(true);
+                                    setIsHoveredLang(true);
+                                }}
+                                onMouseLeave={() => {
+                                    setIsDropdownOpenLang(false);
+                                    setIsHoveredLang(false);
+                                }}>
+                                <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
 
-                            <button className="sm:block rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
-                                <FontAwesomeIcon icon={faUser} size='md' /> <span className='hidden lg:inline-block'> My Profile</span>
-                            </button>
-                            <button className="bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
-                                <span className='hidden lg:inline-block'>Menu</span>
-                                <FontAwesomeIcon icon={faBars} size='md' />
-                            </button>
-
-                            <div className="relative hidden lg:block" >
-                                <a href="#" className="hover:underline flex items-center py-4"
-                                    onMouseEnter={() => {
-                                        setIsDropdownOpenLang(true);
-                                        setIsHoveredLang(true);
-                                    }}
-                                    onMouseLeave={() => {
-                                        setIsDropdownOpenLang(false);
-                                        setIsHoveredLang(false);
-                                    }}>
-                                    <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
-
-                                    <motion.span
-                                        animate={{ rotate: isHoveredLang ? 180 : 0 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="ml-2"
-                                    >
-                                        <FontAwesomeIcon icon={faChevronDown} size='xs' />
-                                    </motion.span>
-                                </a>
-                                {isDropdownOpenLang && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: isDropdownOpenLang ? 1 : 0, y: isDropdownOpenLang ? 0 : 10 }}
-                                        transition={{ duration: 0.3 }}
-                                        className={`absolute right-0 w-[150px] bg-white shadow-lg rounded-md py-2 z-30`}
-                                        onMouseEnter={() => setIsDropdownOpenLang(true)}
-                                        onMouseLeave={() => setIsDropdownOpenLang(false)}
-                                    >
-                                        <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
-                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
-                                        </a>
-                                        <a href="#" className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
-                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
-                                        </a>
-                                    </motion.div>
-                                )}
-                            </div>
+                                <motion.span
+                                    animate={{ rotate: isHoveredLang ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="ml-2"
+                                >
+                                    <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                </motion.span>
+                            </a>
+                            {isDropdownOpenLang && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: isDropdownOpenLang ? 1 : 0, y: isDropdownOpenLang ? 0 : 10 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={`absolute right-0 w-[150px] bg-white shadow-lg rounded-md py-2 z-30`}
+                                    onMouseEnter={() => setIsDropdownOpenLang(true)}
+                                    onMouseLeave={() => setIsDropdownOpenLang(false)}
+                                >
+                                    <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
+                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
+                                    </a>
+                                    <a href="#" className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
+                                        <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
+                                    </a>
+                                </motion.div>
+                            )}
                         </div>
                     </div>
                 </div>
-                {
-                    isDropdownOpenContact && (
+            </div>
+            {
+                isDropdownOpenContact && (
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 300 }}
-                            animate={{ opacity: isDropdownOpenContact ? 1 : 0, y: isDropdownOpenContact ? 0 : 300 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-bggray h-[90vh] w-screen flex flex-col gap-6 justify-center items-center text-black relative ">
-                            <button
-                                className="absolute top-2 right-2 md:top-5 md:right-5  bg-transparent text-black border border-zinc-700 rounded-full py-2 px-3"
-                                onClick={() => setIsDropdownOpenContact(false)}
-                            >
-                                <FontAwesomeIcon icon={faXmark} size='lg' />
-                            </button>
-                            <div className='flex flex-col gap-1 justify-center font-semibold text-black hover:text-primarycolor'>
-                                <FontAwesomeIcon icon={faPhone} size='xl' />
-                                <p className='text-center'> Call us free on</p>
-                                <p className='text-center  text-xl text-primarycolor font-bold'>+44 0765 987654</p>
-                                <p className='text-center'>If you are in UK</p>
-                            </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 300 }}
+                        animate={{ opacity: isDropdownOpenContact ? 1 : 0, y: isDropdownOpenContact ? 0 : 300 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-bggray h-[90vh] w-screen flex flex-col gap-6 justify-center items-center text-black relative ">
+                        <button
+                            className="absolute top-2 right-2 md:top-5 md:right-5 xl:static bg-transparent text-black border border-zinc-700 rounded-full py-2 px-3"
+                            onClick={() => setIsDropdownOpenContact(false)}
+                        >
+                            <FontAwesomeIcon icon={faXmark} size='lg' />
+                        </button>
+                        <div className='flex flex-col gap-1 justify-center font-semibold text-black hover:text-primarycolor'>
+                            <FontAwesomeIcon icon={faPhone} size='xl' />
+                            <p className='text-center'> Call us free on</p>
+                            <p className='text-center  text-xl text-primarycolor font-bold'>+44 0765 987654</p>
+                            <p className='text-center'>If you are in UK</p>
+                        </div>
 
-                            <div className='flex flex-col gap-1 justify-center font-semibold text-black hover:text-primarycolor'>
-                                <FontAwesomeIcon icon={faPhone} size='xl' />
-                                <p className='text-center'>Call us free on</p>
-                                <p className='text-center  text-xl text-primarycolor font-bold'>+351 919 931 440</p>
-                                <p className='text-center'>Portugal Office</p>
-                            </div>
+                        <div className='flex flex-col gap-1 justify-center font-semibold text-black hover:text-primarycolor'>
+                            <FontAwesomeIcon icon={faPhone} size='xl' />
+                            <p className='text-center'>Call us free on</p>
+                            <p className='text-center  text-xl text-primarycolor font-bold'>+351 919 931 440</p>
+                            <p className='text-center'>Portugal Office</p>
+                        </div>
 
-                            <div className='flex flex-col gap-1 justify-center  font-semibold text-black hover:text-primarycolor'>
-                                <FontAwesomeIcon icon={faPhone} size='xl' />
-                                <p className='text-center'>Call us free on</p>
-                                <p className='text-center  text-xl text-primarycolor  font-bold'>+1 (484) 521 9665</p>
-                                <p className='text-center'>If you are in USA</p>
-                            </div>
-                        </motion.div>
-                    )
-                }
-            </nav>
+                        <div className='flex flex-col gap-1 justify-center  font-semibold text-black hover:text-primarycolor'>
+                            <FontAwesomeIcon icon={faPhone} size='xl' />
+                            <p className='text-center'>Call us free on</p>
+                            <p className='text-center  text-xl text-primarycolor  font-bold'>+1 (484) 521 9665</p>
+                            <p className='text-center'>If you are in USA</p>
+                        </div>
+                    </motion.div>
+                )
+            }
 
             {isPopupOpenBM && (
                 <div
                     // fixed inset-0 z-50  p-4 md:p-0   flex justify-center items-center 
-                    className="fixed h-screen w-full inset-0  bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll  z-[1000]"
+                    className="fixed top-0  inset-0 bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll  z-[1000]"
                 >
                     <div className="min-h-screen bg-zinc-100 p-6  z-[1001]">
                         <div className="bg-white h-full pb-5 shadow-md rounded-lg overflow-hidden relative">
                             <div className="flex items-center justify-between p-6 ">
                                 <div className="w-full flex flex-col items-start xl-[800px]:flex-row xl:items-center xl:justify-between space-y-4 xl:space-y-0 xl:space-x-4">
-                                    <img src="/images/global/logodark.png" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
+                                    <img src="/images/global/logodark.png" alt="Logo" className="w-[250px] md:w-[300px] " />
                                     <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
                                         <div className='flex flex-col sm:flex-row  gap-3 sm:gap-6 w-full'>
                                             <button className="rounded-lg bg-primarycolor border border-primarycolor text-white py-2 px-5 lg:py-3 md:px-8 md:space-x-2 ">
@@ -342,7 +340,7 @@ const Navbar = () => {
                                         </div>
 
                                         <button
-                                            className="absolute -top-1 md:top-3 right-3 xl:static bg-transparent text-black  px-3 py-2 lg:py-3 md:px-4 rounded-lg border border-zinc-300 "
+                                            className="absolute sm:top-3 -top-1 right-3 xl:static bg-transparent text-black border border-zinc-300 rounded-full pt-2 pb-1 px-3"
                                             onClick={() => { setIsPopupOpenBM(false) }}
                                         >
                                             <FontAwesomeIcon icon={faXmark} size='lg' />
@@ -351,9 +349,9 @@ const Navbar = () => {
                                 </div>
                             </div>
 
-                            <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[5%] py-[40px] bg-white">
+                            <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[7%] py-[40px] bg-white">
                                 <div className="flex flex-col space-y-4">
-
+                                   
                                     <div className='flex items-center gap-2'>
                                         <div>
                                             <img src="/images/icons/telephone.png" alt="" className='h-6' />
@@ -421,8 +419,8 @@ const Navbar = () => {
                                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='ml-2' size='sm' />
                                         </a>
                                     </div>
-                                    <div className="flex flex-col space-y-1  text-primarycolor text-sm">
-                                        <span className="text-fontdark text-sm font-semibold mb-2">Company</span>
+                                    <div className="flex flex-col space-y-1  text-primarycolor text-md">
+                                        <span className="text-fontdark text-md font-semibold mb-2">Company</span>
 
                                         <a href="#" className="font-medium">
                                             <span className='hover-underline-animationbm '>About</span>
@@ -445,8 +443,8 @@ const Navbar = () => {
                                         </a>
                                     </div>
 
-                                    <div className="flex flex-col space-y-1  text-primarycolor text-sm">
-                                        <span className="text-fontdark text-sm font-semibold mb-2">Services</span>
+                                    <div className="flex flex-col space-y-1  text-primarycolor text-md">
+                                        <span className="text-fontdark text-md font-semibold mb-2">Services</span>
                                         <a href="#" className="font-medium">
                                             <span className='hover-underline-animationbm '>Aftercare</span>
                                         </a>
@@ -470,8 +468,8 @@ const Navbar = () => {
                                         </a>
                                     </div>
 
-                                    <div className="flex flex-col space-y-1  text-primarycolor text-sm">
-                                        <span className="text-fontdark text-sm font-semibold mb-2">Guides</span>
+                                    <div className="flex flex-col space-y-1  text-primarycolor text-md">
+                                        <span className="text-fontdark text-md font-semibold mb-2">Guides</span>
                                         <a href="#" className="font-medium">
                                             <span className='hover-underline-animationbm '>Buyers Guide</span>
                                         </a>
@@ -489,7 +487,7 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
-        </>
+        </nav>
     );
 };
 

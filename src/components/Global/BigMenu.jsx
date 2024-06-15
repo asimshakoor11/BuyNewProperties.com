@@ -96,10 +96,7 @@ const BigMenu = () => {
                                         </button>
                                         <div className="relative" ref={dropdownRef}>
                                             <button href="#" className="w-full bg-transparent text-primarycolor  px-3 py-2 lg:py-3 md:px-4 rounded-lg border border-zinc-300 flex flex-row justify-between items-center gap-2"
-                                                onMouseEnter={() => {
-                                                    setIsDropdownOpen(true);
-                                                    setIsHovered(true);
-                                                }}
+                                                
                                                 onClick={() => { setIsDropdownOpenBigLang(!isDropdownOpenBigLang); setIsHovered(!isDropdownOpenBigLang); }}
                                             >
                                                 <div className='flex gap-2 items-center'>

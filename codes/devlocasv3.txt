@@ -32,20 +32,19 @@ const DevelopmentLocations = () => {
     };
 
     const handleMouseEnter = (buttonName) => {
-        clearTimeout(updateTimeoutRef.current);
         hoveredButtonRef.current = buttonName;
+        clearTimeout(updateTimeoutRef.current);
         updateTimeoutRef.current = setTimeout(() => {
             if (hoveredButtonRef.current === buttonName) {
                 setBackgroundImage(getBackgroundImage(buttonName));
             }
-        }, 100); // Small delay to manage rapid hover events
+        }, 100); // Add a small delay to manage rapid hover events
     };
 
-    const handleMouseLeave = (buttonName) => {
+    const handleMouseLeave = () => {
+        hoveredButtonRef.current = null;
         clearTimeout(updateTimeoutRef.current);
-        if (hoveredButtonRef.current === buttonName) {
-            setBackgroundImage('');
-        }
+        setBackgroundImage('');
     };
 
     useEffect(() => {
@@ -100,7 +99,7 @@ const DevelopmentLocations = () => {
                     <button
                         className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Algarve')}
-                        onMouseLeave={() => handleMouseLeave('Algarve')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>Algarve</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -110,7 +109,7 @@ const DevelopmentLocations = () => {
                 <div data-aos="fade-up" data-aos-delay="50">
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Newyork')}
-                        onMouseLeave={() => handleMouseLeave('Newyork')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>New York</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -118,9 +117,10 @@ const DevelopmentLocations = () => {
                     </button>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="100">
+
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Lisbon')}
-                        onMouseLeave={() => handleMouseLeave('Lisbon')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>Lisbon</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -128,9 +128,10 @@ const DevelopmentLocations = () => {
                     </button>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="150">
+
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Porto')}
-                        onMouseLeave={() => handleMouseLeave('Porto')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>Porto</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -138,9 +139,10 @@ const DevelopmentLocations = () => {
                     </button>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
+
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Florida')}
-                        onMouseLeave={() => handleMouseLeave('Florida')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>Florida</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -148,9 +150,10 @@ const DevelopmentLocations = () => {
                     </button>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="250">
+
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('LongIsland')}
-                        onMouseLeave={() => handleMouseLeave('LongIsland')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>Long Island</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -158,9 +161,10 @@ const DevelopmentLocations = () => {
                     </button>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300">
+
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Georgia')}
-                        onMouseLeave={() => handleMouseLeave('Georgia')}>
+                        onMouseLeave={handleMouseLeave}>
                         <span>Georgia</span>
                         <span>
                             <FontAwesomeIcon icon="chevron-right" size="sm" />
@@ -168,7 +172,8 @@ const DevelopmentLocations = () => {
                     </button>
                 </div>
             </div>
-        </section>
+
+        </section >
     );
 };
 

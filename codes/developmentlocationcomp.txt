@@ -1,11 +1,8 @@
 
-
-
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '/src/assets/Fontawesome';
 import { motion, AnimatePresence } from 'framer-motion';
-
 
 
 const DevlopmentLocations = () => {

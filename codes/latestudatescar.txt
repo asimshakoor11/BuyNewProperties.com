@@ -2,6 +2,7 @@
 
 
 
+
 import React, { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '/src/assets/Fontawesome';
@@ -37,7 +38,7 @@ const LatestUpdatesCarousel = () => {
 
     useEffect(() => {
         AOS.init({
-            offset: 120, // offset (in px) from the original trigger point
+            offset: 0, // offset (in px) from the original trigger point
             delay: 0, // values from 0 to 3000, with step 50ms
             duration: 800, // values from 0 to 3000, with step 50ms
             once: false, // whether animation should happen only once - while scrolling down
@@ -51,20 +52,17 @@ const LatestUpdatesCarousel = () => {
 
         <>
             {/* navbar w-full text-xl flex flex-nowrap justify-around overflow-x-hidden */}
-            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-4 scrollbar-hide mt-10  pl-[7%] pr-[7%]">
+            <div ref={carouselRef} className="w-full flex flex-nowrap justify-evenly py-2 overflow-x-scroll gap-4 scrollbar-hide mt-10 pr-[7%]">
                 {[...Array(6)].map((_, index) => (
-                    <div key={index} ref={divRef} data-aos="fade-up" data-aos-delay={index * 100}
-                        className="overflow-hidden min-w-[320px] max-w-[320px] md:min-w-[350px] md:max-w-[350px] bg-container">
-                        <div className='relative rounded-3xl overflow-hidden'>
-                            <div className='rounded-3xl'>
-                                <img
-                                    src="/images/homepage/heroimage.png"
-                                    alt="Property Image"
-                                    className="w-full  object-cover bg-zoom rounded-3xl"
-                                />
-                            </div>
-
-                            <div className='absolute inset-0 rounded-3xl bg-black opacity-30 '></div>
+                    <div key={index} ref={divRef} data-aos="fade-up" data-aos-delay={index * 100} className="overflow-hidden
+                    min-w-[320px] max-w-[320px] md:min-w-[350px] md:max-w-[350px] trnasformscale">
+                        <div className='relative '>
+                            <img
+                                src="/images/homepage/heroimage.png"
+                                alt="Property Image"
+                                className="w-full h-48 object-cover  transform transition-transform duration-300"
+                            />
+                            <div className='absolute inset-0 bg-black opacity-30 '></div>
                         </div>
 
                         <div className="py-3">
@@ -86,8 +84,8 @@ const LatestUpdatesCarousel = () => {
                 ))}
 
             </div>
-            <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
-                <button className="bg-primarycolor text-white py-2 lg:py-3 px-8 rounded-lg ">See More Blog Posts</button>
+            <div className="flex justify-between items-start mt-4 pr-[7%]">
+                <button className="bg-primarycolor text-white py-2 lg:py-3 px-8 rounded-lg">See More Blog Posts</button>
 
                 <div className="flex justify-between items-center mb-4">
 

@@ -51,7 +51,7 @@ const Cards = ({ item, index }) => {
 
     useEffect(() => {
         AOS.init({
-            offset: 0, // offset (in px) from the original trigger point
+            offset: 120, // offset (in px) from the original trigger point
             delay: 0, // values from 0 to 3000, with step 50ms
             duration: 800, // values from 0 to 3000, with step 50ms
             once: false, // whether animation should happen only once - while scrolling down
@@ -118,42 +118,55 @@ const Cards = ({ item, index }) => {
         });
     };
 
+
     return (
         <>
-            <div className='flex flex-col '>
+            <div data-aos="fade-up" data-aos-delay={delay}  className='flex flex-col'>
 
-                <div data-aos="fade-up" data-aos-delay={delay} className="rounded-lg overflow-hidden">
-                    <div className='relative'>
-                        <Carousel className="rounded-xl"
-                            navigation={false}>
+                <div className="rounded-[18px] overflow-hidden"
+                >
+                    <div className='relative '>
+                        <Carousel className="rounded-[18px] h-full overflow-hidden"
+                            navigation={false}
+                        >
                             <img
                                 src="/images/homepage/cardimage.png"
                                 alt="image 1"
-                                className="h-full w-full object-cover"
+                                className={`h-full w-full object-cover bg-container bg-zoom`}
                             />
                             <img
                                 src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
                                 alt="image 2"
-                                className="h-full w-full object-cover"
+                                className={`h-full w-full object-cover bg-container bg-zoom`}
+
                             />
                             <img
                                 src="/images/homepage/cardimage.png"
                                 alt="image 3"
-                                className="h-full w-full object-cover"
+                                className={`h-full w-full object-cover bg-container bg-zoom`}
+
                             />
                         </Carousel>
 
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 gap-3">
-                            <span className="text-black bg-bggray font-semibold text-sm md:text-md px-2 md:px-3 py-2 md:py-3 rounded">Algarve</span>
-                            <span className="bg-primarycolor text-white  text-sm md:text-md px-2 md: py-2 md:py-3 rounded">Delivery: 3rd Quarter 2024</span>
+                            <div className='flex items-center gap-1 text-black bg-white opacity-80 font-semibold text-[13px] px-2 py-2  rounded'>
+                                <span>
+                                    <img src="/images/icons/locationwhite.png" alt="location" className='h-3' />
+                                </span>
+                                <span>
+                                    Algarve
+                                </span>
+                            </div>
+                            {/* <span className="text-black bg-bggray font-semibold text-[13px] px-2 md:px-3 py-2  rounded">Algarve</span> */}
+                            <span className="bg-primarycolor text-white font-semibold text-[13px] px-2 py-2  rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
                         <div className='absolute bottom-0 flex justify-between items-center w-full'>
-                            <p className="text-black bg-bggray font-semibold text-md py-2 md:py-3 px-6 w-fit rounded-tr-[25px]">Status: Completed</p>
+                            <p className="text-black bg-white opacity-80 font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[23px] rounded-bl-[23px] -ml-1">Status: Completed</p>
 
-                            <div className="flex items-center">
+                            <div className="flex items-center mr-4 mb-2">
                                 {showTooltip && (
                                     <motion.p
-                                        className={`absolute right-10 mr-2 text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                                        className={`absolute right-10 mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
                                         initial={{ x: -20, opacity: 0 }} // Initial position and opacity
                                         animate={{ x: 0, opacity: 1 }} // Animation properties
                                         transition={{ duration: 0.3 }} // Animation duration
@@ -164,7 +177,7 @@ const Cards = ({ item, index }) => {
 
                                 <button
                                     onClick={handleSaveClick}
-                                    className="bg-transparent border-none cursor-pointer pr-4"
+                                    className="bg-transparent border-none cursor-pointer"
                                     title={isSaved ? "Remove from favourites" : "Add to favourites"}
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
@@ -208,9 +221,9 @@ const Cards = ({ item, index }) => {
                                 </div>
                             </div>
                         </Link>
-                        <div className="mt-3">
-                            <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
-                            <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg w-full mt-3" onClick={handleClick}>9 Available Properties</button>
+                        <div className="mt-5">
+                            <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
+                            <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
                         </div>
                     </div>
                 </div>
@@ -218,7 +231,6 @@ const Cards = ({ item, index }) => {
                 {/* table  */}
 
                 <AnimatePresence>
-
                     {
                         isTableVisible && (
                             <motion.div
@@ -230,8 +242,8 @@ const Cards = ({ item, index }) => {
                             >
 
                                 <TableCards />
-                                <div className="bg-primarycolor w-full text-white text-center py-3 rounded-bl-xl rounded-br-xl">
-                                    <button className="uppercase font-bold">See the Development</button>
+                                <div className="bg-primarycolor w-full text-white text-center py-3 rounded-bl-[18px] rounded-br-[18px]">
+                                    <button className="font-medium">See the Development</button>
                                 </div>
                             </motion.div>
                         )
@@ -241,8 +253,6 @@ const Cards = ({ item, index }) => {
 
 
             <AnimatePresence >
-
-
                 {isPopupOpen && (
 
                     <motion.div
@@ -251,6 +261,7 @@ const Cards = ({ item, index }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
+                        onClick={() => { setIsPopupOpen(false) }}
 
                     >
                         <motion.div
