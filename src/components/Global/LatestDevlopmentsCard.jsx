@@ -109,7 +109,7 @@ const Cards = ({ item, index }) => {
 
                 <div className="rounded-[18px] overflow-hidden"
                 >
-                    <div className='relative sm:h-[280px]'>
+                    <div className='relative h-[250px] sm:h-[280px]'>
                         <Carousel className="rounded-[18px] h-full overflow-hidden "
                             navigation={false}
                         >
