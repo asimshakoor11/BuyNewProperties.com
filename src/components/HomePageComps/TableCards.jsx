@@ -87,7 +87,7 @@ const TableCards = () => {
                         {tableHeaders.map((col, index) => (
                             <th
                                 key={index}
-                                className={`py-2 lg:py-3  px-2 lg:px-4 font-medium text-center cursor-pointer ${index === 0 ? 'rounded-tl-[18px] ' : ''}`}
+                                className={`py-2 lg:py-3 px-2 lg:px-4 font-medium text-center cursor-pointer ${index === 0 ? 'rounded-tl-[18px] ' : ''}`}
                             // onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
                                 <span >{col.label}</span>

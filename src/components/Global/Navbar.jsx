@@ -21,7 +21,7 @@ const Navbar = () => {
     const [isPopupOpenBM, setIsPopupOpenBM] = useState(false)
     const [isDropdownOpenBigLang, setIsDropdownOpenBigLang] = useState(false);
 
-    const scrollThreshold = 200;
+    const scrollThreshold = 100;
 
     useEffect(() => {
         if (isDropdownOpenContact || isPopupOpenBM) {

@@ -97,8 +97,8 @@ const Cards = ({ item, index }) => {
 
     const handleScrollDown = () => {
         window.scrollTo({
-            top: window.scrollY + 30, // Scrolls the document to the bottom
-            behavior: "smooth" // Optional: adds smooth scrolling effect
+            top: window.scrollY + 20,
+            behavior: 'smooth',
         });
     };
 
@@ -222,7 +222,7 @@ const Cards = ({ item, index }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                id='devtable' className={`w-full mx-auto overflow-x-scroll scrollbar-hide mt-2`}
+                                id='devtable' className={`w-full mx-auto overflow-x-scroll rounded-[18px] scrollbar-hide mt-2`}
                             >
                                 <TableCards />
                             </motion.div>
@@ -231,97 +231,90 @@ const Cards = ({ item, index }) => {
                 </AnimatePresence>
             </div>
 
-            <AnimatePresence >
-                {isPopupOpen && (
+            {isPopupOpen && (
 
-                    <motion.div
-                        className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        onClick={() => { setIsPopupOpen(false) }}
+                <div id='popup-container'
+                    className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
 
-                    >
-                        <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            onClick={(e) => e.stopPropagation()}
-                            className="min-h-screen bg-zinc-100 p-10 relative z-50">
-                            <div className="max-w-[300px] sm:max-w-md mx-auto h-[85vh]  relative z-50 lg:h-[92vh] bg-white overflow-y-scroll rounded-lg p-6">
+                    onClick={() => { setIsPopupOpen(false) }}
 
-                                <div className="flex justify-between items-center mb-4">
-                                    <h2 className="text-2xl font-FuturaHeavy font-bold text-primarycolor">Contact an Agent</h2>
-                                    <button className="text-zinc-400 hover:text-zinc-600" onClick={() => { setIsPopupOpen(false) }}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div className="flex items-center mb-4">
-                                    <img className="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100" alt="Agent" />
-                                    <div>
-                                        <h3 className="text-balck text-xl font-FuturaMedium dark:text-white font-semibold">Sam Floris Marjot</h3>
-                                        <p className="text-zinc-500 dark:text-zinc-400 text-sm">No reviews</p>
-                                    </div>
-                                </div>
-                                <form>
-                                    <div className="mb-4">
-                                        <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="name">Name</label>
-                                        <input className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name" />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="phone">Phone Number</label>
-                                        <div className="flex">
-                                            <button className="flex items-center justify-center bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-l px-4 py-2">
-                                                <img src="/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                                </svg>
-                                            </button>
-                                            <input className="shadow appearance-none border rounded-r w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" placeholder="Phone Number" />
-                                        </div>
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="email">Email</label>
-                                        <input className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="budget">Budget</label>
-                                        <input className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="budget" type="text" placeholder="Budget" />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="message">Message</label>
-                                        <textarea className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text-area" rows={"5"} placeholder="Message"></textarea>
-                                    </div>
-                                    <div className='mb-4'>
-                                        <button className='w-full bg-primarycolor py-3 px-4 rounded-md text-white'>Send Message</button>
-                                    </div>
-                                </form>
-                                <div className="flex flex-col sm:flex-row gap-4 justify-between">
-                                    <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-3">
-                                        <FontAwesomeIcon icon={faPhone} className='mr-2' size='sm' />
+                >
+                    <div
 
-                                        Call
-                                    </button>
-                                    <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-3">
-                                        <FontAwesomeIcon icon={faEnvelope} className='mr-2' size='sm' />
+                        onClick={(e) => e.stopPropagation()}
+                        id='popup-content'
+                        className="min-h-screen bg-zinc-100 p-10 relative z-50">
+                        <div className="max-w-[300px] sm:max-w-md mx-auto h-[85vh]  relative z-50 lg:h-[92vh] bg-white overflow-y-scroll rounded-lg p-6">
 
-                                        Email
-                                    </button>
-                                    <button className="flex items-center justify-center bg-secondrycolor text-white border rounded px-6 py-3">
-                                        <FontAwesomeIcon icon={faWhatsapp} className='mr-2' size='sm' />
-
-                                        WhatsApp
-                                    </button>
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-2xl font-FuturaHeavy font-bold text-primarycolor">Contact an Agent</h2>
+                                <button className="text-zinc-400 hover:text-zinc-600" onClick={() => { setIsPopupOpen(false) }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div className="flex items-center mb-4">
+                                <img className="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100" alt="Agent" />
+                                <div>
+                                    <h3 className="text-balck text-xl font-FuturaMedium dark:text-white font-semibold">Sam Floris Marjot</h3>
+                                    <p className="text-zinc-500 dark:text-zinc-400 text-sm">No reviews</p>
                                 </div>
                             </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                            <form>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="name">Name</label>
+                                    <input className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="phone">Phone Number</label>
+                                    <div className="flex">
+                                        <button className="flex items-center justify-center bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-l px-4 py-2">
+                                            <img src="/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+                                        <input className="shadow appearance-none border rounded-r w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" placeholder="Phone Number" />
+                                    </div>
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="email">Email</label>
+                                    <input className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="budget">Budget</label>
+                                    <input className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="budget" type="text" placeholder="Budget" />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="message">Message</label>
+                                    <textarea className="shadow appearance-none border rounded w-full py-3 px-3 text-zinc-700 dark:text-zinc-300 dark:bg-zinc-700 leading-tight focus:outline-none focus:shadow-outline" id="message" type="text-area" rows={"5"} placeholder="Message"></textarea>
+                                </div>
+                                <div className='mb-4'>
+                                    <button className='w-full bg-primarycolor py-3 px-4 rounded-md text-white'>Send Message</button>
+                                </div>
+                            </form>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-between">
+                                <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-3">
+                                    <FontAwesomeIcon icon={faPhone} className='mr-2' size='sm' />
+
+                                    Call
+                                </button>
+                                <button className="flex items-center justify-center bg-gray-300 border rounded px-6 py-3">
+                                    <FontAwesomeIcon icon={faEnvelope} className='mr-2' size='sm' />
+
+                                    Email
+                                </button>
+                                <button className="flex items-center justify-center bg-secondrycolor text-white border rounded px-6 py-3">
+                                    <FontAwesomeIcon icon={faWhatsapp} className='mr-2' size='sm' />
+
+                                    WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     )
 }
