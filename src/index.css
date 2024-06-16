@@ -117,8 +117,37 @@ body {
   }
 
 }
+/* App.css */
 
 
+/* .sticky-container {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.scrollable-content {
+  max-height: 70vh; 
+  overflow-y: auto;
+} */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+
+.right-div.scrollable {
+  max-height: calc(100vh - 100px); /* Adjust max height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+
+.customheight {
+  height: calc(100vh + 40px);
+}
 
 .buttonShort {
   padding: 12px 20px;
@@ -141,6 +170,7 @@ body {
 .trnasformscale:hover {
   transform: scale(1.02);
 }
+
 
 /* .trnasformscale img {
   transition: all 0.3s ease;

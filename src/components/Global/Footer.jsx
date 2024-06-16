@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faEnvelope, faArrowUpRightFromSquare, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,23 @@ import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
+
+    const [inputValue, setInputValue] = useState('');
+
+    // Function to validate if the input is an email
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    // Handle input change
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
+
+    // Determine the background color of the arrow
+    const arrowBgColor = isValidEmail(inputValue) ? 'bg-primarycolor text-white' : 'bg-[#f7f7f7]';
+
     return (
         <>
             <section className="px-[7%] py-[40px]  bg-bggray rounded-lg">
@@ -15,14 +32,16 @@ const Footer = () => {
                         Get The Latest Updates though Our Newsletter.
                     </div>
                     <div className="flex flex-col space-y-2 w-full xl:w-1/2">
-                        <div className=' bg-white border-2 border-black rounded-lg relative p-1'>
+                        <div className='bg-white border-2 border-black rounded-lg relative p-1'>
                             <input
                                 type="text"
                                 placeholder="Contact Preference"
                                 className="outline-none rounded-lg p-2 w-full"
+                                value={inputValue}
+                                onChange={handleInputChange}
                             />
-                            <span className='absolute right-2  py-2 px-4 rounded-lg bg-[#E9F6FF]'>
-                                <FontAwesomeIcon icon={faChevronRight} size='xs' />
+                            <span className={`absolute right-1 py-2 px-4 rounded-lg ${arrowBgColor}`}>
+                                <FontAwesomeIcon icon={faChevronRight} size='base' />
                             </span>
                         </div>
 
@@ -37,7 +56,7 @@ const Footer = () => {
 
             <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[7%] py-[40px] bg-white">
                 <div className="flex flex-col space-y-4">
-                    <button className="w-fit  rounded-md bg-primarycolor border border-primarycolor text-white py-2 px-8 lg:py-3 lg:space-x-2 ">
+                    <button className="w-fit font-medium rounded-md bg-primarycolor border border-primarycolor text-white py-2 px-8 lg:py-3 lg:space-x-2 ">
                         <FontAwesomeIcon icon={faUser} size='md' /> <span className=''> My Profile</span>
                     </button>
                     <div className='flex items-center gap-2'>

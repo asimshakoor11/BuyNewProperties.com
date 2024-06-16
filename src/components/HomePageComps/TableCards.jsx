@@ -82,13 +82,13 @@ const TableCards = () => {
     return (
         <>
             <table className="min-w-full">
-                <thead className='text-md text-white font-bold bg-primarycolor '>
+                <thead className='text-sm md:text-md text-white font-bold bg-primarycolor '>
                     <tr className="w-full border-b-2 border-black ">
                         {tableHeaders.map((col, index) => (
                             <th
                                 key={index}
-                                className={`py-2 lg:py-3 px-4 text-center cursor-pointer ${index === 0 ? 'rounded-tl-[18px] ' : ''}`}
-                                // onClick={col.key ? () => requestSort(col.key) : undefined}
+                                className={`py-2 lg:py-3  px-2 lg:px-4 font-medium text-center cursor-pointer ${index === 0 ? 'rounded-tl-[18px] ' : ''}`}
+                            // onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
                                 <span >{col.label}</span>
 
@@ -101,10 +101,16 @@ const TableCards = () => {
                         <th className='rounded-tr-[18px]'></th>
                     </tr>
                 </thead>
-                <tbody className="text-md text-primarycolor font-FuturaDemi">
+                <tbody className="text-sm md:text-md text-primarycolor font-FuturaDemi">
                     {tableData.map((row, index) => (
                         <TableCardsRows key={index} row={row} index={index} />
                     ))}
+                    <tr >
+                        <td colspan={4} className="bg-primarycolor font-medium w-full text-white text-center py-2 lg:py-3 rounded-bl-[18px] rounded-br-[18px]">
+                            <button className="font-medium">See the Development</button>
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </>

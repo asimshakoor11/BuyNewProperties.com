@@ -200,10 +200,10 @@ const Navbar = () => {
                                 <p className='hidden lg:inline-block'>Call Us</p>
                             </div>
 
-                            <button className="sm:block rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
+                            <button className="sm:block font-medium rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
                                 <FontAwesomeIcon icon={faUser} size='md' /> <span className='hidden lg:inline-block'> My Profile</span>
                             </button>
-                            <button className="bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
+                            <button className="bg-transparent font-medium border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
                                 <span className='hidden lg:inline-block'>Menu</span>
                                 <FontAwesomeIcon icon={faBars} size='md' />
                             </button>
@@ -300,11 +300,11 @@ const Navbar = () => {
                                     <img src="/images/global/logodark.png" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
                                     <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
                                         <div className='flex flex-col sm:flex-row  gap-3 sm:gap-6 w-full'>
-                                            <button className="rounded-lg bg-primarycolor border border-primarycolor text-white py-2 px-5 lg:py-3 md:px-8 md:space-x-2 ">
+                                            <button className="rounded-lg bg-primarycolor font-medium border border-primarycolor text-white py-2 px-5 lg:py-3 md:px-8 md:space-x-2 ">
                                                 <FontAwesomeIcon icon={faUser} size='md' /> <span className=''> My Profile</span>
                                             </button>
                                             <div className="relative" ref={dropdownRef}>
-                                                <button href="#" className="w-full bg-transparent text-primarycolor  px-3 py-2 lg:py-3 md:px-4 rounded-lg border border-zinc-300 flex flex-row justify-between items-center gap-2"
+                                                <button href="#" className="w-full bg-transparent font-medium text-primarycolor  px-3 py-2 lg:py-3 md:px-4 rounded-lg border border-zinc-300 flex flex-row justify-between items-center gap-2"
 
                                                     onClick={() => { setIsDropdownOpenBigLang(!isDropdownOpenBigLang); }}
                                                 >

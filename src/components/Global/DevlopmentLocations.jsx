@@ -60,13 +60,13 @@ const DevelopmentLocations = () => {
     }, []);
 
     return (
-        <section className="section bg-bggray relative z-20">
+        <section className="section bg-bggray relative z-20 rounded-tl-[40px] rounded-tr-[40px] -mt-10">
             <AnimatePresence>
                 {backgroundImage && (
                     <motion.div
                         key={backgroundImage}
                         id='sectionid'
-                        className="absolute top-0 left-0 h-full w-full bg-bggray -z-10"
+                        className="absolute top-0 left-0 h-full w-full bg-bggray -z-10 rounded-tl-[40px] rounded-tr-[40px]"
                         style={{
                             backgroundImage: backgroundImage ? `linear-gradient(to left, transparent, #F7F7F7 60%), ${backgroundImage}` : `linear-gradient(to left, transparent, #F7F7F7 60%)`,
                             backgroundSize: "cover"
@@ -82,7 +82,7 @@ const DevelopmentLocations = () => {
                 <motion.div
                     key="colorBackground"
                     id='sectionid'
-                    className="absolute top-0 left-0 h-full w-full bg-bggray -z-10"
+                    className="absolute top-0 left-0 h-full w-full bg-bggray -z-10 rounded-tl-[40px] rounded-tr-[40px]"
                     style={{
                         backgroundImage: `linear-gradient(to left, transparent, #F7F7F7 60%)`,
                         backgroundSize: "cover"
@@ -97,7 +97,7 @@ const DevelopmentLocations = () => {
                 Development Locations
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-                <div data-aos="fade-up" data-aos-delay="0">
+                <div  >
                     <button
                         className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Algarve')}
@@ -108,7 +108,7 @@ const DevelopmentLocations = () => {
                         </span>
                     </button>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="50">
+                <div  >
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Newyork')}
                         onMouseLeave={() => handleMouseLeave('Newyork')}>
@@ -118,7 +118,7 @@ const DevelopmentLocations = () => {
                         </span>
                     </button>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="100">
+                <div  >
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Lisbon')}
                         onMouseLeave={() => handleMouseLeave('Lisbon')}>
@@ -128,7 +128,7 @@ const DevelopmentLocations = () => {
                         </span>
                     </button>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="150">
+                <div  >
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Porto')}
                         onMouseLeave={() => handleMouseLeave('Porto')}>
@@ -138,7 +138,7 @@ const DevelopmentLocations = () => {
                         </span>
                     </button>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200">
+                <div  >
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Florida')}
                         onMouseLeave={() => handleMouseLeave('Florida')}>
@@ -148,7 +148,7 @@ const DevelopmentLocations = () => {
                         </span>
                     </button>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="250">
+                <div  >
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('LongIsland')}
                         onMouseLeave={() => handleMouseLeave('LongIsland')}>
@@ -158,7 +158,7 @@ const DevelopmentLocations = () => {
                         </span>
                     </button>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="300">
+                <div  >
                     <button className="flex justify-between items-center bg-white hover:bg-primarycolor hover:text-white font-semibold py-2 lg:py-3 px-4 rounded-lg w-full transition-colors duration-500 ease-in-out"
                         onMouseEnter={() => handleMouseEnter('Georgia')}
                         onMouseLeave={() => handleMouseLeave('Georgia')}>

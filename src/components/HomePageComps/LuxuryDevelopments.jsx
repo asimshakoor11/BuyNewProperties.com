@@ -1,10 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '/src/assets/Fontawesome';
-import { faPlus, faChevronLeft, faChevronRight, faXmark, faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
-import { motion, AnimatePresence } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 const LuxuryDevelopments = () => {
     const carouselRef = useRef(null);
@@ -96,18 +94,6 @@ const LuxuryDevelopments = () => {
             i === index ? { ...item, showTooltip: false } : item
         )));
     };
-
-    useEffect(() => {
-        AOS.init({
-            offset: 120, // offset (in px) from the original trigger point
-            delay: 0, // values from 0 to 3000, with step 50ms
-            duration: 800, // values from 0 to 3000, with step 50ms
-            once: false, // whether animation should happen only once - while scrolling down
-            // mirror: false, // whether elements should animate out while scrolling past them
-            // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-            easing: 'ease-in-out',
-        });
-    }, []);
 
     return (
         <>
@@ -208,7 +194,7 @@ const LuxuryDevelopments = () => {
                 ))}
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
-                <button className="bg-primarycolor text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg ">See All Developments</button>
+                <button className="bg-primarycolor font-medium text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg ">See All Developments</button>
 
                 <div className="flex justify-between items-center mb-4">
 

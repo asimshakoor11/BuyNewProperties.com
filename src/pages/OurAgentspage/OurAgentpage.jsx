@@ -8,7 +8,8 @@ import { motion } from 'framer-motion';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OurAgentsPagination from '../../components/OurAgentsPageComps/OurAgentsPagination';
-import DreamHomeContact from '../../components/DreamHomeContact';
+import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
+
 
 const OurAgentpage = () => {
     const titles = ['Location', 'Language'];

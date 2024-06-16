@@ -1,10 +1,10 @@
 import React from 'react'
-import DevlopmentLocations from '../../components/DevlopmentLocations'
 import OwlCarousell from '../../components/Global/OwlCarousell';
-import DreamHomeContact from '../../components/DreamHomeContact';
+import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DevelopmentsSearchSec from '../../components/DevelopmentsSearchPageComps/DevelopmentsSearchSec';
+import DevelopmentLocations from '../../components/Global/DevlopmentLocations';
 
 
 const DevelopmentsSearchpage = () => {
@@ -26,7 +26,7 @@ const DevelopmentsSearchpage = () => {
             </section>
 
             <section>
-                <DevlopmentLocations />
+                <DevelopmentLocations />
             </section>
 
             <section>

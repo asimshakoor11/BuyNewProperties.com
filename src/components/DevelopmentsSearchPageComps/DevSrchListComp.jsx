@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-import LatestDevelopmentCard from '../LatestDevlopmentsCard';
+import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 

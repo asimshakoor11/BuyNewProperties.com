@@ -8,9 +8,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
-import TableCards from './TableCards';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import TableCards from '../HomePageComps/TableCards';
 
 
 const Cards = ({ item, index }) => {
@@ -46,20 +44,6 @@ const Cards = ({ item, index }) => {
     const handleMouseLeave = () => {
         setShowTooltip(false);
     };
-
-    // table 
-
-    useEffect(() => {
-        AOS.init({
-            offset: 120, // offset (in px) from the original trigger point
-            delay: 0, // values from 0 to 3000, with step 50ms
-            duration: 800, // values from 0 to 3000, with step 50ms
-            once: false, // whether animation should happen only once - while scrolling down
-            // mirror: false, // whether elements should animate out while scrolling past them
-            // anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-            easing: 'ease-in-out',
-        });
-    }, []);
 
     let delay;
     if (screenSize < 768) {
@@ -121,12 +105,12 @@ const Cards = ({ item, index }) => {
 
     return (
         <>
-            <div data-aos="fade-up" data-aos-delay={delay}  className='flex flex-col'>
+            <div data-aos="fade-up" data-aos-delay={delay} className='flex flex-col'>
 
                 <div className="rounded-[18px] overflow-hidden"
                 >
-                    <div className='relative '>
-                        <Carousel className="rounded-[18px] h-full overflow-hidden"
+                    <div className='relative h-[300px]'>
+                        <Carousel className="rounded-[18px] h-full overflow-hidden "
                             navigation={false}
                         >
                             <img
@@ -137,7 +121,7 @@ const Cards = ({ item, index }) => {
                             <img
                                 src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
                                 alt="image 2"
-                                className={`h-full w-full object-cover bg-container bg-zoom`}
+                                className={` h-full w-full object-cover bg-container bg-zoom`}
 
                             />
                             <img
@@ -177,7 +161,7 @@ const Cards = ({ item, index }) => {
 
                                 <button
                                     onClick={handleSaveClick}
-                                    className="bg-transparent border-none cursor-pointer"
+                                    className="bg-transparent  cursor-pointer"
                                     title={isSaved ? "Remove from favourites" : "Add to favourites"}
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
@@ -240,17 +224,12 @@ const Cards = ({ item, index }) => {
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
                                 id='devtable' className={`w-full mx-auto overflow-x-scroll scrollbar-hide mt-2`}
                             >
-
                                 <TableCards />
-                                <div className="bg-primarycolor w-full text-white text-center py-3 rounded-bl-[18px] rounded-br-[18px]">
-                                    <button className="font-medium">See the Development</button>
-                                </div>
                             </motion.div>
                         )
                     }
                 </AnimatePresence>
             </div>
-
 
             <AnimatePresence >
                 {isPopupOpen && (
@@ -342,11 +321,7 @@ const Cards = ({ item, index }) => {
                         </motion.div>
                     </motion.div>
                 )}
-
             </AnimatePresence>
-
-
-
         </>
     )
 }

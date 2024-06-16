@@ -1,5 +1,6 @@
 import React from 'react'
-import LatestDevelopmentCard from '../LatestDevlopmentsCard';
+import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
+
 
 
 const DevSrchMapComp = () => {

@@ -27,10 +27,10 @@ const TableCardsRows = ({ row, index }) => {
 
     return (
         <tr className={`border-b border-gray-300 cursor-pointer ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}>
-            <td className="py-2 lg:py-3 px-4 text-center">{row.beds}</td>
-            <td className="py-2 lg:py-3 px-4 text-center">{row.interior}</td>
-            <td className="py-2 lg:py-3 px-4 text-center">{row.price}</td>
-            <td className="py-2 lg:py-3 px-4 text-center">
+            <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.beds}</td>
+            <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.interior}</td>
+            <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.price}</td>
+            <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">
                 <div className="relative flex items-center">
                     {showTooltip && (
                         <motion.p
