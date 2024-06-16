@@ -21,6 +21,7 @@ const Navbar = () => {
     const [isPopupOpenBM, setIsPopupOpenBM] = useState(false)
     const [isDropdownOpenBigLang, setIsDropdownOpenBigLang] = useState(false);
 
+    const scrollThreshold = 200;
 
     useEffect(() => {
         if (isDropdownOpenContact || isPopupOpenBM) {
@@ -30,22 +31,15 @@ const Navbar = () => {
         }
     }, [isDropdownOpenContact, isPopupOpenBM]);
 
-    // useEffect(() => {
-    //     if (isPopupOpenBM) {
-    //         document.body.classList.add('no-scroll');
-    //     } else {
-    //         document.body.classList.remove('no-scroll');
-    //     }
-    // }, [isPopupOpenBM]);
-
-
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollTop = window.pageYOffset;
-            if (currentScrollTop > lastScrollTop) {
+            if (currentScrollTop <= scrollThreshold) {
+                setNavbarVisible(true);
+            } else if (currentScrollTop > lastScrollTop) {
                 // Scrolling down
                 setNavbarVisible(false);
-            } else {
+            }else {
                 // Scrolling up
                 setNavbarVisible(true);
             }
@@ -91,7 +85,7 @@ const Navbar = () => {
     }, [contentList.length]);
 
     const handleContactDropdown = () => {
-        window.scrollBy(0, -20);
+        // window.scrollBy(0, -20);
         setIsDropdownOpenContact(!isDropdownOpenContact)
 
     }
@@ -167,7 +161,7 @@ const Navbar = () => {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="absolute right-0 w-max bg-white shadow-lg rounded-md py-2 z-30"
+                                        className="absolute right-0 w-max bg-white  rounded-md py-2 z-30"
                                     >
                                         <a href="#" className="block w-full px-6 py-3 font-semibold text-sm text-black hover:bg-bggray">
                                             <span className='hover-underline-animation after:bg-primarycolor'> Find an agent </span>
@@ -233,7 +227,7 @@ const Navbar = () => {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: isDropdownOpenLang ? 1 : 0, y: isDropdownOpenLang ? 0 : 10 }}
                                         transition={{ duration: 0.3 }}
-                                        className={`absolute right-0 w-[150px] bg-white shadow-lg rounded-md py-2 z-30`}
+                                        className={`absolute right-0 w-[150px] bg-white  rounded-md py-2 z-30`}
                                         onMouseEnter={() => setIsDropdownOpenLang(true)}
                                         onMouseLeave={() => setIsDropdownOpenLang(false)}
                                     >
@@ -294,7 +288,7 @@ const Navbar = () => {
                     className="fixed h-screen w-full inset-0  bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll  z-[1000]"
                 >
                     <div className="min-h-screen bg-zinc-100 p-6  z-[1001]">
-                        <div className="bg-white h-full pb-5 shadow-md rounded-lg overflow-hidden relative">
+                        <div className="bg-white h-full pb-5  rounded-lg overflow-hidden relative">
                             <div className="flex items-center justify-between p-6 ">
                                 <div className="w-full flex flex-col items-start xl-[800px]:flex-row xl:items-center xl:justify-between space-y-4 xl:space-y-0 xl:space-x-4">
                                     <img src="/images/global/logodark.png" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
@@ -326,7 +320,7 @@ const Navbar = () => {
                                                         initial={{ opacity: 0, y: 10 }}
                                                         animate={{ opacity: isDropdownOpenBigLang ? 1 : 0, y: isDropdownOpenBigLang ? 0 : 10 }}
                                                         transition={{ duration: 0.3 }}
-                                                        className={`absolute right-0  w-full bg-white shadow-lg rounded-md py-2 z-50`}
+                                                        className={`absolute right-0  w-full border mt-1 bg-white rounded-md py-2 z-50`}
                                                     >
                                                         <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
                                                             onClick={() => setIsDropdownOpenBigLang(!isDropdownOpenBigLang)}>
