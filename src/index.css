@@ -91,7 +91,9 @@
   src: url('./assets/font/FuturaCyrillicMedium.ttf') format('truetype');
 } */
 
-
+.importantfont {
+  font-family: 'Shippori_Mincho ';
+}
 
 body {
   font-family: "Poppins", sans-serif;
