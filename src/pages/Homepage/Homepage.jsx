@@ -54,16 +54,17 @@ const Homepage = () => {
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={overlayRef} className='absolute hidden inset-0 bg-black opacity-0 transition-opacity duration-300 z-20'></div>
-                <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center lg:justify-end lg:[pt-0] h-full text-white text-center  pb-[30px]">
-                    <h1 className="custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold">THE #1 SOURCE FOR</h1>
-                    <h1 className="custommax:text-[8vw] text-[50px] lg:text-[66px] font-bold font-Playfair -mt-1 md:-mt-2">NEW PROPERTIES</h1>
-                    <h1 className=" custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold ">NEW DEVELOPMENTS FOR SALE IN <span className='bg-[#B69D74]'>Portugal.</span> </h1>
-                    <h1 className="hidden custommd:block customlg:text-[12px] xl:text-[16px] font-medium mt-3">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
+                <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center lg:justify-end h-full text-white text-center pb-0 lg:pb-[30px]">
+                    <h1 className="text-left custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold">THE #1 SOURCE FOR</h1>
+                    <h1 className="text-left hidden sm:block text-[50px] lg:text-[66px] font-bold font-Shippori_Mincho -mt-1 md:-mt-2">NEW PROPERTIES</h1>
+                    <h1 className="text-left block text-[8vw] sm:hidden font-bold font-Shippori_Mincho  md:-mt-2">NEW HOMES</h1>
+                    <h1 className=" text-left custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold ">NEW DEVELOPMENTS FOR SALE IN <span className='bg-[#B69D74]'>PORTUGAL.</span> </h1>
+                    <h1 className="text-left hidden sm:block sm:text-[12px] md:text-[14px] xl:text-[16px] font-medium mt-3 ">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
                 </div>
             </section>
 
             <div className='relative z-30'>
-                <section>
+                <section >
                     <DevelopmentLocations />
                 </section>
 

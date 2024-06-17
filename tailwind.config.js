@@ -17,7 +17,7 @@ export default withMT({
       },
       fontFamily: {
         BebasNeueSemiExpBold: ['BebasNeueSemiExpBold'],
-        PlayfairItalic: ['PlayfairItalic'],
+        Shippori_Mincho: ['Shippori_Mincho'],
         Playfair: ['Playfair'],
       },
       colors: {
