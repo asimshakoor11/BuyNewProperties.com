@@ -11,7 +11,7 @@ export default withMT({
   theme: {
     extend: {
       screens: {
-        'custommd': {'min': '768px'},
+        'custommd': {'max': '718px'},
         'customlg': {'max': '960px'},
         'custommax': {'max': '550px'},
       },

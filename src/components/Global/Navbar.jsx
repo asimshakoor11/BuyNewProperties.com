@@ -21,8 +21,6 @@ const Navbar = () => {
     const [isPopupOpenBM, setIsPopupOpenBM] = useState(false)
     const [isDropdownOpenBigLang, setIsDropdownOpenBigLang] = useState(false);
 
-    const scrollThreshold = 100;
-
     useEffect(() => {
         if (isDropdownOpenContact || isPopupOpenBM) {
             document.body.classList.add('no-scroll');
@@ -40,7 +38,7 @@ const Navbar = () => {
                 // Scrolling down
                 setNavbarVisible(false);
             }else {
-                // Scrolling up
+                // Scrolling up                
                 setNavbarVisible(true);
             }
             setLastScrollTop(currentScrollTop);
@@ -87,7 +85,6 @@ const Navbar = () => {
     const handleContactDropdown = () => {
         // window.scrollBy(0, -20);
         setIsDropdownOpenContact(!isDropdownOpenContact)
-
     }
 
     // bigmenu 
@@ -111,14 +108,25 @@ const Navbar = () => {
         };
     }, [isDropdownOpenBigLang]);
 
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    let newscrollThreshold
+
+    if( screenWidth > 1000){
+        newscrollThreshold = scrollThreshold +300
+    }
+    else if( screenWidth < 1000){
+        newscrollThreshold = scrollThreshold +100
+    }
+    
+
     return (
         <>
             <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-[120px]'} ${isDropdownOpenContact ? 'bg-white' : 'bg-transparent'}`}>
-                <div className={`mx-2 px-2 md:px-3 my-4 rounded-full ${(scrollPosition > scrollThreshold) || isDropdownOpenContact ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white'} `}>
+                <div className={`mx-2 px-2 md:px-3 my-4 rounded-full ${(scrollPosition > newscrollThreshold) || isDropdownOpenContact ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white'} `}>
                     {/* Your navbar content goes here */}
                     <div className="w-full px-2 md:px-4 flex justify-between items-center">
                         <div className="flex">
-                            {scrollPosition > scrollThreshold ? (
+                            {scrollPosition > newscrollThreshold ? (
                                 <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Light" /></Link>
                             ) : (
                                 isDropdownOpenContact ? (
