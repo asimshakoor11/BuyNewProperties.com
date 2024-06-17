@@ -112,7 +112,7 @@ const Navbar = () => {
     let newscrollThreshold
 
     if( screenWidth > 1000){
-        newscrollThreshold = scrollThreshold +300
+        newscrollThreshold = scrollThreshold +250
     }
     else if( screenWidth < 1000){
         newscrollThreshold = scrollThreshold +100
