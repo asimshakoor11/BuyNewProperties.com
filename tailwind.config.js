@@ -10,6 +10,11 @@ export default withMT({
   ],
   theme: {
     extend: {
+      screens: {
+        'custommd': {'min': '768px'},
+        'customlg': {'max': '960px'},
+        'custommax': {'max': '550px'},
+      },
       fontFamily: {
         BebasNeueSemiExpBold: ['BebasNeueSemiExpBold'],
         PlayfairItalic: ['PlayfairItalic'],
