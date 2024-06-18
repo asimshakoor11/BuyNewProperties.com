@@ -57,7 +57,7 @@ const Homepage = () => {
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center lg:justify-end h-full text-white text-center pb-0 lg:pb-[30px]">
                     <h1 className="text-left custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold">THE #1 SOURCE FOR</h1>
                     <h1 className="text-left hidden sm:block text-[50px] lg:text-[66px] font-bold font-Shippori_Mincho md:-mt-2">NEW PROPERTIES</h1>
-                    <h1 className="text-left block text-[8vw] sm:hidden font-bold font-Shippori_Mincho md:-mt-2 importantfont">NEW HOMES</h1>
+                    <h1 className="text-left block text-[10vw] sm:hidden font-bold font-Shippori_Mincho md:-mt-2">NEW HOMES</h1>
                     <h1 className=" text-left custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold custommd:mt-1">NEW DEVELOPMENTS FOR SALE IN <span className='bg-[#B69D74]'>PORTUGAL.</span> </h1>
                     <h1 className="text-left hidden sm:block sm:text-[11px] md:text-[14px] xl:text-[16px] font-medium mt-3 ">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
                 </div>

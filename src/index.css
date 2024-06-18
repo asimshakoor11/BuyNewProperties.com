@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: 'Shippori_Mincho ';
-  src: url('/public/Shippori_Mincho/ShipporiMincho-Regular.ttf') format('truetype');
+  src: url('/Shippori_Mincho/ShipporiMincho-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -91,9 +91,9 @@
   src: url('./assets/font/FuturaCyrillicMedium.ttf') format('truetype');
 } */
 
-.importantfont {
+/* .importantfont {
   font-family: 'Shippori_Mincho ';
-}
+} */
 
 body {
   font-family: "Poppins", sans-serif;
