@@ -1,19 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Carousel } from "@material-tailwind/react";
 import { motion } from 'framer-motion';
 import { faXmark, faPlay, faImage, faLocation, faShare } from '@fortawesome/free-solid-svg-icons';
 
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import LightBox from './LightBox';
 
 
 const SingleDevHeroSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [selectedPopup, setSelectedPopup] = useState('image');
     const [openDropdown, setOpenDropdown] = useState(false);
-    const [openDropdown2, setOpenDropdown2] = useState(false);
-
+    
+      const closeLightbox = () => {
+        setIsPopupOpen(false);
+      };
 
     const images = [
         '/images/homepage/heroimage.png',
@@ -25,23 +26,17 @@ const SingleDevHeroSection = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 2000);
+        }, 7000);
 
         return () => clearInterval(interval);
     }, []);
 
     const dropdownRef = useRef(null);
-    const dropdownRef2 = useRef(null);
 
     const handleClickOutside = (event) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
             setOpenDropdown(false);
         }
-
-        if (dropdownRef2.current && !dropdownRef2.current.contains(event.target)) {
-            setOpenDropdown2(false);
-        }
-
     };
 
     useEffect(() => {
@@ -55,21 +50,13 @@ const SingleDevHeroSection = () => {
         };
     }, [openDropdown]);
 
-    useEffect(() => {
-        if (openDropdown2) {
-            document.addEventListener('click', handleClickOutside);
-        } else {
-            document.removeEventListener('click', handleClickOutside);
-        }
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [openDropdown2]);
+    
     return (
         <>
             <section className="h-screen bg-cover bg-center relative">
                 {/* style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }} */}
                 <div className="relative w-full h-screen overflow-hidden">
+
                     <img
                         src={images[0]}
                         alt="Slide 1"
@@ -86,34 +73,33 @@ const SingleDevHeroSection = () => {
                         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100' : 'opacity-0'}`}
                     />
                     <div
-                        className="w-full absolute bottom-0 flex flex-row justify-between items-end text-white px-[7%] py-5 pb-14"
-                        style={{ background: 'linear-gradient(to bottom, transparent, #000000 10%)' }}
+                        className="w-full absolute z-20 bottom-0  flex flex-row justify-between items-end text-white px-[7%] py-16"
                     >
-                        <div>
-                            <h1 className="text-2xl md:text-4xl font-bold font-FuturaHeavy ">Montisnavia</h1>
-                            <p className='mt-2'>Santo Antonio, Lisbon</p>
+                        <div className=''>
+                            <h1 className="text-4xl md:text-6xl font-bold ">Montisnavia</h1>
+                            <p className='mt-4 text-xl md:text-2xl'>Santo Antonio, Lisbon</p>
 
                             <button
-                                className="flex flex-row items-center font-FuturaHeavymt-8 bg-white text-black px-4 py-2 rounded-xl shadow mt-2" >
+                                className="flex flex-row items-center bg-white text-black px-8 py-3 md:px-10 md:py-4 rounded-full shadow mt-4" >
                                 <span> Play</span>
                                 <FontAwesomeIcon icon={faPlay} size='xs' className='ml-2' />
                             </button>
                         </div>
 
-                        <div className='flex flex-row gap-3'>
+                        <div className='flex flex-row gap-3 '>
                             <button
-                                className="bg-transparent border-2 border-fontdark text-white px-3 py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
-                                <FontAwesomeIcon icon={faImage} size='lg' className='ml-1' />
+                                className="bg-transparent border border-[#FFFFFF3D] text-white px-3 pr-[14px] py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
+                                <img src="/images/icons/image2.png" alt="" className='ml-1' />
                             </button>
 
                             <button
-                                className="bg-transparent border-2 border-fontdark text-white px-3 py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
+                                className="bg-transparent border border-[#FFFFFF3D] text-white px-3 pr-[14px]  py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
                                 <FontAwesomeIcon icon={faLocation} size='lg' className='ml-1' />
                             </button>
 
                             <div className='relative' ref={dropdownRef}>
                                 <button
-                                    className="bg-transparent border-2 border-fontdark text-white px-3 py-3 rounded-xl shadow"
+                                    className="bg-transparent border border-[#FFFFFF3D] text-white px-3 pr-[14px]  py-3 rounded-xl shadow"
                                     onClick={() => { setOpenDropdown(!openDropdown) }}>
                                     <FontAwesomeIcon icon={faShare} size='lg' className='ml-1' />
                                 </button>
@@ -152,120 +138,26 @@ const SingleDevHeroSection = () => {
                                             </a>
                                         </div>
                                     </motion.div>) : ""
-
                                 }
-
-
                             </div>
                         </div>
+
+
                     </div>
+                    <div className='absolute bottom-0 z-10 h-[55%] w-full px-10' style={{ background: 'linear-gradient(to bottom, transparent, #000000 60%)' }}></div>
+                    <div className='absolute -top-16 left-0 right-0 h-[25%]' style={{ background: 'linear-gradient(to top, transparent, #000000 100%)' }}></div>
+                    {/* <div className='absolute top-0 left-0 right-0 bottom-0 z-10' style={{ pointerEvents: 'none' }}>
+                        <div className='absolute -top-10 left-0 right-0 h-[20%]' style={{ background: 'linear-gradient(to top, transparent, #000000 100%)' }}></div>
+                        <div className='absolute top-0 -left-16 bottom-0 w-[10%]' style={{ background: 'linear-gradient(to left, transparent, #000000 100%)' }}></div>
+                        <div className='absolute top-0 -right-16 bottom-0 w-[10%]' style={{ background: 'linear-gradient(to right, transparent, #000000 100%)' }}></div>
+                    </div> */}
+
                 </div>
+
             </section>
 
-            {isPopupOpen && (
-                <div className="fixed min-h-screen inset-0 bg-black z-50">
-                    <div className="min-h-screen bg-zinc-100 p-6 text-white">
-                        <div className="flex flex-col-reverse md:flex-row gap-4 items-center justify-between p-0 md:p-4 bg-black">
-                            <div className="flex space-x-2">
-                                <button className="px-3 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('image')}>Photos</button>
-                                <button className="px-4 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('map')}>Map</button>
-                                <button className="px-4 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => setSelectedPopup('streetview')}>
-                                    Street View
-                                </button>
-                            </div>
-                            <div className="flex items-center space-x-4">
-                                <div className='relative' ref={dropdownRef2}>
-                                    <button className="flex items-center space-x-1 px-3 md:px-8 py-1 md:py-2 border rounded-full dark:text-white" onClick={() => { setOpenDropdown2(!openDropdown2) }}>
-                                        <span>Share</span>
-                                        <FontAwesomeIcon icon={faShare} className='ml-4 text-xs md:text-lg' />
-                                    </button>
-                                    {
-                                        openDropdown2 ? (<motion.div
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="absolute right-0 top-14 w-[200px] md:w-[280px] bg-white shadow-lg rounded-md py-2 z-50"
-                                        >
-                                            <div
-                                                className="flex flex-col px-4 py-2 gap-4 font-FuturaHeavy cursor-pointer border-black transition-colors text-primarycolor "
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                <a href="#" className='w-full flex justify-between '>
-                                                    <span>
-                                                        facebook
-                                                    </span>
-                                                    <FontAwesomeIcon icon={faFacebook} size='lg' />
-                                                </a>
-                                                <a href="#" className='w-full flex justify-between  '>
-                                                    <span>
-                                                        Twitter
-                                                    </span>
-                                                    <FontAwesomeIcon icon={faTwitter} size='lg' />
-                                                </a><a href="#" className='w-full flex justify-between  '>
-                                                    <span>
-                                                        Instrgram
-                                                    </span>
-                                                    <FontAwesomeIcon icon={faInstagram} size='lg' />
-                                                </a><a href="#" className='w-full flex justify-between  '>
-                                                    <span>
-                                                        LindedIn
-                                                    </span>
-                                                    <FontAwesomeIcon icon={faLinkedin} size='lg' />
-                                                </a>
-                                            </div>
-                                        </motion.div>) : ""
-                                    }
 
-                                </div>
-
-                                <button
-                                    className="bg-transparent text-white border rounded-full px-2 py-1 md:py-2 md:px-3"
-                                    onClick={() => setIsPopupOpen(false)}
-                                >
-                                    <FontAwesomeIcon icon={faXmark} size='lg' />
-                                </button>
-                            </div>
-                        </div>
-                        {selectedPopup === 'image' && (
-                            <div className="">
-                                <Carousel className="h-[80vh]"
-                                    loop={true}>
-                                    <img
-                                        src="/images/homepage/cardimage.png"
-                                        alt="image 1"
-                                        className="h-full w-full object-contain"
-                                    />
-                                    <img
-                                        src="/images/global/bgimage.jpeg"
-                                        alt="image 2"
-                                        className="h-full w-full object-contain"
-                                    />
-                                    <img
-                                        src="/images/homepage/cardimage.png"
-                                        alt="image 3"
-                                        className="h-full w-full object-contain"
-                                    />
-                                </Carousel>
-                            </div>
-                        )}
-
-                        {selectedPopup === 'map' && (
-                            <div className="flex flex-col flex-wrap gap-6 md:flex-row w-full text-white">
-                                <h1>map</h1>
-                            </div>
-                        )}
-
-                        {selectedPopup === 'streetview' && (
-                            <div className="flex flex-col flex-wrap gap-6 md:flex-row w-full text-white">
-                                <h1>streetview</h1>
-                            </div>
-                        )}
-
-                    </div>
-
-                </div>
-
-            )}
+            {isPopupOpen && ( <LightBox isOpen={isPopupOpen} onClose={closeLightbox}/> ) }
 
 
         </>

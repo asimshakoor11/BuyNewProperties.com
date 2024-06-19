@@ -101,7 +101,7 @@ const TableCards = () => {
                         <th className='rounded-tr-[18px]'></th>
                     </tr>
                 </thead>
-                <tbody className="text-sm md:text-md text-primarycolor font-FuturaDemi">
+                <tbody className="text-sm md:text-md text-primarycolor">
                     {tableData.map((row, index) => (
                         <TableCardsRows key={index} row={row} index={index} />
                     ))}

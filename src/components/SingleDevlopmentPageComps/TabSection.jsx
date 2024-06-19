@@ -30,7 +30,7 @@ const TabSection = () => {
     ];
 
     return (
-        <section className="section p-6 bg-white text-zinc-800 dark:text-zinc-50">
+        <section className="section p-6 bg-bggray text-zinc-800 dark:text-zinc-50">
             <div className="text-center mb-6">
                 <h2 className="text-2xl md:text-4xl font-FuturaBold text-primarycolor">BuyNewProperties. Lifestyle Index</h2>
                 <p className="text-fontdark text-lg md:text-2xl mt-1">

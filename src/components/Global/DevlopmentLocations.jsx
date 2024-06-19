@@ -93,7 +93,7 @@ const DevelopmentLocations = () => {
                     transition={{ duration: 0.5 }}
                 ></motion.div>
             )}
-            <h2 className="text-3xl  mb-10 md:text-5xl text-primarycolor dark:text-zinc-200 font-BebasNeueSemiExpBold">
+            <h2 className="text-3xl mb-10 md:text-5xl text-primarycolor dark:text-zinc-200 font-BebasNeueSemiExpBold">
                 Development Locations
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">

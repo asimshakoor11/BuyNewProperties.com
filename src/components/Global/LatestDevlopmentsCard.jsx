@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faSort } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
-
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import TableCards from '../HomePageComps/TableCards';
 

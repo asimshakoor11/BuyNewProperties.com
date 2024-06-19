@@ -154,43 +154,6 @@ const WhyWorkWithUsCarousel = () => {
                 </div>
             </div>
 
-            {/* <AnimatePresence>
-                {isPopupVisible && (
-                    <motion.div
-                        className="fixed inset-0 z-40 bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        onClick={handleClosePopup}
-
-                    >
-                        <motion.div
-                            className="bg-white rounded-lg p-3 md:p-6 md:max-w-lg mx-auto relative"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <button className="absolute top-4 right-4 text-xl font-bold border py-1 px-3 rounded-full text-white bg-gray-800" onClick={handleClosePopup}>
-                                <FontAwesomeIcon icon={faXmark} size='md' />
-                            </button>
-                            <div className='flex flex-col gap-4 p-6 h-full'>
-                                <div className='flex flex-col gap-4'>
-                                    <div className='w-full h-[60px] flex items-center'>
-                                        <img src={popupContent.imgSrc} alt="" width={"50px"} />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-primarycolor pr-6">{popupContent.title}</h3>
-                                    <p className="text-black text-md pr-6">{popupContent.description}</p>
-                                    <a href="#" className='text-blue-900 underline'>Learn more</a>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence> */}
-
             {isPopupVisible && (
                 <div id="popup-container" class="fixed inset-0 z-40 bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
                     onClick={handleClosePopup}

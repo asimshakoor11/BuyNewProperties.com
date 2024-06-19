@@ -205,7 +205,7 @@ const Navbar = () => {
                             <button className="sm:block font-medium rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
                                 <FontAwesomeIcon icon={faUser} size='md' /> <span className='hidden lg:inline-block'> My Profile</span>
                             </button>
-                            <button className="bg-transparent font-medium border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
+                            <button className="bg-transparent font-medium border border-fontdark hover:border-[#A5A5A5] py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
                                 <span className='hidden lg:inline-block'>Menu</span>
                                 <FontAwesomeIcon icon={faBars} size='md' />
                             </button>

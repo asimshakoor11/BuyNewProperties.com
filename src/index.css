@@ -310,6 +310,25 @@ body {
   width: fit-content;
 }
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hideSDP {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hideSDP::-webkit-scrollbar {
+  display: none;
+}
+
+/* When the width is less than 1200px: show scrollbar */
+@media (max-width: 1200px) {
+  .scrollbar-hideSDP::-webkit-scrollbar {
+    display: block;
+  }
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -326,6 +345,14 @@ body {
   /* Firefox */
 }
 
+.icon-slide {
+  transition: transform 0.3s ease;
+}
+
+.row-hover:hover .icon-slide {
+  transform: translateX(5px);
+}
+
 .section {
   padding: 80px 7%;
 }
@@ -333,3 +360,14 @@ body {
 body {
   background-color: #F7F7F7;
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,10 @@
 import React from 'react'
-import OwlCarousell from '../../components/Global/OwlCarousell';
 import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DevelopmentsSearchSec from '../../components/DevelopmentsSearchPageComps/DevelopmentsSearchSec';
 import DevelopmentLocations from '../../components/Global/DevlopmentLocations';
+import LuxuryDevelopments from '../../components/HomePageComps/LuxuryDevelopments';
 
 
 const DevelopmentsSearchpage = () => {
@@ -33,13 +33,13 @@ const DevelopmentsSearchpage = () => {
                 <DevelopmentsSearchSec />
             </section>
 
+            <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
+                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Luxury Developments</h2>
 
-
-            <section className='section bg-black relative' style={{ padding: "140px 0%" }}>
-                <h1 className='text-white text-4xl font-FuturaExBold text-center lg:absolute xl:left-[6rem]'>Buy New <br /> Properties</h1>
-
-                <OwlCarousell />
+                <LuxuryDevelopments />
             </section>
+
+
 
             <section className="section text-center ">
                 <p className="text-fontdark italic uppercase tracking-wide mb-4">

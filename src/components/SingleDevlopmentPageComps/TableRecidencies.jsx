@@ -191,7 +191,7 @@ const TableRecidencies = ({ booking }) => {
                                 className="py-2 px-4 text-center cursor-pointer"
                                 onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
-                                <div className='w-max'>
+                                <div className={`w-max  ${index===0 ? '': 'mx-auto'}`}>
                                     <span>{col.label}</span>
                                     <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
                                 </div>
@@ -204,7 +204,11 @@ const TableRecidencies = ({ booking }) => {
                 </thead>
                 <tbody className='text-md text-primarycolor font-FuturaDemi'>
                     {sortedData.map((row, index) => (
-                        <tr key={index} className="border-b border-gray-300 cursor-pointer" onClick={() => { setIsPopupOpen(true) }}>
+                        <tr key={index} className={`border-b border-gray-300 cursor-pointer hover:bg-[#fcfeff] row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-[#f8f9fa]'}`} 
+                        onClick={() => { setIsPopupOpen(true) }}
+                        onMouseEnter={()=>{setIsRowHovered(true)}}
+                        onMouseLeave={()=>{setIsRowHovered(false)}}                        
+                        >
                             <td className="py-2 px-4 text-center">{row.ref}</td>
                             <td className="py-2 px-4 text-center">{row.propertyType}</td>
                             <td className="py-2 px-4 text-center">{row.beds}</td>
@@ -220,11 +224,8 @@ const TableRecidencies = ({ booking }) => {
                                 </button>
                             </td>
                             <td className="py-2 px-4 text-center">
-                                {/* <button className="bg-transparent text-white px-4 py-2 rounded">
-                                -
-                            </button> */}
                                 {(
-                                    booking ? (<button className="bg-primarycolor text-white px-4 py-2 rounded">
+                                    booking ? (<button className="bg-primarycolor text-sm text-white px-4 py-2 rounded">
                                         Book Now
                                     </button>) : (<button className="bg-transparent text-primarycolor px-4 py-2 rounded">
                                         -
@@ -234,8 +235,8 @@ const TableRecidencies = ({ booking }) => {
 
                             </td>
                             <td className="py-2 px-4 text-center">
-                                <button className="bg-transparent">
-                                    <FontAwesomeIcon icon={faChevronRight} size='lg' />
+                                <button className="bg-transparent icon-slide">
+                                    <FontAwesomeIcon icon={faChevronRight} size='sm'/>
                                 </button>
                             </td>
                         </tr>
