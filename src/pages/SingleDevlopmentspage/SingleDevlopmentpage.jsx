@@ -82,14 +82,14 @@ const SingleDevlopmentpage = () => {
                         <div className="custommaxforSDP:min-w-[500px] customminforSDP:w-[40%] flex flex-col py-4 px-6 gap-4 items-start justify-center space-x-2 border border-[#D3D3D3] rounded-tl-3xl rounded-bl-3xl ">
                             <img src="/images/icons/home.png" className='ml-2' alt="" />
                             <div className='flex flex-col gap-1'>
-                                <p className="text-3xl font-bold text-primarycolor">€300,000 - €2,000,000</p>
+                                <p className="text-2xl md:text-3xl font-bold text-primarycolor">€300,000 - €2,000,000</p>
                                 <p className="text-lg text-Black font-semibold">Price</p>
                             </div>
                         </div>
                         <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border-t  border-b border-[#D3D3D3]">
                             <img src="/images/icons/double-bed 1.png" className='ml-2' alt="" />
                             <div className='flex flex-col gap-1'>
-                                <p className="text-3xl font-bold text-primarycolor">2 - 3</p>
+                                <p className="text-2xl md:text-3xl font-bold text-primarycolor">2 - 3</p>
                                 <p className="text-lg text-Black font-semibold text-right">Beds</p>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ const SingleDevlopmentpage = () => {
                             <img src="/images/icons/bath.png" className='ml-2' alt="" />
 
                             <div className='flex flex-col gap-1'>
-                                <p className="text-3xl font-bold text-primarycolor">2.0 - 3.5</p>
+                                <p className="text-2xl md:text-3xl font-bold text-primarycolor">2.0 - 3.5</p>
                                 <p className="text-lg text-Black font-semibold text-right">Baths</p>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ const SingleDevlopmentpage = () => {
                             <img src="/images/icons/home.png" className='ml-2' alt="" />
 
                             <div className='flex flex-col gap-1'>
-                                <p className="text-3xl font-bold text-primarycolor text-right">39</p>
+                                <p className="text-2xl md:text-3xl font-bold text-primarycolor text-right">39</p>
                                 <p className="text-lg text-Black font-semibold text-right">Residences</p>
                             </div>
                         </div>

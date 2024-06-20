@@ -73,33 +73,34 @@ const SingleDevHeroSection = () => {
                         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100' : 'opacity-0'}`}
                     />
                     <div
-                        className="w-full absolute z-20 bottom-0  flex flex-row justify-between items-end text-white px-[7%] py-16"
+                        className="w-full absolute z-20 bottom-0 flex flex-col sm:flex-row justify-start items-start sm:justify-between sm:items-end gap-4 text-white px-[7%] pb-[5%] md:pb-[4%]"
                     >
                         <div className=''>
-                            <h1 className="text-4xl md:text-6xl font-bold ">Montisnavia</h1>
-                            <p className='mt-4 text-xl md:text-2xl'>Santo Antonio, Lisbon</p>
+                            <h1 className="text-4xl lg:text-6xl font-bold ">Montisnavia</h1>
+                            <p className='mt-2 md:mt-4 text-xl lg:text-2xl'>Santo Antonio, Lisbon</p>
 
                             <button
-                                className="flex flex-row items-center bg-white text-black px-8 py-3 md:px-10 md:py-4 rounded-full shadow mt-4" >
+                                className="flex flex-row items-center bg-white text-black px-6 py-2 lg:px-10 lg:py-4 rounded-full shadow mt-2 md:mt-4 " >
                                 <span> Play</span>
                                 <FontAwesomeIcon icon={faPlay} size='xs' className='ml-2' />
                             </button>
                         </div>
 
-                        <div className='flex flex-row gap-3 '>
+                        <div className='flex flex-row gap-2 md:gap-3 '>
                             <button
-                                className="bg-transparent border border-[#FFFFFF3D] text-white px-3 pr-[14px] py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
-                                <img src="/images/icons/image2.png" alt="" className='ml-1' />
+                                className="bg-transparent border border-[#FFFFFF3D] text-white px-2 pr-[12px] py-2 md:px-3 md:pr-[14px] md:py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
+                                <img src="/images/icons/image2.png" alt="" className='ml-1 min-h-27 min-w-25' style={{maxWidth: "25px"}} />
+                                {/* <FontAwesomeIcon icon={faLocation} size='lg' className='ml-1' /> */}
                             </button>
 
                             <button
-                                className="bg-transparent border border-[#FFFFFF3D] text-white px-3 pr-[14px]  py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
+                                className="bg-transparent border border-[#FFFFFF3D] text-white px-2 pr-[12px] py-2 md:px-3 md:pr-[14px] md:py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
                                 <FontAwesomeIcon icon={faLocation} size='lg' className='ml-1' />
                             </button>
 
                             <div className='relative' ref={dropdownRef}>
                                 <button
-                                    className="bg-transparent border border-[#FFFFFF3D] text-white px-3 pr-[14px]  py-3 rounded-xl shadow"
+                                    className="bg-transparent border border-[#FFFFFF3D] text-white px-2 pr-[12px] py-2 md:px-3 md:pr-[14px] md:py-3 rounded-xl shadow"
                                     onClick={() => { setOpenDropdown(!openDropdown) }}>
                                     <FontAwesomeIcon icon={faShare} size='lg' className='ml-1' />
                                 </button>
