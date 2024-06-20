@@ -265,7 +265,7 @@ const SingleDevlopmentpage = () => {
                 </div>
             </section>
 
-            <section>
+            <section id='contact'>
                 <ContactTabsSection />
             </section>
 
@@ -297,7 +297,9 @@ const SingleDevlopmentpage = () => {
                     >
                         <img src="/images/icons/image2.png" alt="" />
                     </button>
-                    <button className='bg-secondrycolor border border-secondrycolor py-4 px-8 rounded-xl'>Contact</button>
+                    <button className='bg-secondrycolor border border-secondrycolor py-4 px-8 rounded-xl'
+                        onClick={() => handleScrollToSection('contact')}
+                        >Contact</button>
                     <button
                         className='bg-transparent border border-[#434343] hover:border-[#A5A5A5] py-4 px-5 rounded-xl'
                         onClick={() => setIsSaved(!isSaved)}
