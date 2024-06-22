@@ -96,14 +96,14 @@ const SingleDevHeroSection = () => {
                         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
                     />
                     <div
-                        className="w-full absolute z-20 bottom-0 text-white px-[7%] pb-[3%] md:pb-[2%]"
+                        className="w-full absolute z-20 bottom-0 text-white px-[7%] pb-[4%] md:pb-[2%]"
                     >
                         <div className=''>
                             <h1 className="text-4xl md:text-6xl font-bold ">Montisnavia</h1>
                             <p className='mt-3  text-xl md:text-2xl'>Santo Antonio, Lisbon</p>
                         </div>
 
-                        <div className='flex flex-col sm:flex-row justify-center items-start sm:justify-between sm:items-end gap-4 mt-4'>
+                        <div className='flex flex-row justify-center items-start sm:justify-between sm:items-end gap-4 mt-4'>
                             <button
                                 className="flex flex-row items-center bg-white text-black px-6 py-2 md:px-10 md:py-4 rounded-full  font-semibold" >
                                 <span> Play</span>
@@ -112,19 +112,19 @@ const SingleDevHeroSection = () => {
 
                             <div className='flex flex-row gap-2 md:gap-3 '>
                                 <button
-                                    className="h-[52px] w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
-                                    <img src="/images/icons/picture.png" alt="" className='min-h-25 min-w-23' style={{ maxWidth: "23px" }} />
+                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
+                                    <img src="/images/icons/picture.png" alt="" className='max-w-[18px] md:max-w-[23px]' />
                                 </button>
 
                                 <button
-                                    className="h-[52px] w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
-                                    <img src="/images/icons/marker.png" alt="" className='min-h-25 min-w-23' style={{ maxWidth: "23px" }} />
+                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
+                                    <img src="/images/icons/marker.png" alt="" className='max-w-[18px] md:max-w-[23px]' />
                                 </button>
 
                                 <button
-                                    className="h-[52px] w-14 flex justify-center items-center  bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl "
+                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center  bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl "
                                     onClick={() => { handleSubmit(); }}>
-                                    <FontAwesomeIcon icon={faShare} size='lg' className='ml-1' />
+                                    <FontAwesomeIcon icon={faShare}  className='ml-1 text-lg' />
                                 </button>
                             </div>
                         </div>

@@ -123,7 +123,7 @@ const SingleDevlopmentpage = () => {
                 <PropertyDescription />
             </section> */}
             
-            <section>
+            <section id='features'>
                 <PropertyDetails/>
             </section>
 
@@ -179,7 +179,7 @@ const SingleDevlopmentpage = () => {
                 <div className='absolute inset-0 bg-black opacity-50 z-10'></div>
                 <div className='relative z-20 w-[500px] p-8 flex flex-col gap-3 text-white border border-bggray rounded-xl'>
                     <p className='font-bold text-lg'>THE NEIGHBORHOOD</p>
-                    <h2 className='font-BebasNeueSemiExpBold font-bold text-5xl'>Upper East Side</h2>
+                    <h2 className='font-BebasNeueSemiExpBold font-bold text-4xl md:text-5xl'>Upper East Side</h2>
                     <p className='font-medium text-medium'>An upscale residential haven renowned for its elegance and glamour, the Upper East Side is marked by a pretty blend of luxurious townhouses and historic apartment buildings.</p>
                 </div>
             </section>

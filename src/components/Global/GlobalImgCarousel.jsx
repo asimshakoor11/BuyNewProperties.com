@@ -33,7 +33,7 @@ const GlobalImgCarousel = () => {
         <div className="container mx-auto mt-8 h-[72vh]">
             <Slider {...settings}>
                 {images.map((img, index) => (
-                    <div key={index} className="slick-slide h-[72vh] ">
+                    <div key={index} className="slick-slide h-[65vh] ">
                         <div className="flex justify-center items-center h-full">
                             <img src={img} alt={`Slide ${index}`} className="object-contain max-h-full max-w-full" />
                         </div>
