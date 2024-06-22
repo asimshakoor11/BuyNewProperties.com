@@ -136,7 +136,7 @@ const SingleDevlopmentpage = () => {
             <section id="Units" className="section bg-white">
                 <div className="">
                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Available Residences</h2>
-                    <div className="overflow-x-auto mt-14 scrollbar-hide">
+                    <div className="overflow-x-auto mt-14 md:scrollbar-hide">
                         <TableRecidencies booking={true} />
                     </div>
                 </div>
