@@ -12,6 +12,7 @@ export default withMT({
     extend: {
       screens: {
         'custommd': {'max': '718px'},
+        'custommdSPDCT': {'min': '760px'},
         'customlg': {'max': '960px'},
         'custommax': {'max': '550px'},
         'custommaxforSDP': {'max': '1200px'},

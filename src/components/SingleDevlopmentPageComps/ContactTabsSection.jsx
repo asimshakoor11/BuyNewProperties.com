@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
-
 import AgentsList from '../../components/SingleDevlopmentPageComps/AgentsList';
-import ContactForm from '../../components/SingleDevlopmentPageComps/ContactForm';
-import DateTimePicker from '../../components/SingleDevlopmentPageComps/DateTimePicker';
-import { faPhone, faVideo, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import RequestATour from './RequestATour';
+import GlobalForm from '../Global/GlobalForm';
 
 
 const ContactTabsSection = () => {
 
     const [selectedTab, setSelectedTab] = useState('contact');
+    const [isSubmit, setIsSubmit] = useState(false)
+
+    const handleStateChange = (value) => {
+        setIsSubmit(value);
+    };
 
     return (
         <section className="section bg-primarycolor">
 
-            <div className="flex  items-center justify-center gap-6 mt-10 mb-10">
+            <div className="flex flex-col  md:flex-row items-center justify-center gap-6 mt-10 mb-10">
                 <button
                     className={`w-[300px] px-8 py-3 border-2 text-base font-semibold rounded-xl border-white ${selectedTab === 'contact' ? 'bg-white text-primarycolor' : 'bg-tranparent text-white'}`}
                     onClick={() => setSelectedTab('contact')}
@@ -44,16 +47,13 @@ const ContactTabsSection = () => {
             </div>
 
             {selectedTab === 'contact' && (
-                <div className="flex flex-col flex-wrap gap-6 md:flex-row w-full">
-                    <div className="bg-white text-black p-6 rounded-lg flex items-center w-full xl:w-[32%]">
-                        <ContactForm />
+                <div className="flex flex-col flex-wrap gap-10 md:flex-row w-full ">
+                    <div className={`text-black rounded-lg flex items-center w-full xl:w-[32%] ${isSubmit ? 'justify-center xl:justify-start' : 'xl:justify-left'}  `}>
+                        <GlobalForm onStateChange={handleStateChange} />
                     </div>
 
-                    <div className=' mt-10 xl:mt-0 w-full xl:w-[65%]'>
+                    <div className=' mt-10 xl:mt-0 w-full xl:w-[63%]'>
                         <AgentsList />
-                        <button type="submit" className="bg-green-500 text-white px-10 py-2 rounded-lg mt-4">
-                            Contact agent
-                        </button>
                     </div>
                 </div>
             )}

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 
-const RequestATour = () => {
+const RequestATour = ({dropdown}) => {
 
     const [view, setView] = useState('list');
     const [startDate] = useState(dayjs());
@@ -192,7 +192,7 @@ const RequestATour = () => {
 
                                         <div className=' text-center mt-8  font-semibold'>
                                             <p>{selectedDate}  at  {selectedOption}</p>
-                                            <button type="submit" className="mt-2 py-2 md:py-3 w-[180px] font-semibold border border-white bg-transparent text-white rounded-lg" onClick={() => { setIsRequested(false) }}>Change</button>
+                                            <button type="submit" className="mt-4 py-2 md:py-3 w-[180px] font-semibold border border-white bg-transparent text-white rounded-lg" onClick={() => { setIsRequested(false) }}>Change</button>
                                         </div>
                                     </div>
 
@@ -204,7 +204,7 @@ const RequestATour = () => {
                         <>
                             <h2 className="text-3xl  text-center font-bold font-BebasNeueSemiExpBold">Schedule a Tour</h2>
 
-                            <div ref={containerRef} className="flex overflow-x-auto  mt-6 scrollbar-hide">
+                            <div ref={containerRef} className="flex overflow-x-auto mt-6 scrollbar-hide">
                                 {days.map((day, index) => (
                                     <div
                                         key={index}
@@ -262,9 +262,9 @@ const RequestATour = () => {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.3 }}
-                                            className={`absolute w-full max-h-[150px] min-h-[150px] overflow-y-scroll scrollbar-hide right-0 py-4 px-2 flex   bg-white border rounded-md mt-2 z-30`}
+                                            className={`absolute w-full flex max-h-[160px] min-h-[160px] overflow-y-scroll scrollbar-hide right-0 py-4 px-2 bg-white border rounded-md mt-2 z-30`}
                                         >
-                                            <div className='flex flex-wrap justify-evenly gap-2 '>
+                                            <div className={`w-full flex ${dropdown ? 'flex-col flex-wrap items-center justify-evenly': 'flex-row flex-wrap items-center justify-evenly'} gap-2 `}>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100 hover:text-black
                                                     ${selectedOption === '9:00 AM' ? 'bg-primarycolor text-white' : ''}`}

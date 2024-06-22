@@ -1,0 +1,30 @@
+/* src/carousel.css */
+
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none; /* Remove outline on focus */
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+  display: none; /* Hide default arrows */
+}
+
+.slick-prev,
+.slick-next {
+  width: auto;
+  height: auto;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: gray;
+}
+
+.slick-dots li.slick-active button:before {
+  color: black;
+}

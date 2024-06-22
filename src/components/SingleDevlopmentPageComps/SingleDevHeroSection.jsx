@@ -2,19 +2,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { faXmark, faPlay, faImage, faLocation, faShare } from '@fortawesome/free-solid-svg-icons';
 
-import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faLinkedin, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LightBox from './LightBox';
+
+import './Styles/HeroSec.css'
 
 
 const SingleDevHeroSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState(false);
-    
-      const closeLightbox = () => {
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+
+    const closeLightbox = () => {
         setIsPopupOpen(false);
-      };
+    };
 
     const images = [
         '/images/homepage/heroimage.png',
@@ -31,121 +34,103 @@ const SingleDevHeroSection = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const dropdownRef = useRef(null);
 
-    const handleClickOutside = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setOpenDropdown(false);
+    useEffect(() => {
+        if (isPopupVisible) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [isPopupVisible]);
+
+
+    const handleScrollDown = () => {
+        window.scrollTo({
+            top: window.scrollY + 10, // Scrolls the document to the bottom
+            behavior: "smooth" // Optional: adds smooth scrolling effect
+        });
+    };
+
+    const [copied, setCopied] = useState(false);
+    const inputRef = useRef(null);
+
+    const copyToClipboard = () => {
+        if (inputRef.current) {
+            inputRef.current.select();
+            document.execCommand('copy');
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
         }
     };
 
-    useEffect(() => {
-        if (openDropdown) {
-            document.addEventListener('click', handleClickOutside);
-        } else {
-            document.removeEventListener('click', handleClickOutside);
+    const handleOutsideClick = (e) => {
+        if (e.target.id === 'popup-container') {
+            setPopupVisible(false);
         }
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [openDropdown]);
+    };
 
-    
+    const handleSubmit = (e) => {
+        setPopupVisible(true);
+        handleScrollDown();
+    };
+
     return (
         <>
-            <section className="h-screen bg-cover bg-center relative">
+            <section className="h-[85vh] md:h-screen bg-cover bg-center relative">
                 {/* style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }} */}
-                <div className="relative w-full h-screen overflow-hidden">
+                <div className="relative w-full h-[85vh] md:h-screen overflow-hidden">
 
                     <img
                         src={images[0]}
                         alt="Slide 1"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 0 ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 0 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
                     />
                     <img
                         src={images[1]}
                         alt="Slide 2"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 1 ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 1 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
                     />
                     <img
                         src={images[2]}
                         alt="Slide 3"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
                     />
                     <div
-                        className="w-full absolute z-20 bottom-0 flex flex-col sm:flex-row justify-start items-start sm:justify-between sm:items-end gap-4 text-white px-[7%] pb-[5%] md:pb-[4%]"
+                        className="w-full absolute z-20 bottom-0 text-white px-[7%] pb-[3%] md:pb-[2%]"
                     >
                         <div className=''>
-                            <h1 className="text-4xl lg:text-6xl font-bold ">Montisnavia</h1>
-                            <p className='mt-2 md:mt-4 text-xl lg:text-2xl'>Santo Antonio, Lisbon</p>
+                            <h1 className="text-4xl md:text-6xl font-bold ">Montisnavia</h1>
+                            <p className='mt-3  text-xl md:text-2xl'>Santo Antonio, Lisbon</p>
+                        </div>
 
+                        <div className='flex flex-col sm:flex-row justify-center items-start sm:justify-between sm:items-end gap-4 mt-4'>
                             <button
-                                className="flex flex-row items-center bg-white text-black px-6 py-2 lg:px-10 lg:py-4 rounded-full shadow mt-2 md:mt-4 " >
+                                className="flex flex-row items-center bg-white text-black px-6 py-2 md:px-10 md:py-4 rounded-full  font-semibold" >
                                 <span> Play</span>
                                 <FontAwesomeIcon icon={faPlay} size='xs' className='ml-2' />
                             </button>
-                        </div>
 
-                        <div className='flex flex-row gap-2 md:gap-3 '>
-                            <button
-                                className="bg-transparent border border-[#FFFFFF3D] text-white px-2 pr-[12px] py-2 md:px-3 md:pr-[14px] md:py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
-                                <img src="/images/icons/image2.png" alt="" className='ml-1 min-h-27 min-w-25' style={{maxWidth: "25px"}} />
-                                {/* <FontAwesomeIcon icon={faLocation} size='lg' className='ml-1' /> */}
-                            </button>
-
-                            <button
-                                className="bg-transparent border border-[#FFFFFF3D] text-white px-2 pr-[12px] py-2 md:px-3 md:pr-[14px] md:py-3 rounded-xl shadow" onClick={() => setIsPopupOpen(true)}>
-                                <FontAwesomeIcon icon={faLocation} size='lg' className='ml-1' />
-                            </button>
-
-                            <div className='relative' ref={dropdownRef}>
+                            <div className='flex flex-row gap-2 md:gap-3 '>
                                 <button
-                                    className="bg-transparent border border-[#FFFFFF3D] text-white px-2 pr-[12px] py-2 md:px-3 md:pr-[14px] md:py-3 rounded-xl shadow"
-                                    onClick={() => { setOpenDropdown(!openDropdown) }}>
+                                    className="h-[52px] w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
+                                    <img src="/images/icons/picture.png" alt="" className='min-h-25 min-w-23' style={{ maxWidth: "23px" }} />
+                                </button>
+
+                                <button
+                                    className="h-[52px] w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
+                                    <img src="/images/icons/marker.png" alt="" className='min-h-25 min-w-23' style={{ maxWidth: "23px" }} />
+                                </button>
+
+                                <button
+                                    className="h-[52px] w-14 flex justify-center items-center  bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl "
+                                    onClick={() => { handleSubmit(); }}>
                                     <FontAwesomeIcon icon={faShare} size='lg' className='ml-1' />
                                 </button>
-                                {
-                                    openDropdown ? (<motion.div
-                                        initial={{ opacity: 0, y: 0 }}
-                                        animate={{ opacity: 1, y: 10 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="absolute right-0 bottom-16 w-[200px] md:w-[280px] bg-white shadow-lg rounded-md py-2 z-50"
-                                    >
-                                        <div
-                                            className="flex flex-col px-4 py-2 gap-4 font-FuturaHeavy cursor-pointer border-black transition-colors text-primarycolor "
-                                            onClick={(e) => e.stopPropagation()}
-                                        >
-                                            <a href="#" className='w-full flex justify-between '>
-                                                <span>
-                                                    facebook
-                                                </span>
-                                                <FontAwesomeIcon icon={faFacebook} size='lg' />
-                                            </a>
-                                            <a href="#" className='w-full flex justify-between  '>
-                                                <span>
-                                                    Twitter
-                                                </span>
-                                                <FontAwesomeIcon icon={faTwitter} size='lg' />
-                                            </a><a href="#" className='w-full flex justify-between  '>
-                                                <span>
-                                                    Instrgram
-                                                </span>
-                                                <FontAwesomeIcon icon={faInstagram} size='lg' />
-                                            </a><a href="#" className='w-full flex justify-between  '>
-                                                <span>
-                                                    LindedIn
-                                                </span>
-                                                <FontAwesomeIcon icon={faLinkedin} size='lg' />
-                                            </a>
-                                        </div>
-                                    </motion.div>) : ""
-                                }
                             </div>
                         </div>
 
-
                     </div>
-                    <div className='absolute bottom-0 z-10 h-[55%] w-full px-10' style={{ background: 'linear-gradient(to bottom, transparent, #000000 60%)' }}></div>
+                    <div className='absolute bottom-0 z-10 h-[45%] w-full px-10' style={{ background: 'linear-gradient(to bottom, transparent, #000000 60%)' }}></div>
                     <div className='absolute -top-16 left-0 right-0 h-[25%]' style={{ background: 'linear-gradient(to top, transparent, #000000 100%)' }}></div>
                     {/* <div className='absolute top-0 left-0 right-0 bottom-0 z-10' style={{ pointerEvents: 'none' }}>
                         <div className='absolute -top-10 left-0 right-0 h-[20%]' style={{ background: 'linear-gradient(to top, transparent, #000000 100%)' }}></div>
@@ -157,8 +142,62 @@ const SingleDevHeroSection = () => {
 
             </section>
 
+            {isPopupOpen && (<LightBox isOpen={isPopupOpen} onClose={closeLightbox} />)}
 
-            {isPopupOpen && ( <LightBox isOpen={isPopupOpen} onClose={closeLightbox}/> ) }
+            {isPopupVisible && (
+                <div id="popup-container" class="fixed inset-0 z-40 bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
+                    onClick={handleOutsideClick}
+                >
+                    <div id="popup-content" class="bg-white rounded-lg w-[300px] md:w-[500px] mx-auto relative"
+                    >
+                        <div className="flex justify-between items-center md:p-3 p-6 mb-8 w-full border-b-2 border-gray-300">
+                            <h2 className="text-xl font-semibold">Share Confidence</h2>
+                            <button className="text-xl font-bold border py-1 px-3 rounded-full text-white bg-gray-800" onClick={() => { setPopupVisible(false); }}>
+                                <FontAwesomeIcon icon={faXmark} size='md' />
+                            </button>
+                        </div>
+                        <div className='px-6 pb-6 md:px-3 md:pb-3 '>
+                            <div className="mb-8">
+                                <input
+                                    type="text"
+                                    readOnly
+                                    className="w-full p-2 border rounded-md bg-gray-100"
+                                    value="https://newbuilds.com/listings/confidence?property=()"
+                                    ref={inputRef}
+                                />
+                            </div>
+                            <div className="mb-8">
+                                <button
+                                    className="w-full py-4 bg-primarycolor font-medium rounded-md text-white flex items-center gap-3 justify-center"
+                                    onClick={copyToClipboard}
+                                >
+                                    <img src="/images/icons/copy.png" alt="" className="h-5" />
+                                    Copy link
+                                </button>
+                                {copied && <p className="text-green-500 mt-2">Copied!</p>}
+                            </div>
+                            <div className="flex flex-col md:flex-row gap-4">
+                                <button className="flex-1 p-2 border border-primarycolor rounded-md flex items-center justify-center ">
+                                    <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-3 ' />
+
+                                    Email
+                                </button>
+                                <button className="flex-1 p-2 border border-primarycolor rounded-md flex items-center justify-center ">
+
+                                    <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-3' />
+                                    Sms
+                                </button>
+                                <button className="flex-1 p-2 border border-primarycolor rounded-md flex items-center justify-center ">
+                                    <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-3' />
+                                    WhatsApp
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            )}
 
 
         </>

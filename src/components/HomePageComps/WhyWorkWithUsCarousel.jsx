@@ -80,6 +80,12 @@ const WhyWorkWithUsCarousel = () => {
         setPopupVisible(false);
     };
 
+    const handleOutsideClick = (e) => {
+        if (e.target.id === 'popup-container') {
+            setPopupVisible(false);
+        }
+    };
+
 
     useEffect(() => {
         if (isPopupVisible) {
@@ -156,8 +162,7 @@ const WhyWorkWithUsCarousel = () => {
 
             {isPopupVisible && (
                 <div id="popup-container" class="fixed inset-0 z-40 bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
-                    onClick={handleClosePopup}
-
+                    onClick={handleOutsideClick}
                 >
                     <div id="popup-content" class="bg-white rounded-lg p-3 md:p-6 md:max-w-lg mx-auto relative">
                         <button className="absolute top-4 right-4 text-xl font-bold border py-1 px-3 rounded-full text-white bg-gray-800" onClick={handleClosePopup}>

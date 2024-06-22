@@ -396,7 +396,7 @@ const Navbar = () => {
                                 </div>
 
                                 <div className="flex flex-row flex-wrap gap-10 xl:gap-20 mt-5 lg:mt-0">
-                                    <div className="flex flex-col space-y-4 text-primarycolor text-xl lg:text-2xl">
+                                    <div className="flex flex-col space-y-4 text-primarycolor text-[1.6rem] lg:text-2xl">
                                         <Link to={"/"} className='font-bold' >
                                             <span className='hover-underline-animationbm'>Home</span>
                                         </Link>
