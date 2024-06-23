@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
 
-import { faArrowUpRightFromSquare, faChevronDown, faChevronRight, faSort } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faSort } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Carousel } from "@material-tailwind/react";
 
-import { motion } from 'framer-motion';
-import ContactTabsSection from './ContactTabsSection';
-
-import MortageCalculator from '../Global/MortageCalculator';
-import Map from '../Global/Map';
-import ProFeaturesAmenities from '../Global/ProFeaturesAmenities';
 import PopupSingleDevPage from './PopupSingleDevPage';
+
 
 const TableRecidencies = ({ booking }) => {
 
@@ -182,7 +176,7 @@ const TableRecidencies = ({ booking }) => {
     return (
 
         <>
-            <table className="min-w-full">
+            <table className="min-w-full mr-0 custommaxforSDP:mr-10">
                 <thead className='text-md text-black font-bold'>
                     <tr className="w-full border-b-2 border-black">
                         {columns.map((col, index) => (
@@ -191,7 +185,7 @@ const TableRecidencies = ({ booking }) => {
                                 className="py-2 px-4 text-center cursor-pointer"
                                 onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
-                                <div className={`w-max  ${index===0 ? '': 'mx-auto'}`}>
+                                <div className={`w-max  ${index === 0 ? '' : 'mx-auto'}`}>
                                     <span>{col.label}</span>
                                     <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
                                 </div>
@@ -204,10 +198,10 @@ const TableRecidencies = ({ booking }) => {
                 </thead>
                 <tbody className='text-md text-primarycolor font-FuturaDemi'>
                     {sortedData.map((row, index) => (
-                        <tr key={index} className={`border-b border-gray-300 cursor-pointer hover:bg-[#fcfeff] row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-[#f8f9fa]'}`} 
-                        onClick={() => { setIsPopupOpen(true) }}
-                        onMouseEnter={()=>{setIsRowHovered(true)}}
-                        onMouseLeave={()=>{setIsRowHovered(false)}}                        
+                        <tr key={index} className={`border-b border-gray-300 cursor-pointer hover:bg-[#fcfeff] row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-[#f8f9fa]'}`}
+                            onClick={() => { setIsPopupOpen(true) }}
+                            onMouseEnter={() => { setIsRowHovered(true) }}
+                            onMouseLeave={() => { setIsRowHovered(false) }}
                         >
                             <td className="py-2 px-4 text-center">{row.ref}</td>
                             <td className="py-2 px-4 text-center">{row.propertyType}</td>
@@ -225,9 +219,9 @@ const TableRecidencies = ({ booking }) => {
                             </td>
                             <td className="py-2 px-4 text-center">
                                 {(
-                                    booking ? (<button className="bg-primarycolor text-sm text-white px-4 py-2 rounded">
+                                    booking ? (<button className="bg-primarycolor w-max text-sm text-white px-4 py-2 rounded">
                                         Book Now
-                                    </button>) : (<button className="bg-transparent text-primarycolor px-4 py-2 rounded">
+                                    </button>) : (<button className="bg-transparent  text-primarycolor px-4 py-2 rounded">
                                         -
                                     </button>)
 
@@ -236,7 +230,7 @@ const TableRecidencies = ({ booking }) => {
                             </td>
                             <td className="py-2 px-4 text-center">
                                 <button className="bg-transparent icon-slide">
-                                    <FontAwesomeIcon icon={faChevronRight} size='sm'/>
+                                    <FontAwesomeIcon icon={faChevronRight} size='sm' />
                                 </button>
                             </td>
                         </tr>
@@ -249,9 +243,6 @@ const TableRecidencies = ({ booking }) => {
             )}
 
         </>
-
-
-
     )
 }
 

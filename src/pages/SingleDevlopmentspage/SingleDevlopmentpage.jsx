@@ -66,7 +66,7 @@ const SingleDevlopmentpage = () => {
         }
     }, [showPopup]);
 
-   
+
 
     return (
         <>
@@ -97,7 +97,7 @@ const SingleDevlopmentpage = () => {
                                     <p className="text-lg text-Black font-semibold text-right">Beds</p>
                                 </div>
                             </div>
-                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border border-[#D3D3D3]">
+                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border border-[#D3D3D3] ">
                                 <img src="/images/icons/bath.png" className='ml-2' alt="" />
 
                                 <div className='flex flex-col gap-1'>
@@ -105,7 +105,7 @@ const SingleDevlopmentpage = () => {
                                     <p className="text-lg text-Black font-semibold text-right">Baths</p>
                                 </div>
                             </div>
-                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border-t  border-b border-r  border-[#D3D3D3] rounded-tr-3xl rounded-br-3xl">
+                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border-t  border-b border-r  border-[#D3D3D3] rounded-tr-3xl rounded-br-3xl mr-0 custommaxforSDP:mr-14">
                                 <img src="/images/icons/home.png" className='ml-2' alt="" />
 
                                 <div className='flex flex-col gap-1'>
@@ -122,9 +122,9 @@ const SingleDevlopmentpage = () => {
             {/* <section>
                 <PropertyDescription />
             </section> */}
-            
+
             <section id='features'>
-                <PropertyDetails/>
+                <PropertyDetails />
             </section>
 
             <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
@@ -136,8 +136,12 @@ const SingleDevlopmentpage = () => {
             <section id="Units" className="section bg-white">
                 <div className="">
                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Available Residences</h2>
-                    <div className="overflow-x-auto mt-14 md:scrollbar-hide">
-                        <TableRecidencies booking={true} />
+                    <div className='relative'>
+                        <div className="overflow-x-auto mt-14 md:scrollbar-hide">
+                            <TableRecidencies booking={true} />
+                        </div>
+
+                        <div className='hidden custommaxforSDPTable:block fade-right'></div>
                     </div>
                 </div>
             </section>
@@ -145,21 +149,24 @@ const SingleDevlopmentpage = () => {
             <section className="section bg-white">
                 <div className="">
                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Sold or Rented Residences</h2>
-                    <div className="overflow-x-auto mt-14 md:scrollbar-hide">
-                        <TableRecidencies booking={false} />
+                    <div className='relative'>
+                        <div className="overflow-x-auto mt-14 md:scrollbar-hide">
+                            <TableRecidencies booking={false} />
+                        </div>
+                        <div className='hidden custommaxforSDPTable:block fade-right'></div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* <section id='lifestyle'>
                 <TabSection />
             </section> */}
 
-            <section id='videoplay' className='section bg-white rounded-xl'>
+            <section section id='videoplay' className='section bg-white rounded-xl' >
                 <div className='section bg-cover bg-center h-[350px] md:h-[600px] flex items-center justify-center relative rounded-xl' style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundRepeat: "no-repeat" }}>
                     <div className='absolute inset-0 bg-black opacity-50 z-10 rounded-xl'></div>
                     <div className='relative z-20 p-8 flex flex-col items-center gap-3 text-white'>
-                        <p className='font-regular text-medium uppercase'>Play the video</p>
+                        <p className='font-regular text-medium '>Play The Video</p>
                         <div className='w-full h-20 flex items-center justify-center'>
                             <button className={`border border-[#A5A5A5] hover:border-bggray rounded-full ${isHoverPlay ? ' w-16 h-16' : ' w-14 h-14'}  flex items-center justify-center transition-all duration-300`}
                                 onClick={handlePlayButtonClick}
@@ -173,7 +180,7 @@ const SingleDevlopmentpage = () => {
                     </div>
                 </div>
                 {showPopup && <VideoPopup id="popup-container" videoUrl='https://www.youtube.com/embed/dQw4w9WgXcQ' onClose={handleClosePopup} />}
-            </section>
+            </section >
 
             <section id='neighborhood' className='section bg-cover bg-center h-screen flex items-end relative' style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50 z-10'></div>

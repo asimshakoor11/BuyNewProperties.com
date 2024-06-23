@@ -25,7 +25,7 @@ const PropertyDetails = () => {
                             <div className="user-content lp-a pr-0 xl:pr-20">
 
                                 <div className="">
-                                    <h2 className="text-3xl mb-10 md:text-5xl text-primarycolor dark:text-zinc-200 font-BebasNeueSemiExpBold">
+                                    <h2 className="text-4xl mb-10 md:text-5xl text-primarycolor dark:text-zinc-200 font-BebasNeueSemiExpBold">
                                         Description</h2>
                                     <p className="mt-4 text-lg text-black">
                                         Welcome to an extraordinary new construction contemporary home in the highly sought-after Bridgehampton, NY. This stunning property is perfectly designed for those seeking the ultimate oceanfront living experience. With 125' of ocean frontage and sprawling over 1.5 acres on Surfside Drive, this property offers an unparalleled level of luxury and sophistication. The 8,600 SF+/- residence features 8 bedrooms, 8 full and 1 half bathrooms, a heated gunite pool and spa, and breathtaking ocean views.
@@ -132,7 +132,7 @@ const PropertyDetails = () => {
                                 </div>
 
                                 <div className="mt-16">
-                                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Construction Status</h2>
+                                    <h2 className="font-BebasNeueSemiExpBold text-3xl md:text-5xl text-primarycolor text-left ">Construction Status</h2>
                                     <div className="mt-10 bg-white py-4 px-4 rounded-lg border border-primarycolor mb-6">
 
                                         <div class="building-block box ">

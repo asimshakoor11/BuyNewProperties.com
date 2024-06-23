@@ -4,6 +4,8 @@ import { Carousel } from "@material-tailwind/react";
 import { faXmark, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GlobalImgCarousel from '../Global/GlobalImgCarousel';
+import { motion } from 'framer-motion';
+
 
 const LightBox = ({ isOpen, onClose }) => {
     if (!isOpen) return null;

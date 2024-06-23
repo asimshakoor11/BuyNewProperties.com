@@ -151,7 +151,7 @@ const SingleDevHeroSection = () => {
                     <div id="popup-content" class="bg-white rounded-lg w-[300px] md:w-[500px] mx-auto relative"
                     >
                         <div className="flex justify-between items-center md:p-3 p-6 mb-8 w-full border-b-2 border-gray-300">
-                            <h2 className="text-xl font-semibold">Share Confidence</h2>
+                            <h2 className="text-xl font-semibold">Share Development</h2>
                             <button className="text-xl font-bold border py-1 px-3 rounded-full text-white bg-gray-800" onClick={() => { setPopupVisible(false); }}>
                                 <FontAwesomeIcon icon={faXmark} size='md' />
                             </button>

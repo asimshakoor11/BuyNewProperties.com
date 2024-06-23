@@ -262,9 +262,9 @@ const RequestATour = ({dropdown}) => {
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.3 }}
-                                            className={`absolute w-full flex max-h-[160px] min-h-[160px] overflow-y-scroll scrollbar-hide right-0 py-4 px-2 bg-white border rounded-md mt-2 z-30`}
+                                            className={`absolute w-full flex ${dropdown ? ' max-h-[160px] min-h-[160px] ' : ' max-h-[160px] ' } overflow-y-scroll scrollbar-hide right-0 py-4 px-2 bg-white border rounded-md mt-2 z-30`}
                                         >
-                                            <div className={`w-full flex ${dropdown ? 'flex-col flex-wrap items-center justify-evenly': 'flex-row flex-wrap items-center justify-evenly'} gap-2 `}>
+                                            <div className={`w-full flex flex-row flex-wrap justify-evenly gap-2 `}>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100 hover:text-black
                                                     ${selectedOption === '9:00 AM' ? 'bg-primarycolor text-white' : ''}`}
