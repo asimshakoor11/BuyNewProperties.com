@@ -292,7 +292,6 @@ const Navbar = () => {
 
             {isPopupOpenBM && (
                 <div
-                    // fixed inset-0 z-50  p-4 md:p-0   flex justify-center items-center 
                     className="fixed h-screen w-full inset-0  bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll  z-[1000]"
                 >
                     <div className="min-h-screen bg-zinc-100 p-6  z-[1001]">

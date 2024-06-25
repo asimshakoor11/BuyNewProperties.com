@@ -30,7 +30,9 @@ export default withMT({
         'secondrycolor': "#008726",
         'fontlight': "#2A2A2A",
         'fontdark': "#828282",
-        'dangercolor': "#C60000" 
+        'dangercolor': "#C60000",
+        'grayborder' : '#ACACAC',
+        'bgf5' : '#F5F5F5'
       },
     },
   },

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DevelopmentsSearchSec from '../../components/DevelopmentsSearchPageComps/DevelopmentsSearchSec';
 import DevelopmentLocations from '../../components/Global/DevlopmentLocations';
 import LuxuryDevelopments from '../../components/HomePageComps/LuxuryDevelopments';
+import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsCarousel';
 
 
 const DevelopmentsSearchpage = () => {
@@ -14,10 +15,10 @@ const DevelopmentsSearchpage = () => {
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
-                    <h1 className="text-4xl md:text-6xl font-bold font-FuturaHeavy">Find Your New <br /> Property</h1>
+                    <h1 className="text-4xl md:text-6xl  font-BebasNeueSemiExpBold">Find Your New <br /> Property</h1>
 
                     <button
-                        className="flex items-center justify-between font-FuturaHeavy mx-auto mt-8 bg-primarycolor text-white px-4 py-3 rounded-xl shadow">
+                        className="flex items-center justify-between font-semibold mx-auto mt-8 bg-primarycolor text-white px-4 py-3 rounded-xl">
 
                         <span> Explore New Developemnts</span>
                         <FontAwesomeIcon icon={faChevronDown} size='sm' className='ml-6' />
@@ -35,13 +36,12 @@ const DevelopmentsSearchpage = () => {
 
             <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Luxury Developments</h2>
-
                 <LuxuryDevelopments />
             </section>
 
 
 
-            <section className="section text-center ">
+            <section className="section text-center bg-white">
                 <p className="text-fontdark italic uppercase tracking-wide mb-4">
                     Our Success Stories
                 </p>
@@ -58,6 +58,12 @@ const DevelopmentsSearchpage = () => {
                     <FontAwesomeIcon icon={faChevronRight} size='sm' className='ml-6' />
                 </button>
             </section>
+
+            <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
+                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
+
+                    <WhyWorkWithUsCarousel />
+                </section>
 
 
             <section>

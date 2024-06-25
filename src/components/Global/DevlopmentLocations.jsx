@@ -32,13 +32,13 @@ const DevelopmentLocations = () => {
     };
 
     const handleMouseEnter = (buttonName) => {
-        clearTimeout(updateTimeoutRef.current);
+        // clearTimeout(updateTimeoutRef.current);
         hoveredButtonRef.current = buttonName;
-        updateTimeoutRef.current = setTimeout(() => {
-            if (hoveredButtonRef.current === buttonName) {
-                setBackgroundImage(getBackgroundImage(buttonName));
-            }
-        }, 100);
+        // updateTimeoutRef.current = setTimeout(() => {
+        if (hoveredButtonRef.current === buttonName) {
+            setBackgroundImage(getBackgroundImage(buttonName));
+        }
+        // }, 100);
     };
 
     const handleMouseLeave = (buttonName) => {

@@ -1,0 +1,58 @@
+.multi-range-slider  .bar {
+    height: 4px;
+    margin-top: 3px;
+}
+
+.multi-range-slider .bar-inner {
+    height: 4px;
+    margin-top: 3px;
+}
+
+.multi-range-slider .bar-right{
+    height: 4px;
+    margin-top: 3px;
+    background-color: #D8D8D8;
+    box-shadow: inset 0px 0px 0px 5px #D8D8D8;
+}
+
+.multi-range-slider .bar-left{
+    height: 4px !important;
+    margin-top: 3px;
+    background: #D8D8D8;
+    box-shadow: inset 0px 0px 0px 5px #D8D8D8;
+    padding: 0;
+}
+
+.multi-range-slider .thumb::before {
+    content: '';
+    background-color: inherit;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: solid 4px black;
+    box-shadow: none;
+    border-radius: 50%;
+    z-index: 1;
+    margin: -8px -12px;
+    cursor: pointer;
+}
+
+.custom-slider {
+    position: relative;
+}
+
+.custom-slider::after {
+    content: '';
+    background-color: inherit;
+    position: absolute;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border: solid 4px black;
+    box-shadow: none;
+    border-radius: 50%;
+    margin: -5px -12px;
+    cursor: pointer;
+    pointer-events: none;
+    background-color: white;
+}

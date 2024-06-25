@@ -361,6 +361,33 @@ body {
 }
 
 
+/* Hide the default arrows */
+.scrollbar-custom::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Customize the scrollbar track */
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Customize the scrollbar handle */
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #D8D8D8;
+  border-radius: 10px;
+}
+
+/* Customize the scrollbar handle on hover */
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: rgb(177, 177, 177);
+}
+
+/* Set the minimum width of the scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; /* for horizontal scrollbar */
+}
+
 
 
 
