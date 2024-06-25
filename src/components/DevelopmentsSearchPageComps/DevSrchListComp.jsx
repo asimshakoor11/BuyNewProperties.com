@@ -71,21 +71,21 @@ const DevSrchPagination = () => {
                 </div>
 
                 {/* Pagination Controls */}
-                <ul className="flex flex-row items-center list-none mt-4">
+                <ul className="flex flex-row items-center gap-2 list-none mt-4">
                     <li>
                         <button
                             onClick={prevPage}
                             disabled={currentPage === 1}
-                            className="px-2 py-1 border-2 mr-2 border-primarycolor rounded-l bg-transparent disabled:opacity-50"
+                            className="py-2 lg:py-3 px-3 border border-black rounded-lg bg-transparent disabled:opacity-50"
                         >
-                            <FontAwesomeIcon icon={faChevronLeft} size='md' />
+                            <FontAwesomeIcon icon={faChevronLeft} />
                         </button>
                     </li>
                     {Array.from({ length: totalPages }).map((_, index) => (
                         <li key={index}>
                             <button
                                 onClick={() => paginate(index + 1)}
-                                className={`px-3 py-1 ${currentPage === index + 1 ? 'bg-primarycolor text-white' : 'bg-transparent'}`}
+                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor text-white' : 'bg-transparent'}`}
                             >
                                 {index + 1}
                             </button>
@@ -95,9 +95,9 @@ const DevSrchPagination = () => {
                         <button
                             onClick={nextPage}
                             disabled={currentPage === totalPages}
-                            className="px-2 py-1 border-2 ml-2 border-primarycolor rounded-l bg-transparent disabled:opacity-50"
+                            className="py-2 lg:py-3 px-3 border border-black rounded-lg bg-transparent disabled:opacity-50"
                         >
-                            <FontAwesomeIcon icon={faChevronRight} size='md' />
+                            <FontAwesomeIcon icon={faChevronRight} />
                         </button>
                     </li>
                 </ul>

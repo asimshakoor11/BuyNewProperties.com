@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +10,10 @@ import DevSrchMapComp from './DevSrchMapComp';
 import './Styles/DevSearchSec.css'
 import { Checkbox } from "@material-tailwind/react";
 import ReactSlider from 'react-slider';
+import LocationDropdown from './DropdownComps/LocationDropdown';
+import PropertyTypeDropdown from './DropdownComps/PropertyTypeDropdown';
+import BuildingStageDropdown from './DropdownComps/BuildingStageDropdown';
+import DeliveryDateDropdown from './DropdownComps/DeliveryDateDropdown';
 
 const titles = ['Location', 'Property Type', 'Building Stage', 'Delivery Date'];
 const dropdownItems = [
@@ -29,7 +35,7 @@ const dropdownItems = [
             subitems: ['Jewellery Quarter', 'Digbeth']
         }
     ],
-    ['All', 'House', 'Townhouse', 'Apartment', 'Commercial'],
+    ['House', 'Townhouse', 'Apartment', 'Commercial'],
     [],
     []
 ];
@@ -57,105 +63,6 @@ const DevelopmentsSearchSec = () => {
         setBudget({ minValue: Math.round(e.minValue / 50000) * 50000, maxValue: Math.round(e.maxValue / 50000) * 50000 });
     };
     // sliders 
-
-    // dropdown sliders 
-    const [buildingStage, setBuildingStage] = useState({ minValue: 0, maxValue: 2 });
-    const handleBuildingStage = (e) => {
-        setBuildingStage({ minValue: e.minValue, maxValue: e.maxValue });
-    };
-
-    const [deliveryDate, setDeliveryDate] = useState({ minValue: 0, maxValue: 4 });
-    const handleDeliverydate = (e) => {
-        setDeliveryDate({ minValue: e.minValue, maxValue: e.maxValue });
-    };
-
-
-
-    // dropdowns 
-
-
-    const [openDropdown, setOpenDropdown] = useState(null);
-    const [searchValue, setSearchValue] = useState('');
-    const [checkedItems, setCheckedItems] = useState({});
-
-    const dropdownRefs = useRef([]);
-
-    const toggleDropdown = (index) => {
-        setOpenDropdown(openDropdown === index ? null : index);
-    };
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRefs.current.every(ref => ref && !ref.contains(event.target))) {
-                setOpenDropdown(null);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [openDropdown]);
-
-    const handleCheck = (categoryIndex, itemIndex = null) => {
-        setCheckedItems((prevState) => {
-            const updatedState = { ...prevState };
-
-            if (itemIndex === 0) {
-                // Toggle "All" checkbox
-                const allChecked = dropdownItems[categoryIndex].slice(1).every((_, idx) => updatedState[`${categoryIndex}-${idx + 1}`]);
-                dropdownItems[categoryIndex].slice(1).forEach((_, idx) => {
-                    updatedState[`${categoryIndex}-${idx + 1}`] = !allChecked;
-                });
-                updatedState[`${categoryIndex}-0`] = !allChecked;
-            } else {
-                // Toggle individual checkbox
-                updatedState[`${categoryIndex}-${itemIndex}`] = !updatedState[`${categoryIndex}-${itemIndex}`];
-                const allItemsChecked = dropdownItems[categoryIndex].slice(1).every((_, idx) => updatedState[`${categoryIndex}-${idx + 1}`]);
-                updatedState[`${categoryIndex}-0`] = allItemsChecked;
-            }
-
-            return updatedState;
-        });
-    };
-
-    const handleLocationCheck = (locationIndex, sublocationIndex = null) => {
-        setCheckedItems((prevState) => {
-            const updatedState = { ...prevState };
-
-            if (sublocationIndex === null) {
-                // Toggle country checkbox
-                const allChecked = dropdownItems[0][locationIndex].subitems.every((_, idx) => updatedState[`${locationIndex}-${idx}`]);
-                dropdownItems[0][locationIndex].subitems.forEach((_, idx) => {
-                    updatedState[`${locationIndex}-${idx}`] = !allChecked;
-                });
-                updatedState[`${locationIndex}`] = !allChecked;
-            } else {
-                // Toggle city checkbox
-                updatedState[`${locationIndex}-${sublocationIndex}`] = !updatedState[`${locationIndex}-${sublocationIndex}`];
-                const allSubitemsChecked = dropdownItems[0][locationIndex].subitems.every((_, idx) => updatedState[`${locationIndex}-${idx}`]);
-                updatedState[`${locationIndex}`] = allSubitemsChecked;
-            }
-
-            return updatedState;
-        });
-    };
-
-
-    const filteredLocations = dropdownItems[0].filter(location => {
-        const subitemsMatch = location.subitems.some(subitem => subitem.toLowerCase().includes(searchValue.toLowerCase()));
-        const locationMatch = location.label.toLowerCase().includes(searchValue.toLowerCase());
-        return locationMatch || subitemsMatch;
-    }).map(location => {
-        const filteredSubitems = location.subitems.filter(subitem => subitem.toLowerCase().includes(searchValue.toLowerCase()));
-        return {
-            ...location,
-            subitems: filteredSubitems
-        };
-    });
-
-    // dropdowns 
 
     // list / map 
 
@@ -291,7 +198,7 @@ const DevelopmentsSearchSec = () => {
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mt-10">
                     <div>
                         <h2 className="text-4xl md:text-5xl font-BebasNeueSemiExpBold text-primarycolor text-left">New Developments In Lisbon Area</h2>
-                        <p className="text-fontdark text-lg">160 available units found in 15 new developments.</p>
+                        <p className="text-fontdark text-lg mt-2">160 available units found in 15 new developments.</p>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div className="flex border border-black rounded-lg overflow-hidden">
@@ -310,11 +217,11 @@ const DevelopmentsSearchSec = () => {
                         </div>
                         <div className="relative">
                             <button
-                                className={`bg-transparent text-black w-full border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-6 `}
+                                className={`bg-transparent text-black w-full border border-black px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-6 `}
                                 onClick={() => setIsDropdownOpenFilter(true)}
                             >
                                 <span>Filters</span>
-                                <img src="/images/icons/settings-sliders.png" alt="" className='h-4' />
+                                <img src="/images/icons/settings-sliders.png" alt="" className='h-6' />
                             </button>
                         </div>
                     </div>
@@ -351,200 +258,10 @@ const DevelopmentsSearchSec = () => {
                                     <div className='bg-white w-full p-[11%] md:p-[6%] md:pb-[12%] flex flex-col text-black rounded-tr-lg rounded-tl-lg z-30'>
                                         <div className=''>
                                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                                {titles.map((title, index) => (
-                                                    <div key={index} className="relative" ref={(el) => (dropdownRefs.current[index] = el)}>
-                                                        <button
-                                                            className="bg-transparent w-full border font-medium border-grayborder px-4 py-2 md:py-3 rounded-lg "
-                                                            onClick={() => toggleDropdown(index)}
-                                                        >
-                                                            <div className='flex flex-row justify-between items-center gap-2'>
-                                                                <span className=''>{title}</span>
-                                                                <FontAwesomeIcon
-                                                                    icon={faChevronDown}
-                                                                    size='xs'
-                                                                    style={{
-                                                                        transition: 'transform 0.3s',
-                                                                        transform: openDropdown === index ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                                    }}
-                                                                />
-                                                            </div>
-                                                            <div>
-                                                                <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
-                                                                    Selected option
-                                                                </p>
-                                                            </div>
-
-                                                        </button>
-                                                        {openDropdown === index && (
-                                                            <motion.div
-                                                                initial={{ opacity: 0, y: 10 }}
-                                                                animate={{ opacity: 1, y: 0 }}
-                                                                transition={{ duration: 0.3 }}
-                                                                className={`absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom  ${ (index === 2 || index === 3) ? 'w-[420px]' : 'w-full'} font-medium bg-white border rounded-md py-2 z-50`}
-                                                            >
-                                                                {index === 0 ? (
-                                                                    <div className="flex flex-col px-4 py-2">
-                                                                        <div className='p-2 px-4 flex items-center justify-between rounded-lg border-none bg-bggray '>
-                                                                            <input
-                                                                                type="text"
-                                                                                placeholder="Search"
-                                                                                className=" outline-none rounded-lg border-none bg-bggray "
-                                                                                value={searchValue}
-                                                                                onChange={(e) => setSearchValue(e.target.value)}
-                                                                            />
-                                                                            <FontAwesomeIcon icon={faXmark} size='sm' onClick={() => { setSearchValue('') }} />
-                                                                        </div>
-
-                                                                        {filteredLocations.length === 0 ? (
-                                                                            <div className="flex flex-col items-center py-4">
-                                                                                <span className="text-gray-500">No results found</span>
-                                                                            </div>
-                                                                        ) : (
-                                                                            filteredLocations.map((item, itemIndex) => (
-                                                                                <div key={itemIndex}>
-                                                                                    <div
-                                                                                        className="flex flex-row gap-2 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                                        onClick={(e) => e.stopPropagation()}
-                                                                                    >
-                                                                                        <Checkbox
-                                                                                            color="black"
-                                                                                            className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                                            containerProps={{ className: "p-0 rounded-none" }}
-                                                                                            id={`checkbox${itemIndex}`}
-                                                                                            checked={checkedItems[`${itemIndex}`] || false}
-                                                                                            onChange={() => handleLocationCheck(itemIndex)}
-                                                                                        />
-                                                                                        <label htmlFor={`checkbox${itemIndex}`} className='w-full cursor-pointer text-start'>{item.label}</label>
-                                                                                    </div>
-                                                                                    {item.subitems.map((subitem, subindex) => (
-                                                                                        <div
-                                                                                            key={subindex}
-                                                                                            className="flex flex-row gap-2 ml-4 px-4 py-1 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                                            onClick={(e) => e.stopPropagation()}
-                                                                                        >
-                                                                                            <Checkbox
-                                                                                                color="black"
-                                                                                                className="h-4 w-[17px] bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                                                containerProps={{ className: "p-0 rounded-none" }}
-                                                                                                id={`checkbox${itemIndex}-${subindex}`}
-                                                                                                checked={checkedItems[`${itemIndex}-${subindex}`] || false}
-                                                                                                onChange={() => handleLocationCheck(itemIndex, subindex)}
-                                                                                            />
-                                                                                            <label htmlFor={`checkbox${itemIndex}-${subindex}`} className='w-full cursor-pointer text-start'>{subitem}</label>
-                                                                                        </div>
-                                                                                    ))}
-                                                                                </div>
-                                                                            ))
-                                                                        )}
-                                                                    </div>
-                                                                ) : index === 1 ? (
-                                                                    <div className="flex flex-col px-4 py-2">
-                                                                        {dropdownItems[index].map((item, itemIndex) => (
-                                                                            <div key={itemIndex}>
-                                                                                <div
-                                                                                    className="flex flex-row gap-2 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                                    onClick={(e) => e.stopPropagation()}
-                                                                                >
-                                                                                    <Checkbox
-                                                                                        color="black"
-                                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                                        id={`checkbox${index}-${itemIndex}`}
-                                                                                        checked={checkedItems[`${index}-${itemIndex}`] || false}
-                                                                                        onChange={() => handleCheck(index, itemIndex)}
-                                                                                    />
-                                                                                    <label htmlFor={`checkbox${index}-${itemIndex}`} className='w-full cursor-pointer text-start'>{item}</label>
-                                                                                </div>
-                                                                            </div>
-                                                                        ))}
-                                                                    </div>
-
-                                                                ) : index === 2 ? (
-                                                                    <div className="flex flex-col gap-4 px-4 py-2">
-                                                                        <div className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
-                                                                            <MultiRangeSlider
-                                                                                min={0}
-                                                                                max={2}
-                                                                                step={1}
-                                                                                ruler={false}
-                                                                                label={false}
-                                                                                stepOnly={true}
-                                                                                minValue={buildingStage.minValue}
-                                                                                maxValue={buildingStage.maxValue}
-                                                                                canMinMaxValueSame={true}
-                                                                                onInput={handleBuildingStage}
-                                                                                className="w-full custom-slider"
-                                                                                style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}
-                                                                                barLeftColor='transparent'
-                                                                                barInnerColor='black'
-                                                                                barRightColor='transparent'
-                                                                                thumbLeftColor='white'
-                                                                                thumbRightColor='white'
-                                                                            />
-
-                                                                            <div className="flex justify-between px-2 text-sm">
-                                                                                <span>Pre Sale</span>
-                                                                                <span className=" max-w-20 text-center ml-4">Under Construction</span>
-                                                                                <span>Completed</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className='flex justify-between items-center gap-4'>
-                                                                            <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[88px]'>
-                                                                                <p className='text-sm text-fontdark font-semibold'>From</p>
-                                                                                <p className='text-base font-semibold'>{buildingStage.minValue === 0 && "PreSale"} {buildingStage.minValue === 1 && "Under Construction"} {buildingStage.minValue === 2 && "Completed"}</p>
-                                                                            </div>
-                                                                            <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[99px]'>
-                                                                                <p className='text-sm text-fontdark font-semibold'>To</p>
-                                                                                <p className='text-base font-semibold'>{buildingStage.maxValue === 2 && "Completed"} {buildingStage.maxValue === 1 && "Under Construction"} {buildingStage.maxValue === 0 && "PreSale"}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        {/* Add more custom elements here */}
-                                                                    </div>
-                                                                ) : index === 3 ? (
-                                                                    <div className="flex flex-col gap-4 px-4 py-2">
-                                                                        <div className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
-                                                                            <MultiRangeSlider
-                                                                                min={0}
-                                                                                max={4}
-                                                                                step={1}
-                                                                                ruler={false}
-                                                                                label={false}
-                                                                                stepOnly={true}
-                                                                                minValue={deliveryDate.minValue}
-                                                                                maxValue={deliveryDate.maxValue}
-                                                                                canMinMaxValueSame={true}
-                                                                                onInput={handleDeliverydate}
-                                                                                className="w-full"
-                                                                                style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}
-                                                                                barLeftColor='transparent'
-                                                                                barInnerColor='black'
-                                                                                barRightColor='transparent'
-                                                                                thumbLeftColor='white'
-                                                                                thumbRightColor='white'
-                                                                            />
-
-                                                                            <div className="flex justify-between px-2 text-sm">
-                                                                                <span>Q2 2024</span>
-                                                                                <span>Q2 2028</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className='flex justify-between items-center gap-4'>
-                                                                            <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[88px]'>
-                                                                                <p className='text-sm text-fontdark font-semibold'>From</p>
-                                                                                <p className='text-base font-semibold'>{deliveryDate.minValue === 0 && "Q2 2024"} {deliveryDate.minValue === 1 && "Q2 2025"} {deliveryDate.minValue === 2 && "Q2 2026"} {deliveryDate.minValue === 3 && "Q2 2027"} {deliveryDate.minValue === 4 && "Q2 2028"}</p>
-                                                                            </div>
-                                                                            <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[99px]'>
-                                                                                <p className='text-sm text-fontdark font-semibold'>To</p>
-                                                                                <p className='text-base font-semibold'>{deliveryDate.maxValue === 0 && "Q2 2024"} {deliveryDate.maxValue === 1 && "Q2 2025"} {deliveryDate.maxValue === 2 && "Q2 2026"} {deliveryDate.maxValue === 3 && "Q2 2027"} {deliveryDate.maxValue === 4 && "Q2 2028"}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        {/* Add more custom elements here */}
-                                                                    </div>
-                                                                ) : null}
-                                                            </motion.div>
-                                                        )}
-                                                    </div>
-                                                ))}
+                                                <LocationDropdown title={titles[0]} dropdownItems={dropdownItems[0]} />
+                                                <PropertyTypeDropdown title={titles[1]} dropdownItems={dropdownItems[1]} />
+                                                <BuildingStageDropdown title={titles[2]} dropdownItems={dropdownItems[2]} />
+                                                <DeliveryDateDropdown title={titles[3]} dropdownItems={dropdownItems[3]} />
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12 mt-4 md:mt-10">

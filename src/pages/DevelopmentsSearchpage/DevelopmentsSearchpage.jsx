@@ -42,28 +42,25 @@ const DevelopmentsSearchpage = () => {
 
 
             <section className="section text-center bg-white">
-                <p className="text-fontdark italic uppercase tracking-wide mb-4">
-                    Our Success Stories
-                </p>
-                <h2 className=" text-3xl md:text-5xl font-FuturaHeavy text-primarycolor mb-6">
+                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-center">
                     Sold Developments
                 </h2>
-                <p className="text-[#2A2A2A] mb-8 max-w-md mx-auto">
+                <p className="text-[#2A2A2A] my-8 max-w-md mx-auto">
                     With our expert team and extensive network, you are in the best hands to achieve swift and
                     successful sales.
                 </p>
                 <button
                     className="flex items-center mx-auto bg-primarycolor text-white px-6 py-3 rounded-lg shadow">
-                    <span> View our sales</span>
+                    <span> View Our Sales</span>
                     <FontAwesomeIcon icon={faChevronRight} size='sm' className='ml-6' />
                 </button>
-            </section>
+            </section >
 
             <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
-                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
+                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
 
-                    <WhyWorkWithUsCarousel />
-                </section>
+                <WhyWorkWithUsCarousel />
+            </section>
 
 
             <section>
