@@ -161,7 +161,22 @@ const DevelopmentsSearchSec = () => {
 
     const [view, setView] = useState('list');
     const [isPurchaseAggrement, setIsPurchaseAggrement] = useState(false);
+    const [selectedOptionsPA, setSelectedOptionsPA] = useState([]);
     const dropdownRefPA = useRef(null);
+
+    const optionsPA = [
+        { id: 'checkbox1', label: 'Ready to sign', sublabel: 'safest delivery estimates' },
+        { id: 'checkbox2', label: 'Est. less than 6 months', sublabel: 'some uncertainty on delivery time estimates' },
+        { id: 'checkbox3', label: 'Est. more than 6 months', sublabel: 'high uncertainty on delivery time estimates' },
+    ];
+
+    const handleCheckboxChangePA = (option) => {
+        setSelectedOptionsPA((prev) =>
+            prev.includes(option)
+                ? prev.filter((item) => item !== option)
+                : [...prev, option]
+        );
+    };
 
     const handleClickOutsidePA = (event) => {
         if (dropdownRefPA.current && !dropdownRefPA.current.contains(event.target)) {
@@ -181,12 +196,27 @@ const DevelopmentsSearchSec = () => {
     }, [isPurchaseAggrement]);
 
     const [isAmenities, setIsAmenities] = useState(false);
+    const [selectedOptionsAMN, setSelectedOptionsAMN] = useState([]);
     const dropdownRefAMN = useRef(null);
 
-    const handleClickOutsideAMN = (event) => {
-        if (dropdownRefAMN.current && !dropdownRefAMN.current.contains(event.target)) {
-            setIsAmenities(false);
-        }
+    const optionsAMN = [
+        'Indoor Garage',
+        'Maids Room',
+        'BBQ',
+        'Community Pool',
+        'Fitness',
+        'Private Pool',
+        'Gated',
+        'Garage',
+        'Social Club',
+    ];
+
+    const handleCheckboxChangeAMN = (option) => {
+        setSelectedOptionsAMN((prev) =>
+            prev.includes(option)
+                ? prev.filter((item) => item !== option)
+                : [...prev, option]
+        );
     };
 
     useEffect(() => {
@@ -199,6 +229,13 @@ const DevelopmentsSearchSec = () => {
             document.removeEventListener('mousedown', handleClickOutsideAMN);
         };
     }, [isAmenities]);
+
+
+    const handleClickOutsideAMN = (event) => {
+        if (dropdownRefAMN.current && !dropdownRefAMN.current.contains(event.target)) {
+            setIsAmenities(false);
+        }
+    };
 
     const [isAdvanceFilter, setIsAdvanceFilter] = useState(false);
     const dropdownRefAF = useRef(null);
@@ -309,33 +346,41 @@ const DevelopmentsSearchSec = () => {
                                     style={{
                                         display: isDropdownOpenFilter ? 'block' : 'none', // This ensures the div is hidden when not animated
                                     }}
-                                    className="bg-white w-full p-[11%] md:p-[6%] md:pb-[12%] md:h-auto flex flex-col text-black relative  rounded-tr-lg rounded-tl-lg z-30">
+                                    className="bg-white h-full relative rounded-tr-lg rounded-tl-lg z-30">
 
-                                    <div className=''>
+                                    <div className='bg-white w-full p-[11%] md:p-[6%] md:pb-[12%] flex flex-col text-black rounded-tr-lg rounded-tl-lg z-30'>
                                         <div className=''>
                                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                                 {titles.map((title, index) => (
                                                     <div key={index} className="relative" ref={(el) => (dropdownRefs.current[index] = el)}>
                                                         <button
-                                                            className="bg-transparent w-full border border-grayborder px-4 py-2 md:py-3 rounded-lg flex flex-row justify-between items-center gap-2"
+                                                            className="bg-transparent w-full border font-medium border-grayborder px-4 py-2 md:py-3 rounded-lg "
                                                             onClick={() => toggleDropdown(index)}
                                                         >
-                                                            <span className='font-medium'>{title}</span>
-                                                            <FontAwesomeIcon
-                                                                icon={faChevronDown}
-                                                                size='xs'
-                                                                style={{
-                                                                    transition: 'transform 0.3s',
-                                                                    transform: openDropdown === index ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                                }}
-                                                            />
+                                                            <div className='flex flex-row justify-between items-center gap-2'>
+                                                                <span className=''>{title}</span>
+                                                                <FontAwesomeIcon
+                                                                    icon={faChevronDown}
+                                                                    size='xs'
+                                                                    style={{
+                                                                        transition: 'transform 0.3s',
+                                                                        transform: openDropdown === index ? 'rotate(180deg)' : 'rotate(0deg)'
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                            <div>
+                                                                <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
+                                                                    Selected option
+                                                                </p>
+                                                            </div>
+
                                                         </button>
                                                         {openDropdown === index && (
                                                             <motion.div
                                                                 initial={{ opacity: 0, y: 10 }}
                                                                 animate={{ opacity: 1, y: 0 }}
                                                                 transition={{ duration: 0.3 }}
-                                                                className={`absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom  ${index === 2 ? 'w-[420px]' : 'w-full'}  ${index === 3 ? 'w-[420px]' : 'w-full'} font-medium bg-white border rounded-md py-2 z-50`}
+                                                                className={`absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom  ${ (index === 2 || index === 3) ? 'w-[420px]' : 'w-full'} font-medium bg-white border rounded-md py-2 z-50`}
                                                             >
                                                                 {index === 0 ? (
                                                                     <div className="flex flex-col px-4 py-2">
@@ -590,22 +635,32 @@ const DevelopmentsSearchSec = () => {
 
                                                 <div className="relative" ref={dropdownRefPA}>
                                                     <button
-                                                        className={`bg-transparent w-full border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
+                                                        className={`bg-transparent w-full border border-grayborder px-4 py-2 md:py-3 rounded-lg`}
                                                         onClick={(e) => {
                                                             e.preventDefault();
                                                             setIsPurchaseAggrement(!isPurchaseAggrement);
                                                         }}
                                                     >
-                                                        <div className='flex gap-2 items-center'>
-                                                            <span>{'Purchase Aggrement'}</span>
+                                                        <div className='flex flex-row justify-between items-center gap-2 '>
+
+                                                            <div className='flex gap-2 items-center'>
+                                                                <span>{'Purchase Agreement'}</span>
+                                                            </div>
+                                                            <motion.span
+                                                                animate={{ rotate: isPurchaseAggrement ? 180 : 0 }}
+                                                                transition={{ duration: 0.3 }}
+                                                                className="ml-2"
+                                                            >
+                                                                <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                                            </motion.span>
                                                         </div>
-                                                        <motion.span
-                                                            animate={{ rotate: isPurchaseAggrement ? 180 : 0 }}
-                                                            transition={{ duration: 0.3 }}
-                                                            className="ml-2"
-                                                        >
-                                                            <FontAwesomeIcon icon={faChevronDown} size='xs' />
-                                                        </motion.span>
+                                                        <div>
+                                                            {selectedOptionsPA.length > 0 && (
+                                                                <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
+                                                                    {selectedOptionsPA.join(', ')}
+                                                                </p>
+                                                            )}
+                                                        </div>
                                                     </button>
                                                     {isPurchaseAggrement && (
                                                         <motion.div
@@ -615,91 +670,60 @@ const DevelopmentsSearchSec = () => {
                                                             className={`absolute w-full right-0 py-4 px-2 max-h-[220px] overflow-scroll scrollbar-custom bg-white border rounded-md mt-2 z-30`}
                                                         >
                                                             <div className="flex flex-col">
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox1'
-                                                                    />
-                                                                    <label htmlFor={`checkbox1`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Ready to sign
-                                                                        </span>
-                                                                        <span className='text-fontdark text-sm'>
-                                                                            safest delivery estimates
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox2'
-                                                                    />
-                                                                    <label htmlFor={`checkbox2`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Est. less than 6 months
-                                                                        </span>
-                                                                        <span className='text-fontdark text-sm'>
-                                                                            some uncertainty on delivery time
-                                                                            estimates
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Est. more than 6 months
-                                                                        </span>
-                                                                        <span className='text-fontdark text-sm'>
-                                                                            high uncertainty on delivery time
-                                                                            estimates
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
+                                                                {optionsPA.map((option) => (
+                                                                    <div
+                                                                        key={option.id}
+                                                                        className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
+                                                                        onClick={(e) => e.stopPropagation()}
+                                                                    >
+                                                                        <Checkbox
+                                                                            color="black"
+                                                                            className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
+                                                                            containerProps={{ className: "p-0 rounded-none" }}
+                                                                            id={option.id}
+                                                                            onChange={() => handleCheckboxChangePA(option.label)}
+                                                                            checked={selectedOptionsPA.includes(option.label)}
+                                                                        />
+                                                                        <label htmlFor={option.id} className='w-full cursor-pointer text-start flex flex-col '>
+                                                                            <span className='font-medium'>{option.label}</span>
+                                                                            <span className='text-fontdark text-sm'>{option.sublabel}</span>
+                                                                        </label>
+                                                                    </div>
+                                                                ))}
                                                             </div>
                                                         </motion.div>
                                                     )}
+
                                                 </div>
 
                                                 <div className="relative" ref={dropdownRefAMN}>
                                                     <button
-                                                        className={`bg-transparent w-full border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
+                                                        className={`bg-transparent w-full border border-grayborder px-4 py-2 md:py-3 rounded-lg`}
                                                         onClick={(e) => {
                                                             e.preventDefault();
                                                             setIsAmenities(!isAmenities);
                                                         }}
                                                     >
-                                                        <div className='flex gap-2 items-center'>
-                                                            <span>{'Select'}</span>
+                                                        <div className='flex flex-row justify-between items-center gap-2 '>
+                                                            <div className='flex gap-2 items-center'>
+                                                                <span>{'Amenities'}</span>
+                                                            </div>
+                                                            <motion.span
+                                                                animate={{ rotate: isAmenities ? 180 : 0 }}
+                                                                transition={{ duration: 0.3 }}
+                                                                className="ml-2"
+                                                            >
+                                                                <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                                            </motion.span>
                                                         </div>
-                                                        <motion.span
-                                                            animate={{ rotate: isAmenities ? 180 : 0 }}
-                                                            transition={{ duration: 0.3 }}
-                                                            className="ml-2"
-                                                        >
-                                                            <FontAwesomeIcon icon={faChevronDown} size='xs' />
-                                                        </motion.span>
+
+                                                        <div >
+                                                            {selectedOptionsAMN.length > 0 && (
+                                                                <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
+                                                                    {selectedOptionsAMN.join(', ')}
+                                                                </p>
+                                                            )}
+                                                        </div>
                                                     </button>
                                                     {isAmenities && (
                                                         <motion.div
@@ -709,159 +733,27 @@ const DevelopmentsSearchSec = () => {
                                                             className={`absolute w-full right-0 py-4 px-2 max-h-[220px] overflow-scroll scrollbar-custom bg-white border rounded-md mt-2 z-30`}
                                                         >
                                                             <div className="flex flex-col">
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox1'
-                                                                    />
-                                                                    <label htmlFor={`checkbox1`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Indoor Garage
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox2'
-                                                                    />
-                                                                    <label htmlFor={`checkbox2`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Maids Room
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            BBQ
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Community Pool
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Fitness
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Private Pool
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Gated
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Garage
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div
-                                                                    className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                >
-                                                                    <Checkbox
-                                                                        color="black"
-                                                                        className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
-                                                                        containerProps={{ className: "p-0 rounded-none" }}
-                                                                        id='checkbox3'
-                                                                    />
-                                                                    <label htmlFor={`checkbox3`} className='w-full cursor-pointer text-start flex flex-col '>
-                                                                        <span className='font-medium'>
-                                                                            Social CLub
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-
+                                                                {optionsAMN.map((option, index) => (
+                                                                    <div
+                                                                        key={index}
+                                                                        className="flex flex-row items-center gap-3 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
+                                                                        onClick={(e) => e.stopPropagation()}
+                                                                    >
+                                                                        <Checkbox
+                                                                            color="black"
+                                                                            className="h-5 w-5 bg-[#EBEBEB] checked:bg-[#002038] hover:before:opacity-0"
+                                                                            containerProps={{ className: "p-0 rounded-none" }}
+                                                                            id={`checkbox${index}`}
+                                                                            onChange={() => handleCheckboxChangeAMN(option)}
+                                                                            checked={selectedOptionsAMN.includes(option)}
+                                                                        />
+                                                                        <label htmlFor={`checkbox${index}`} className='w-full cursor-pointer text-start flex flex-col '>
+                                                                            <span className='font-medium'>
+                                                                                {option}
+                                                                            </span>
+                                                                        </label>
+                                                                    </div>
+                                                                ))}
                                                             </div>
                                                         </motion.div>
                                                     )}
@@ -900,7 +792,7 @@ const DevelopmentsSearchSec = () => {
 
                                             {isAdvanceFilter && (
                                                 <motion.div
-                                                    initial={{ opacity: 0, y: 10 }}
+                                                    initial={{ opacity: 0, y: -10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ duration: 0.3 }}
                                                     className={`w-full my-8 md:px-16`}
