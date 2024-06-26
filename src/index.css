@@ -393,6 +393,29 @@ body {
 
 
 
+/* Hide the default arrows */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Set the minimum width of the scrollbar */
+.scrollbar-custom {
+  --scrollbar-width: 10px;
+  scrollbar-width: var(--scrollbar-width);
+}
+
+/* Customize the scrollbar handle on hover */
+.scrollbar-custom:hover {
+  scrollbar-color: #555 #f1f1f1;
+}
+
+
+
+
+
+
+
 
 
 
