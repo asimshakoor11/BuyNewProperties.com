@@ -396,22 +396,22 @@ const Navbar = () => {
 
                                 <div className="flex flex-row flex-wrap gap-10 xl:gap-20 mt-5 lg:mt-0">
                                     <div className="flex flex-col space-y-4 text-primarycolor text-[1.6rem] lg:text-2xl">
-                                        <Link to={"/"} className='font-bold' >
+                                        <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }} >
                                             <span className='hover-underline-animationbm'>Home</span>
                                         </Link>
-                                        <Link to={"/developmentssearch"} className='font-bold' >
+                                        <Link to={"/developmentssearch"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }} >
                                             <span className='hover-underline-animationbm '>New Developments</span>
                                         </Link>
-                                        <Link to={"/ouragents"} className='font-bold' >
-                                            <span className='hover-underline-animationbm '>Agents</span>
+                                        <Link to={"/ouragents"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
+                                            <span className='hover-underline-animationbm ' >Agents</span>
                                         </Link>
-                                        <Link to={"/"} className='font-bold' >
+                                        <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
                                             <span className='hover-underline-animationbm '>Services</span>
                                         </Link>
-                                        <Link to={"/"} className='font-bold' >
+                                        <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
                                             <span className='hover-underline-animationbm '>Guides</span>
                                         </Link>
-                                        <Link to={"/"} className='font-bold' >
+                                        <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
                                             <span className='hover-underline-animationbm '>Contact</span>
                                         </Link>
 
