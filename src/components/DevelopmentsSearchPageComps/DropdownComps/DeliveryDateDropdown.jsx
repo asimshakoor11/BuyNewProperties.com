@@ -80,7 +80,7 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom w-[420px] font-medium bg-white border rounded-md py-2 z-50"
+                    className="absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom w-full sm:w-[420px] font-medium bg-white border rounded-md py-2 z-50"
                 >
                     <div className="flex flex-col gap-4 px-4 py-2">
                         <div className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
