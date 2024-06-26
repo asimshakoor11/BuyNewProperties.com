@@ -4,7 +4,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Checkbox } from "@material-tailwind/react";
 import { motion } from 'framer-motion';
 
-const PropertyTypeDropdown = ({ title, dropdownItems }) => {
+const PropertyTypeDropdown = ({ title, dropdownItems, resetFlag  }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
     const [checkedItems, setCheckedItems] = useState({});
     const [allChecked, setAllChecked] = useState(false);
@@ -27,6 +27,13 @@ const PropertyTypeDropdown = ({ title, dropdownItems }) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [openDropdown]);
+
+
+    useEffect(() => {
+        // Reset checked items when resetFlag changes
+        setCheckedItems({});
+        setAllChecked(false);
+    }, [resetFlag]);
 
     // Function to handle checkbox changes
     const handleCheck = (itemIndex) => {

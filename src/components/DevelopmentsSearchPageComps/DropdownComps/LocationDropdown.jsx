@@ -4,7 +4,7 @@ import { faChevronDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Checkbox } from "@material-tailwind/react";
 import { motion } from 'framer-motion';
 
-const LocationDropdown = ({ title, dropdownItems }) => {
+const LocationDropdown = ({ title, dropdownItems, resetFlagLoc }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [checkedItems, setCheckedItems] = useState({});
@@ -80,6 +80,13 @@ const LocationDropdown = ({ title, dropdownItems }) => {
             subitems: filteredSubitems
         };
     });
+
+    useEffect(() => {
+        // Reset checked items when resetFlag changes
+        setSearchValue('');
+        setCheckedItems({});
+        setSelectedText('')
+    }, [resetFlagLoc]);
 
     return (
         <div className="relative" ref={dropdownRef}>

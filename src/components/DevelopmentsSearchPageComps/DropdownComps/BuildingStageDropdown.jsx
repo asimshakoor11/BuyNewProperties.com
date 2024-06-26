@@ -4,10 +4,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import MultiRangeSlider from 'multi-range-slider-react';
 
-
-const BuildingStageDropdown = ({ title }) => {
+const BuildingStageDropdown = ({ title, buildingStage, setBuildingStage, resetFlagBul }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
-    const [buildingStage, setBuildingStage] = useState({ minValue: 0, maxValue: 2 });
+    const [isSliderUsed, setIsSliderUsed] = useState(false);
+
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
@@ -32,6 +32,27 @@ const BuildingStageDropdown = ({ title }) => {
         setBuildingStage({ minValue, maxValue });
     };
 
+    const handlePTag = () => {
+        setIsSliderUsed(true);
+    }
+
+    useEffect(() => {
+        setIsSliderUsed(false);        
+    }, [resetFlagBul]);
+
+    const getBuildingStageLabel = (value) => {
+        switch (value) {
+            case 0:
+                return "Pre Sale";
+            case 1:
+                return "Under Construction";
+            case 2:
+                return "Completed";
+            default:
+                return "";
+        }
+    };
+
     return (
         <div className="relative" ref={dropdownRef}>
             <button
@@ -50,9 +71,14 @@ const BuildingStageDropdown = ({ title }) => {
                     />
                 </div>
                 <div>
-                    <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
-                        selected option 3
-                    </p>
+                    {
+                        isSliderUsed && (
+                            <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
+                                {`${getBuildingStageLabel(buildingStage.minValue)} - ${getBuildingStageLabel(buildingStage.maxValue)}`}
+                            </p>
+                        )
+                    }
+
                 </div>
             </button>
             {openDropdown && (
@@ -75,6 +101,7 @@ const BuildingStageDropdown = ({ title }) => {
                                 maxValue={buildingStage.maxValue}
                                 canMinMaxValueSame={true}
                                 onInput={handleBuildingStage}
+                                onChange={handlePTag}
                                 className="w-full custom-slider"
                                 style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}
                                 barLeftColor='transparent'
@@ -92,11 +119,15 @@ const BuildingStageDropdown = ({ title }) => {
                         <div className='flex justify-between items-center gap-4'>
                             <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[88px]'>
                                 <p className='text-sm text-fontdark font-semibold'>From</p>
-                                <p className='text-base font-semibold'>{buildingStage.minValue === 0 && "PreSale"} {buildingStage.minValue === 1 && "Under Construction"} {buildingStage.minValue === 2 && "Completed"}</p>
+                                <p className='text-base font-semibold'>
+                                    {getBuildingStageLabel(buildingStage.minValue)}
+                                </p>
                             </div>
                             <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[99px]'>
                                 <p className='text-sm text-fontdark font-semibold'>To</p>
-                                <p className='text-base font-semibold'>{buildingStage.maxValue === 2 && "Completed"} {buildingStage.maxValue === 1 && "Under Construction"} {buildingStage.maxValue === 0 && "PreSale"}</p>
+                                <p className='text-base font-semibold'>
+                                    {getBuildingStageLabel(buildingStage.maxValue)}
+                                </p>
                             </div>
                         </div>
                     </div>

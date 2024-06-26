@@ -191,6 +191,37 @@ const DevelopmentsSearchSec = () => {
         );
     };
 
+    const [inputValue, setInputValue] = useState('');
+
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+        console.log('Input value:', event.target.value);
+    };
+
+    const [buildingStage, setBuildingStage] = useState({ minValue: 0, maxValue: 2 });
+    const [deliveryDate, setDeliveryDate] = useState({ minValue: 0, maxValue: 16 });
+    const [resetFlag, setResetFlag] = useState(false);
+    const [resetFlagDev, setResetFlagDev] = useState(false);
+    const [resetFlagLoc, setResetFlagLoc] = useState(false);
+    const [resetFlagBul, setResetFlagBul] = useState(false);
+
+    const resetFilters = () => {
+        setBuildingStage({ minValue: 0, maxValue: 2 });
+        setDeliveryDate({ minValue: 0, maxValue: 16 });
+        setResetFlag(prevFlag => !prevFlag);
+        setResetFlagLoc(prevFlagL => !prevFlagL);
+        setResetFlagDev(prevFlagL => !prevFlagL);
+        setResetFlagBul(prevFlagL => !prevFlagL);
+        setSelectedOptionsPA([]);
+        setSelectedOptionsAMN([]);
+        setInputValue('')
+        setSelectedTags([]);
+        setBedrooms({ minValue: 0, maxValue: 8 })
+        setArea({ minValue: 0, maxValue: 500 });
+        setBudget({ minValue: 0, maxValue: 2000000 });
+        setIsAdvanceFilter(false);
+    };
+
     return (
         <>
             <section className='section bg-white'>
@@ -258,10 +289,28 @@ const DevelopmentsSearchSec = () => {
                                     <div className='bg-white w-full p-[11%] md:p-[6%] md:pb-[12%] flex flex-col text-black rounded-tr-lg rounded-tl-lg z-30'>
                                         <div className=''>
                                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                                <LocationDropdown title={titles[0]} dropdownItems={dropdownItems[0]} />
-                                                <PropertyTypeDropdown title={titles[1]} dropdownItems={dropdownItems[1]} />
-                                                <BuildingStageDropdown title={titles[2]} dropdownItems={dropdownItems[2]} />
-                                                <DeliveryDateDropdown title={titles[3]} dropdownItems={dropdownItems[3]} />
+                                                <LocationDropdown
+                                                    title={titles[0]}
+                                                    dropdownItems={dropdownItems[0]}
+                                                    resetFlagLoc={resetFlagLoc} />
+                                                <PropertyTypeDropdown
+                                                    title={titles[1]}
+                                                    dropdownItems={dropdownItems[1]}
+                                                    resetFlag={resetFlag}
+                                                />
+                                                <BuildingStageDropdown
+                                                    title={titles[2]}
+                                                    dropdownItems={dropdownItems[2]}
+                                                    buildingStage={buildingStage}
+                                                    setBuildingStage={setBuildingStage}
+                                                    resetFlagBul={resetFlagBul} />
+                                                <DeliveryDateDropdown
+                                                    title={titles[3]}
+                                                    dropdownItems={dropdownItems[3]}
+                                                    deliveryDate={deliveryDate}
+                                                    setDeliveryDate={setDeliveryDate}
+                                                    resetFlagDev={resetFlagDev}
+                                                     />
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12 mt-4 md:mt-10">
@@ -479,9 +528,11 @@ const DevelopmentsSearchSec = () => {
                                                 <div>
                                                     <input
                                                         type="text"
-                                                        id='reference'
-                                                        className={`w-full p-3 py-2 md:py-3 uppercase bg-transparent border-grayborder border outline-none placeholder:text-fontdark rounded-lg`}
-                                                        placeholder="Refernece"
+                                                        id="reference"
+                                                        className="w-full p-3 py-2 md:py-3 uppercase bg-transparent border-grayborder border outline-none placeholder:text-fontdark rounded-lg"
+                                                        placeholder="Reference"
+                                                        value={inputValue}
+                                                        onChange={handleInputChange}
                                                     />
                                                 </div>
 
@@ -534,14 +585,15 @@ const DevelopmentsSearchSec = () => {
                                             <div className='flex flex-col md:flex-row justify-between gap-4  font-medium mt-4 md:mt-10'>
                                                 <button
                                                     className={`bg-transparent text-black w-full md:w-[250px] border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
-                                                >
+                                                    onClick={resetFilters} >
+
                                                     <span>Reset Filters</span>
                                                     <img src="/images/icons/rotate-reverse.svg" alt="" className='h-4' />
                                                 </button>
 
                                                 <button
                                                     className={`bg-[#005334] text-white w-full md:w-[250px] border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
-                                                >
+                                                    onClick={() => {resetFilters(); setIsDropdownOpenFilter(false);}} >
                                                     <span>Search</span>
                                                     <FontAwesomeIcon icon={faSearch} size='base' />
                                                 </button>

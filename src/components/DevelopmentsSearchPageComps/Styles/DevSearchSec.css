@@ -56,3 +56,7 @@
     pointer-events: none;
     background-color: white;
 }
+
+.multi-range-slider .caption{
+    display: none !important;
+}

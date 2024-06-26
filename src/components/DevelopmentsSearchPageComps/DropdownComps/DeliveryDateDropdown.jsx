@@ -4,10 +4,13 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import MultiRangeSlider from 'multi-range-slider-react';
 
-
-const DeliveryDateDropdown = ({ title }) => {
+const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagDev }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
-    const [deliveryDate, setDeliveryDate] = useState({ minValue: 0, maxValue: 4 });
+    const [isSliderUsed, setIsSliderUsed] = useState(false);
+
+    const currentYear = new Date().getFullYear();
+    const currentQuarter = Math.ceil((new Date().getMonth() + 1) / 3);
+
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
@@ -26,10 +29,25 @@ const DeliveryDateDropdown = ({ title }) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [openDropdown]);
+    }, []);
 
-    const handleDeliverydate = ({ minValue, maxValue }) => {
+    const handleDeliveryDate = ({ minValue, maxValue }) => {
         setDeliveryDate({ minValue, maxValue });
+    };
+
+    const handlePTag = () => {
+        setIsSliderUsed(true);
+    }
+
+    useEffect(() => {
+        setIsSliderUsed(false);        
+    }, [resetFlagDev]);
+
+    const getQuarterYear = (value) => {
+        const totalQuarters = currentQuarter + value;
+        const year = currentYear + Math.floor((totalQuarters - 1) / 4);
+        const quarter = totalQuarters % 4 === 0 ? 4 : totalQuarters % 4;
+        return `Q${quarter} ${year}`;
     };
 
     return (
@@ -50,9 +68,11 @@ const DeliveryDateDropdown = ({ title }) => {
                     />
                 </div>
                 <div>
-                    <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
-                        selected option 4
-                    </p>
+                    {isSliderUsed && (
+                        <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
+                            {`${getQuarterYear(deliveryDate.minValue)} - ${getQuarterYear(deliveryDate.maxValue)}`}
+                        </p>
+                    )}
                 </div>
             </button>
             {openDropdown && (
@@ -66,7 +86,7 @@ const DeliveryDateDropdown = ({ title }) => {
                         <div className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
                             <MultiRangeSlider
                                 min={0}
-                                max={4}
+                                max={16}
                                 step={1}
                                 ruler={false}
                                 label={false}
@@ -74,7 +94,8 @@ const DeliveryDateDropdown = ({ title }) => {
                                 minValue={deliveryDate.minValue}
                                 maxValue={deliveryDate.maxValue}
                                 canMinMaxValueSame={true}
-                                onInput={handleDeliverydate}
+                                onInput={handleDeliveryDate}
+                                onChange={handlePTag}
                                 className="w-full"
                                 style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}
                                 barLeftColor='transparent'
@@ -84,18 +105,22 @@ const DeliveryDateDropdown = ({ title }) => {
                                 thumbRightColor='white'
                             />
                             <div className="flex justify-between px-2 text-sm">
-                                <span>Q2 2024</span>
-                                <span>Q2 2028</span>
+                                <span>{getQuarterYear(0)}</span>
+                                <span>{getQuarterYear(16)}</span>
                             </div>
                         </div>
                         <div className='flex justify-between items-center gap-4'>
                             <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[88px]'>
                                 <p className='text-sm text-fontdark font-semibold'>From</p>
-                                <p className='text-base font-semibold'>{deliveryDate.minValue === 0 && "Q2 2024"} {deliveryDate.minValue === 1 && "Q2 2025"} {deliveryDate.minValue === 2 && "Q2 2026"} {deliveryDate.minValue === 3 && "Q2 2027"} {deliveryDate.minValue === 4 && "Q2 2028"}</p>
+                                <p className='text-base font-semibold'>
+                                    {getQuarterYear(deliveryDate.minValue)}
+                                </p>
                             </div>
                             <div className='flex flex-col items-start justify-start bg-bgf5 p-3 w-2/5 rounded-lg min-h-[99px]'>
                                 <p className='text-sm text-fontdark font-semibold'>To</p>
-                                <p className='text-base font-semibold'>{deliveryDate.maxValue === 0 && "Q2 2024"} {deliveryDate.maxValue === 1 && "Q2 2025"} {deliveryDate.maxValue === 2 && "Q2 2026"} {deliveryDate.maxValue === 3 && "Q2 2027"} {deliveryDate.maxValue === 4 && "Q2 2028"}</p>
+                                <p className='text-base font-semibold'>
+                                    {getQuarterYear(deliveryDate.maxValue)}
+                                </p>
                             </div>
                         </div>
                     </div>
