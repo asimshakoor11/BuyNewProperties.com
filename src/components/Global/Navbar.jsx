@@ -37,7 +37,7 @@ const Navbar = () => {
             } else if (currentScrollTop > lastScrollTop) {
                 // Scrolling down
                 setNavbarVisible(false);
-            }else {
+            } else {
                 // Scrolling up                
                 setNavbarVisible(true);
             }
@@ -111,13 +111,12 @@ const Navbar = () => {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     let newscrollThreshold
 
-    if( screenWidth > 1000){
-        newscrollThreshold = scrollThreshold +250
+    if (screenWidth > 1000) {
+        newscrollThreshold = scrollThreshold + 250
     }
-    else if( screenWidth < 1000){
-        newscrollThreshold = scrollThreshold +100
+    else if (screenWidth < 1000) {
+        newscrollThreshold = scrollThreshold + 100
     }
-    
 
     return (
         <>

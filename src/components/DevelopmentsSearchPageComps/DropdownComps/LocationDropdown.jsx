@@ -123,7 +123,7 @@ const LocationDropdown = ({ title, dropdownItems, resetFlagLoc }) => {
                             <input
                                 type="text"
                                 placeholder="Search"
-                                className="outline-none rounded-lg border-none bg-bggray"
+                                className="outline-none w-full rounded-lg border-none bg-bggray"
                                 value={searchValue}
                                 onChange={(e) => setSearchValue(e.target.value)}
                             />

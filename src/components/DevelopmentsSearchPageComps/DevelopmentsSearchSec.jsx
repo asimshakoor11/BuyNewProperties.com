@@ -41,7 +41,6 @@ const dropdownItems = [
 ];
 
 
-
 const DevelopmentsSearchSec = () => {
 
     // sliders 
@@ -60,7 +59,14 @@ const DevelopmentsSearchSec = () => {
 
     const handleBudgetChange = (e) => {
         // Ensuring the values are within the step increments
-        setBudget({ minValue: Math.round(e.minValue / 50000) * 50000, maxValue: Math.round(e.maxValue / 50000) * 50000 });
+        setBudget({
+            minValue: Math.round(e.minValue / 50000) * 50000,
+            maxValue: Math.round(e.maxValue / 50000) * 50000
+        });
+    };
+
+    const formatNumber = (number) => {
+        return new Intl.NumberFormat('en-US').format(number);
     };
     // sliders 
 
@@ -222,38 +228,128 @@ const DevelopmentsSearchSec = () => {
         setIsAdvanceFilter(false);
     };
 
+    const handleOutsideClick = (e) => {
+        if (e.target.id === 'popup-container') {
+            setIsDropdownOpenFilter(false)
+        }
+    };
+
+    const [isDropdownOpenSort, setIsDropdownOpenSort] = useState(false);
+    const dropdownRefSort = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (dropdownRefSort.current && !dropdownRefSort.current.contains(event.target)) {
+            setIsDropdownOpenSort(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isDropdownOpenSort) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isDropdownOpenSort]);
+
+    const [isAnimating, setIsAnimating] = useState(true);
+
+    // Function to toggle animation state
+    const toggleAnimation = () => {
+        setIsAnimating(!isAnimating);
+    };
+
     return (
         <>
             <section className='section bg-white'>
 
-                <div className="flex flex-col lg:flex-row justify-between items-center gap-4 mt-10">
+                <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mt-10">
                     <div>
                         <h2 className="text-4xl md:text-5xl font-BebasNeueSemiExpBold text-primarycolor text-left">New Developments In Lisbon Area</h2>
                         <p className="text-fontdark text-lg mt-2">160 available units found in 15 new developments.</p>
                     </div>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center font-medium gap-4">
                         <div className="flex border border-black rounded-lg overflow-hidden">
                             <button
-                                className={`px-7 py-2 md:py-3 ${view === 'list' ? 'bg-primarycolor text-white' : 'bg-white text-black'} `}
+                                className={`custommax520:w-1/2 px-7 py-2 md:py-3 ${view === 'list' ? 'bg-primarycolor text-white' : 'bg-white text-black'} `}
                                 onClick={() => setView('list')}
                             >
                                 List
                             </button>
                             <button
-                                className={`px-6 py-2 md:py-3 ${view === 'map' ? 'bg-primarycolor text-white' : 'bg-white text-black'} `}
+                                className={`custommax520:w-1/2 px-6 py-2 md:py-3 ${view === 'map' ? 'bg-primarycolor text-white' : 'bg-white text-black'} `}
                                 onClick={() => setView('map')}
                             >
                                 Map
                             </button>
                         </div>
+
                         <div className="relative">
                             <button
-                                className={`bg-transparent text-black w-full border border-black px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-6 `}
+                                className={`w-full sm:w-32 bg-transparent text-black border border-black px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center `}
                                 onClick={() => setIsDropdownOpenFilter(true)}
                             >
-                                <span>Filters</span>
+                                <span>Filter</span>
                                 <img src="/images/icons/settings-sliders.png" alt="" className='h-6' />
                             </button>
+
+                            <div className={`hidden ${view === 'map' ? 'hidden' : 'lg:flex'} absolute bottom-14 w-full flex-col gap-3 items-center justify-center pb-2`}>
+                                <p className='text-sm text-center italic font-medium'>Refine your search criteria</p>
+                                <img src="/images/icons/rounded arrow.svg" alt="" className={`h-10 ${isAnimating ? 'animate-slide' : ''}`} />
+                            </div>
+                        </div>
+
+                        <div className="relative" ref={dropdownRefSort}>
+                            <button href="#" className="w-full sm:w-32 bg-transparent font-medium text-black  px-3 py-2 md:py-3 md:px-4 rounded-lg border border-black flex flex-row justify-between items-center gap-2"
+
+                                onClick={() => { setIsDropdownOpenSort(!isDropdownOpenSort); }}
+                            >
+                                <div className='flex gap-2 items-center'>
+                                    <span>Sort</span>
+                                </div>
+
+                                <motion.span
+                                    animate={{ rotate: isDropdownOpenSort ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="ml-2"
+                                >
+                                    <FontAwesomeIcon icon={faChevronDown} size='xs' />
+                                </motion.span>
+                            </button>
+
+                            {isDropdownOpenSort && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: isDropdownOpenSort ? 1 : 0, y: isDropdownOpenSort ? 0 : 10 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={`absolute right-0 text-primarycolor w-[180px] max-h-[220px] overflow-y-scroll scrollbar-custom border mt-1 bg-white rounded-md py-2 z-50`}
+                                >
+                                    <a className="flex flex-row px-3  gap-2 cursor-pointer py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
+
+                                        onClick={() => setIsDropdownOpenSort(!isDropdownOpenSort)}>
+                                        Latest
+                                    </a>
+                                    <a className="flex flex-row px-3  gap-2 cursor-pointer  py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
+                                        onClick={() => setIsDropdownOpenSort(!isDropdownOpenSort)}>
+                                        Highest Price
+                                    </a>
+                                    <a className="flex flex-row px-3  gap-2 cursor-pointer py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
+
+                                        onClick={() => setIsDropdownOpenSort(!isDropdownOpenSort)}>
+                                        Lowest Price
+                                    </a>
+                                    <a className="flex flex-row px-3  gap-2 cursor-pointer  py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
+                                        onClick={() => setIsDropdownOpenSort(!isDropdownOpenSort)}>
+                                        Highest No. Units
+                                    </a>
+                                    <a className="flex flex-row px-3  gap-2 cursor-pointer  py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
+                                        onClick={() => setIsDropdownOpenSort(!isDropdownOpenSort)}>
+                                        Lowest No. Units
+                                    </a>
+                                </motion.div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -262,29 +358,27 @@ const DevelopmentsSearchSec = () => {
 
                 {
                     isDropdownOpenFilter && (
-                        <button
-                            className="fixed z-[99] top-[6%] md:top-[9%] right-[6%] lg:top-[13%] lg:right-[4%]  bg-transparent text-black border border-zinc-700 rounded-full py-1 px-2 md:py-2 md:px-3"
-                            onClick={() => setIsDropdownOpenFilter(false)}
-                        >
-                            <FontAwesomeIcon icon={faXmark} size='lg' />
-                        </button>
-                    )
-                }
-
-                {
-                    isDropdownOpenFilter && (
-                        <div id="popup-container"
+                        <div
+                            id="popup-container"
                             className="fixed z-50 h-screen w-full inset-0 px-[2%] pt-[5%] bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll "
-                        >
+                            onClick={handleOutsideClick}>
                             <AnimatePresence>
                                 <motion.div
-                                    initial={{ opacity: 0, y: 300 }}
-                                    animate={{ opacity: isDropdownOpenFilter ? 1 : 0, y: isDropdownOpenFilter ? 0 : 300 }}
-                                    transition={{ opacity: { duration: 0.3 }, y: { duration: 0.3 } }}
-                                    style={{
-                                        display: isDropdownOpenFilter ? 'block' : 'none', // This ensures the div is hidden when not animated
-                                    }}
-                                    className="bg-white h-full relative rounded-tr-lg rounded-tl-lg z-30">
+                                    initial={{ y: "110vh" }} // Start from the very bottom of the screen
+                                    animate={{ y: 0 }} // Slide to the original position
+                                    exit={{ y: "110vh" }} // Slide back to the very bottom of the screen when exiting
+                                    transition={{ y: { duration: 0.5, ease: "easeInOut" } }}
+
+                                    className="bg-white h-full max-w-[1420px] mx-auto relative rounded-tr-lg rounded-tl-lg z-30">
+                                    <div className='sticky  z-50 top-5 pr-5 w-full flex justify-end'>
+                                        <button
+                                            className=" bg-transparent text-black"
+                                            onClick={() => setIsDropdownOpenFilter(false)}
+                                        >
+                                            <FontAwesomeIcon icon={faXmark} size='xl' />
+                                        </button>
+                                    </div>
+
 
                                     <div className='bg-white w-full p-[11%] md:p-[6%] md:pb-[12%] flex flex-col text-black rounded-tr-lg rounded-tl-lg z-30'>
                                         <div className=''>
@@ -310,14 +404,12 @@ const DevelopmentsSearchSec = () => {
                                                     deliveryDate={deliveryDate}
                                                     setDeliveryDate={setDeliveryDate}
                                                     resetFlagDev={resetFlagDev}
-                                                     />
+                                                />
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12 mt-4 md:mt-10">
                                                 <div>
                                                     <label htmlFor="bedrooms" className="block mt-2 text-center font-medium">Bedrooms</label>
-
-
                                                     <MultiRangeSlider
                                                         min={0}
                                                         max={8}
@@ -366,7 +458,7 @@ const DevelopmentsSearchSec = () => {
                                                     />
                                                     <div className="flex justify-between px-2 font-medium">
                                                         <span className='-ml-3'>{area.minValue} m<sup>2</sup> </span>
-                                                        <span className='-mr-10'>{area.maxValue} m<sup>2</sup> {area.maxValue === 500 && "+"} </span>
+                                                        <span className='-mr-6 lg:-mr-10'>{area.maxValue} m<sup>2</sup> {area.maxValue === 500 && "+"} </span>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -391,8 +483,8 @@ const DevelopmentsSearchSec = () => {
 
                                                     />
                                                     <div className="flex justify-between px-2 font-medium">
-                                                        <span className='-ml-3'>€{budget.minValue}</span>
-                                                        <span className='-mr-12'>€{budget.maxValue} {budget.maxValue === 2000000 && "+"}</span>
+                                                        <span className='-ml-3'>€{formatNumber(budget.minValue)}</span>
+                                                        <span className='-mr-8 lg:-mr-12'>€{formatNumber(budget.maxValue)} {budget.maxValue === 2000000 && "+"}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -593,7 +685,7 @@ const DevelopmentsSearchSec = () => {
 
                                                 <button
                                                     className={`bg-[#005334] text-white w-full md:w-[250px] border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
-                                                    onClick={() => {resetFilters(); setIsDropdownOpenFilter(false);}} >
+                                                    onClick={() => { resetFilters(); setIsDropdownOpenFilter(false); }} >
                                                     <span>Search</span>
                                                     <FontAwesomeIcon icon={faSearch} size='base' />
                                                 </button>
@@ -608,7 +700,7 @@ const DevelopmentsSearchSec = () => {
                         </div>
                     )
                 }
-            </section>
+            </section >
 
 
         </>

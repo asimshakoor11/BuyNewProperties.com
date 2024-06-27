@@ -1,4 +1,4 @@
-.multi-range-slider  .bar {
+.multi-range-slider .bar {
     height: 4px;
     margin-top: 3px;
 }
@@ -8,14 +8,14 @@
     margin-top: 3px;
 }
 
-.multi-range-slider .bar-right{
+.multi-range-slider .bar-right {
     height: 4px;
     margin-top: 3px;
     background-color: #D8D8D8;
     box-shadow: inset 0px 0px 0px 5px #D8D8D8;
 }
 
-.multi-range-slider .bar-left{
+.multi-range-slider .bar-left {
     height: 4px !important;
     margin-top: 3px;
     background: #D8D8D8;
@@ -35,6 +35,40 @@
     z-index: 1;
     margin: -8px -12px;
     cursor: pointer;
+}
+
+.bar::after {
+    content: '';
+    background-color: inherit;
+    position: absolute;
+    left: 10px;
+    width: 14px;
+    height: 14px;
+    border: solid 4px #D8D8D8;
+    background-color: #D8D8D8;
+    box-shadow: none;
+    border-radius: 50%;
+    z-index: 0;
+    margin: -2px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.bar::before {
+    content: '';
+    background-color: inherit;
+    position: absolute;
+    right: 10px;
+    width: 14px;
+    height: 14px;
+    border: solid 4px #D8D8D8;
+    background-color: #D8D8D8;
+    box-shadow: none;
+    border-radius: 50%;
+    z-index: 0;
+    margin: -2px;
+    cursor: pointer;
+    pointer-events: none;
 }
 
 .custom-slider {
@@ -57,6 +91,69 @@
     background-color: white;
 }
 
-.multi-range-slider .caption{
+.custom-sliderg {
+    position: relative;
+}
+
+.custom-sliderg::after {
+    content: '';
+    background-color: inherit;
+    position: absolute;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border: solid 4px #D8D8D8;
+    box-shadow: none;
+    border-radius: 50%;
+    margin: -5px -12px;
+    cursor: pointer;
+    pointer-events: none;
+    background-color: white;
+
+}
+
+.multi-range-slider .caption {
     display: none !important;
 }
+
+.multi-range-slider .thumb-left {
+    margin-right: -2px;
+}
+
+.multi-range-slider .thumb-left::before {
+    margin-right: 1px;
+}
+
+.customthumbsright .multi-range-slider .thumb-right {
+    z-index: 9;
+}
+
+.customthumbsright .multi-range-slider .thumb-right::before {
+    z-index: 9;
+}
+
+.customthumbsleft .multi-range-slider .thumb-left {
+    z-index: 9;
+
+}
+
+.customthumbsleft .multi-range-slider .thumb-left::before {
+    z-index: 9;
+
+}
+
+@keyframes slide {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide {
+    animation: slide 2s ease-in-out infinite;
+  }

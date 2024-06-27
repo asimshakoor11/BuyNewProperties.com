@@ -14,8 +14,8 @@ const DreamHomeContact = () => {
             <div className='absolute inset-0 bg-primarycolor opacity-65'></div>
 
             <div className="flex-1 z-10 flex items-center justify-left xl:justify-end">
-                <div className="text-white w-full lg:max-w-xl">
-                    <h1 className="text-4xl lg:text-5xl xl:text-6xl  font-BebasNeueSemiExpBold">Find Your Dream Home In Europe The Right Way.</h1>
+                <div className="text-white w-full lg:max-w-md">
+                    <h1 className="text-4xl md:text-5xl font-BebasNeueSemiExpBold">Contact Us Today</h1>
                 </div>
             </div>
             <div className={`flex-1 z-10 flex items-center ${isSubmit ? 'justify-center xl:justify-start': 'xl:justify-left'}  mt-10 xl:mt-0`}>     

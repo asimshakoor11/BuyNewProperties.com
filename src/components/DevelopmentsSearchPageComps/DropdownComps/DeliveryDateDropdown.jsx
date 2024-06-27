@@ -7,6 +7,7 @@ import MultiRangeSlider from 'multi-range-slider-react';
 const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagDev }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
     const [isSliderUsed, setIsSliderUsed] = useState(false);
+    const [lastUpdated, setLastUpdated] = useState(null);
 
     const currentYear = new Date().getFullYear();
     const currentQuarter = Math.ceil((new Date().getMonth() + 1) / 3);
@@ -32,6 +33,14 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
     }, []);
 
     const handleDeliveryDate = ({ minValue, maxValue }) => {
+        if (minValue !== deliveryDate.minValue) {
+            setLastUpdated('minValue');
+            console.log("minvalue updated")
+        } else if (maxValue !== deliveryDate.maxValue) {
+            setLastUpdated('maxValue');
+            console.log("maxvalue updated")
+
+        }
         setDeliveryDate({ minValue, maxValue });
     };
 
@@ -40,7 +49,7 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
     }
 
     useEffect(() => {
-        setIsSliderUsed(false);        
+        setIsSliderUsed(false);
     }, [resetFlagDev]);
 
     const getQuarterYear = (value) => {
@@ -50,8 +59,26 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
         return `Q${quarter} ${year}`;
     };
 
+    useEffect(() => {
+        const rangethumbs = document.getElementById("rangethumbs")
+        if (rangethumbs) {
+            if (lastUpdated === "minValue") {
+                rangethumbs.classList.add("customthumbsleft")
+                rangethumbs.classList.remove("customthumbsright")
+            }
+            else if (lastUpdated === "maxValue") {
+                rangethumbs.classList.add("customthumbsright")
+                rangethumbs.classList.remove("customthumbsleft")
+            }
+            else {
+                rangethumbs.classList.remove("customthumbsright")
+                rangethumbs.classList.remove("customthumbsleft")
+            }
+        }
+    }, [deliveryDate.minValue, deliveryDate.maxValue]);
+
     return (
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative hidden md:block" ref={dropdownRef}>
             <button
                 className="bg-transparent w-full border font-medium border-grayborder px-4 py-2 md:py-3 rounded-lg"
                 onClick={toggleDropdown}
@@ -70,7 +97,8 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
                 <div>
                     {isSliderUsed && (
                         <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
-                            {`${getQuarterYear(deliveryDate.minValue)} - ${getQuarterYear(deliveryDate.maxValue)}`}
+                            {/* {`${ lastUpdated === "minValue" ? `${deliveryDate.minValue === 0 || deliveryDate.minValue === 16 ? '': 'From '}` + getQuarterYear(deliveryDate.minValue) : `${deliveryDate.maxValue === 0 || deliveryDate.maxValue === 16 ? '': 'To '}` + getQuarterYear(deliveryDate.maxValue)}`} */}
+                            {`${ lastUpdated === "minValue" ? 'From ' + getQuarterYear(deliveryDate.minValue) : 'To ' + getQuarterYear(deliveryDate.maxValue)}`}
                         </p>
                     )}
                 </div>
@@ -83,8 +111,9 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
                     className="absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom w-full sm:w-[420px] font-medium bg-white border rounded-md py-2 z-50"
                 >
                     <div className="flex flex-col gap-4 px-4 py-2">
-                        <div className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
+                        <div id='rangethumbs' className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
                             <MultiRangeSlider
+
                                 min={0}
                                 max={16}
                                 step={1}
@@ -96,7 +125,7 @@ const DeliveryDateDropdown = ({ title, deliveryDate, setDeliveryDate, resetFlagD
                                 canMinMaxValueSame={true}
                                 onInput={handleDeliveryDate}
                                 onChange={handlePTag}
-                                className="w-full"
+                                className="w-full "
                                 style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}
                                 barLeftColor='transparent'
                                 barInnerColor='black'

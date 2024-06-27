@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-
-
+import React, { useState, useEffect, useRef } from 'react';
 import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-
 const DevSrchPagination = () => {
-    let itemsPerPage = 8
+    let itemsPerPage = 8;
     const data = [
         { title: 'MONTISNAVIA 1', description: 'Description 1' },
         { title: 'MONTISNAVIA 2', description: 'Description 2' },
@@ -31,6 +28,7 @@ const DevSrchPagination = () => {
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
+    const devCardsRef = useRef(null);
 
     // Calculate the total number of pages
     const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -40,8 +38,18 @@ const DevSrchPagination = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
+    // Scroll to the top of the development cards section whenever currentPage changes
+    useEffect(() => {
+        if (devCardsRef.current) {
+            const offsetTop = devCardsRef.current.getBoundingClientRect().top + window.pageYOffset - 300;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+    }, [currentPage]);
+
     // Function to change the page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
     // Function to go to the next page
     const nextPage = () => {
@@ -57,14 +65,11 @@ const DevSrchPagination = () => {
         }
     };
 
-    // pagination
-
     return (
-
         <>
             <div className="flex flex-col items-center">
                 {/* Render the current items */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-10">
+                <div ref={devCardsRef} id="devcards" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-10">
                     {currentItems.map((item, index) => (
                         <LatestDevelopmentCard key={index} index={index} item={item} />
                     ))}
@@ -103,7 +108,7 @@ const DevSrchPagination = () => {
                 </ul>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default DevSrchPagination
+export default DevSrchPagination;

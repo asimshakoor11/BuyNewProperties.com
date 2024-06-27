@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
 import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,20 +9,41 @@ import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsC
 
 
 const DevelopmentsSearchpage = () => {
+    
+    const overlayRef = useRef(null);
+    const heroContentRef = useRef(null);
+
+    useEffect(() => {
+        const parallaxEffect = () => {
+            const scrolled = window.scrollY;
+            const parallax = document.querySelector('.parallax-bg');
+            const heroContent = heroContentRef.current;
+            if (window.innerWidth > 1000) {
+
+                if (parallax) {
+                    parallax.style.backgroundPositionY = `-${scrolled * 0.3}px`; // Adjusts slower parallax scrolling
+                }
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`; // Adjusts slower scrolling for hero content
+                }
+            }
+
+        };
+
+        window.addEventListener('scroll', parallaxEffect);
+
+        return () => {
+            window.removeEventListener('scroll', parallaxEffect);
+        };
+    }, []);
+
     return (
         <>
-            <section className="section customheight bg-cover bg-center relative"
+            <section className="section customheight parallax-bg lg:bg-fixed bg-cover bg-center relative"
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
-                <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
-                    <h1 className="text-4xl md:text-6xl  font-BebasNeueSemiExpBold">Find Your New <br /> Property</h1>
-
-                    <button
-                        className="flex items-center justify-between font-semibold mx-auto mt-8 bg-primarycolor text-white px-4 py-3 rounded-xl">
-
-                        <span> Explore New Developemnts</span>
-                        <FontAwesomeIcon icon={faChevronDown} size='sm' className='ml-6' />
-                    </button>
+                <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
+                    <h1 className="text-4xl md:text-[42px] font-BebasNeueSemiExpBold">Find Your New <br /> Property</h1>
                 </div>
             </section>
 
@@ -43,16 +64,14 @@ const DevelopmentsSearchpage = () => {
 
             <section className="section text-center bg-white">
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-center">
-                    Sold Developments
+                Create An Account 
                 </h2>
                 <p className="text-[#2A2A2A] my-8 max-w-md mx-auto">
-                    With our expert team and extensive network, you are in the best hands to achieve swift and
-                    successful sales.
+                Join Buy Developments and let us take care of you every step of the way. We’ll find your perfect property in Portugal, and the best part is, our services are completely free. Create an account today and start your journey with us!
                 </p>
                 <button
                     className="flex items-center mx-auto bg-primarycolor text-white px-6 py-3 rounded-lg shadow">
-                    <span> View Our Sales</span>
-                    <FontAwesomeIcon icon={faChevronRight} size='sm' className='ml-6' />
+                    <span> Create An Account</span>
                 </button>
             </section >
 

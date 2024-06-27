@@ -7,7 +7,7 @@ import MultiRangeSlider from 'multi-range-slider-react';
 const BuildingStageDropdown = ({ title, buildingStage, setBuildingStage, resetFlagBul }) => {
     const [openDropdown, setOpenDropdown] = useState(false);
     const [isSliderUsed, setIsSliderUsed] = useState(false);
-
+    const [lastUpdated, setLastUpdated] = useState(null);
     const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
@@ -29,6 +29,14 @@ const BuildingStageDropdown = ({ title, buildingStage, setBuildingStage, resetFl
     }, [openDropdown]);
 
     const handleBuildingStage = ({ minValue, maxValue }) => {
+        if (minValue !== buildingStage.minValue) {
+            setLastUpdated('minValue');
+            console.log("minvalue updated")
+        } else if (maxValue !== buildingStage.maxValue) {
+            setLastUpdated('maxValue');
+            console.log("maxvalue updated")
+
+        }
         setBuildingStage({ minValue, maxValue });
     };
 
@@ -53,11 +61,48 @@ const BuildingStageDropdown = ({ title, buildingStage, setBuildingStage, resetFl
         }
     };
 
+    useEffect(() => {
+        const rangeslider = document.getElementById("rangeslider")
+        if (rangeslider) {
+            if (buildingStage.maxValue === buildingStage.minValue) {
+                rangeslider.classList.remove("custom-slider")
+                rangeslider.classList.add("custom-sliderg")
+            }
+            else if (buildingStage.minValue === buildingStage.maxValue) {
+                rangeslider.classList.remove("custom-slider")
+                rangeslider.classList.add("custom-sliderg")
+            }
+            else {
+                rangeslider.classList.remove("custom-sliderg")
+                rangeslider.classList.add("custom-slider")
+            }
+        }
+    }, [buildingStage.minValue, buildingStage.maxValue]);
+
+    useEffect(() => {
+        const rangethumbs = document.getElementById("rangethumbs")
+        if (rangethumbs) {
+            if (lastUpdated === "minValue") {
+                rangethumbs.classList.add("customthumbsleft")
+                rangethumbs.classList.remove("customthumbsright")
+            }
+            else if (lastUpdated === "maxValue") {
+                rangethumbs.classList.add("customthumbsright")
+                rangethumbs.classList.remove("customthumbsleft")
+            }
+            else {
+                rangethumbs.classList.remove("customthumbsright")
+                rangethumbs.classList.remove("customthumbsleft")
+            }
+        }
+    }, [buildingStage.minValue, buildingStage.maxValue]);
+
     return (
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative hidden md:block" ref={dropdownRef}>
             <button
                 className="bg-transparent w-full border font-medium border-grayborder px-4 py-2 md:py-3 rounded-lg"
                 onClick={toggleDropdown}
+
             >
                 <div className='flex flex-row justify-between items-center gap-2'>
                     <span>{title}</span>
@@ -74,7 +119,8 @@ const BuildingStageDropdown = ({ title, buildingStage, setBuildingStage, resetFl
                     {
                         isSliderUsed && (
                             <p className="w-full text-left text-sm whitespace-nowrap overflow-hidden text-ellipsis">
-                                {`${getBuildingStageLabel(buildingStage.minValue)} - ${getBuildingStageLabel(buildingStage.maxValue)}`}
+                                {`${lastUpdated === "minValue" ? `${buildingStage.minValue === 0 || buildingStage.minValue === 2 ? '': 'From '}` + getBuildingStageLabel(buildingStage.minValue) : `${buildingStage.maxValue === 0 || buildingStage.maxValue === 2 ? '': 'To '}` + getBuildingStageLabel(buildingStage.maxValue)}`}
+
                             </p>
                         )
                     }
@@ -86,11 +132,12 @@ const BuildingStageDropdown = ({ title, buildingStage, setBuildingStage, resetFl
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute md:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom w-full sm:w-[420px] font-medium bg-white border rounded-md py-2 z-50"
+                    className="absolute lg:right-0 mt-2 max-h-[230px] overflow-y-scroll scrollbar-custom w-full sm:w-[420px] font-medium bg-white border rounded-md py-2 z-50"
                 >
                     <div className="flex flex-col gap-4 px-4 py-2">
-                        <div className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
+                        <div id='rangethumbs' className="w-full" style={{ border: "none", boxShadow: "none", backgroundColor: "transparent" }}>
                             <MultiRangeSlider
+                                id='rangeslider'
                                 min={0}
                                 max={2}
                                 step={1}

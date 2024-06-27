@@ -388,6 +388,15 @@ body {
   height: 5px; /* for horizontal scrollbar */
 }
 
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #D8D8D8 transparent;
+}
+
+/* Firefox on hover */
+.scrollbar-custom:hover {
+  scrollbar-color: rgb(177, 177, 177) transparent;
+}
 
 
 
