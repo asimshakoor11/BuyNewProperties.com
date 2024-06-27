@@ -50,10 +50,10 @@ const OurAgentpage = () => {
 
     return (
         <>
-            <section className="section h-full bg-cover bg-center relative"
+            <section className="section bg-cover bg-center relative"
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
-                <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
+                <div className="relative z-10 flex flex-col items-center justify-center  text-white text-center py-40">
                     <h1 className="text-4xl md:text-6xl font-bold font-FuturaHeavy">Global Talent <br /> Local Knowledge</h1>
 
                     <button

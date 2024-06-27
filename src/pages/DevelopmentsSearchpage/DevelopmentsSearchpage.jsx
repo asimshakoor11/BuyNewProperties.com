@@ -39,7 +39,7 @@ const DevelopmentsSearchpage = () => {
 
     return (
         <>
-            <section className="section customheight parallax-bg lg:bg-fixed bg-cover bg-center relative"
+            <section className="section parallax-bg lg:bg-fixed bg-cover bg-center relative"
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">

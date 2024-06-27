@@ -263,10 +263,10 @@ const DevelopmentsSearchSec = () => {
 
     return (
         <>
-            <section className='section bg-white'>
+            <section className='py-[80px] bg-white'>
 
-                <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mt-10">
-                    <div>
+                <div className={`${view === 'map' ? 'sticky top-0 z-50 bg-white ' : ''} py-6 px-[7%] flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mt-10`}>
+                    <div className={`${view === 'map' ? '' : ''}`}>
                         <h2 className="text-4xl md:text-5xl font-BebasNeueSemiExpBold text-primarycolor text-left">New Developments In Lisbon Area</h2>
                         <p className="text-fontdark text-lg mt-2">160 available units found in 15 new developments.</p>
                     </div>
@@ -295,13 +295,13 @@ const DevelopmentsSearchSec = () => {
                                 <img src="/images/icons/settings-sliders.png" alt="" className='h-6' />
                             </button>
 
-                            <div className={`hidden ${view === 'map' ? 'hidden' : 'lg:flex'} absolute bottom-14 w-full flex-col gap-3 items-center justify-center pb-2`}>
-                                <p className='text-sm text-center italic font-medium'>Refine your search criteria</p>
-                                <img src="/images/icons/rounded arrow.svg" alt="" className={`h-10 ${isAnimating ? 'animate-slide' : ''}`} />
+                            <div className={`hidden ${view === 'map' ? 'hidden' : 'lg:flex'} ${isAnimating ? 'animate-slide' : ''} absolute bottom-14 w-full flex-col gap-1 items-center justify-center`}>
+                                <p className='text-sm text-center italic font-medium w-max'>Refine your search criteria</p>
+                                <img src="/images/icons/rounded arrow.svg" alt="" className={`h-14 `} />
                             </div>
                         </div>
 
-                        <div className="relative" ref={dropdownRefSort}>
+                        <div className={`relative ${view === 'map' ? 'hidden' : 'block'}`} ref={dropdownRefSort}>
                             <button href="#" className="w-full sm:w-32 bg-transparent font-medium text-black  px-3 py-2 md:py-3 md:px-4 rounded-lg border border-black flex flex-row justify-between items-center gap-2"
 
                                 onClick={() => { setIsDropdownOpenSort(!isDropdownOpenSort); }}
@@ -324,7 +324,7 @@ const DevelopmentsSearchSec = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: isDropdownOpenSort ? 1 : 0, y: isDropdownOpenSort ? 0 : 10 }}
                                     transition={{ duration: 0.3 }}
-                                    className={`absolute right-0 text-primarycolor w-[180px] max-h-[220px] overflow-y-scroll scrollbar-custom border mt-1 bg-white rounded-md py-2 z-50`}
+                                    className={`absolute right-0 text-primarycolor w-full sm:w-[180px] max-h-[220px] overflow-y-scroll scrollbar-custom border mt-1 bg-white rounded-md py-2 z-50`}
                                 >
                                     <a className="flex flex-row px-3  gap-2 cursor-pointer py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
 

@@ -28,6 +28,7 @@ const DevSrchPagination = () => {
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
+    const [isInitialMount, setIsInitialMount] = useState(true);
     const devCardsRef = useRef(null);
 
     // Calculate the total number of pages
@@ -38,36 +39,40 @@ const DevSrchPagination = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
-    // Scroll to the top of the development cards section whenever currentPage changes
-    useEffect(() => {
-        if (devCardsRef.current) {
-            const offsetTop = devCardsRef.current.getBoundingClientRect().top + window.pageYOffset - 300;
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        }
-    }, [currentPage]);
 
     // Function to change the page
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
+
     };
 
     // Function to go to the next page
     const nextPage = () => {
         if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
+            // setCurrentPage(currentPage + 1);
+            paginate(currentPage + 1);
         }
     };
 
     // Function to go to the previous page
     const prevPage = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
+            // setCurrentPage(currentPage - 1);
+            paginate(currentPage - 1);
         }
     };
 
+    useEffect(() => {
+        if (!isInitialMount && devCardsRef.current) {
+            const offsetTop = devCardsRef.current.getBoundingClientRect().top + window.pageYOffset - 300;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+        setIsInitialMount(false);
+    }, [currentPage]);
+
     return (
         <>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center px-[7%]">
                 {/* Render the current items */}
                 <div ref={devCardsRef} id="devcards" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-10">
                     {currentItems.map((item, index) => (
