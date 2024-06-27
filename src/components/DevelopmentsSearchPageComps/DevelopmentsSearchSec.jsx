@@ -9,7 +9,6 @@ import DevSrchListComp from './DevSrchListComp';
 import DevSrchMapComp from './DevSrchMapComp';
 import './Styles/DevSearchSec.css'
 import { Checkbox } from "@material-tailwind/react";
-import ReactSlider from 'react-slider';
 import LocationDropdown from './DropdownComps/LocationDropdown';
 import PropertyTypeDropdown from './DropdownComps/PropertyTypeDropdown';
 import BuildingStageDropdown from './DropdownComps/BuildingStageDropdown';
