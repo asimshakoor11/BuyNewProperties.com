@@ -137,7 +137,7 @@ const LocationDropdown = ({ title, dropdownItems, resetFlagLoc }) => {
                             filteredLocations.map((item, itemIndex) => (
                                 <div key={itemIndex}>
                                     <div
-                                        className="flex flex-row gap-2 px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
+                                        className="flex flex-row px-4 py-2 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <Checkbox
@@ -148,12 +148,12 @@ const LocationDropdown = ({ title, dropdownItems, resetFlagLoc }) => {
                                             checked={checkedItems[`${itemIndex}`] || false}
                                             onChange={() => handleLocationCheck(itemIndex)}
                                         />
-                                        <label htmlFor={`checkbox${itemIndex}`} className='w-full cursor-pointer text-start'>{item.label}</label>
+                                        <label htmlFor={`checkbox${itemIndex}`} className='pl-2 w-full cursor-pointer text-start'>{item.label}</label>
                                     </div>
                                     {item.subitems.map((subitem, subindex) => (
                                         <div
                                             key={subindex}
-                                            className="flex flex-row gap-2 ml-4 px-4 py-1 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
+                                            className="flex flex-row ml-4 px-4 py-1 cursor-pointer border-black transition-colors hover:bg-bggray rounded-lg duration-150"
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             <Checkbox
@@ -164,7 +164,7 @@ const LocationDropdown = ({ title, dropdownItems, resetFlagLoc }) => {
                                                 checked={checkedItems[`${itemIndex}-${subindex}`] || false}
                                                 onChange={() => handleLocationCheck(itemIndex, subindex)}
                                             />
-                                            <label htmlFor={`checkbox${itemIndex}-${subindex}`} className='w-full cursor-pointer text-start'>{subitem}</label>
+                                            <label htmlFor={`checkbox${itemIndex}-${subindex}`} className='pl-2 w-full cursor-pointer text-start'>{subitem}</label>
                                         </div>
                                     ))}
                                 </div>
