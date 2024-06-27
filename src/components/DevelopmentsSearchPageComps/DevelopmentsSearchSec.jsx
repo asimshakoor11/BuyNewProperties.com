@@ -620,7 +620,7 @@ const DevelopmentsSearchSec = () => {
                                                     <input
                                                         type="text"
                                                         id="reference"
-                                                        className="w-full p-3 py-2 md:py-3 uppercase bg-transparent border-grayborder border outline-none placeholder:text-fontdark rounded-lg"
+                                                        className={`w-full p-3 py-2 md:py-3 ${inputValue === '' ? 'capitalize' : 'uppercase'} bg-transparent border-grayborder border outline-none placeholder:text-fontdark rounded-lg`}
                                                         placeholder="Reference"
                                                         value={inputValue}
                                                         onChange={handleInputChange}
@@ -661,8 +661,8 @@ const DevelopmentsSearchSec = () => {
                                                             {tags.map((tag, index) => (
                                                                 <button
                                                                     key={index}
-                                                                    className={`p-3 border border-grayborder text-black text-sm rounded-full ${selectedTags.includes(tag) ? 'bg-primarycolor text-white' : 'bg-white'
-                                                                        } hover:bg-bggray hover:text-black`}
+                                                                    className={`p-3 border border-grayborder text-black text-xs sm:text-sm rounded-full ${selectedTags.includes(tag) ? 'bg-primarycolor text-white hover:bg-primarycolor hover:text-white' : 'bg-white hover:bg-bggray hover:text-black'
+                                                                        } `}
                                                                     onClick={() => toggleTag(tag)}
                                                                 >
                                                                     {tag}
