@@ -43,7 +43,7 @@ const DevelopmentsSearchpage = () => {
                 style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
-                    <h1 className="text-4xl md:text-[42px] font-BebasNeueSemiExpBold">Find Your New <br /> Property</h1>
+                    <h1 className="herofontsize font-BebasNeueSemiExpBold">Find Your New <br /> Property</h1>
                 </div>
             </section>
 

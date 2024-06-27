@@ -398,6 +398,20 @@ body {
   scrollbar-color: rgb(177, 177, 177) transparent;
 }
 
+.herofontsize{
+  font-size: 4rem;
+  line-height: normal;
+
+}
+
+@media (min-width: 720px) {
+  .herofontsize{
+    font-size: 4.5rem;
+    line-height: normal;
+  }
+}
+
+
 
 
 
