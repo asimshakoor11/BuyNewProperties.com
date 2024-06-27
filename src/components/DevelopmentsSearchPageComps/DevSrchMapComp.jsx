@@ -12,7 +12,7 @@ const DevSrchMapComp = () => {
     { title: 'MONTISNAVIA 4', description: 'Description 4' },
   ];
   return ( 
-    <div className='flex flex-row gap-4 px-[7%]'>
+    <div className='flex flex-row gap-4 px-[1%]'>
       <div className='w-[30%] hidden xl:block'>
         <div className="grid grid-cols-1 mt-10 mb-10">
           {data.map((item, index) => (
