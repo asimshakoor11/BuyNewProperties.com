@@ -19,7 +19,7 @@ export default withMT({
         'customminforSDP': {'min': '1200px'},
         'custommaxforSDPTable': {'max': '1470px'},
         'custommin400': {'min': '400px'},
-        'custommax520': {'max': '520px'},
+        'custommax540': {'max': '540px'},
       },
       fontFamily: {
         BebasNeueSemiExpBold: ['BebasNeueSemiExpBold'],

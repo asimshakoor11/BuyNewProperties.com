@@ -234,6 +234,12 @@ body {
   transition: transform 0.5s ease;
 }
 
+.relative-container {
+  position: relative;
+  aspect-ratio: 3 / 2; 
+  width: 100%; /* Ensure the container takes the full available width */
+}
+
 .bg-container:hover .bg-zoom {
   transform: scale(1.1);
 }

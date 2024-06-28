@@ -7,9 +7,9 @@ import {
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const scrollThreshold = 100;
+let scrollThreshold;
 
-const Navbar = () => {
+const Navbar = ({ isNavbarFixed }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isDropdownOpenLang, setIsDropdownOpenLang] = useState(false);
@@ -20,6 +20,15 @@ const Navbar = () => {
     const [isHoveredLang, setIsHoveredLang] = useState(false);
     const [isPopupOpenBM, setIsPopupOpenBM] = useState(false)
     const [isDropdownOpenBigLang, setIsDropdownOpenBigLang] = useState(false);
+
+    useEffect(() => {
+        if (isNavbarFixed) {
+            scrollThreshold = 0
+        }else{
+            scrollThreshold = 100
+        }
+    },[isNavbarFixed])
+
 
     useEffect(() => {
         if (isDropdownOpenContact || isPopupOpenBM) {
@@ -38,8 +47,11 @@ const Navbar = () => {
                 // Scrolling down
                 setNavbarVisible(false);
             } else {
-                // Scrolling up                
-                setNavbarVisible(true);
+                // Scrolling up  
+                if (!isNavbarFixed) {
+                    setNavbarVisible(true);
+
+                }
             }
             setLastScrollTop(currentScrollTop);
             setScrollPosition(currentScrollTop);
@@ -121,14 +133,14 @@ const Navbar = () => {
     return (
         <>
             <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-[120px]'} ${isDropdownOpenContact ? 'bg-white' : 'bg-transparent'}`}>
-                <div className={`mx-2 px-2 md:px-3 my-4 rounded-full ${(scrollPosition > newscrollThreshold) || isDropdownOpenContact ? 'bg-white  text-primarycolor border' : 'bg-transparent text-white'} `}>
+                <div className={`mx-2 px-2 md:px-3 my-4 rounded-full  ${(scrollPosition > newscrollThreshold) || isDropdownOpenContact || isNavbarFixed ? 'bg-white text-primarycolor border' : 'bg-transparent text-white'} `}>
                     {/* Your navbar content goes here */}
                     <div className="w-full px-2 md:px-4 flex justify-between items-center">
                         <div className="flex">
                             {scrollPosition > newscrollThreshold ? (
                                 <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Light" /></Link>
                             ) : (
-                                isDropdownOpenContact ? (
+                                isDropdownOpenContact || isNavbarFixed ? (
                                     <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Dark" /></Link>
                                 ) : (
                                     <Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="Logo Dark" /></Link>

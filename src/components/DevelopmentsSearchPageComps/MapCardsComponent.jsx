@@ -2,18 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Carousel } from "@material-tailwind/react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faPhone, faEnvelope, faSort } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
-import TableCards from '../HomePageComps/TableCards';
+import MapCardsTable from './MapCardsTable';
 
-
-const Cards = ({ item, index }) => {
+const MapCardsComponent = ({ item, index }) => {
     const [isTableVisible, setIsTableVisible] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [screenSize, setScreenSize] = useState(window.innerWidth);
 
     useEffect(() => {
         if (isPopupOpen) {
@@ -44,56 +41,6 @@ const Cards = ({ item, index }) => {
         setShowTooltip(false);
     };
 
-    let delay;
-    if (screenSize < 768) {
-        // Small screens: 1 card per row
-        delay = index * 0;
-    } else if (screenSize >= 768 && screenSize < 1140) {
-        // Small screens: 2 cards per row
-        switch (index) {
-            case 0:
-                delay = 0; // 0ms delay for the first card in each row
-                break;
-            case 1:
-                delay = 100; // 100ms delay for the second card in each row
-                break;
-            case 2:
-                delay = 0; // 0ms delay for the first card in each row
-                break;
-            case 3:
-                delay = 100; // 100ms delay for the second card in each row
-                break;
-            case 4:
-                delay = 0; // 0ms delay for the first card in each row
-                break;
-            case 5:
-                delay = 100; // 100ms delay for the second card in each row
-                break;
-            case 6:
-                delay = 0; // 100ms delay for the second card in each row
-                break;
-            default:
-                delay = 100; // default delay
-                break;
-        }
-    } else {
-        // Larger screens: 3 cards per row
-        switch (index % 3) {
-            case 0:
-                delay = 0; // 0ms delay for the first card in each row
-                break;
-            case 1:
-                delay = 100; // 100ms delay for the second card in each row
-                break;
-            case 2:
-                delay = 200; // 200ms delay for the third card in each row
-                break;
-            default:
-                delay = 0; // default delay
-                break;
-        }
-    }
-
     const handleScrollDown = () => {
         window.scrollTo({
             top: window.scrollY + 20,
@@ -104,11 +51,11 @@ const Cards = ({ item, index }) => {
 
     return (
         <>
-            <div data-aos="fade-up" data-aos-delay={delay} className='flex flex-col'>
+            <div data-aos="fade-up" data-aos-delay={index*100}  className='w-full flex flex-col'>
 
-                <div className="rounded-[18px] overflow-hidden"
+                <div className="overflow-hidden flex flex-col xl:flex-row gap-3"
                 >
-                    <div className='relative-container  w-full rounded-[18px]'>
+                    <div className='relative w-full xl:w-1/2 rounded-[18px]'>
                         <Carousel className="rounded-[18px] h-full overflow-hidden"
                             navigation={false}
                         >
@@ -131,25 +78,15 @@ const Cards = ({ item, index }) => {
                             />
                         </Carousel>
 
-                        <div className="absolute top-4 w-full flex justify-between items-center px-4 gap-3">
-                            <div className='flex items-center gap-1 text-black bg-white opacity-80 font-semibold text-[13px] px-2 py-2  rounded'>
-                                <span>
-                                    <img src="/images/icons/locationwhite.png" alt="location" className='h-3' />
-                                </span>
-                                <span>
-                                    Algarve
-                                </span>
-                            </div>
-                            {/* <span className="text-black bg-bggray font-semibold text-[13px] px-2 md:px-3 py-2  rounded">Algarve</span> */}
+                        <div className="absolute top-4 w-full flex justify-between items-center px-4 ">
                             <span className="bg-primarycolor text-white font-semibold text-[13px] px-2 py-2  rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
-                        <div className='absolute bottom-0 flex justify-between items-center w-full'>
-                            <p className="text-black bg-white opacity-80 font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[23px] rounded-bl-[23px] -ml-1">Status: Completed</p>
+                        <div className='absolute bottom-0 right-0'>
 
                             <div className="flex items-center mr-4 mb-2">
                                 {showTooltip && (
                                     <motion.p
-                                        className={`absolute right-10 mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                                        className={`absolute right-10 w-max mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
                                         initial={{ x: -20, opacity: 0 }} // Initial position and opacity
                                         animate={{ x: 0, opacity: 1 }} // Animation properties
                                         transition={{ duration: 0.3 }} // Animation duration
@@ -179,36 +116,48 @@ const Cards = ({ item, index }) => {
                         </div>
                     </div>
 
-                    <div className="py-2 ">
+                    <div className=" w-full xl:w-1/2 ">
                         <Link to={"/singledevelopmenpage"}>
-                            <div className="mt-3 flex flex-col gap-3 text-black">
-                                <p className="font-semibold text-lg ">$500,000 to $800,000</p>
-                                <p className="font-semibold text-2xl">{item.title}</p>
-                                <div className="flex flex-wrap justify-between gap-3 text-primarycolor">
+                            <div className="flex flex-col justify-between h-full gap-3 text-black">
+                                <div className='flex justify-between text-sm'>
+                                    <p className='font-semibold'>New Development In Vale do Lobo</p>
+                                    <div className='flex items-center gap-1 text-black font-semibold'>
+                                        <span>
+                                            <img src="/images/icons/locationwhite.png" alt="location" className='h-4' />
+                                        </span>
+                                        <span>
+                                            Algarve
+                                        </span>
+                                    </div>
+                                </div>
+                                <p className="font-medium text-xl">{item.title}</p>
+                                <div className="flex flex-wrap gap-3 text-primarycolor">
                                     <div>
                                         <div className="text-xl">D1001</div>
                                         <div className="text-sm font-bold" >Reference</div>
                                     </div>
                                     <div>
                                         <div className="text-xl">2 to 5</div>
-                                        <div className="text-sm font-bold">Beds</div>
+                                        <div className="text-sm font-bold">Bedsrooms</div>
                                     </div>
                                     <div>
                                         <div className="text-xl">68m<sup>2</sup> to 304m<sup>2</sup></div>
-                                        <div className="text-sm font-bold">Build</div>
+                                        <div className="text-sm font-bold">Interior Build</div>
                                     </div>
-                                    <div>
-                                        <div className="text-xl">23m<sup>2</sup> to 78m<sup>2</sup></div>
-                                        <div className="text-sm font-bold">Terrace/Plot</div>
-                                    </div>
+
                                 </div>
+                                <p className="font-semibold text-xl text-black">$500,000 to $800,000</p>
+
+                                <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
                             </div>
                         </Link>
-                        <div className="mt-5">
-                            <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
-                            <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
-                        </div>
+
                     </div>
+
+                </div>
+
+                <div className="">
+                    <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
                 </div>
 
                 {/* table  */}
@@ -221,9 +170,9 @@ const Cards = ({ item, index }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                id='devtable' className={`w-full mx-auto overflow-x-scroll rounded-[18px] scrollbar-hide mt-2`}
+                                id='devtable' className={`w-full mx-auto overflow-x-scroll rounded-[18px] scrollbar-custom mt-4`}
                             >
-                                <TableCards />
+                                <MapCardsTable />
                             </motion.div>
                         )
                     }
@@ -318,4 +267,4 @@ const Cards = ({ item, index }) => {
     )
 }
 
-export default Cards
+export default MapCardsComponent

@@ -72,9 +72,9 @@ const DevSrchPagination = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center px-[7%]">
+            <div className="flex flex-col items-center">
                 {/* Render the current items */}
-                <div ref={devCardsRef} id="devcards" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-10">
+                <div ref={devCardsRef} id="devcards" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 mb-10">
                     {currentItems.map((item, index) => (
                         <LatestDevelopmentCard key={index} index={index} item={item} />
                     ))}
