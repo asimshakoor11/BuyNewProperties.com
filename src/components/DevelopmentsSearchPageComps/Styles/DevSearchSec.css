@@ -153,7 +153,29 @@
       transform: translateY(0);
     }
   }
+
+  .infowindowcustom{
+    display: none !important;
+  }
   
   .animate-slide {
     animation: slide 2s ease-in-out infinite;
+  }
+
+  .gm-style-iw-chr{
+    display: none !important;
+  }
+
+  .gm-style-iw-d{
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .gm-style .gm-style-iw-c{
+    padding: 0 !important;
+  }
+
+  .gm-style .gm-style-iw-tc::after{
+    background-color: #002038;
+    height: 20px;
   }

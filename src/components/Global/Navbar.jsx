@@ -24,10 +24,10 @@ const Navbar = ({ isNavbarFixed }) => {
     useEffect(() => {
         if (isNavbarFixed) {
             scrollThreshold = 0
-        }else{
+        } else {
             scrollThreshold = 100
         }
-    },[isNavbarFixed])
+    }, [isNavbarFixed])
 
 
     useEffect(() => {
@@ -132,8 +132,8 @@ const Navbar = ({ isNavbarFixed }) => {
 
     return (
         <>
-            <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-[120px]'} ${isDropdownOpenContact ? 'bg-white' : 'bg-transparent'}`}>
-                <div className={`mx-2 px-2 md:px-3 my-4 rounded-full  ${(scrollPosition > newscrollThreshold) || isDropdownOpenContact || isNavbarFixed ? 'bg-white text-primarycolor border' : 'bg-transparent text-white'} `}>
+            <nav className={`fixed w-full top-0 transition-all duration-300 z-50 ${navbarVisible ? '' : '-translate-y-[120px]'} ${isDropdownOpenContact ? 'bg-white' : ''} `}>
+                <div id='narbardiv' className={`mx-2 px-2 md:px-3 my-4 rounded-full ${(scrollPosition > newscrollThreshold) || isDropdownOpenContact || isNavbarFixed ? 'bg-white text-primarycolor border' : 'bg-transparent text-white'}`}>
                     {/* Your navbar content goes here */}
                     <div className="w-full px-2 md:px-4 flex justify-between items-center">
                         <div className="flex">

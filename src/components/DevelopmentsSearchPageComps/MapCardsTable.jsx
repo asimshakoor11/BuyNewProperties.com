@@ -79,17 +79,17 @@ const MapCardsTable = () => {
     const tableHeaders = [
         { label: 'Beds', key: 'beds' },
         { label: 'Area', key: 'interior' },
-        { label: 'Price', key: 'price' },
         { label: 'Floor', key: 'floor' },
         { label: 'Parking', key: 'parking' },
+        { label: 'Price', key: 'price' },
     ];
 
     const tableData = sortedData.map(row => ({
         beds: row.beds,
-        interior: row.interior,
-        price: row.price,
+        interior: row.interior,        
         floor: row.floor,
         parking: row.parking,
+        price: row.price,
     }));
 
     return (
