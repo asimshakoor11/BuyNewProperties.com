@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleRight, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 const containerStyle = {
   width: '100%',
@@ -70,13 +71,26 @@ const CustomMap = () => {
     setMap(null);
   }, []);
 
+  // const handleMarkerClick = (location) => {
+  //   setSelectedMarker(location);
+  //   setMapCenter(location.position);
+  // };
+
   const handleMarkerClick = (location) => {
     setSelectedMarker(location);
-    setMapCenter(location.position);
+    map.panTo(location.position); // Smoothly pan to the selected marker
   };
 
   const handleInfoWindowClose = () => {
     setSelectedMarker(null);
+  };
+
+  const getAdjustedPosition = (position) => {
+    const offset = 0.5; // Adjust this value to move the InfoWindow higher or lower
+    return {
+      lat: position.lat + offset,
+      lng: position.lng
+    };
   };
 
   return isLoaded ? (
@@ -112,22 +126,22 @@ const CustomMap = () => {
 
         {selectedMarker && (
           <InfoWindow
-            position={selectedMarker.position}
+            // position={selectedMarker.position}
+            position={getAdjustedPosition(selectedMarker.position)}
             onCloseClick={handleInfoWindowClose}
           >
-            <div className='w-64'>
+            <div className='w-52 sm:w-64'>
               <div className='relative h-44 bg-cover' style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundRepeat: "no-repeat" }}>
-                <div className='absolute inset-0 bg-black opacity-30'></div>
+                <div className='absolute inset-0 bg-black opacity-50'></div>
 
-                <div className='absolute top-3 right-3 p-2 cursor-pointer rounded-md border-2 border-black bg-bggray text-black' 
+                <div className='absolute top-3 right-3 py-1 px-1.5 sm:p-2 cursor-pointer rounded-md border-2 border-black bg-bggray opacity-80 text-black' 
                 onClick={handleInfoWindowClose}>
-                  <FontAwesomeIcon icon={faXmark} className='text-lg' />
-
+                  <FontAwesomeIcon icon={faXmark} className='text-base sm:text-lg' />
                 </div>
 
-                <div className="absolute bottom-0 text-white p-2">
-                  <h2 className='text-lg font-bold my-2 '>{selectedMarker.info.title}</h2>
-                  <div className='flex items-center gap-2 font-medium text-[13px] '>
+                <div className="absolute bottom-0 text-white p-3">
+                  <h2 className='text-base sm:text-lg font-bold my-2 '>{selectedMarker.info.title}</h2>
+                  <div className='flex items-center gap-2 font-medium text-[12px] sm:text-[13px] '>
                     <span>
                       <img src="/images/icons/location54.png" alt="location" className='h-4' />
                     </span>
@@ -140,12 +154,12 @@ const CustomMap = () => {
 
               <div className='bg-primarycolor text-white flex items-center gap-3 justify-end py-3 px-3'>
                 <div className=''>
-                  <p className='text-base text-right'>{selectedMarker.info.beds}</p>
-                  <p className='text-lg font-bold  text-right'>{selectedMarker.info.price}</p>
+                  <p className='text-sm sm:text-base text-right'>{selectedMarker.info.beds}</p>
+                  <p className='text-base sm:text-lg font-bold  text-right' style={{ letterSpacing: '2px' }}>{selectedMarker.info.price}</p>
                 </div>
                 <div className=''>
-                  <span className='p-2.5 pt-3 bg-bggray font-semibold text-black border-2 border-black opacity-80 rounded-md'>
-                    <FontAwesomeIcon icon={faChevronRight} className='text-base' />
+                  <span className='p-1.5 pt-2 sm:p-2.5 sm:pt-3 bg-bggray font-semibold text-black border-2 border-black opacity-80 rounded-md'>
+                    <FontAwesomeIcon icon={faChevronRight} className='text-sm sm:text-base' />
                   </span>
                 </div>
               </div>

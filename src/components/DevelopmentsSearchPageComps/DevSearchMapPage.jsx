@@ -43,9 +43,9 @@ const DevSearchMapPage = () => {
             <section className='hidden sm:block'>
                 <Navbar isNavbarFixed={isNavFixed} />
             </section>
-            <section className='pt-[100px] pb-0 bg-bggray'>
+            <section className='custommax540:pt-0 sm:pt-[50px] lg:pt-[100px] pb-0 bg-bggray'>
                 <div className='flex flex-col 2xl:flex-row gap-4'>
-                    <div className='w-full 2xl:w-[50%] mt-10  px-[1%]'>
+                    <div className='w-full 2xl:w-[50%] sm:mt-10  px-[1%]'>
                         <div className={`hidden lg:block`}>
                             <div className={``}>
                                 <h2 className="text-3xl md:text-4xl font-BebasNeueSemiExpBold text-primarycolor text-left">New Developments In Lisbon Area</h2>
