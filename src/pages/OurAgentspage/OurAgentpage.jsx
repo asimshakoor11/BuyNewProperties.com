@@ -100,10 +100,10 @@ const OurAgentpage = () => {
 
             <section className='section bg-white'>
 
-                <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
+                <div className="flex flex-col md:flex-row gap-4 justify-between md:items-center">
                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left">Found 23 agents</h2>
 
-                    <div className="flex space-x-4">
+                    <div className="flex justify-between space-x-4">
                         {titles.map((title, index) => (
                             <div key={index} className="relative" ref={(el) => (dropdownRefs.current[index] = el)}>
                                 <button

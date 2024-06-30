@@ -94,7 +94,7 @@ const SingleDevHeroSection = () => {
                             <p className='mt-3  text-xl md:text-2xl'>Santo Antonio, Lisbon</p>
                         </div>
 
-                        <div className='flex flex-row justify-center items-start sm:justify-between sm:items-end gap-4 mt-4'>
+                        <div className='flex flex-row justify-between items-end gap-4 mt-4'>
                             <button
                                 className="flex flex-row items-center bg-white text-black px-6 py-2 md:px-10 md:py-4 rounded-full  font-semibold" >
                                 <span> Play</span>
