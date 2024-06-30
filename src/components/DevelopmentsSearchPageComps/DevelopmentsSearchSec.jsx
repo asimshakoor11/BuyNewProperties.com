@@ -71,7 +71,7 @@ const DevelopmentsSearchSec = () => {
                             >
                                 List
                             </button>
-                            <Link to={'/developmentssearchmap'} className='custommax540:w-1/2 ' >
+                            <Link to={'/developmentssearchmap'} className='custommax540:w-1/2 text-center ' >
                                 <button
                                     className={`px-6 py-2 md:py-3 bg-white text-black`}
                                     >

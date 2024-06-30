@@ -45,15 +45,15 @@ const DevSearchMapPage = () => {
             </section>
             <section className='custommax540:pt-0 sm:pt-[50px] lg:pt-[100px] pb-0 bg-bggray'>
                 <div className='flex flex-col 2xl:flex-row gap-4'>
-                    <div className='w-full 2xl:w-[50%] sm:mt-10  px-[1%]'>
+                    <div className='w-full 2xl:w-[50%] sm:mt-10 px-0 lg:px-[1%]'>
                         <div className={`hidden lg:block`}>
                             <div className={``}>
                                 <h2 className="text-3xl md:text-4xl font-BebasNeueSemiExpBold text-primarycolor text-left">New Developments In Lisbon Area</h2>
                                 <p className="text-fontdark text-base mt-2">160 available units found in 15 new developments.</p>
                             </div>
                         </div>
-                        <div className="sticky top-0 bg-bggray z-50 pt-5 pb-4 flex flex-row justify-between items-center font-medium gap-4">
-                            <div className=" flex border border-black rounded-lg overflow-hidden">
+                        <div className="sticky top-0 bg-bggray z-50 pt-5 pb-4 px-[2%] lg:px-0 flex flex-row justify-between items-center font-medium gap-4">
+                            <div className=" flex border border-black rounded-lg overflow-hidden ">
                                 <Link to={'/developmentssearch'} onClick={handleButtonClick} className=''>
                                     <button
                                         className={`px-7 py-2 md:py-3 bg-white text-black`}
@@ -79,7 +79,7 @@ const DevSearchMapPage = () => {
                             </div>
                         </div>
                         <div className='w-full 2xl:w-[50%] md:mt-10 block lg:hidden'>
-                            <CustomMap />
+                            <CustomMap mobile={true} />
                         </div>
                         <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-5 mt-10 mb-10">
                             {data.map((item, index) => (

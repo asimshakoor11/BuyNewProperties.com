@@ -3,6 +3,7 @@ import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-map
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleRight, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const containerStyle = {
   width: '100%',
@@ -50,7 +51,7 @@ const locations = [
   }
 ];
 
-const CustomMap = () => {
+const CustomMap = ({ mobile }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -94,7 +95,7 @@ const CustomMap = () => {
   };
 
   return isLoaded ? (
-    <div className='h-[95vh] w-full sticky top-5'>
+    <div className={` ${mobile ? 'h-[88vh]' : 'h-[100vh]'} w-full sticky top-0`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}
@@ -130,39 +131,47 @@ const CustomMap = () => {
             position={getAdjustedPosition(selectedMarker.position)}
             onCloseClick={handleInfoWindowClose}
           >
-            <div className='w-52 sm:w-64'>
-              <div className='relative h-44 bg-cover' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
-                <div className='absolute inset-0 bg-black opacity-50'></div>
+            <div className='w-52 sm:w-64 bg-container '>
+              <div className='relative ' >
+                <div className='relative overflow-hidden h-44'>
+                  <img src="/images/pages/homepage/herosection.svg" alt="" className='h-full w-full object-cover bg-zoom' />
+                </div>
+                <div className='absolute -bottom-2 z-10 h-[45%] w-full' style={{ background: 'linear-gradient(to bottom, transparent, #000000 50%)' }}></div>
 
-                <div className='absolute top-3 right-3 py-1 px-1.5 sm:p-2 cursor-pointer rounded-md border-2 border-black bg-bggray opacity-80 text-black' 
-                onClick={handleInfoWindowClose}>
+                <div className='absolute top-3 right-3 py-1 px-1.5 sm:p-2 cursor-pointer rounded-md border-2 border-black hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white'
+                  onClick={handleInfoWindowClose}>
                   <FontAwesomeIcon icon={faXmark} className='text-base sm:text-lg' />
                 </div>
 
-                <div className="absolute bottom-0 text-white p-3">
-                  <h2 className='text-base sm:text-lg font-bold my-2 '>{selectedMarker.info.title}</h2>
-                  <div className='flex items-center gap-2 font-medium text-[12px] sm:text-[13px] '>
-                    <span>
-                      <img src="/images/icons/locationmarkerwhite.svg" alt="location" className='h-4' />
-                    </span>
-                    <span>
-                      {selectedMarker.info.location}
+                <Link to={'/singledevelopmenpage'}>
+                  <div className="absolute z-20 w-full bottom-0 text-white p-3">
+                    <h2 className='text-base sm:text-lg font-bold my-2 '>{selectedMarker.info.title}</h2>
+                    <div className='flex items-center gap-2 font-medium text-[12px] sm:text-[13px] '>
+                      <span>
+                        <img src="/images/icons/locationmarkerwhite.svg" alt="location" className='h-4' />
+                      </span>
+                      <span>
+                        {selectedMarker.info.location}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              <Link to={'/singledevelopmenpage'}>
+                <div className='bg-primarycolor text-white flex items-center gap-3 justify-end py-3 px-3 pt-5'>
+                  <div className=''>
+                    <p className='text-sm sm:text-base text-right'>{selectedMarker.info.beds}</p>
+                    <p className='text-base sm:text-lg font-bold  text-right'>{selectedMarker.info.price}</p>
+                  </div>
+                  <div className=''>
+                    <span className='p-1.5 pt-2 sm:p-2.5 sm:pt-3 font-semibold  border-2 border-black hover:border-white bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white rounded-md'>
+                      <FontAwesomeIcon icon={faChevronRight} className='text-sm sm:text-base' />
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              <div className='bg-primarycolor text-white flex items-center gap-3 justify-end py-3 px-3'>
-                <div className=''>
-                  <p className='text-sm sm:text-base text-right'>{selectedMarker.info.beds}</p>
-                  <p className='text-base sm:text-lg font-bold  text-right' style={{ letterSpacing: '2px' }}>{selectedMarker.info.price}</p>
-                </div>
-                <div className=''>
-                  <span className='p-1.5 pt-2 sm:p-2.5 sm:pt-3 bg-bggray font-semibold text-black border-2 border-black opacity-80 rounded-md'>
-                    <FontAwesomeIcon icon={faChevronRight} className='text-sm sm:text-base' />
-                  </span>
-                </div>
-              </div>
             </div>
 
           </InfoWindow>

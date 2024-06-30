@@ -51,7 +51,7 @@ const MapCardsComponent = ({ item, index }) => {
 
     return (
         <>
-            <div data-aos="fade-up" data-aos-delay={index*100}  className='w-full flex flex-col'>
+            <div className='w-full flex flex-col'>
 
                 <div className="overflow-hidden flex flex-col xl:flex-row gap-3"
                 >
