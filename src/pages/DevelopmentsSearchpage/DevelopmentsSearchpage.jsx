@@ -57,7 +57,7 @@ const DevelopmentsSearchpage = () => {
     return (
         <>
             <section className="section parallax-bg lg:bg-fixed bg-cover bg-center relative"
-                style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
+                style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
                     <h1 className="herofontsize font-BebasNeueSemiExpBold">Find Your New <br /> Property</h1>
@@ -65,7 +65,8 @@ const DevelopmentsSearchpage = () => {
             </section>
 
             <section>
-                <DevelopmentLocations />
+                <DevelopmentLocations title={"Development Locations"} />
+
             </section>
 
             <section >
@@ -77,8 +78,6 @@ const DevelopmentsSearchpage = () => {
                 <LuxuryDevelopments />
             </section>
 
-
-
             <section className="section text-center bg-white">
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-center">
                     Create An Account
@@ -87,14 +86,13 @@ const DevelopmentsSearchpage = () => {
                     Join Buy Developments and let us take care of you every step of the way. We’ll find your perfect property in Portugal, and the best part is, our services are completely free. Create an account today and start your journey with us!
                 </p>
                 <button
-                    className="flex items-center mx-auto bg-primarycolor text-white px-6 py-3 rounded-lg shadow">
+                    className="flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover  text-white px-6 py-3 rounded-lg shadow">
                     <span> Create An Account</span>
                 </button>
             </section >
 
             <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
-
                 <WhyWorkWithUsCarousel />
             </section>
 

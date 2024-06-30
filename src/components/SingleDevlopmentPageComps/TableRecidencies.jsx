@@ -214,19 +214,17 @@ const TableRecidencies = ({ booking }) => {
                             <td className="py-2 px-4 text-center">{row.price}</td>
                             <td className="py-2 px-4 text-center">
                                 <button className="bg-transparent">
-                                    <img alt="download" src="/images/icons/download.png" />
+                                    <img alt="download" src="/images/icons/download.svg" className='h-5' />
                                 </button>
                             </td>
                             <td className="py-2 px-4 text-center">
                                 {(
-                                    booking ? (<button className="bg-primarycolor w-max text-sm text-white px-4 py-2 rounded">
+                                    booking ? (<button className="bg-primarycolor hover:bg-primarycolorhover w-max text-sm text-white px-4 py-2 rounded">
                                         Book Now
                                     </button>) : (<button className="bg-transparent  text-primarycolor px-4 py-2 rounded">
                                         -
                                     </button>)
-
                                 )}
-
                             </td>
                             <td className="py-2 px-4 text-center">
                                 <button className="bg-transparent icon-slide">

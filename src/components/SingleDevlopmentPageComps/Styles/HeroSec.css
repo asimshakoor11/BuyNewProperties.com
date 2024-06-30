@@ -8,9 +8,9 @@
 }
 
 .zoom-in {
-    animation: zoomIn 10s forwards;
+    animation: zoomIn 11s forwards;
 }
 
 img {
-    transition: transform 10s ease-in-out, opacity 1s ease-in-out;
+    transition: transform 11s ease-in-out, opacity 1s ease-in-out;
 }

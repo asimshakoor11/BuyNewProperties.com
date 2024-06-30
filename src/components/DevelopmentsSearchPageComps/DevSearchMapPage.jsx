@@ -62,7 +62,7 @@ const DevSearchMapPage = () => {
                                     </button>
                                 </Link>
                                 <button
-                                    className={` px-6 py-2 md:py-3 bg-primarycolor text-white`}
+                                    className={` px-6 py-2 md:py-3 bg-primarycolor hover:bg-primarycolorhover text-white`}
                                 >
                                     Map
                                 </button>
@@ -74,7 +74,7 @@ const DevSearchMapPage = () => {
                                     onClick={() => setIsDropdownOpenFilter(true)}
                                 >
                                     <span className=' hidden sm:block'>Filter</span>
-                                    <img src="/images/icons/settings-sliders.png" alt="" className='h-6' />
+                                    <img src="/images/icons/settings-sliders.svg" alt="" className='h-5' />
                                 </button>
                             </div>
                         </div>

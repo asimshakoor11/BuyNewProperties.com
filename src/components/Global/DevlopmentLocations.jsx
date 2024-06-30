@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const DevelopmentLocations = () => {
+const DevelopmentLocations = ({title}) => {
     const [backgroundImage, setBackgroundImage] = useState('');
     const hoveredButtonRef = useRef(null);
     const updateTimeoutRef = useRef(null);
@@ -13,19 +13,19 @@ const DevelopmentLocations = () => {
     const getBackgroundImage = (buttonName) => {
         switch (buttonName) {
             case 'Algarve':
-                return 'url(/images/homepage/hoverimg1.jpg)';
+                return 'url(/images/pages/homepage/hoverimg1.jpg)';
             case 'Newyork':
-                return 'url(/images/homepage/hoverimg2.jpg)';
+                return 'url(/images/pages/homepage/hoverimg2.jpg)';
             case 'Lisbon':
-                return 'url(/images/homepage/hoverimage3.jpg)';
+                return 'url(/images/pages/homepage/hoverimage3.jpg)';
             case 'Porto':
-                return 'url(/images/homepage/kuala-lumpur.jpg)';
+                return 'url(/images/pages/homepage/kuala-lumpur.jpg)';
             case 'Florida':
-                return 'url(/images/homepage/buildings.jpg)';
+                return 'url(/images/pages/homepage/buildings.jpg)';
             case 'LongIsland':
-                return 'url(/images/homepage/architecture.jpg)';
+                return 'url(/images/pages/homepage/architecture.jpg)';
             case 'Georgia':
-                return 'url(/images/homepage/skyline.jpg)';
+                return 'url(/images/pages/homepage/skyline.jpg)';
             default:
                 return '';
         }
@@ -94,7 +94,7 @@ const DevelopmentLocations = () => {
                 ></motion.div>
             )}
             <h2 className="text-4xl mb-10 md:text-5xl text-primarycolor dark:text-zinc-200 font-BebasNeueSemiExpBold">
-                Development Locations
+                {title}
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                 <div  >

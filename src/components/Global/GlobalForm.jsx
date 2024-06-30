@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-const GlobalForm = ({onStateChange }) => {
+const GlobalForm = ({ onStateChange }) => {
 
     const [isContactPreference, setIsContactPreference] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
@@ -195,19 +195,12 @@ const GlobalForm = ({onStateChange }) => {
                         {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                     </div>
                     <div className="mb-4 flex items-center">
-                        <input
-                            type="checkbox"
-                            id="agree"
-                            className="mr-2"
-                            checked={formData.agree}
-                            onChange={handleInputChange}
-                        />
                         <label htmlFor="agree" className="text-sm text-fontdark">
-                            I agree to receive info by email and I agree to the <span  className="text-primarycolor font-bold">privacy policy</span>.
+                            By signing up and registering your interest, you will be contacted with more information about this project. You also accept BuyDevelopments.com’'s <span className="text-primarycolor underline"> privacy policy </span> and <span className="text-primarycolor underline"> declaration of consent. </span>
                         </label>
                     </div>
                     {errors.agree && <p className="text-red-500 text-sm mb-4">{errors.agree}</p>}
-                    <button type="submit" className="buttonLong w-full bg-primarycolor text-white rounded-lg">Contact Us</button>
+                    <button type="submit" className="buttonLong w-full bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg">Contact Us</button>
                 </form>
             )}
         </>

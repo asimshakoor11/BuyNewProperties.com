@@ -55,7 +55,7 @@ const PropertyDetails = () => {
                                             <div className="text-5xl font-semibold">10%</div>
                                             <div className='text-sm mt-3 font-semibold' >At the time of booking</div>
                                         </div>
-                                        <div className="text-center p-4 bg-primarycolor text-white rounded-lg">
+                                        <div className="text-center p-4 bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg">
                                             <div className="text-5xl font-semibold">50%</div>
                                             <div className='text-sm mt-3 font-semibold' >During construction</div>
                                         </div>
@@ -70,11 +70,11 @@ const PropertyDetails = () => {
                                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Features & Amenities</h2>
                                     <div className="flex space-x-4 mt-10">
                                         <div className="border border-primarycolor h-[150px] w-[130px] rounded-lg flex flex-col justify-center items-center">
-                                            <img src="/images/icons/swimming-pool 2.png" alt="Indoor Pool" className="mb-2" />
+                                            <img src="/images/icons/swimming-pool 2.svg" alt="Indoor Pool" className="mb-2" />
                                             <span className='text-sm mt-3 font-semibold' >Indoor Pool</span>
                                         </div>
-                                        <div className="bg-primarycolor text-white h-[150px] w-[130px] rounded-lg flex flex-col  justify-center items-center">
-                                            <img src="/images/icons/gym-2.png" alt="Gym" className="mb-2" />
+                                        <div className="bg-primarycolor hover:bg-primarycolorhover text-white h-[150px] w-[130px] rounded-lg flex flex-col  justify-center items-center">
+                                            <img src="/images/icons/gym-2.svg" alt="Gym" className="mb-2" />
                                             <span className='text-sm mt-3 font-semibold'>Gym</span>
                                         </div>
                                     </div>
@@ -82,20 +82,20 @@ const PropertyDetails = () => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
                                     <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                                        <img src="/images/icons/broucher.png" alt="Brochure" className="mb-4" />
+                                        <img src="/images/icons/broucher.svg" alt="Brochure" className="mb-4" />
                                         <h3 className=" text-xl mb-2  font-bold">Brochure</h3>
                                         <p className="text-center mb-4 font-medium">
                                             Access all in-depth information, latest price lists, floor plans, brochures & more.
                                         </p>
-                                        <button className="bg-primarycolor text-white py-3 px-8 rounded-lg font-bold">View Brochure</button>
+                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold">View Brochure</button>
                                     </div>
                                     <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                                        <img src="/images/icons/price-list 2.png" alt="Pricelist" className="mb-4" />
+                                        <img src="/images/icons/price-list 2.svg" alt="Pricelist" className="mb-4" />
                                         <h3 className=" text-xl mb-2 font-bold">Pricelist</h3>
                                         <p className="text-center mb-4 font-medium">
                                             Access all in-depth information, latest price lists, floor plans, brochures & more.
                                         </p>
-                                        <button className="bg-primarycolor text-white py-3 px-8 rounded-lg font-bold">View Brochure</button>
+                                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold">View Brochure</button>
                                     </div>
                                 </div>
 
@@ -157,7 +157,7 @@ const PropertyDetails = () => {
 
                         <div className="about-section__col about-section__col--cms hidden xl:flex ">
 
-                            <div className="bg-primarycolor text-white p-10 rounded-lg w-[100%] ">
+                            <div className="bg-primarycolor text-white p-6 rounded-lg w-[100%] ">
                                 <RequestATour dropdown={true} />
                             </div>
                         </div>

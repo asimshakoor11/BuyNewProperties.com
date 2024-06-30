@@ -15,7 +15,7 @@ const BecomeAnAgent = () => {
 
                                 <div className="cms-content">
                                     <img
-                                        src="/images/homepage/becomeanagent.png"
+                                        src="/images/pages/homepage/becomeanagent.svg"
                                         className="about-section__image portrait"
                                         sizes="(max-width: 1024px) 42vw, 100vw"
                                         alt=""
@@ -28,7 +28,7 @@ const BecomeAnAgent = () => {
                                 <div className="user-content lp-a">
                                     <div style={{ marginBottom: '2rem' }} data-aos="fade-up" data-aos-delay="50">
                                         <img
-                                            src="/images/icons/users-alt.png"
+                                            src="/images/icons/users-alt.svg"
                                             alt=""
                                             width="32"
                                             height="32"
@@ -40,7 +40,7 @@ const BecomeAnAgent = () => {
                                     </div>
                                     <div style={{ marginBottom: '2rem' }} data-aos="fade-up" data-aos-delay="50">
                                         <img
-                                            src="/images/icons/global.png"
+                                            src="/images/icons/referral-alt.svg"
                                             alt=""
                                             width="32"
                                             height="32"
@@ -52,7 +52,7 @@ const BecomeAnAgent = () => {
                                     </div>
                                     <div style={{ marginBottom: '2rem' }} data-aos="fade-up" data-aos-delay="50">
                                         <img
-                                            src="/images/icons/heartt.png"
+                                            src="/images/icons/square-heart.svg"
                                             alt=""
                                             width="32"
                                             height="32"
@@ -65,7 +65,7 @@ const BecomeAnAgent = () => {
                                     </div>
                                     <div style={{ marginBottom: '2rem' }} data-aos="fade-up" data-aos-delay="50">
                                         <img
-                                            src="/images/icons/growth.png"
+                                            src="/images/icons/chart-arrow-grow.svg"
                                             alt=""
                                             width="32"
                                             height="32"
@@ -82,7 +82,7 @@ const BecomeAnAgent = () => {
                 </div>
 
                 <div className="text-center mt-10">
-                    <button className="bg-primarycolor text-white text-center buttonLong">Join Us</button>
+                    <button className="bg-primarycolor hover:bg-primarycolorhover text-white text-center buttonLong">Join Us</button>
                 </div>
             </section>
         </>

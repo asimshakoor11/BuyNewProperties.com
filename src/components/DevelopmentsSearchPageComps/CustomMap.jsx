@@ -131,7 +131,7 @@ const CustomMap = () => {
             onCloseClick={handleInfoWindowClose}
           >
             <div className='w-52 sm:w-64'>
-              <div className='relative h-44 bg-cover' style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundRepeat: "no-repeat" }}>
+              <div className='relative h-44 bg-cover' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
 
                 <div className='absolute top-3 right-3 py-1 px-1.5 sm:p-2 cursor-pointer rounded-md border-2 border-black bg-bggray opacity-80 text-black' 
@@ -143,7 +143,7 @@ const CustomMap = () => {
                   <h2 className='text-base sm:text-lg font-bold my-2 '>{selectedMarker.info.title}</h2>
                   <div className='flex items-center gap-2 font-medium text-[12px] sm:text-[13px] '>
                     <span>
-                      <img src="/images/icons/location54.png" alt="location" className='h-4' />
+                      <img src="/images/icons/locationmarkerwhite.svg" alt="location" className='h-4' />
                     </span>
                     <span>
                       {selectedMarker.info.location}

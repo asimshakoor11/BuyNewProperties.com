@@ -20,9 +20,9 @@ const SingleDevHeroSection = () => {
     };
 
     const images = [
-        '/images/homepage/heroimage.png',
+        '/images/pages/homepage/herosection.svg',
         '/images/global/bgimage.jpeg',
-        '/images/homepage/heroimage.png',
+        '/images/pages/homepage/herosection.svg',
         // Add more images as needed
     ];
 
@@ -42,14 +42,6 @@ const SingleDevHeroSection = () => {
             document.body.classList.remove('no-scroll');
         }
     }, [isPopupVisible]);
-
-
-    const handleScrollDown = () => {
-        window.scrollTo({
-            top: window.scrollY + 10, // Scrolls the document to the bottom
-            behavior: "smooth" // Optional: adds smooth scrolling effect
-        });
-    };
 
     const [copied, setCopied] = useState(false);
     const inputRef = useRef(null);
@@ -71,7 +63,6 @@ const SingleDevHeroSection = () => {
 
     const handleSubmit = (e) => {
         setPopupVisible(true);
-        handleScrollDown();
     };
 
     return (
@@ -113,12 +104,12 @@ const SingleDevHeroSection = () => {
                             <div className='flex flex-row gap-2 md:gap-3 '>
                                 <button
                                     className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
-                                    <img src="/images/icons/picture.png" alt="" className='max-w-[18px] md:max-w-[23px]' />
+                                    <img src="/images/icons/whitepicture.svg" alt="" className='max-w-[18px] md:max-w-[23px]' />
                                 </button>
 
                                 <button
                                     className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
-                                    <img src="/images/icons/marker.png" alt="" className='max-w-[18px] md:max-w-[23px]' />
+                                    <img src="/images/icons/locationmarkerwhite.svg" alt="" className='max-w-[18px] md:max-w-[23px]' />
                                 </button>
 
                                 <button
@@ -152,7 +143,7 @@ const SingleDevHeroSection = () => {
                     >
                         <div className="flex justify-between items-center md:p-3 p-6 mb-8 w-full border-b-2 border-gray-300">
                             <h2 className="text-xl font-semibold">Share Development</h2>
-                            <button className="text-xl font-bold border py-1 px-3 rounded-full text-white bg-gray-800" onClick={() => { setPopupVisible(false); }}>
+                            <button className="text-2xl font-bold text-black" onClick={() => { setPopupVisible(false); }}>
                                 <FontAwesomeIcon icon={faXmark} size='md' />
                             </button>
                         </div>
@@ -168,26 +159,26 @@ const SingleDevHeroSection = () => {
                             </div>
                             <div className="mb-8">
                                 <button
-                                    className="w-full py-4 bg-primarycolor font-medium rounded-md text-white flex items-center gap-3 justify-center"
+                                    className="w-full py-3 md:py-4 bg-primarycolor font-medium rounded-md text-white flex items-center gap-3 justify-center"
                                     onClick={copyToClipboard}
                                 >
-                                    <img src="/images/icons/copy.png" alt="" className="h-5" />
+                                    <img src="/images/icons/copywhite.svg" alt="" className="h-5" />
                                     Copy link
                                 </button>
                                 {copied && <p className="text-green-500 mt-2">Copied!</p>}
                             </div>
                             <div className="flex flex-col md:flex-row gap-4">
-                                <button className="flex-1 p-2 border border-primarycolor rounded-md flex items-center justify-center ">
+                                <button className="flex-1 py-3 md:py-4  border border-primarycolor rounded-md flex items-center justify-center ">
                                     <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-3 ' />
 
                                     Email
                                 </button>
-                                <button className="flex-1 p-2 border border-primarycolor rounded-md flex items-center justify-center ">
+                                <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
 
                                     <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-3' />
                                     Sms
                                 </button>
-                                <button className="flex-1 p-2 border border-primarycolor rounded-md flex items-center justify-center ">
+                                <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
                                     <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-3' />
                                     WhatsApp
                                 </button>

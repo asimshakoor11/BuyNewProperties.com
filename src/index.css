@@ -239,6 +239,7 @@ body {
   width: 100%; /* Ensure the container takes the full available width */
 }
 
+
 .bg-container:hover .bg-zoom {
   transform: scale(1.1);
 }
@@ -404,9 +405,8 @@ body {
 }
 
 .herofontsize{
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: normal;
-
 }
 
 @media (min-width: 720px) {
@@ -414,6 +414,22 @@ body {
     font-size: 4.5rem;
     line-height: normal;
   }
+}
+
+.checked\:border-gray-900:checked{
+  --tw-border-opacity: 1;
+  /* border-color: rgb(33 33 33 / var(--tw-border-opacity)); */
+  border-color: #002038 !important;
+}
+
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: #002038 !important;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease; /* Adjust timing as needed */
 }
 
 

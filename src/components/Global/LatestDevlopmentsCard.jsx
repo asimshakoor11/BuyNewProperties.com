@@ -94,14 +94,6 @@ const Cards = ({ item, index }) => {
         }
     }
 
-    const handleScrollDown = () => {
-        window.scrollTo({
-            top: window.scrollY + 20,
-            behavior: 'smooth',
-        });
-    };
-
-
     return (
         <>
             <div data-aos="fade-up" data-aos-delay={delay} className='flex flex-col'>
@@ -111,9 +103,10 @@ const Cards = ({ item, index }) => {
                     <div className='relative-container  w-full rounded-[18px]'>
                         <Carousel className="rounded-[18px] h-full overflow-hidden"
                             navigation={false}
+                            loop={true}
                         >
                             <img
-                                src="/images/homepage/cardimage.png"
+                                src="/images/pages/homepage/devcardimage.svg"
                                 alt="image 1"
                                 className={`h-full w-full rounded-[18px] object-cover bg-cover bg-container bg-zoom`}
                             />
@@ -124,7 +117,7 @@ const Cards = ({ item, index }) => {
 
                             />
                             <img
-                                src="/images/homepage/cardimage.png"
+                                src="/images/pages/homepage/devcardimage.svg"
                                 alt="image 3"
                                 className={`h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
 
@@ -134,7 +127,7 @@ const Cards = ({ item, index }) => {
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 gap-3">
                             <div className='flex items-center gap-1 text-black bg-white opacity-80 font-semibold text-[13px] px-2 py-2  rounded'>
                                 <span>
-                                    <img src="/images/icons/locationwhite.png" alt="location" className='h-3' />
+                                    <img src="/images/icons/locationmarkerblack.svg" alt="location" className='h-4' />
                                 </span>
                                 <span>
                                     Algarve
@@ -205,8 +198,8 @@ const Cards = ({ item, index }) => {
                             </div>
                         </Link>
                         <div className="mt-5">
-                            <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
-                            <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
+                            <button className="bg-secondrycolor text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full" onClick={() => { setIsPopupOpen(true); }}>Contact</button>
+                            <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
                         </div>
                     </div>
                 </div>
@@ -269,7 +262,7 @@ const Cards = ({ item, index }) => {
                                     <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="phone">Phone Number</label>
                                     <div className="flex">
                                         <button className="flex items-center justify-center bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-l px-4 py-2">
-                                            <img src="/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
+                                            <img src="/images/icons/navbar/flagus.svg" alt="Country Flag" className="mr-2 w-8" />
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                             </svg>

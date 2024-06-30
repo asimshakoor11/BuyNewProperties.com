@@ -51,7 +51,7 @@ const Homepage = () => {
     return (
         <>
             <section className="customheight relative parallax-bg p-[7%] lg:bg-fixed bg-cover bg-center"
-                style={{ backgroundImage: "url(/images/homepage/heroimage.png)", backgroundRepeat: "no-repeat" }}>
+                style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={overlayRef} className='absolute hidden inset-0 bg-black opacity-0 transition-opacity duration-300 z-20'></div>
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center lg:justify-end h-full text-white text-center pb-0 lg:pb-[30px]">
@@ -65,7 +65,7 @@ const Homepage = () => {
 
             <div className='relative z-30'>
                 <section >
-                    <DevelopmentLocations />
+                    <DevelopmentLocations title={"Development Locations"} />
                 </section>
 
                 <section className='section bg-white'>
@@ -77,7 +77,7 @@ const Homepage = () => {
                     </div>
 
                     <div className="flex justify-center mt-5">
-                        <button className="buttonLong bg-primarycolor text-white text-center">See All Developments</button>
+                        <button className="buttonLong bg-primarycolor hover:bg-primarycolorhover text-white text-center">See All Developments</button>
                     </div>
                 </section>
 

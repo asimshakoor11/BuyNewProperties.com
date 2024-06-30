@@ -67,7 +67,7 @@ const DevelopmentsSearchSec = () => {
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center font-medium gap-4">
                         <div className="flex border border-black rounded-lg overflow-hidden">
                             <button
-                                className={`custommax540:w-1/2 px-7 py-2 md:py-3 bg-primarycolor text-white`}
+                                className={`custommax540:w-1/2 px-7 py-2 md:py-3 bg-primarycolor hover:bg-primarycolorhover text-white`}
                             >
                                 List
                             </button>
@@ -86,7 +86,7 @@ const DevelopmentsSearchSec = () => {
                                 onClick={() => setIsDropdownOpenFilter(true)}
                             >
                                 <span>Filter</span>
-                                <img src="/images/icons/settings-sliders.png" alt="" className='h-6' />
+                                <img src="/images/icons/settings-sliders.svg" alt="" className='h-5' />
                             </button>
 
                             <div className={`hidden lg:flex ${isAnimating ? 'animate-slide' : ''} absolute bottom-14 w-full flex-col gap-1 items-center justify-center`}>

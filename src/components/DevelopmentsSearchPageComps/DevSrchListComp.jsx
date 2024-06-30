@@ -88,14 +88,14 @@ const DevSrchPagination = () => {
                             disabled={currentPage === 1}
                             className="py-2 lg:py-3 px-3 border border-black rounded-lg bg-transparent disabled:opacity-50"
                         >
-                            <FontAwesomeIcon icon={faChevronLeft} />
+                            <FontAwesomeIcon icon={faChevronLeft} size='md' />
                         </button>
                     </li>
                     {Array.from({ length: totalPages }).map((_, index) => (
                         <li key={index}>
                             <button
                                 onClick={() => paginate(index + 1)}
-                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor text-white' : 'bg-transparent'}`}
+                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor hover:bg-primarycolorhover text-white' : 'bg-transparent'}`}
                             >
                                 {index + 1}
                             </button>
@@ -107,7 +107,7 @@ const DevSrchPagination = () => {
                             disabled={currentPage === totalPages}
                             className="py-2 lg:py-3 px-3 border border-black rounded-lg bg-transparent disabled:opacity-50"
                         >
-                            <FontAwesomeIcon icon={faChevronRight} />
+                            <FontAwesomeIcon icon={faChevronRight} size='md' />
                         </button>
                     </li>
                 </ul>

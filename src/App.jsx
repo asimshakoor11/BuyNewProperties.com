@@ -14,15 +14,6 @@ import DevSearchMapPage from './components/DevelopmentsSearchPageComps/DevSearch
 
 function App() {
 
-  // const [devSearchPageMap, setDevSearchPageMap] = useState(false)
-
-  // useEffect(() => {
-  //   const searchpage = ["/developmentssearch"];
-  //   if (searchpage){
-  //     setDevSearchPageMap(true)
-  //   }
-  // }, [])
-
   const location = useLocation();
 
   // Define an array of paths where Navbar and Footer should be hidden

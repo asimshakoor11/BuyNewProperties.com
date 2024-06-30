@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import MultiRangeSlider from 'multi-range-slider-react';
-
 import { Checkbox } from "@material-tailwind/react";
 import LocationDropdown from './DropdownComps/LocationDropdown';
 import PropertyTypeDropdown from './DropdownComps/PropertyTypeDropdown';
 import BuildingStageDropdown from './DropdownComps/BuildingStageDropdown';
 import DeliveryDateDropdown from './DropdownComps/DeliveryDateDropdown';
+import './Styles/DevSearchSec.css'
+
 
 const titles = ['Location', 'Property Type', 'Building Stage', 'Delivery Date'];
 const dropdownItems = [
@@ -492,7 +493,7 @@ const SearchPageFilter = ({ closeDropdown }) => {
 
                                     <div className="relative">
                                         <button
-                                            className={`bg-primarycolor text-white w-full border px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
+                                            className={`bg-primarycolor hover:bg-primarycolorhover text-white w-full border px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
                                             onClick={(e) => {
                                                 e.preventDefault();
                                                 setIsAdvanceFilter(!isAdvanceFilter);
@@ -524,7 +525,7 @@ const SearchPageFilter = ({ closeDropdown }) => {
                                                 {tags.map((tag, index) => (
                                                     <button
                                                         key={index}
-                                                        className={`p-3 border border-grayborder text-black text-xs sm:text-sm rounded-full ${selectedTags.includes(tag) ? 'bg-primarycolor text-white hover:bg-primarycolor hover:text-white' : 'bg-white hover:bg-bggray hover:text-black'
+                                                        className={`p-3 border border-grayborder text-black text-xs sm:text-sm rounded-full ${selectedTags.includes(tag) ? 'bg-primarycolor text-white hover:bg-primarycolorhover hover:text-white' : 'bg-white hover:bg-bggray hover:text-black'
                                                             } `}
                                                         onClick={() => toggleTag(tag)}
                                                     >

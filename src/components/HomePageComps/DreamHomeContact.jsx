@@ -10,7 +10,7 @@ const DreamHomeContact = () => {
       };
 
     return (
-        <section className="section flex flex-col xl:flex-row bg-cover bg-center relative" style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
+        <section className="section flex flex-col xl:flex-row bg-cover bg-center relative" style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)" }}>
             <div className='absolute inset-0 bg-primarycolor opacity-65'></div>
 
             <div className="flex-1 z-10 flex items-center justify-left xl:justify-end">

@@ -95,14 +95,6 @@ const WhyWorkWithUsCarousel = () => {
         }
     }, [isPopupVisible]);
 
-
-    const handleScrollDown = () => {
-        window.scrollTo({
-            top: window.scrollY + 20, // Scrolls the document to the bottom
-            behavior: "smooth" // Optional: adds smooth scrolling effect
-        });
-    };
-
     useEffect(() => {
         // Fix for Firefox: Ensure scroll position starts at the beginning
         const handleFirefoxFix = () => {
@@ -110,7 +102,6 @@ const WhyWorkWithUsCarousel = () => {
                 carouselRef.current.scrollTo({ left: 0 });
             }
         };
-
         // Call the fix when the component mounts or when items change
         handleFirefoxFix();
     }, []);
@@ -120,7 +111,7 @@ const WhyWorkWithUsCarousel = () => {
             <div ref={carouselRef} className="w-full flex flex-nowrap py-2 overflow-x-scroll overflow-y-hidden gap-6 scrollbar-hide mt-10 pr-[7%] pl-[7%]">
                 {items.map((item, index) => (
                     <div data-aos="fade-up"
-                        data-aos-delay={index * 100} className='trnasformscale cursor-pointer' onClick={() => { handlePlusClick(item); handleScrollDown(); }}>
+                        data-aos-delay={index * 100} className='trnasformscale cursor-pointer' onClick={() => { handlePlusClick(item);  }}>
                         <div
                             key={index}
                             ref={divRef}
@@ -136,7 +127,7 @@ const WhyWorkWithUsCarousel = () => {
                                     <p className="text-black text-md pr-6">{item.description}</p>
                                 </div>
                                 <div className='text-right'>
-                                    <button className='py-2 px-3 rounded-full bg-primarycolor' >
+                                    <button className='py-2 px-3 pt-2.5 rounded-full bg-primarycolor hover:bg-primarycolorhover' >
                                         <FontAwesomeIcon icon={faPlus} size='lg' color='white' className='font-semibold' />
                                     </button>
                                 </div>
@@ -148,7 +139,7 @@ const WhyWorkWithUsCarousel = () => {
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
                 <div className="flex justify-between items-center mb-4 w-full">
-                    <button className="bg-primarycolor font-medium text-white py-2 lg:py-3 px-8 rounded-lg">Sign Up For Free</button>
+                    <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-8 rounded-lg">Sign Up For Free</button>
                     <div>
                         <button onClick={scrollLeft} className="py-2 lg:py-3 px-3 border border-black rounded-lg mr-2">
                             <FontAwesomeIcon icon={faChevronLeft} />
@@ -165,7 +156,7 @@ const WhyWorkWithUsCarousel = () => {
                     onClick={handleOutsideClick}
                 >
                     <div id="popup-content" class="bg-white rounded-lg p-3 md:p-6 md:max-w-lg mx-auto relative">
-                        <button className="absolute top-4 right-4 text-xl font-bold border py-1 px-3 rounded-full text-white bg-gray-800" onClick={handleClosePopup}>
+                        <button className="absolute top-4 right-4 font-bold text-black text-2xl" onClick={handleClosePopup}>
                             <FontAwesomeIcon icon={faXmark} size='md' />
                         </button>
                         <div className='flex flex-col gap-4 p-6 h-full'>

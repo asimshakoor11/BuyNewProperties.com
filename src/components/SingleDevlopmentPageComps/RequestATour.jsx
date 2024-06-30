@@ -129,7 +129,7 @@ const RequestATour = ({dropdown}) => {
 
                                 <h2 className="text-3xl text-center font-bold font-BebasNeueSemiExpBold">Schedule a Tour</h2>
 
-                                <form className="bg-transparent pt-6 rounded-lg w-full xl:max-w-md" onSubmit={handleSubmit}>
+                                <form className="bg-transparent pt-4 rounded-lg w-full xl:max-w-md" onSubmit={handleSubmit}>
                                     <div className='flex flex-col lg:flex-row xl:flex-col gap-0 lg:gap-4 xl:gap-0'>
                                         <div className="mb-4 w-full">
                                             <label htmlFor="name" className='text-sm font-medium'>Full Name</label>
@@ -170,7 +170,7 @@ const RequestATour = ({dropdown}) => {
 
                                     </div>
 
-                                    <div className="mb-4 flex items-start">
+                                    <div className=" flex items-start">
                                         <input
                                             type="checkbox"
                                             id="agree"
@@ -186,11 +186,11 @@ const RequestATour = ({dropdown}) => {
                                     {errors.agree && <p className="text-red-500 text-sm mb-4">{errors.agree}</p>}
                                     <div className='flex-col lg:flex-row xl:flex-col gap-0 lg:gap-4 xl:gap-0'>
 
-                                        <div className=' text-center mt-8'>
+                                        <div className=' text-center mt-6'>
                                             <button type="submit" className="py-2 md:py-3 w-[180px] font-semibold bg-[#F7F7F7] text-black rounded-lg">Send Request</button>
                                         </div>
 
-                                        <div className=' text-center mt-8  font-semibold'>
+                                        <div className=' text-center mt-6 font-semibold'>
                                             <p>{selectedDate}  at  {selectedOption}</p>
                                             <button type="submit" className="mt-4 py-2 md:py-3 w-[180px] font-semibold border border-white bg-transparent text-white rounded-lg" onClick={() => { setIsRequested(false) }}>Change</button>
                                         </div>

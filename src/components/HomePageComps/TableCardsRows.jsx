@@ -31,10 +31,10 @@ const TableCardsRows = ({ row, index }) => {
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.interior}</td>
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.price}</td>
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">
-                <div className="relative flex items-center">
+                <div className="relative w-fit flex items-center ">
                     {showTooltip && (
                         <motion.p
-                            className={`absolute w-max right-10 mb-1 border lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                            className={`absolute w-max right-8 mb-1 border lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
                             initial={{ x: -20, opacity: 0 }} // Initial position and opacity
                             animate={{ x: 0, opacity: 1 }} // Animation properties
                             transition={{ duration: 0.3 }} // Animation duration
@@ -45,8 +45,8 @@ const TableCardsRows = ({ row, index }) => {
 
                     <button
                         onClick={handleSaveClick}
-                        className="bg-transparent border-none cursor-pointer "
-                        title={isSaved ? "Remove from favourites" : "Add to favourites"}
+                        className="bg-transparent border-none cursor-pointer"
+                        // title={isSaved ? "Remove from favourites" : "Add to favourites"}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                     >
@@ -60,22 +60,6 @@ const TableCardsRows = ({ row, index }) => {
                             className="text-xl"
                         />
                     </button>
-
-
-
-                    {/* <button
-                        onClick={handleSaveClick}
-                        className="bg-transparent border-none cursor-pointer"
-                        title={isSaved ? "Remove from favourites" : "Add to favourites"}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <Checkbox
-                            color="green"
-                            className="h-5 w-5"
-                            containerProps={{ className: "p-0 rounded-none" }}
-                        />
-                    </button> */}
                 </div>
             </td>
         </tr>

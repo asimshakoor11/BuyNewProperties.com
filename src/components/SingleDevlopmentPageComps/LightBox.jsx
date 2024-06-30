@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Carousel } from "@material-tailwind/react";
-import { faXmark, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faShare, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GlobalImgCarousel from '../Global/GlobalImgCarousel';
 import { motion } from 'framer-motion';
@@ -39,19 +39,18 @@ const LightBox = ({ isOpen, onClose }) => {
                 <div className="min-h-screen bg-zinc-100 p-6 text-white">
                     <div className="flex flex-row gap-4 items-center justify-between p-0 md:p-4 bg-black">
                         <div className="flex space-x-2">
-                            <button className="px-4 py-4 md:px-8 md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={() => setSelectedPopup('image')}>
+                            <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'image' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full `} onClick={() => setSelectedPopup('image')}>
                                 <span className='hidden md:block'>Photos</span>
-                                <img src="/images/icons/search.png" alt="" className='block md:hidden' style={{ maxWidth: "20px" }} />
-
+                                <img src="/images/icons/searchwhite.svg" alt="" className='block md:hidden' style={{ maxWidth: "20px" }} />
                             </button>
-                            <button className="px-4 py-4 md:px-8 md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={() => setSelectedPopup('map')}>
+                            <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'map' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full`} onClick={() => setSelectedPopup('map')}>
                                 <span className='hidden md:block'>Map</span>
-                                <img src="/images/icons/map.png" alt="" className='block md:hidden ' style={{ maxWidth: "20px" }} />
+                                <img src="/images/icons/mapwhite.svg" alt="" className='block md:hidden ' style={{ maxWidth: "20px" }} />
 
                             </button>
-                            <button className="px-3.5 py-3.5 md:px-8  md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={() => setSelectedPopup('streetview')}>
+                            <button className={`px-3.5 py-3.5 md:px-8  md:py-2 border ${selectedPopup === 'streetview' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'} ]  hover:border-[#A5A5A5] rounded-full`} onClick={() => setSelectedPopup('streetview')}>
                                 <span className='hidden md:block'>Photos</span>
-                                <img src="/images/icons/street-view.png" alt="" className='block md:hidden min-h-27 min-w-25' style={{ maxWidth: "25px" }} />
+                                <img src="/images/icons/street-view.svg" alt="" className='block md:hidden min-h-27 min-w-25' style={{ maxWidth: "25px" }} />
                             </button>
                         </div>
                         <div className="flex items-center space-x-4">
@@ -108,29 +107,7 @@ const LightBox = ({ isOpen, onClose }) => {
                         </div>
                     </div>
                     {selectedPopup === 'image' && (
-                        // <div className="">
-                        //     <Carousel className="h-[80vh]"
-                        //         loop={true}
-                        //     >
-                        //         <img
-                        //             src="/images/homepage/cardimage.png"
-                        //             alt="image 1"
-                        //             className="h-full w-full object-contain"
-                        //         />
-                        //         <img
-                        //             src="/images/global/bgimage.jpeg"
-                        //             alt="image 2"
-                        //             className="h-full w-full object-contain"
-                        //         />
-                        //         <img
-                        //             src="/images/homepage/cardimage.png"
-                        //             alt="image 3"
-                        //             className="h-full w-full object-contain"
-                        //         />
-                        //     </Carousel>
-                        // </div>
-                        <GlobalImgCarousel/>
-
+                        <GlobalImgCarousel />
                     )}
 
                     {selectedPopup === 'map' && (

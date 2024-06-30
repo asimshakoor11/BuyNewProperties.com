@@ -77,8 +77,8 @@
         margin-right: auto;
         position: -webkit-sticky;
         position: sticky;
-        top: var(--lp-spacing-large, 2rem);
-        bottom: var(--lp-spacing-large, 2rem);
+        top: var(--lp-spacing-large, 1rem);
+        bottom: var(--lp-spacing-large, 1rem);
         z-index: 1;
     }
 }

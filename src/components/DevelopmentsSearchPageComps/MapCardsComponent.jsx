@@ -58,9 +58,10 @@ const MapCardsComponent = ({ item, index }) => {
                     <div className='relative w-full xl:w-1/2 rounded-[18px]'>
                         <Carousel className="rounded-[18px] h-full overflow-hidden"
                             navigation={false}
+                            loop={true}
                         >
                             <img
-                                src="/images/homepage/cardimage.png"
+                                src="/images/pages/homepage/devcardimage.svg"
                                 alt="image 1"
                                 className={`h-full w-full rounded-[18px] object-cover bg-cover bg-container bg-zoom`}
                             />
@@ -71,7 +72,7 @@ const MapCardsComponent = ({ item, index }) => {
 
                             />
                             <img
-                                src="/images/homepage/cardimage.png"
+                                src="/images/pages/homepage/devcardimage.svg"
                                 alt="image 3"
                                 className={`h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
 
@@ -123,7 +124,7 @@ const MapCardsComponent = ({ item, index }) => {
                                     <p className='font-semibold'>New Development In Vale do Lobo</p>
                                     <div className='flex items-center gap-1 text-black font-semibold'>
                                         <span>
-                                            <img src="/images/icons/locationwhite.png" alt="location" className='h-4' />
+                                            <img src="/images/icons/locationmarkerblack.svg" alt="location" className='h-4' />
                                         </span>
                                         <span>
                                             Algarve
@@ -157,7 +158,7 @@ const MapCardsComponent = ({ item, index }) => {
                 </div>
 
                 <div className="">
-                    <button className="bg-primarycolor text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
+                    <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
                 </div>
 
                 {/* table  */}
@@ -183,12 +184,9 @@ const MapCardsComponent = ({ item, index }) => {
 
                 <div id='popup-container'
                     className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
-
                     onClick={() => { setIsPopupOpen(false) }}
-
                 >
                     <div
-
                         onClick={(e) => e.stopPropagation()}
                         id='popup-content'
                         className="min-h-screen bg-zinc-100 p-10 relative z-50">
@@ -218,7 +216,7 @@ const MapCardsComponent = ({ item, index }) => {
                                     <label className="block text-balck text-sm font-FuturaHeavy mb-2" htmlFor="phone">Phone Number</label>
                                     <div className="flex">
                                         <button className="flex items-center justify-center bg-zinc-200 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-l px-4 py-2">
-                                            <img src="/images/global/flag.png" alt="Country Flag" className="mr-2 h-4" />
+                                            <img src="/images/icons/navbar/flagus.svg" alt="Country Flag" className="mr-2 h-4" />
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                             </svg>

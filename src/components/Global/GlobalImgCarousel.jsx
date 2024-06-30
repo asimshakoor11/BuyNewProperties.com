@@ -8,10 +8,10 @@ import './Styles/Global.css';
 
 
 const images = [
-    '/images/homepage/bgiamge.webp',
-    '/images/homepage/heroimage.png',
-    '/images/homepage/architecture.jpg',
-    '/images/homepage/kuala-lumpur.jpg',
+    '/images/pages/homepage/bgiamge.webp',
+    '/images/pages/homepage/herosection.svg',
+    '/images/pages/homepage/architecture.jpg',
+    '/images/pages/homepage/kuala-lumpur.jpg',
 ];
 
 const GlobalImgCarousel = () => {

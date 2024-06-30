@@ -40,7 +40,7 @@ const LuxuryDevelopments = () => {
 
     const [items, setItems] = useState([
         {
-            imgSrc: "/images/homepage/heroimage.png",
+            imgSrc: "/images/pages/homepage/herosection.svg",
             title: "New Apartments In Portimao, Algarve",
             isSaved: false,
             showTooltip: false
@@ -52,7 +52,7 @@ const LuxuryDevelopments = () => {
             showTooltip: false
         },
         {
-            imgSrc: "/images/homepage/heroimage.png",
+            imgSrc: "/images/pages/homepage/herosection.svg",
             title: "New Apartments In Portimao, Algarve",
             isSaved: false,
             showTooltip: false
@@ -64,7 +64,7 @@ const LuxuryDevelopments = () => {
             showTooltip: false
         },
         {
-            imgSrc: "/images/homepage/heroimage.png",
+            imgSrc: "/images/pages/homepage/herosection.svg",
             title: "New Apartments In Portimao, Algarve",
             isSaved: false,
             showTooltip: false
@@ -153,17 +153,17 @@ const LuxuryDevelopments = () => {
                             initial={{ opacity: 1, y: 0 }}
                             animate={{ y: hoveredIndex === index ? -10 : 0 }}
                             transition={{ duration: 0.5 }}
-                            className='w-full h-fit absolute z-20 bottom-0 flex flex-col items-left gap-2 p-3 text-white'>
-                            <div className='flex items-center gap-2 text-xs'>
+                            className='w-full h-fit absolute z-20 bottom-0 flex flex-col justify-center items-left gap-2 p-6 text-white'>
+                            <div className='flex items-center gap-2 text-sm'>
                                 <span>
-                                    <img src="/images/icons/location54.png" alt="location" className='h-4' />
+                                    <img src="/images/icons/locationmarkerwhite.svg" alt="location" className='h-4' />
                                 </span>
                                 <span>
                                     Algarve, Portugal
                                 </span>
                             </div>
                             <h1 className='font-semibold text-xl'>{item.title}</h1>
-                            <p className="text-sm">$500,000 to $800,000</p>
+                            <p className="text-base">$500,000 to $800,000</p>
 
 
                             {hoveredIndex === index && (
@@ -190,11 +190,14 @@ const LuxuryDevelopments = () => {
                             )}
 
                         </motion.div>
+
+                        <div className='absolute bottom-0 z-10 h-[35%] w-full px-10' style={{ background: 'linear-gradient(to bottom, transparent, #000000 50%)' }}></div>
+
                     </div>
                 ))}
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
-                <button className="bg-primarycolor font-medium text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg ">See All Developments</button>
+                <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg ">See All Developments</button>
 
                 <div className="flex justify-between items-center mb-4">
 

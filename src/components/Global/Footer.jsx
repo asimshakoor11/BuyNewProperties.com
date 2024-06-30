@@ -46,8 +46,8 @@ const Footer = () => {
                         </div>
 
                         <div className="mb-4 flex items-center">
-                            <input type="checkbox" id="agreef" className="mr-2" />
-                            <label htmlFor="agreef" className="text-sm text-fontdark">I agree to receive info by email and I agree to the <a href="#" className="text-primarycolor font-bold">privacy policy</a>.</label>
+
+                            <label htmlFor="agreef" className="text-sm text-fontdark">I authorize BuyDevelopments.com and its branches to store my personal data in order to inform me whenever an opportunity to sell, buy, or rent a property arises.</label>
                         </div>
                     </div>
                 </div>
@@ -56,12 +56,12 @@ const Footer = () => {
 
             <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[7%] py-[40px] bg-white">
                 <div className="flex flex-col space-y-4">
-                    <button className="w-fit font-medium rounded-md bg-primarycolor border border-primarycolor text-white py-2 px-8 lg:py-3 lg:space-x-2 ">
+                    <button className="w-fit font-medium rounded-md bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-8 lg:py-3 lg:space-x-2 ">
                         <FontAwesomeIcon icon={faUser} size='md' /> <span className=''> My Profile</span>
                     </button>
                     <div className='flex items-center gap-2'>
                         <div>
-                            <img src="/images/icons/telephone.png" alt="" className='h-6' />
+                            <img src="/images/icons/navbar/phoneblack.svg" alt="" className='h-6' />
                         </div>
                         <div className='' >
                             <p className='text-sm font-semibold'>Call us Free from the UK:</p>
@@ -70,7 +70,7 @@ const Footer = () => {
                     </div>
                     <div className='flex items-center gap-2'>
                         <div>
-                            <img src="/images/icons/telephone.png" alt="" className='h-6' />
+                            <img src="/images/icons/navbar/phoneblack.svg" alt="" className='h-6' />
                         </div>
                         <div >
                             <p className='text-sm font-semibold'>Portugal Offices:</p>
@@ -79,7 +79,7 @@ const Footer = () => {
                     </div>
                     <div className='flex  items-center gap-2'>
                         <div>
-                            <img src="/images/icons/telephone.png" alt="" className='h-6' />
+                            <img src="/images/icons/navbar/phoneblack.svg" alt="" className='h-6' />
                         </div>
                         <div >
                             <p className='text-sm font-semibold '>Call us Free from the USA:</p>
@@ -88,7 +88,7 @@ const Footer = () => {
                     </div>
                     <div className='flex  items-center gap-2'>
                         <div>
-                            <img src="/images/icons/mail.png" alt="" className='h-6' />
+                            <img src="/images/icons/navbar/emailblack.svg" alt="" className='h-6' />
 
                         </div>
                         <div >
@@ -99,7 +99,7 @@ const Footer = () => {
                 </div>
 
                 <div className="flex flex-row flex-wrap gap-10 xl:gap-20 mt-5 lg:mt-0">
-                    <div className="flex flex-col space-y-4 text-primarycolor text-xl lg:text-2xl">
+                    <div className="flex flex-col space-y-4 text-primarycolor text-[1.6rem]">
                         <Link to={"/"} className='font-bold' >
                             <span className='hover-underline-animationbm'>Home</span>
                         </Link>
@@ -194,7 +194,7 @@ const Footer = () => {
             <section className="border-b border-zinc-300 px-[7%] py-[40px] flex flex-col md:flex-row md:justify-between items-center">
                 <div className="flex items-center space-x-2">
                     <Link to={"/"}>
-                        <img src="/images/global/logodark.png" style={{ width: "250px" }} alt="" />
+                        <img src="/images/icons/navbar/logodark.svg" style={{ width: "250px" }} alt="" />
                     </Link>
 
                 </div>

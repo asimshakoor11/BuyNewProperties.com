@@ -138,12 +138,12 @@ const Navbar = ({ isNavbarFixed }) => {
                     <div className="w-full px-2 md:px-4 flex justify-between items-center">
                         <div className="flex">
                             {scrollPosition > newscrollThreshold ? (
-                                <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Light" /></Link>
+                                <Link to="/"><img src="/images/icons/navbar/logodark.svg" className='w-[250px]' alt="Logo Light" /></Link>
                             ) : (
                                 isDropdownOpenContact || isNavbarFixed ? (
-                                    <Link to="/"><img src="/images/global/logodark.png" className='w-[250px]' alt="Logo Dark" /></Link>
+                                    <Link to="/"><img src="/images/icons/navbar/logodark.svg" className='w-[250px]' alt="Logo Dark" /></Link>
                                 ) : (
-                                    <Link to="/"><img src="/images/global/logo.png" className='w-[250px]' alt="Logo Dark" /></Link>
+                                    <Link to="/"><img src="/images/icons/navbar/logo.svg" className='w-[250px]' alt="Logo Dark" /></Link>
                                 )
                             )}
                         </div>
@@ -213,8 +213,9 @@ const Navbar = ({ isNavbarFixed }) => {
                                 <p className='hidden lg:inline-block'>Call Us</p>
                             </div>
 
-                            <button className="sm:block font-medium rounded-md bg-primarycolor border border-primarycolor text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
-                                <FontAwesomeIcon icon={faUser} size='md' /> <span className='hidden lg:inline-block'> My Profile</span>
+                            <button className="sm:block font-medium rounded-md bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
+                                <FontAwesomeIcon icon={faUser} size='md' />
+                                <span className='hidden lg:inline-block'> My Profile</span>
                             </button>
                             <button className="bg-transparent font-medium border border-fontdark hover:border-[#A5A5A5] py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
                                 <span className='hidden lg:inline-block'>Menu</span>
@@ -231,7 +232,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                         setIsDropdownOpenLang(false);
                                         setIsHoveredLang(false);
                                     }}>
-                                    <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6" />
+                                    <img src="/images/global/flagus.png" alt="Flag" className="hidden sm:block h-[22px] w-[34px] rounded-[0.25rem]" />
 
                                     <motion.span
                                         animate={{ rotate: isHoveredLang ? 180 : 0 }}
@@ -250,11 +251,11 @@ const Navbar = ({ isNavbarFixed }) => {
                                         onMouseEnter={() => setIsDropdownOpenLang(true)}
                                         onMouseLeave={() => setIsDropdownOpenLang(false)}
                                     >
-                                        <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
-                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
+                                        <a  className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
+                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-[22px] w-[34px] rounded-[0.25rem] " /> <span>English</span>
                                         </a>
-                                        <a href="#" className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
-                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-4 w-6 " /> <span>English</span>
+                                        <a  className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150">
+                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-[22px] w-[34px] rounded-[0.25rem] " /> <span>English</span>
                                         </a>
                                     </motion.div>
                                 )}
@@ -309,11 +310,12 @@ const Navbar = ({ isNavbarFixed }) => {
                         <div className="bg-white h-full pb-5  rounded-lg overflow-hidden relative">
                             <div className="flex items-center justify-between p-6 ">
                                 <div className="w-full flex flex-col items-start xl-[800px]:flex-row xl:items-center xl:justify-between space-y-4 xl:space-y-0 xl:space-x-4">
-                                    <img src="/images/global/logodark.png" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
+                                    <img src="/images/icons/navbar/logodark.svg" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
                                     <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
                                         <div className='flex flex-col sm:flex-row  gap-3 sm:gap-6 w-full'>
-                                            <button className="rounded-lg bg-primarycolor font-medium border border-primarycolor text-white py-2 px-5 lg:py-3 md:px-8 md:space-x-2 ">
-                                                <FontAwesomeIcon icon={faUser} size='md' /> <span className=''> My Profile</span>
+                                            <button className="flex flex-row items-center rounded-lg font-medium bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-5 lg:py-3 md:px-8 md:space-x-2 ">
+                                                <FontAwesomeIcon icon={faUser} size='md' />
+                                                <span className=''>My Profile</span>
                                             </button>
                                             <div className="relative" ref={dropdownRef}>
                                                 <button href="#" className="w-full bg-transparent font-medium text-primarycolor  px-3 py-2 lg:py-3 md:px-4 rounded-lg border border-zinc-300 flex flex-row justify-between items-center gap-2"
@@ -321,7 +323,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                                     onClick={() => { setIsDropdownOpenBigLang(!isDropdownOpenBigLang); }}
                                                 >
                                                     <div className='flex gap-2 items-center'>
-                                                        <img src="/images/global/flag.png" alt="Flag" className="block h-4 w-6" />
+                                                        <img src="/images/global/flagus.png" alt="Flag" className="block w-8 h-[22px] w-[34px] rounded-[0.25rem] " />
                                                         <span>English</span>
                                                     </div>
 
@@ -342,11 +344,13 @@ const Navbar = ({ isNavbarFixed }) => {
                                                     >
                                                         <a href="#" className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
                                                             onClick={() => setIsDropdownOpenBigLang(!isDropdownOpenBigLang)}>
-                                                            <img src="/images/global/flag.png" alt="Flag" className="h-4 w-6 " /> <span>English</span>
+                                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-[22px] w-[34px] rounded-[0.25rem] " /> <span>English</span>
+
                                                         </a>
                                                         <a href="#" className="flex flex-row justify-center gap-2   py-4 font-semibold  text-sm text-primarycolor transition-colors hover:underline hover:bg-bggray duration-150"
                                                             onClick={() => setIsDropdownOpenBigLang(!isDropdownOpenBigLang)}>
-                                                            <img src="/images/global/flag.png" alt="Flag" className="h-4 w-6 " /> <span>English</span>
+                                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-[22px] w-[34px] rounded-[0.25rem] " /> <span>English</span>
+
                                                         </a>
                                                     </motion.div>
                                                 )}
@@ -368,7 +372,7 @@ const Navbar = ({ isNavbarFixed }) => {
 
                                     <div className='flex items-center gap-2'>
                                         <div>
-                                            <img src="/images/icons/telephone.png" alt="" className='h-6' />
+                                            <img src="/images/icons/navbar/phoneblack.svg" alt="" className='h-6' />
                                         </div>
                                         <div className='' >
                                             <p className='text-sm font-semibold'>Call us Free from the UK:</p>
@@ -377,7 +381,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                     </div>
                                     <div className='flex items-center gap-2'>
                                         <div>
-                                            <img src="/images/icons/telephone.png" alt="" className='h-6' />
+                                            <img src="/images/icons/navbar/phoneblack.svg" alt="" className='h-6' />
                                         </div>
                                         <div >
                                             <p className='text-sm font-semibold'>Portugal Offices:</p>
@@ -386,7 +390,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                     </div>
                                     <div className='flex  items-center gap-2'>
                                         <div>
-                                            <img src="/images/icons/telephone.png" alt="" className='h-6' />
+                                            <img src="/images/icons/navbar/phoneblack.svg" alt="" className='h-6' />
                                         </div>
                                         <div >
                                             <p className='text-sm font-semibold '>Call us Free from the USA:</p>
@@ -395,7 +399,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                     </div>
                                     <div className='flex  items-center gap-2'>
                                         <div>
-                                            <img src="/images/icons/mail.png" alt="" className='h-6' />
+                                            <img src="/images/icons/navbar/emailblack.svg" alt="" className='h-6' />
 
                                         </div>
                                         <div >
@@ -406,7 +410,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                 </div>
 
                                 <div className="flex flex-row flex-wrap gap-10 xl:gap-20 mt-5 lg:mt-0">
-                                    <div className="flex flex-col space-y-4 text-primarycolor text-[1.6rem] lg:text-2xl">
+                                    <div className="flex flex-col space-y-4 text-primarycolor text-[1.6rem]">
                                         <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }} >
                                             <span className='hover-underline-animationbm'>Home</span>
                                         </Link>

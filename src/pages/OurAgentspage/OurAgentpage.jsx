@@ -9,22 +9,58 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OurAgentsPagination from '../../components/OurAgentsPageComps/OurAgentsPagination';
 import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
+import DevelopmentLocations from '../../components/Global/DevlopmentLocations';
+import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsCarousel';
 
 
 const OurAgentpage = () => {
     const titles = ['Location', 'Language'];
+    const heroContentRef = useRef(null);
+
+    useEffect(() => {
+        const parallaxEffect = () => {
+            const scrolled = window.scrollY;
+            const parallax = document.querySelector('.parallax-bg');
+            const heroContent = heroContentRef.current;
+            if (window.innerWidth > 1000) {
+
+                if (parallax) {
+                    parallax.style.backgroundPositionY = `-${scrolled * 0.3}px`; // Adjusts slower parallax scrolling
+                }
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`; // Adjusts slower scrolling for hero content
+                }
+            }
+
+        };
+
+        window.addEventListener('scroll', parallaxEffect);
+
+        return () => {
+            window.removeEventListener('scroll', parallaxEffect);
+        };
+    }, []);
+
     const dropdownItems = [
         [
             {
-                label: 'Country 1',
-                subitems: ['City 1', 'City 2']
+                label: 'Lisbon',
+                subitems: ['Cascais', 'Lapa', 'Estrella', 'Sintra', 'Amadora']
             },
             {
-                label: 'Country 2',
-                subitems: ['City 1', 'City 2']
+                label: 'Algarve',
+                subitems: ['Loule', 'Tavira', 'Lagos']
+            },
+            {
+                label: 'Manchester',
+                subitems: ['Northern Quarter', 'Didsbury', 'Chorlton']
+            },
+            {
+                label: 'Birmingham',
+                subitems: ['Jewellery Quarter', 'Digbeth']
             }
         ],
-        ['Langauge 1', 'Langauge 2', 'Langauge 3']
+        ['English', 'Russain', 'Chinese']
     ];
 
     const [openDropdown, setOpenDropdown] = useState(null);
@@ -50,90 +86,71 @@ const OurAgentpage = () => {
 
     return (
         <>
-            <section className="section bg-cover bg-center relative"
-                style={{ backgroundImage: "url(/images/homepage/heroimage.png)" }}>
+            <section className="section parallax-bg lg:bg-fixed bg-cover bg-center relative"
+                style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
-                <div className="relative z-10 flex flex-col items-center justify-center  text-white text-center py-40">
-                    <h1 className="text-4xl md:text-6xl font-bold font-FuturaHeavy">Global Talent <br /> Local Knowledge</h1>
-
-                    <button
-                        className="flex items-center justify-between font-FuturaHeavy mx-auto mt-8 bg-primarycolor text-white px-4 py-3 rounded-xl shadow">
-                        <span> Check out our agents</span>
-                        <FontAwesomeIcon icon={faChevronDown} size='sm' className='ml-6' />
-                    </button>
+                <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
+                    <h1 className="herofontsize font-BebasNeueSemiExpBold">Global Talent <br /> Local Knowledge</h1>
                 </div>
             </section>
 
-            <section className='section relative bg-bggray rounded-tl-[40px] rounded-tr-[40px] -mt-10 z-20 flex flex-col md:flex-row justify-between items-center'>
-
-                <div class="mb-6 md:mb-0 w-full lg:w-3/5">
-                    <h2 class="text-2xl md:text-4xl font-FuturaBold text-primarycolor">Why Choose Us?</h2>
-                    <p class="text-fontdark text-xl md:text-2xl mt-2">
-                        Receive previsit advice, tailored recommendations and guidance during your inspection tours
-                        from an agent of your choice.
-                    </p>
-                </div>
-                <div class="flex flex-col items-center justify-center border-4 border-primarycolor rounded-lg py-6 px-12">
-                    <h3 class="text-2xl font-FuturaBold text-primarycolor mb-4">Become an agent</h3>
-                    <button class="w-full bg-primarycolor text-white py-2 px-4 rounded-xl">
-                        Join us today
-                    </button>
-                </div>
+            <section >
+                <DevelopmentLocations title={"Agents Location"} />
             </section>
 
             <section className='section bg-white'>
 
                 <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
-                    <h2 className="text-xl lg:text-4xl text-black font-FuturaHeavy">Found 23 agents</h2>
-                    <div className="flex space-x-4">
+                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left">Found 23 agents</h2>
 
+                    <div className="flex space-x-4">
                         {titles.map((title, index) => (
                             <div key={index} className="relative" ref={(el) => (dropdownRefs.current[index] = el)}>
                                 <button
-                                    className="bg-transparent w-full font-FuturaHeavy border-black  px-3 py-1 md:px-4 md:py-3 rounded-lg border-2 flex flex-row justify-between items-center gap-2"
+                                    className="bg-transparent w-full font-medium border-black  px-3 py-1 md:px-4 md:py-3 rounded-lg border-2 flex flex-row justify-between items-center gap-2"
                                     onClick={() => toggleDropdown(index)}
                                 >
                                     <span>{title}</span>
-                                    {openDropdown === index ? (
-                                        <FontAwesomeIcon icon={faChevronUp} size='xs' className='ml-6' />
-                                    ) : (
-                                        <FontAwesomeIcon icon={faChevronDown} size='xs' className='ml-6'/>
-                                    )}
+                                    <FontAwesomeIcon
+                                        icon={faChevronDown}
+                                        size="xs"
+                                        className={`ml-6 ${openDropdown === index ? 'rotate-180' : ''}`}
+                                    />
+
                                 </button>
                                 {openDropdown === index && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="absolute right-0 w-full bg-white shadow-lg rounded-md py-2 z-50"
+                                        className="absolute right-0 w-full max-h-[200px] overflow-y-scroll scrollbar-custom bg-white shadow-lg rounded-md py-2 z-50"
                                     >
                                         {dropdownItems[index].map((item, itemIndex) => (
                                             <div key={itemIndex}>
                                                 {typeof item === 'string' ? (
                                                     <div
-                                                        className="flex flex-row px-4 py-2 font-FuturaHeavy cursor-pointer border-black transition-colors hover:bg-gray-300 duration-150"
+                                                        className="flex flex-row px-4 cursor-pointer border-black transition-colors hover:underline hover:bg-bggray  duration-150"
                                                         onClick={(e) => e.stopPropagation()}
                                                     >
-                                                        <input type="checkbox" id={`checkbox${index}-${itemIndex}`} className='mr-2 border' />
-                                                        <label htmlFor={`checkbox${index}-${itemIndex}`} className='w-full cursor-pointer text-start'>{item}</label>
+                                                        <a className="flex flex-row justify-center gap-2  py-4 font-semibold text-sm text-black  transition-colors duration-150">
+                                                            <img src="/images/global/flag.png" alt="Flag" className="hidden sm:block h-[22px] w-[34px] rounded-[0.25rem] " /> <span>{item}</span>
+                                                        </a>
                                                     </div>
                                                 ) : (
                                                     <>
                                                         <div
-                                                            className="flex flex-row px-4 py-2 font-FuturaHeavy cursor-pointer border-black transition-colors hover:bg-gray-300 duration-150"
+                                                            className="flex flex-row px-4 py-2 font-medium cursor-pointer border-black transition-colors hover:underline hover:bg-bggray  duration-150"
                                                             onClick={(e) => e.stopPropagation()}
                                                         >
-                                                            <input type="checkbox" id={`checkbox${index}-${itemIndex}`} className='mr-2 border' />
-                                                            <label htmlFor={`checkbox${index}-${itemIndex}`} className='w-full cursor-pointer text-start'>{item.label}</label>
+                                                            <label className='w-full cursor-pointer text-start'>{item.label}</label>
                                                         </div>
                                                         {item.subitems.map((subitem, subindex) => (
                                                             <div
                                                                 key={subindex}
-                                                                className="flex flex-row ml-4 px-4 py-2 font-FuturaHeavy cursor-pointer border-black transition-colors hover:bg-gray-300 duration-150"
+                                                                className="flex flex-row ml-4 px-4 py-2 font-medium cursor-pointer border-black transition-colors hover:underline hover:bg-bggray  duration-150"
                                                                 onClick={(e) => e.stopPropagation()}
                                                             >
-                                                                <input type="checkbox" id={`checkbox${index}-${itemIndex}-${subindex}`} className='mr-2 border' />
-                                                                <label htmlFor={`checkbox${index}-${itemIndex}-${subindex}`} className='w-full cursor-pointer text-start'>{subitem}</label>
+                                                                <label className='w-full cursor-pointer text-start'>{subitem}</label>
                                                             </div>
                                                         ))}
                                                     </>
@@ -147,12 +164,18 @@ const OurAgentpage = () => {
                     </div>
                 </div>
 
-                <OurAgentsPagination/>
+                <OurAgentsPagination />
 
             </section>
 
+            <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
+                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
+
+                <WhyWorkWithUsCarousel />
+            </section>
+
             <section>
-                <DreamHomeContact/>
+                <DreamHomeContact />
             </section>
         </>
     )
