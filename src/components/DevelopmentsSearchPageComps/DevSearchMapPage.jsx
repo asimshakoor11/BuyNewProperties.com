@@ -52,7 +52,7 @@ const DevSearchMapPage = () => {
                                 <p className="text-fontdark text-base mt-2">160 available units found in 15 new developments.</p>
                             </div>
                         </div>
-                        <div className="sticky top-0 bg-bggray z-50 pt-5 pb-4 px-[2%] lg:px-0 flex flex-row justify-between items-center font-medium gap-4">
+                        <div className="sticky top-0 bg-bggray z-50 pt-5 pb-4 px-4 lg:px-0 flex flex-row justify-between items-center font-medium gap-4">
                             <div className=" flex border border-black rounded-lg overflow-hidden ">
                                 <Link to={'/developmentssearch'} onClick={handleButtonClick} className=''>
                                     <button
