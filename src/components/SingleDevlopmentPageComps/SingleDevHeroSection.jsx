@@ -115,7 +115,7 @@ const SingleDevHeroSection = () => {
                                 <button
                                     className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center  bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl "
                                     onClick={() => { handleSubmit(); }}>
-                                    <FontAwesomeIcon icon={faShare}  className='ml-1 text-lg' />
+                                        <img src="/images/icons/sharewhite.svg" className='max-w-[18px] md:max-w-[23px]' alt="" />
                                 </button>
                             </div>
                         </div>

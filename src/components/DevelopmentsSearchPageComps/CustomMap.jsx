@@ -41,43 +41,43 @@ const clustererOptions = {
   ]
 };
 
-const locations = [
-  {
-    id: 1,
-    position: { lat: 38.7223, lng: -9.1393 },
-    info: {
-      image: '/images/homepage/dreamhomecontact.png',
-      title: 'New Development Lisbon',
-      location: 'Estrela, Lisbon',
-      price: '€650,000',
-      beds: '2 to 3 Beds from'
-    }
-  },
-  {
-    id: 2,
-    position: { lat: 41.1579, lng: -8.6291 },
-    info: {
-      image: '/images/homepage/dreamhomecontact.png',
-      title: 'New Development Porto',
-      location: 'Porto, Portugal',
-      price: '€500,000',
-      beds: '1 to 2 Beds from'
-    }
-  },
-  {
-    id: 3,
-    position: { lat: 37.0179, lng: -7.9307 },
-    info: {
-      image: '/images/homepage/dreamhomecontact.png',
-      title: 'New Development Faro',
-      location: 'Faro, Portugal',
-      price: '€450,000',
-      beds: '2 to 4 Beds from'
-    }
-  }
-];
+// const locations = [
+//   {
+//     id: 1,
+//     position: { lat: 38.7223, lng: -9.1393 },
+//     info: {
+//       image: '/images/homepage/dreamhomecontact.png',
+//       title: 'New Development Lisbon',
+//       location: 'Estrela, Lisbon',
+//       price: '€650,000',
+//       beds: '2 to 3 Beds from'
+//     }
+//   },
+//   {
+//     id: 2,
+//     position: { lat: 41.1579, lng: -8.6291 },
+//     info: {
+//       image: '/images/homepage/dreamhomecontact.png',
+//       title: 'New Development Porto',
+//       location: 'Porto, Portugal',
+//       price: '€500,000',
+//       beds: '1 to 2 Beds from'
+//     }
+//   },
+//   {
+//     id: 3,
+//     position: { lat: 37.0179, lng: -7.9307 },
+//     info: {
+//       image: '/images/homepage/dreamhomecontact.png',
+//       title: 'New Development Faro',
+//       location: 'Faro, Portugal',
+//       price: '€450,000',
+//       beds: '2 to 4 Beds from'
+//     }
+//   }
+// ];
 
-const CustomMap = ({ mobile }) => {
+const CustomMap = ({ mobile, view, locations=[] }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -157,7 +157,7 @@ const CustomMap = ({ mobile }) => {
   };
 
   return isLoaded ? (
-    <div className={` ${mobile ? 'h-[88vh]' : 'h-[100vh]'} w-full sticky top-0`}>
+    <div className={` ${mobile ? 'h-[88vh]' : 'h-[100vh]'} ${view? 'h-full' : ''} w-full sticky top-0`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}

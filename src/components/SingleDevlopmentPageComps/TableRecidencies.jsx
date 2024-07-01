@@ -5,7 +5,7 @@ import { faChevronRight, faSort } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import PopupSingleDevPage from './PopupSingleDevPage';
+import SingleUnitPopup from './SingleUnitPopup';
 
 
 const TableRecidencies = ({ booking }) => {
@@ -200,8 +200,6 @@ const TableRecidencies = ({ booking }) => {
                     {sortedData.map((row, index) => (
                         <tr key={index} className={`border-b border-gray-300 cursor-pointer hover:bg-[#fcfeff] row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-[#f8f9fa]'}`}
                             onClick={() => { setIsPopupOpen(true) }}
-                            onMouseEnter={() => { setIsRowHovered(true) }}
-                            onMouseLeave={() => { setIsRowHovered(false) }}
                         >
                             <td className="py-2 px-4 text-center">{row.ref}</td>
                             <td className="py-2 px-4 text-center">{row.propertyType}</td>
@@ -237,7 +235,7 @@ const TableRecidencies = ({ booking }) => {
             </table>
 
             {isPopupOpen && (
-                <PopupSingleDevPage isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+                <SingleUnitPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
             )}
 
         </>
