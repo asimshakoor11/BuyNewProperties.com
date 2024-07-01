@@ -147,6 +147,7 @@ body {
   animation: scaleDown 0.3s forwards;
 }
 
+
 @keyframes fadeIn {
   from {
     opacity: 0;
