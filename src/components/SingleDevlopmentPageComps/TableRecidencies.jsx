@@ -237,7 +237,6 @@ const TableRecidencies = ({ booking }) => {
             {isPopupOpen && (
                 <SingleUnitPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
             )}
-
         </>
     )
 }
