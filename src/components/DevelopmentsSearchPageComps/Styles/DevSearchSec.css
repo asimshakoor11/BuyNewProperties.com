@@ -181,5 +181,11 @@
 
   .gm-style .gm-style-iw-tc::after{
     background-color: #002038;
+    top: -60px !important;
+
     height: 20px;
+  }
+
+  .gm-style-iw.gm-style-iw-c{
+    top: -60px !important;
   }

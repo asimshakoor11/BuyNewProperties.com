@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleRight, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
+import { faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { MarkerClusterer } from '@googlemaps/markerclusterer';
 
 const containerStyle = {
   width: '100%',
@@ -13,6 +13,32 @@ const containerStyle = {
 const center = {
   lat: 39.3999,
   lng: -8.2245
+};
+
+const clustererOptions = {
+  imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
+  gridSize: 60,
+  maxZoom: 15,
+  styles: [
+    {
+      textColor: 'white',
+      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png',
+      height: 53,
+      width: 53
+    },
+    {
+      textColor: 'white',
+      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png',
+      height: 56,
+      width: 56
+    },
+    {
+      textColor: 'white',
+      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m3.png',
+      height: 66,
+      width: 66
+    }
+  ]
 };
 
 const locations = [
@@ -60,26 +86,62 @@ const CustomMap = ({ mobile }) => {
   const [map, setMap] = useState(null);
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [mapCenter, setMapCenter] = useState(center);
+  const clustererRef = useRef(null);
 
-  const onLoad = useCallback(function callback(map) {
+  const onLoad = useCallback((map) => {
     const bounds = new window.google.maps.LatLngBounds();
     locations.forEach(location => bounds.extend(location.position));
     map.fitBounds(bounds);
     setMap(map);
+
+    // Initialize the MarkerClusterer
+    clustererRef.current = new MarkerClusterer({ map, markers: [], options: clustererOptions });
+
+    map.addListener('click', () => {
+      setSelectedMarker(null);
+    });
   }, []);
 
-  const onUnmount = useCallback(function callback(map) {
+  const onUnmount = useCallback((map) => {
     setMap(null);
   }, []);
 
-  // const handleMarkerClick = (location) => {
-  //   setSelectedMarker(location);
-  //   setMapCenter(location.position);
-  // };
+  useEffect(() => {
+    if (map && clustererRef.current) {
+      const markers = locations.map(location => {
+        const customIcon = {
+          url: 'https://res.cloudinary.com/do3bw9naj/image/upload/fl_preserve_transparency/v1719647164/mapmarker.jpg?_s=public-apps',
+          scaledSize: new window.google.maps.Size(40, 50),
+          origin: new window.google.maps.Point(0, 0),
+          anchor: new window.google.maps.Point(21, 50)
+        };
+
+        const marker = new window.google.maps.Marker({
+          position: location.position,
+          icon: customIcon,
+          title: location.info.title
+        });
+
+        marker.addListener('click', () => {
+          handleMarkerClick(location);
+        });
+
+        return marker;
+      });
+
+      // Clear the previous markers if any
+      clustererRef.current.clearMarkers();
+
+      // Add the new markers to the clusterer
+      clustererRef.current.addMarkers(markers);
+    }
+  }, [map]);
+
 
   const handleMarkerClick = (location) => {
     setSelectedMarker(location);
-    map.panTo(location.position); // Smoothly pan to the selected marker
+    const adjustedPosition = getAdjustedPosition(location.position);
+    map.panTo(adjustedPosition); // Smoothly pan to the selected marker
   };
 
   const handleInfoWindowClose = () => {
@@ -87,7 +149,7 @@ const CustomMap = ({ mobile }) => {
   };
 
   const getAdjustedPosition = (position) => {
-    const offset = 0.5; // Adjust this value to move the InfoWindow higher or lower
+    const offset = 1.5; // Adjust this value to move the InfoWindow higher or lower
     return {
       lat: position.lat + offset,
       lng: position.lng
@@ -104,36 +166,19 @@ const CustomMap = ({ mobile }) => {
         onUnmount={onUnmount}
         options={{
           streetViewControl: false,
-          mapTypeControl: false
+          mapTypeControl: false,
+          gestureHandling: 'auto'
         }}
       >
-        {locations.map(location => {
-          const customIcon = {
-            url: 'https://res.cloudinary.com/do3bw9naj/image/upload/fl_preserve_transparency/v1719647164/mapmarker.jpg?_s=public-apps',
-            scaledSize: new window.google.maps.Size(40, 50),
-            origin: new window.google.maps.Point(0, 0),
-            anchor: new window.google.maps.Point(21, 50)
-          };
-
-          return (
-            <Marker
-              key={location.id}
-              position={location.position}
-              onClick={() => handleMarkerClick(location)}
-              icon={customIcon}
-            />
-          );
-        })}
 
         {selectedMarker && (
           <InfoWindow
-            // position={selectedMarker.position}
-            position={getAdjustedPosition(selectedMarker.position)}
+            position={selectedMarker.position}
             onCloseClick={handleInfoWindowClose}
           >
-            <div className='w-52 sm:w-64 bg-container '>
+            <div className=' bg-container ' >
               <div className='relative ' >
-                <div className='relative overflow-hidden h-44'>
+                <div className='relative overflow-hidden h-48'>
                   <img src="/images/pages/homepage/herosection.svg" alt="" className='h-full w-full object-cover bg-zoom' />
                 </div>
                 <div className='absolute -bottom-2 z-10 h-[45%] w-full' style={{ background: 'linear-gradient(to bottom, transparent, #000000 50%)' }}></div>
@@ -171,9 +216,7 @@ const CustomMap = ({ mobile }) => {
                   </div>
                 </div>
               </Link>
-
             </div>
-
           </InfoWindow>
         )}
       </GoogleMap>
