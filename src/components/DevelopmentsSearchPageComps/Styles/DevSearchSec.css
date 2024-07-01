@@ -38,7 +38,7 @@
 }
 
 .multi-range-slider .thumb-left::before {
-  margin: -8px -8px !important;
+  margin: -8px -12px !important;
 }
 
 .bar::after {
