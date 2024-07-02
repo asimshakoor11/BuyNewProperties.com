@@ -127,7 +127,7 @@ const WhyWorkWithUsCarousel = () => {
                                     <p className="text-black text-md pr-6">{item.description}</p>
                                 </div>
                                 <div className='text-right'>
-                                    <button className='py-2 px-3 pt-2.5 rounded-full bg-primarycolor hover:bg-primarycolorhover' >
+                                    <button className='py-2 px-3 pt-2.5 rounded-full bg-primarycolor hover:bg-primarycolorhover cursor-pointer transition-colors duration-300 ease-in-out' >
                                         <FontAwesomeIcon icon={faPlus} size='lg' color='white' className='font-semibold' />
                                     </button>
                                 </div>
@@ -139,7 +139,7 @@ const WhyWorkWithUsCarousel = () => {
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
                 <div className="flex justify-between items-center mb-4 w-full">
-                    <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-8 rounded-lg">Sign Up For Free</button>
+                    <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-8 rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">Sign Up For Free</button>
                     <div>
                         <button onClick={scrollLeft} className="py-2 lg:py-3 px-3 border border-black rounded-lg mr-2">
                             <FontAwesomeIcon icon={faChevronLeft} />

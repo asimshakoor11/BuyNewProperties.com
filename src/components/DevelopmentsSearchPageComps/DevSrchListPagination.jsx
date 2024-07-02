@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
+import LatestDevelopmentCard from '../Global/LatestDevlopmentsCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-const DevSrchPagination = () => {
+const DevSrchListPagination = () => {
     let itemsPerPage = 8;
     const data = [
         { title: 'MONTISNAVIA 1', description: 'Description 1' },
@@ -95,7 +95,7 @@ const DevSrchPagination = () => {
                         <li key={index}>
                             <button
                                 onClick={() => paginate(index + 1)}
-                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor hover:bg-primarycolorhover text-white' : 'bg-transparent'}`}
+                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor hover:bg-primarycolorhover text-white' : 'bg-transparent'} cursor-pointer transition-colors duration-300 ease-in-out`}
                             >
                                 {index + 1}
                             </button>
@@ -116,4 +116,4 @@ const DevSrchPagination = () => {
     );
 };
 
-export default DevSrchPagination;
+export default DevSrchListPagination;

@@ -49,16 +49,16 @@ const LightBox = ({ isOpen, onClose }) => {
                     <div className='h-full'>
                         <div className="flex flex-row gap-4 items-center justify-between p-0 md:p-4 bg-black">
                             <div className="flex space-x-2">
-                                <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'image' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full `} onClick={() => setSelectedPopup('image')}>
+                                <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'image' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full  cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('image')}>
                                     <span className='hidden md:block'>Photos</span>
                                     <img src="/images/icons/searchwhite.svg" alt="" className='block md:hidden' style={{ maxWidth: "20px" }} />
                                 </button>
-                                <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'map' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full`} onClick={() => setSelectedPopup('map')}>
+                                <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'map' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('map')}>
                                     <span className='hidden md:block'>Map</span>
                                     <img src="/images/icons/mapwhite.svg" alt="" className='block md:hidden ' style={{ maxWidth: "20px" }} />
 
                                 </button>
-                                <button className={`px-3.5 py-3.5 md:px-8  md:py-2 border ${selectedPopup === 'streetview' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'} ]  hover:border-[#A5A5A5] rounded-full`} onClick={() => setSelectedPopup('streetview')}>
+                                <button className={`px-3.5 py-3.5 md:px-8  md:py-2 border ${selectedPopup === 'streetview' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'} ]  hover:border-[#A5A5A5] rounded-full cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('streetview')}>
                                     <span className='hidden md:block'>Photos</span>
                                     <img src="/images/icons/street-view.svg" alt="" className='block md:hidden' style={{ maxWidth: "25px" }} />
                                 </button>

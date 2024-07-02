@@ -61,7 +61,7 @@ const LatestUpdatesCarousel = () => {
 
                         <div className="py-3">
                             <div className="flex items-center mb-3">
-                                <span className="bg-primarycolor hover:bg-primarycolorhover text-white text-xs mr-2 px-2 py-1 rounded">
+                                <span className="bg-primarycolor hover:bg-primarycolorhover text-white text-xs mr-2 px-2 py-1 rounded cursor-pointer transition-colors duration-300 ease-in-out">
                                     News
                                 </span>
                                 <span className="text-black font-semibold text-sm">May 15th 2024</span>
@@ -79,7 +79,7 @@ const LatestUpdatesCarousel = () => {
 
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
-                <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-8 rounded-lg ">See More Blog Posts</button>
+                <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-8 rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">See More Blog Posts</button>
 
                 <div className="flex justify-between items-center mb-4">
 

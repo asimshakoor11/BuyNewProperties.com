@@ -55,7 +55,7 @@ const PropertyDetails = () => {
                                             <div className="text-5xl font-semibold">10%</div>
                                             <div className='text-sm mt-3 font-semibold' >At the time of booking</div>
                                         </div>
-                                        <div className="text-center p-4 bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg">
+                                        <div className="text-center p-4 bg-primarycolor hover:bg-primarycolorhover cursor-pointer transition-colors duration-300 ease-in-out text-white rounded-lg">
                                             <div className="text-5xl font-semibold">50%</div>
                                             <div className='text-sm mt-3 font-semibold' >During construction</div>
                                         </div>
@@ -73,7 +73,7 @@ const PropertyDetails = () => {
                                             <img src="/images/icons/swimming-pool 2.svg" alt="Indoor Pool" className="mb-2" />
                                             <span className='text-sm mt-3 font-semibold' >Indoor Pool</span>
                                         </div>
-                                        <div className="bg-primarycolor hover:bg-primarycolorhover text-white h-[150px] w-[130px] rounded-lg flex flex-col  justify-center items-center">
+                                        <div className="bg-primarycolor hover:bg-primarycolorhover text-white h-[150px] w-[130px] rounded-lg flex flex-col  justify-center items-center cursor-pointer transition-colors duration-300 ease-in-out">
                                             <img src="/images/icons/gym-2.svg" alt="Gym" className="mb-2" />
                                             <span className='text-sm mt-3 font-semibold'>Gym</span>
                                         </div>
@@ -87,7 +87,7 @@ const PropertyDetails = () => {
                                         <p className="text-center mb-4 font-medium">
                                             Access all in-depth information, latest price lists, floor plans, brochures & more.
                                         </p>
-                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold">View Brochure</button>
+                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>
                                     </div>
                                     <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
                                         <img src="/images/icons/price-list 2.svg" alt="Pricelist" className="mb-4" />
@@ -95,7 +95,7 @@ const PropertyDetails = () => {
                                         <p className="text-center mb-4 font-medium">
                                             Access all in-depth information, latest price lists, floor plans, brochures & more.
                                         </p>
-                                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold">View Brochure</button>
+                                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>
                                     </div>
                                 </div>
 

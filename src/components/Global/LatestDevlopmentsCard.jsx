@@ -198,8 +198,8 @@ const Cards = ({ item, index }) => {
                             </div>
                         </Link>
                         <div className="mt-5">
-                            <button className="bg-secondrycolor text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full" onClick={() => { setIsPopupOpen(true); }}>Contact</button>
-                            <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
+                            <button className="bg-secondrycolor hover:bg-secondrycolorhover text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full transition-colors duration-300 ease-in-out" onClick={() => { setIsPopupOpen(true); }}>Contact</button>
+                            <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full mt-5 transition-colors duration-300 ease-in-out" onClick={handleClick}>9 Available Properties</button>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import { faArrowUpRightFromSquare, faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,7 @@ import CustomMap from '../DevelopmentsSearchPageComps/CustomMap';
 const SingleUnitPopup = ({ isOpen, onClose }) => {
 
     const [selectedPopup, setSelectedPopup] = useState('floor');
+    const scrolleddiv = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
@@ -40,7 +41,7 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
             >
                 <div id="popup-content" class="relative bg-white h-full w-full rounded-3xl mx-auto "
                 >
-                    <div className="flex flex-col lg:flex-row h-full w-full rounded-3xl overflow-y-scroll scrollbar-custom lg:overflow-hidden">
+                    <div ref={scrolleddiv} className="flex flex-col-reverse lg:flex-row h-full w-full rounded-3xl overflow-y-scroll scrollbar-custom lg:overflow-hidden">
 
                         <div className='flex flex-col h-auto lg:h-full w-full lg:w-[35%] bg-bggray rounded-tl-3xl rounded-bl-3xl'>
                             <div className='p-8 lg:overflow-y-scroll scrollbar-custom'>

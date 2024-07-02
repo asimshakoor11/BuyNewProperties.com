@@ -56,7 +56,7 @@ const Footer = () => {
 
             <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[7%] py-[40px] bg-white">
                 <div className="flex flex-col space-y-4">
-                    <button className="w-fit font-medium rounded-md bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-8 lg:py-3 lg:space-x-2 ">
+                    <button className="w-fit font-medium rounded-md bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-8 lg:py-3 lg:space-x-2 cursor-pointer transition-colors duration-300 ease-in-out">
                         <FontAwesomeIcon icon={faUser} size='md' /> <span className=''> My Profile</span>
                     </button>
                     <div className='flex items-center gap-2'>

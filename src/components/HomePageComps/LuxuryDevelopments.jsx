@@ -197,7 +197,7 @@ const LuxuryDevelopments = () => {
                 ))}
             </div>
             <div className="flex justify-between items-start mt-6 pl-[7%] pr-[7%]">
-                <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg ">See All Developments</button>
+                <button className="bg-primarycolor hover:bg-primarycolorhover font-medium text-white py-2 lg:py-3 px-4 sm:px-8 rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">See All Developments</button>
 
                 <div className="flex justify-between items-center mb-4">
 

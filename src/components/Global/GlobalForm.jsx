@@ -200,7 +200,7 @@ const GlobalForm = ({ onStateChange }) => {
                         </label>
                     </div>
                     {errors.agree && <p className="text-red-500 text-sm mb-4">{errors.agree}</p>}
-                    <button type="submit" className="buttonLong w-full bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg">Contact Us</button>
+                    <button type="submit" className="buttonLong w-full bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">Contact Us</button>
                 </form>
             )}
         </>

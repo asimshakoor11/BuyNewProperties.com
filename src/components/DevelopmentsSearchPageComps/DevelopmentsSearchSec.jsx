@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import DevSrchMapComp from './DevSrchMapComp';
-import DevSrchListComp from './DevSrchListComp';
+import DevSrchListPagination from './DevSrchListPagination';
 import './Styles/DevSearchSec.css'
 import { Link, useLocation  } from 'react-router-dom';
 import SearchPageFilter from './SearchPageFilter';
@@ -67,7 +67,7 @@ const DevelopmentsSearchSec = () => {
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center font-medium gap-4">
                         <div className="flex border border-black rounded-lg overflow-hidden">
                             <button
-                                className={`custommax540:w-1/2 px-7 py-2 md:py-3 bg-primarycolor hover:bg-primarycolorhover text-white`}
+                                className={`custommax540:w-1/2 px-7 py-2 md:py-3 bg-primarycolor hover:bg-primarycolorhover text-white cursor-pointer transition-colors duration-300 ease-in-out`}
                             >
                                 List
                             </button>
@@ -148,7 +148,7 @@ const DevelopmentsSearchSec = () => {
                     </div>
                 </div>
 
-                <DevSrchListComp />
+                <DevSrchListPagination />
 
                 {
                     isDropdownOpenFilter && (

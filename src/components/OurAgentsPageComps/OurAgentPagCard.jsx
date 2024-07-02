@@ -24,12 +24,12 @@ const OurAgentPagCard = ({ agentdata }) => {
                             <img key={index} src={color} className={`w-10 h-6 ${color} rounded-xs`}></img>
                         ))}
                     </div>
-                    <button className={`${agentdata.openForagentdatas ? "bg-primarycolor" : "bg-dangercolor"} text-white font-medium text-lg w-full py-2 lg:py-3 rounded-lg my-1 font-FuturaMedium`}>
+                    <button className={`${agentdata.openForagentdatas ? "bg-primarycolor hover:bg-primarycolorhover" : "bg-dangercolor"} text-white font-medium text-lg w-full py-2 lg:py-3 rounded-lg my-1 font-FuturaMedium cursor-pointer transition-colors duration-300 ease-in-out`}>
                         {agentdata.openForagentdatas ? "Open For Clients" : "Closed For Clients"}
                     </button>
                     <div className="flex justify-between gap-2 my-1">
-                        <button className="bg-primarycolor text-white w-1/2 py-2 lg:py-3 font-medium rounded-lg ">Contact</button>
-                        <button className="bg-secondrycolor text-white w-1/2 py-2 lg:py-3 font-medium rounded-lg">WhatsApp</button>
+                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white w-1/2 py-2 lg:py-3 font-medium rounded-lg cursor-pointer transition-colors duration-300 ease-in-out ">Contact</button>
+                        <button className="bg-secondrycolor hover:bg-secondrycolorhover text-white w-1/2 py-2 lg:py-3 font-medium rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">WhatsApp</button>
                     </div>
                     <button className="my-1 border-2 font-FuturaHeavy text-black border-black text-zinc-700 w-full font-medium py-2 lg:py-3 rounded-lg">
                         {agentdata.recentSales} Recent Sales

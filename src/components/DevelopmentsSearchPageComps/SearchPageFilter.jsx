@@ -493,7 +493,7 @@ const SearchPageFilter = ({ closeDropdown }) => {
 
                                     <div className="relative">
                                         <button
-                                            className={`bg-primarycolor hover:bg-primarycolorhover text-white w-full border px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
+                                            className={`bg-primarycolor hover:bg-primarycolorhover text-white w-full border px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 cursor-pointer transition-colors duration-300 ease-in-out`}
                                             onClick={(e) => {
                                                 e.preventDefault();
                                                 setIsAdvanceFilter(!isAdvanceFilter);
@@ -526,7 +526,7 @@ const SearchPageFilter = ({ closeDropdown }) => {
                                                     <button
                                                         key={index}
                                                         className={`p-3 border border-grayborder text-black text-xs sm:text-sm rounded-full ${selectedTags.includes(tag) ? 'bg-primarycolor text-white hover:bg-primarycolorhover hover:text-white' : 'bg-white hover:bg-bggray hover:text-black'
-                                                            } `}
+                                                            } cursor-pointer transition-colors duration-300 ease-in-out`}
                                                         onClick={() => toggleTag(tag)}
                                                     >
                                                         {tag}
@@ -547,7 +547,7 @@ const SearchPageFilter = ({ closeDropdown }) => {
                                     </button>
 
                                     <button
-                                        className={`bg-[#005334] text-white w-full md:w-[250px] border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 `}
+                                        className={`bg-secondrycolor hover:bg-secondrycolorhover text-white w-full md:w-[250px] border border-grayborder px-4 py-2 md:py-3 rounded-lg  flex flex-row justify-between items-center gap-2 cursor-pointer transition-colors duration-300 ease-in-out`}
                                         onClick={() => { resetFilters(); closeDropdown()}} >
                                         <span>Search</span>
                                         <FontAwesomeIcon icon={faSearch} size='base' />

@@ -35,7 +35,7 @@ const Homepage = () => {
                     parallax.style.backgroundPositionY = `-${scrolled * 0.3}px`; // Adjusts slower parallax scrolling
                 }
                 if (heroContent) {
-                    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`; // Adjusts slower scrolling for hero content
+                    heroContent.style.transform = `translateY(${scrolled * 0.4}px)`; // Adjusts slower scrolling for hero content
                 }
             }
 
@@ -50,16 +50,15 @@ const Homepage = () => {
 
     return (
         <>
-            <section className="customheight relative parallax-bg p-[7%] lg:bg-fixed bg-cover bg-center"
+            <section className="customheight relative parallax-bg lg:bg-fixed bg-cover p-[7%] "
                 style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={overlayRef} className='absolute hidden inset-0 bg-black opacity-0 transition-opacity duration-300 z-20'></div>
-                <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center lg:justify-end h-full text-white text-center pb-0 lg:pb-[30px]">
-                    <h1 className="text-left custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold">THE #1 SOURCE FOR</h1>
-                    <h1 className="text-left hidden sm:block text-[50px] lg:text-[66px] font-bold font-Shippori_Mincho md:-mt-2">NEW PROPERTIES</h1>
-                    <h1 className="text-left block text-[10vw] sm:hidden font-bold font-Shippori_Mincho md:-mt-2">NEW HOMES</h1>
-                    <h1 className=" text-left custommax:text-[5vw] text-[29px] lg:text-[38px] font-bold font-BebasNeueSemiExpBold custommd:mt-1">NEW DEVELOPMENTS FOR SALE IN <span className='bg-[#B69D74]'>PORTUGAL.</span> </h1>
-                    <h1 className="text-left hidden sm:block sm:text-[11px] md:text-[14px] xl:text-[16px] font-medium mt-3 ">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
+                <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center herohomlg:justify-end h-full text-white pb-0 lg:pb-[30px]">
+                    <h1 className="text-left text-[1.1rem] sm:text-[1.3rem] herohommd:text-[2rem] herohomlg:text-[3rem] leading-[1.2em] font-semibold">THE #1 SOURCE FOR</h1>
+                    <h1 className="text-left text-[2.8rem] sm:text-[3.5rem] herohommd:text-[7rem] herohomlg:text-[9rem] font-normal font-Shippori_Mincho leading-[1]">NEW HOMES</h1>
+                    <h1 className="text-left text-[1.1rem] sm:text-[1.3rem] herohommd:text-[2rem] herohomlg:text-[3rem] leading-[1.2em] font-semibold">NEW DEVELOPMENTS FOR SALE IN <span className='bg-[#B69D74]'>PORTUGAL.</span> </h1>
+                    <h1 className="text-left text-[0.8rem] herohommd:text-[0.9rem] herohomlg:text-[1.2rem] font-medium mt-3 herohommd:mt-4">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
                 </div>
             </section>
 
@@ -77,7 +76,7 @@ const Homepage = () => {
                     </div>
 
                     <div className="flex justify-center mt-5">
-                        <button className="buttonLong bg-primarycolor hover:bg-primarycolorhover text-white text-center">See All Developments</button>
+                        <button className="buttonLong bg-primarycolor hover:bg-primarycolorhover text-white text-center cursor-pointer transition-colors duration-300 ease-in-out">See All Developments</button>
                     </div>
                 </section>
 

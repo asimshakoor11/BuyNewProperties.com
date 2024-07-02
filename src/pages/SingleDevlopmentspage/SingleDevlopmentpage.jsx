@@ -171,7 +171,7 @@ const SingleDevlopmentpage = () => {
                     <div className='relative z-20 p-8 flex flex-col items-center gap-3 text-white'>
                         <p className='font-regular text-medium '>Play The Video</p>
                         <div className='w-full h-20 flex items-center justify-center'>
-                            <button className={`border border-[#A5A5A5] hover:border-bggray rounded-full ${isHoverPlay ? ' w-16 h-16' : ' w-14 h-14'}  flex items-center justify-center transition-all duration-300`}
+                            <button className={`border border-[#A5A5A5] hover:border-bggray rounded-full ${isHoverPlay ? ' w-16 h-16' : ' w-14 h-14'}  flex items-center justify-center transition-all cursor-pointer duration-300 ease-in-out`}
                                 onClick={handlePlayButtonClick}
                                 onMouseEnter={() => { setIsHoverPlay(true) }}
                                 onMouseLeave={() => { setIsHoverPlay(false) }}
@@ -207,7 +207,7 @@ const SingleDevlopmentpage = () => {
                 </div>
 
                 <div className="flex justify-center mt-5">
-                    <button className="buttonLong bg-primarycolor hover:bg-primarycolorhover text-white text-center">See More</button>
+                    <button className="buttonLong bg-primarycolor hover:bg-primarycolorhover text-white text-center cursor-pointer transition-colors duration-300 ease-in-out">See More</button>
                 </div>
             </section>
 
@@ -216,19 +216,19 @@ const SingleDevlopmentpage = () => {
             <section className={`md:flex fixed bottom-4 w-full z-30  justify-center transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-[120px]'}`}>
                 <div className='w-fit md:w-xl mx-auto bg-[#242323] text-white flex gap-2 py-3 px-3 rounded-3xl'>
                     <button
-                        className={`hidden md:block bg-transparent border ${activeSection === 'overview' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-4 px-8 rounded-xl`}
+                        className={`hidden md:block bg-transparent border ${activeSection === 'overview' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-4 px-8 rounded-xl cursor-pointer transition-colors duration-300 ease-in-out`}
                         onClick={() => handleScrollToSection('overview')}
                     >
                         <span> Overview</span>
                     </button>
                     <button
-                        className={`hidden md:block bg-transparent border ${activeSection === 'features' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-4 px-8 rounded-xl`}
+                        className={`hidden md:block bg-transparent border ${activeSection === 'features' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-4 px-8 rounded-xl cursor-pointer transition-colors duration-300 ease-in-out`}
                         onClick={() => handleScrollToSection('features')}
                     >
                         <span> Features</span>
                     </button>
                     <button
-                        className={`bg-transparent border ${activeSection === 'Units' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-3 px-3 md:py-4 md:px-8 rounded-xl`}
+                        className={`bg-transparent border ${activeSection === 'Units' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-3 px-3 md:py-4 md:px-8 rounded-xl cursor-pointer transition-colors duration-300 ease-in-out`}
                         onClick={() => handleScrollToSection('Units')}
                     >
                         <span className='hidden md:block'> Units</span>
@@ -236,21 +236,21 @@ const SingleDevlopmentpage = () => {
 
                     </button>
                     <button
-                        className={`bg-transparent border border-[#434343] ${activeSection === 'herosection' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-3 px-4 md:py-4 md:px-5  rounded-xl`}
+                        className={`bg-transparent border border-[#434343] ${activeSection === 'herosection' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-3 px-4 md:py-4 md:px-5  rounded-xl cursor-pointer transition-colors duration-300 ease-in-out`}
                         onClick={() => { openLightbox(); setActiveSection('herosection') }}
                     >
                         <img src="/images/icons/whitepicture.svg" alt="" className='min-h-23 min-w-21' style={{ maxWidth: "21px" }} />
 
                         {/* <img src="/images/icons/picture.png" alt="" /> */}
                     </button>
-                    <button className='bg-secondrycolor border border-secondrycolor py-3 px-4 md:py-4 md:px-8  rounded-xl'
+                    <button className='bg-secondrycolor border border-secondrycolor hover:bg-secondrycolorhover hover:border-secondrycolorhover py-3 px-4 md:py-4 md:px-8  rounded-xl cursor-pointer transition-colors duration-300 ease-in-out'
                         onClick={() => handleScrollToSection('contact')}
                     >
                         <span className='hidden md:block'> Contact</span>
                         <img src="/images/icons/envelopewhite.svg" alt="" className='block md:hidden min-h-23 min-w-21' style={{ maxWidth: "21px" }} />
                     </button>
                     <button
-                        className='bg-transparent border border-[#434343] hover:border-[#A5A5A5] py-3 px-4 md:py-4 md:px-5  rounded-xl'
+                        className='bg-transparent border border-[#434343] hover:border-[#A5A5A5] py-3 px-4 md:py-4 md:px-5  rounded-xl cursor-pointer transition-colors duration-300 ease-in-out'
                         onClick={() => setIsSaved(!isSaved)}
                     >
                         <FontAwesomeIcon

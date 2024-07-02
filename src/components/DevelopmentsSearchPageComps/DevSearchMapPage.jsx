@@ -98,7 +98,7 @@ const DevSearchMapPage = () => {
                                     </button>
                                 </Link>
                                 <button
-                                    className={` px-6 py-2 md:py-3 bg-primarycolor hover:bg-primarycolorhover text-white`}
+                                    className={` px-6 py-2 md:py-3 bg-primarycolor hover:bg-primarycolorhover text-white cursor-pointer transition-colors duration-300 ease-in-out`}
                                 >
                                     Map
                                 </button>

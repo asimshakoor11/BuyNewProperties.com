@@ -208,17 +208,17 @@ const Navbar = ({ isNavbarFixed }) => {
                                 </div>
                             </div>
 
-                            <div className={`flex items-center w-fit gap-2 2xl:hidden bg-transparent border border-fontdark py-2 px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer `} onClick={handleContactDropdown}>
+                            <div className={`flex flex-col lg:flex-row items-center w-max gap-1 lg:gap-2 2xl:hidden bg-transparent border border-fontdark hover:border-[#A5A5A5] py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer  cursor-pointer transition-colors duration-300 ease-in-out`} onClick={handleContactDropdown}>
                                 <FontAwesomeIcon icon={faPhone} size='md' />
-                                <p className='hidden lg:inline-block'>Call Us</p>
+                                <p className='text-xs md:text-base'>Call Us</p>
                             </div>
 
-                            <button className="sm:block font-medium rounded-md bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-1 px-3 lg:py-2 md:px-4 lg:space-x-2 ">
+                            <button className="flex flex-col lg:flex-row items-center w-max gap-1 lg:gap-2  font-medium rounded-md py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white  cursor-pointer transition-colors duration-300 ease-in-out">
                                 <FontAwesomeIcon icon={faUser} size='md' />
-                                <span className='hidden lg:inline-block'> My Profile</span>
+                                <span className='text-xs md:text-base'> <span className='hidden lg:inline-block'>My</span> Profile</span>
                             </button>
-                            <button className="bg-transparent font-medium border border-fontdark hover:border-[#A5A5A5] py-2 px-3 lg:py-2 lg:px-4 rounded-md flex items-center lg:space-x-2" onClick={() => { setIsPopupOpenBM(true) }}>
-                                <span className='hidden lg:inline-block'>Menu</span>
+                            <button className="flex flex-col-reverse lg:flex-row items-center w-max gap-1 lg:gap-2 bg-transparent font-medium border border-fontdark hover:border-[#A5A5A5] py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 rounded-md cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => { setIsPopupOpenBM(true) }}>
+                                <span className='text-xs md:text-base'>Menu</span>
                                 <FontAwesomeIcon icon={faBars} size='md' />
                             </button>
 
@@ -307,13 +307,13 @@ const Navbar = ({ isNavbarFixed }) => {
                     className="fixed h-screen w-full inset-0  bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll  z-[1000]"
                 >
                     <div className="min-h-screen bg-zinc-100 p-6  z-[1001]">
-                        <div className="bg-white h-full pb-5  rounded-lg overflow-hidden relative">
+                        <div className="bg-white h-full pb-5 rounded-lg overflow-y-scroll scrollbar-hide relative">
                             <div className="flex items-center justify-between p-6 ">
                                 <div className="w-full flex flex-col items-start xl-[800px]:flex-row xl:items-center xl:justify-between space-y-4 xl:space-y-0 xl:space-x-4">
                                     <img src="/images/icons/navbar/logodark.svg" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
-                                    <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
+                                    <div className="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-6">
                                         <div className='flex flex-col sm:flex-row  gap-3 sm:gap-6 w-full'>
-                                            <button className="flex flex-row items-center rounded-lg font-medium bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-5 lg:py-3 md:px-8 md:space-x-2 ">
+                                            <button className="flex flex-row items-center rounded-lg font-medium bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-5 lg:py-3 md:px-8 space-x-2 cursor-pointer transition-colors duration-300 ease-in-out">
                                                 <FontAwesomeIcon icon={faUser} size='md' />
                                                 <span className=''>My Profile</span>
                                             </button>
@@ -323,7 +323,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                                     onClick={() => { setIsDropdownOpenBigLang(!isDropdownOpenBigLang); }}
                                                 >
                                                     <div className='flex gap-2 items-center'>
-                                                        <img src="/images/global/flagus.png" alt="Flag" className="block w-8 h-[22px] w-[34px] rounded-[0.25rem] " />
+                                                        <img src="/images/global/flagus.png" alt="Flag" className="block h-[22px] w-[34px] rounded-[0.25rem] " />
                                                         <span>English</span>
                                                     </div>
 
@@ -367,7 +367,7 @@ const Navbar = ({ isNavbarFixed }) => {
                                 </div>
                             </div>
 
-                            <section className="w-full flex flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[5%] py-[40px] bg-white">
+                            <section className="w-full flex flex-col-reverse sm:flex-col 2xl:flex-row 2xl:justify-between gap-6 px-[5%] py-[20px] md:py-[40px] bg-white">
                                 <div className="flex flex-col space-y-4">
 
                                     <div className='flex items-center gap-2'>

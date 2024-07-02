@@ -212,7 +212,7 @@ const RequestATour = ({dropdown}) => {
                                                         ${index === activeIndex
                                                 ? 'bg-white text-primarycolor'
                                                 : 'bg-transparent text-white'
-                                            }`}
+                                            } cursor-pointer transition-colors duration-300 ease-in-out`}
                                         onClick={() => handleDateClick(index)}
                                     >
                                         <div className='font-normal text-sm'>{day.format('dddd')}</div>
@@ -267,15 +267,15 @@ const RequestATour = ({dropdown}) => {
                                             <div className={`w-full flex flex-row flex-wrap justify-evenly gap-2 `}>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100 hover:text-black
-                                                    ${selectedOption === '9:00 AM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '9:00 AM' ? 'bg-primarycolor  hover:bg-primarycolorhover  text-white  hover:text-white' : ''}  cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('9:00 AM')}
                                                 >
                                                     9:00 AM
                                                 </button>
 
                                                 <button
-                                                    className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '10:00 AM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100 hover:text-black 
+                                                    ${selectedOption === '10:00 AM' ? 'bg-primarycolor hover:bg-primarycolorhover   text-white hover:text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('10:00 AM')}
                                                 >
                                                     10:00 AM
@@ -283,49 +283,49 @@ const RequestATour = ({dropdown}) => {
 
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '11:00 AM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '11:00 AM' ? 'bg-primarycolor hover:bg-primarycolorhover   text-white hover:text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('11:00 AM')}
                                                 >
                                                     11:00 AM
                                                 </button>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '12:00 PM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '12:00 PM' ? 'bg-primarycolor hover:bg-primarycolorhover   text-white hover:text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('12:00 PM')}
                                                 >
                                                     12:00 PM
                                                 </button>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '1:00 PM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '1:00 PM' ? 'bg-primarycolor  hover:bg-primarycolorhover  text-white hover:text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('1:00 PM')}
                                                 >
                                                     1:00 PM
                                                 </button>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '2:00 PM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '2:00 PM' ? 'bg-primarycolor  hover:bg-primarycolorhover  text-white hover:text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('2:00 PM')}
                                                 >
                                                     2:00 PM
                                                 </button>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                ${selectedOption === '3:00 PM' ? 'bg-primarycolor text-white' : ''}`}
+                                                ${selectedOption === '3:00 PM' ? 'bg-primarycolor hover:bg-primarycolorhover  text-white hover:text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('3:00 PM')}
                                                 >
                                                     3:00 PM
                                                 </button>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '4:00 PM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '4:00 PM' ? 'bg-primarycolor  hover:bg-primarycolorhover  text-white' : ''} cursor-pointer transition-colors duration-300 ease-in-out`}
                                                     onClick={() => handleOptionClick('4:00 PM')}
                                                 >
                                                     4:00 PM
                                                 </button>
                                                 <button
                                                     className={`w-[96px] text-center py-1 text-md text-primarycolor border border-primarycolor rounded-lg hover:bg-gray-100  hover:text-black 
-                                                    ${selectedOption === '5:00 PM' ? 'bg-primarycolor text-white' : ''}`}
+                                                    ${selectedOption === '5:00 PM' ? 'bg-primarycolor  hover:bg-primarycolorhover  text-white' : ''}`}
                                                     onClick={() => handleOptionClick('5:00 PM')}
                                                 >
                                                     5:00 PM

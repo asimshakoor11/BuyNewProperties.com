@@ -86,7 +86,7 @@ const DevelopmentsSearchpage = () => {
                     Join Buy Developments and let us take care of you every step of the way. We’ll find your perfect property in Portugal, and the best part is, our services are completely free. Create an account today and start your journey with us!
                 </p>
                 <button
-                    className="flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover  text-white px-6 py-3 rounded-lg shadow">
+                    className="flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover  text-white px-6 py-3 rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
                     <span> Create An Account</span>
                 </button>
             </section >

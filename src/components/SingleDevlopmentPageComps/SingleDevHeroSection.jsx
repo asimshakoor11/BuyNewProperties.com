@@ -74,17 +74,17 @@ const SingleDevHeroSection = () => {
                     <img
                         src={images[0]}
                         alt="Slide 1"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 0 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 0 ? 'opacity-100 zoom-in' : 'opacity-0 zoom-out'}`}
                     />
                     <img
                         src={images[1]}
                         alt="Slide 2"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 1 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 1 ? 'opacity-100 zoom-in' : 'opacity-0 zoom-out'}`}
                     />
                     <img
                         src={images[2]}
                         alt="Slide 3"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100 zoom-in' : 'opacity-0'}`}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${currentIndex === 2 ? 'opacity-100 zoom-in' : 'opacity-0 zoom-out'}`}
                     />
                     <div
                         className="w-full absolute z-20 bottom-0 text-white px-[7%] pb-[4%] md:pb-[2%]"
@@ -103,17 +103,17 @@ const SingleDevHeroSection = () => {
 
                             <div className='flex flex-row gap-2 md:gap-3 '>
                                 <button
-                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
+                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => setIsPopupOpen(true)}>
                                     <img src="/images/icons/whitepicture.svg" alt="" className='max-w-[18px] md:max-w-[23px]' />
                                 </button>
 
                                 <button
-                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl " onClick={() => setIsPopupOpen(true)}>
+                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => setIsPopupOpen(true)}>
                                     <img src="/images/icons/locationmarkerwhite.svg" alt="" className='max-w-[18px] md:max-w-[23px]' />
                                 </button>
 
                                 <button
-                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center  bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl "
+                                    className="h-[42px] w-12 md:h-[52px] md:w-14 flex justify-center items-center  bg-transparent border border-[#FFFFFF3D] hover:border-[#A5A5A5] text-white rounded-xl cursor-pointer transition-colors duration-300 ease-in-out"
                                     onClick={() => { handleSubmit(); }}>
                                         <img src="/images/icons/sharewhite.svg" className='max-w-[18px] md:max-w-[23px]' alt="" />
                                 </button>
@@ -187,10 +187,7 @@ const SingleDevHeroSection = () => {
                         </div>
                     </div>
                 </div>
-
             )}
-
-
         </>
     )
 }

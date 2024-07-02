@@ -82,7 +82,7 @@ const BecomeAnAgent = () => {
                 </div>
 
                 <div className="text-center mt-10">
-                    <button className="bg-primarycolor hover:bg-primarycolorhover text-white text-center buttonLong">Join Us</button>
+                    <button className="bg-primarycolor hover:bg-primarycolorhover text-white text-center buttonLong cursor-pointer transition-colors duration-300 ease-in-out">Join Us</button>
                 </div>
             </section>
         </>

@@ -217,7 +217,7 @@ const TableRecidencies = ({ booking }) => {
                             </td>
                             <td className="py-2 px-4 text-center">
                                 {(
-                                    booking ? (<button className="bg-primarycolor hover:bg-primarycolorhover w-max text-sm text-white px-4 py-2 rounded">
+                                    booking ? (<button className="bg-primarycolor hover:bg-primarycolorhover w-max text-sm text-white px-4 py-2 rounded cursor-pointer transition-colors duration-300 ease-in-out">
                                         Book Now
                                     </button>) : (<button className="bg-transparent  text-primarycolor px-4 py-2 rounded">
                                         -
