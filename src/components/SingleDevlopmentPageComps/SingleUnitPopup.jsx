@@ -72,9 +72,7 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
             <div id="popup-container" class="fixed inset-0 z-50 h-screen bg-gray-800 p-4  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 "
             >
                 <div id="popup-content" class="relative bg-white max-w-[1420px] h-full w-full rounded-3xl mx-auto overflow-y-scroll scrollbar-custom xl:overflow-hidden"
-
                 >
-
                     <div className="flex flex-col-reverse xl:flex-row xl:h-full w-full rounded-3xl ">
 
                         <div className='flex flex-col h-auto xl:h-full w-full xl:min-w-[400px] xl:max-w-[400px] bg-bggray rounded-tl-3xl rounded-bl-3xl'>
