@@ -57,7 +57,6 @@ const GlobalForm = ({ onStateChange, colorwhite }) => {
         if (!formData.email.trim()) formErrors.email = "Email is required";
         if (!formData.preference.trim()) formErrors.preference = "Contact Preference is required";
         if (!formData.message.trim()) formErrors.message = "Message is required";
-        if (!formData.agree) formErrors.agree = "You must agree to the privacy policy";
 
         setErrors(formErrors);
         return Object.keys(formErrors).length === 0;
@@ -198,7 +197,6 @@ const GlobalForm = ({ onStateChange, colorwhite }) => {
                             By signing up and registering your interest, you will be contacted with more information about this project. You also accept BuyDevelopments.com’'s <span className="text-primarycolor underline"> privacy policy </span> and <span className="text-primarycolor underline"> declaration of consent. </span>
                         </label>
                     </div>
-                    {errors.agree && <p className="text-red-500 text-sm mb-4">{errors.agree}</p>}
                     <button type="submit" className="buttonLong w-full bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg cursor-pointer transition-colors duration-300 ease-in-out">Contact Us</button>
                 </form>
             )}

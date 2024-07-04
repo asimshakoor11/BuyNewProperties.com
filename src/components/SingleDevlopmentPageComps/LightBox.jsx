@@ -84,7 +84,7 @@ const LightBox = ({ isOpen, onClose }) => {
                         </div>
                         {selectedPopup === 'image' && (
                             <div className="h-full w-full mt-10 ">
-                                <GlobalImgCarousel dark={false} />
+                                <GlobalImgCarousel dark={false} customheight={false} />
                             </div>
                         )}
 

@@ -245,7 +245,7 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
 
                             {selectedPopup === 'photos' && (
                                 <div className=" xl:h-full w-full cursor-zoom-in " >
-                                    <GlobalImgCarousel dark={true} handlepopupcarousel={handlepopupcarousel} />
+                                    <GlobalImgCarousel dark={true} customheight={true} handlepopupcarousel={handlepopupcarousel} />
                                 </div>
                             )}
 

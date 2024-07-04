@@ -15,7 +15,7 @@ const images = [
     '/images/pages/homepage/kuala-lumpur.jpg',
 ];
 
-const GlobalImgCarousel = ({ dark, handlepopupcarousel }) => {
+const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const NextArrow = ({ onClick }) => {
@@ -63,7 +63,7 @@ const GlobalImgCarousel = ({ dark, handlepopupcarousel }) => {
             <Slider {...settings}>
                 {images.map((img, index) => (
                     <div key={index} className="slick-slide xl:h-[100%] ">
-                        <div className={`flex justify-center ${dark ? 'xl:h-[70vh]' : 'xl:h-[70vh]'} items-center px-0 md:px-[10%]`}>
+                        <div className={`flex justify-center ${customheight ? 'xl:h-[70vh]' : 'h-[70vh]'} items-center px-0 md:px-[10%]`}>
                             <img src={img} alt={`Slide ${index}`} className=" object-contain h-full w-full" onClick={handlepopupcarousel} />
                         </div>
                     </div>

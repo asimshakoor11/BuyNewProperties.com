@@ -227,7 +227,7 @@ const Cards = ({ item, index }) => {
             {isPopupOpen && (
 
                 <div id='popup-container'
-                    className="fixed inset-0 z-[1000] h-screen bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 overflow-y-scroll"
+                    className="fixed inset-0 z-[1000] h-screen p-10 bg-gray-800 bg-opacity-50 backdrop-blur-lg  flex justify-center items-center transition-opacity duration-300 overflow-y-scroll"
 
                     onClick={() => { setIsPopupOpen(false) }}
 
@@ -235,10 +235,10 @@ const Cards = ({ item, index }) => {
                     <div
                         onClick={(e) => e.stopPropagation()}
                         id='popup-content'
-                        className="w-full h-full relative z-[50]">
+                        className="max-w-[1000px] mx-auto h-full flex justify-center items-center relative z-[50] ">
 
-                        <div className='w-full h-full bg-white '>
-                            <div className='w-full sticky top-0 z-[50] bg-primarycolor text-white py-10'>
+                        <div className='w-full h-full  rounded-lg '>
+                            <div className='w-full relative rounded-tl-lg rounded-tr-lg bg-primarycolor border-2 border-transparent border-b-[#B69D74] text-white py-10'>
 
                                 <button className="absolute top-4 right-4 font-bold text-white text-2xl" onClick={() => { setIsPopupOpen(false) }}>
                                     <FontAwesomeIcon icon={faXmark} size='md' />
@@ -284,11 +284,11 @@ const Cards = ({ item, index }) => {
                                         </div>
 
                                         <div className=" w-full ">
-                                            <div className="flex flex-col justify-between h-full gap-2 text-black">
+                                            <div className="flex flex-col justify-between h-full gap-3 text-black">
 
-                                                <p className="font-semibold text-[1.6rem] text-black">$500,000 to $800,000</p>
+                                                <p className="font-medium text-[1.6rem] text-black">$500,000 to $800,000</p>
 
-                                                <p className="font-medium text-[1.6rem] leading-[1]">{item.title}</p>
+                                                <p className="font-semibold text-[1.6rem] leading-[1]">{item.title}</p>
                                                 <div className="flex flex-wrap justify-between gap-3 text-primarycolor">
                                                     <div>
                                                         <div className="text-xl">D1001</div>
@@ -318,19 +318,19 @@ const Cards = ({ item, index }) => {
                                         <div className=''>
                                             <GlobalForm colorwhite={true} />
                                         </div>
-                                        <div className="flex flex-col md:flex-row gap-4 px-6 font-medium ">
+                                        <div className="flex flex-col md:flex-row gap-2 px-6 font-medium ">
                                             <button className=" flex-1 py-3 md:py-4  border border-primarycolor rounded-md flex items-center justify-center ">
-                                                <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-3 ' />
+                                                <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-2 ' />
 
                                                 Email
                                             </button>
                                             <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
 
-                                                <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-3' />
+                                                <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-2' />
                                                 Sms
                                             </button>
                                             <button className="flex-1 py-3 md:py-4 text-white border border-primarycolor rounded-md flex items-center justify-center bg-secondrycolor hover:bg-secondrycolorhover cursor-pointer transition-colors duration-300 ease-in-out">
-                                                <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-3' />
+                                                <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-2' />
                                                 WhatsApp
                                             </button>
                                         </div>
