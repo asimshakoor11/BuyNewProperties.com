@@ -62,17 +62,13 @@ const LightBox = ({ isOpen, onClose }) => {
                                     <img src="/images/icons/street-view.svg" alt="" className='block md:hidden' style={{ maxWidth: "25px" }} />
                                 </button>
                             </div>
+
                             <div className="flex items-center space-x-4">
-                                <button className="flex items-center" onClick={handleScrollView}>
-                                    <img src="/images/icons/arrow-square-down.svg" className='max-w-[25px]' alt="" />
-                                    <span className='hidden md:block ml-3'>Scroll View</span>
-                                </button>
 
                                 <button className="flex items-center px-4 py-4 md:px-8 md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={handleSubmit}>
                                     <span className='hidden md:block mr-3'>Share</span>
                                     <img src="/images/icons/sharewhite.svg" className='h-27 min-w-25' style={{ maxWidth: "20px" }} alt="" />
                                 </button>
-
 
                                 <button
                                     className="bg-transparent text-white border border-[#FFFFFF3D] rounded-full px-4 py-3"
@@ -82,8 +78,14 @@ const LightBox = ({ isOpen, onClose }) => {
                                 </button>
                             </div>
                         </div>
+                        <div className='flex justify-end mt-2 px-[2%]'>
+                            <button className="flex items-center" onClick={handleScrollView}>
+                                <img src="/images/icons/arrow-square-down.svg" className='max-w-[25px]' alt="" />
+                                <span className='ml-3'>Scroll View</span>
+                            </button>
+                        </div>
                         {selectedPopup === 'image' && (
-                            <div className="h-full w-full mt-10 ">
+                            <div className="h-full w-full">
                                 <GlobalImgCarousel dark={false} customheight={false} />
                             </div>
                         )}
@@ -106,7 +108,7 @@ const LightBox = ({ isOpen, onClose }) => {
 
             {
                 isPopupVisible && (
-                   <SharePopup onCloseShare={closeSharePopup} handleOutsideClick={handleOutsideClick}/>
+                    <SharePopup onCloseShare={closeSharePopup} handleOutsideClick={handleOutsideClick} />
                 )
             }
 
@@ -118,7 +120,7 @@ const LightBox = ({ isOpen, onClose }) => {
                         >
                             <div className='bg-gray-800 md:bg-transparent sticky top-0 p-3 w-full flex items-center justify-between md:justify-end gap-4'>
                                 <button className="flex items-center px-4 py-4 md:px-8 md:py-2 " onClick={() => { setPopupVisibleSV(false); }}>
-                                    <img src="/images/icons/exchange-alt.svg" className='h-27 max-w-[25px]'  alt="" />
+                                    <img src="/images/icons/exchange-alt.svg" className='h-27 max-w-[25px]' alt="" />
                                     <span className=' ml-3 text-white'>Scroll View</span>
                                 </button>
                                 <button className="text-2xl font-bold text-white" onClick={() => { setPopupVisibleSV(false); }}>
