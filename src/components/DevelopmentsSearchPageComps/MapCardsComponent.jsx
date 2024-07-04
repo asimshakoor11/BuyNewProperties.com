@@ -69,12 +69,8 @@ const MapCardsComponent = ({ item, index }) => {
                             <span className="bg-primarycolor text-white font-semibold text-[13px] px-2 py-2  rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
                         <div className='absolute bottom-0 flex justify-between items-center w-full'>
-                            <button className='inline-flex items-center gap-2 text-white bg-dangercolor opa font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[23px] rounded-bl-[23px] -ml-1'>
-                                <img src="/images/icons/lock.svg" alt="" className='h-4' />
-                                <p className="">Private Development</p>
-                            </button>
-
-                            <div className="flex items-center mr-4 mb-2">
+                            
+                            <div className={`flex items-center mr-4 mb-2 absolute bottom-1 right-1`}>
                                 {showTooltip && (
                                     <motion.p
                                         className={`absolute right-10 mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
@@ -105,24 +101,30 @@ const MapCardsComponent = ({ item, index }) => {
                                 </button>
                             </div>
                         </div>
+
+                        <div className={`${item.type === 'private' ? 'block':'hidden'} h-full w-full absolute inset-0 z-50 bg-opacity-50 backdrop-blur-lg flex items-center justify-center rounded-[18px]`}>
+                            <img src="/images/icons/lock.svg" alt="" className='h-24' />
+
+                            <button className={`absolute left-0 bottom-0 inline-flex items-center gap-2 text-white bg-[#FF4949] opacity-80 font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[23px] rounded-bl-[23px] -ml-1`}>
+                                <img src="/images/icons/lock.svg" alt="" className='h-4' />
+                                <p className="">Private Development</p>
+                            </button>
+
+
+                        </div>
                     </div>
 
                     <div className=" w-full ">
                         <Link to={"/singledevelopmenpage"}>
                             <div className="flex flex-col justify-between h-full gap-2 text-black">
-                                <div className='flex justify-between text-sm'>
-                                    <button className='inline-flex items-center gap-2 rounded-md bg-dangercolor py-1 px-2 text-white'>
-                                        <img src="/images/icons/lock.svg" alt="" className='h-4' />
-                                        <p className='font-semibold'>Private Development</p>
-                                    </button>
-                                    <div className='flex items-center gap-1 text-black font-semibold'>
-                                        <span>
-                                            <img src="/images/icons/locationmarkerblack.svg" alt="location" className='h-4' />
-                                        </span>
-                                        <span>
-                                            Algarve
-                                        </span>
-                                    </div>
+
+                                <div className='flex items-center gap-1 text-black font-semibold'>
+                                    <span>
+                                        <img src="/images/icons/locationmarkerblack.svg" alt="location" className='h-4' />
+                                    </span>
+                                    <span>
+                                        Algarve
+                                    </span>
                                 </div>
                                 <p className="font-medium text-[1.6rem] leading-[1]">{item.title}</p>
                                 <div className="flex flex-wrap gap-3 text-primarycolor">

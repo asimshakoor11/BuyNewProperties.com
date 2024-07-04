@@ -24,10 +24,10 @@ const DevSearchMapPage = () => {
         }
     }, [isDropdownOpenFilter]);
     const data = [
-        { title: 'New Apartments In Vale do Lobo', description: 'Description 1' },
-        { title: 'New Apartments In Vale do', description: 'Description 2' },
-        { title: 'New Apartments In Vale do', description: 'Description 2' },
-        { title: 'New Apartments In Vale do', description: 'Description 2' },
+        { title: 'New Apartments In Vale do Lobo', description: 'Description 1', type: 'private' },
+        { title: 'New Apartments In Vale do', description: 'Description 2', type: 'public' },
+        { title: 'New Apartments In Vale do', description: 'Description 2', type: 'private' },
+        { title: 'New Apartments In Vale do', description: 'Description 2', type: 'public' },
     ];
 
     const location = useLocation();
