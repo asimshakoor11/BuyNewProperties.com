@@ -293,7 +293,7 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
                                 </button>
                             </div>
 
-                            <div className=" h-[100%] w-full flex items-center border border-red-900 ">
+                            <div className=" h-[100%] w-full flex items-center">
                                 <GlobalImgCarousel dark={true} />
                             </div>
 

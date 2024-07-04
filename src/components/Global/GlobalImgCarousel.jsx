@@ -65,13 +65,17 @@ const GlobalImgCarousel = ({ dark, handlepopupcarousel }) => {
                 {images.map((img, index) => (
                     <div key={index} className="slick-slide  h-[100%] ">
                         <div className={`flex justify-center ${dark ? 'h-[70vh]' : 'h-[70vh]'} items-center px-0 md:px-[10%]`}>
-                            <img src={img} alt={`Slide ${index}`} className=" object-contain h-full w-full" onClick={handlepopupcarousel}/>
+                            <img src={img} alt={`Slide ${index}`} className=" object-contain h-full w-full" onClick={handlepopupcarousel} />
                         </div>
                     </div>
                 ))}
             </Slider>
-            <div className={` text-center  mt-8 ${dark ? 'text-gray-700' : 'text-gray-500'}  font-medium text-base`}>
-                <span className={`${dark ? 'text-black' : 'text-white'}`}> 0{currentSlide + 1} / </span>  0{images.length}
+            <div className={` text-center  mt-8 ${dark ? 'text-gray-800' : 'text-gray-600'}  font-medium text-base`}>
+                <span className=' '>
+                    <span className={`${dark ? 'text-black' : 'text-white'}`}> 0{currentSlide + 1} / </span>
+                    0{images.length}
+                </span>
+
             </div>
         </div>
     );
