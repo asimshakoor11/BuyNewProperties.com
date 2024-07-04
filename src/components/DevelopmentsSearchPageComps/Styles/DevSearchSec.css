@@ -1,40 +1,40 @@
 .multi-range-slider .bar {
-    height: 4px;
-    margin-top: 3px;
+  height: 4px;
+  margin-top: 3px;
 }
 
 .multi-range-slider .bar-inner {
-    height: 4px;
-    margin-top: 3px;
+  height: 4px;
+  margin-top: 3px;
 }
 
 .multi-range-slider .bar-right {
-    height: 4px;
-    margin-top: 3px;
-    background-color: #D8D8D8;
-    box-shadow: inset 0px 0px 0px 5px #D8D8D8  !important;
+  height: 4px;
+  margin-top: 3px;
+  background-color: #D8D8D8;
+  box-shadow: inset 0px 0px 0px 5px #D8D8D8 !important;
 }
 
 .multi-range-slider .bar-left {
-    height: 4px !important;
-    margin-top: 3px;
-    background: #D8D8D8;
-    box-shadow: inset 0px 0px 0px 5px #D8D8D8 !important;
-    padding: 0 !important;
+  height: 4px !important;
+  margin-top: 3px;
+  background: #D8D8D8;
+  box-shadow: inset 0px 0px 0px 5px #D8D8D8 !important;
+  padding: 0 !important;
 }
 
 .multi-range-slider .thumb::before {
-    content: '';
-    background-color: inherit;
-    position: absolute;
-    width: 24px !important;
-    height: 24px !important;
-    border: solid 4px black  !important;
-    box-shadow: none  !important;
-    border-radius: 50%;
-    z-index: 1;
-    margin: -8px -12px !important;
-    cursor: pointer;
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  width: 24px !important;
+  height: 24px !important;
+  border: solid 4px black !important;
+  box-shadow: none !important;
+  border-radius: 50%;
+  z-index: 1;
+  margin: -8px -12px !important;
+  cursor: pointer;
 }
 
 .multi-range-slider .thumb-left::before {
@@ -42,150 +42,158 @@
 }
 
 .bar::after {
-    content: '';
-    background-color: inherit;
-    position: absolute;
-    left: 10px;
-    width: 14px;
-    height: 14px;
-    border: solid 4px #D8D8D8;
-    background-color: #D8D8D8;
-    box-shadow: none;
-    border-radius: 50%;
-    z-index: 0;
-    margin: -2px;
-    cursor: pointer;
-    pointer-events: none;
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  border: solid 4px #D8D8D8;
+  background-color: #D8D8D8;
+  box-shadow: none;
+  border-radius: 50%;
+  z-index: 0;
+  margin: -2px;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .bar::before {
-    content: '';
-    background-color: inherit;
-    position: absolute;
-    right: 10px;
-    width: 14px;
-    height: 14px;
-    border: solid 4px #D8D8D8;
-    background-color: #D8D8D8;
-    box-shadow: none;
-    border-radius: 50%;
-    z-index: 0;
-    margin: -2px;
-    cursor: pointer;
-    pointer-events: none;
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  border: solid 4px #D8D8D8;
+  background-color: #D8D8D8;
+  box-shadow: none;
+  border-radius: 50%;
+  z-index: 0;
+  margin: -2px;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .custom-slider {
-    position: relative;
+  position: relative;
 }
 
 .custom-slider::after {
-    content: '';
-    background-color: inherit;
-    position: absolute;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    border: solid 4px black;
-    box-shadow: none;
-    border-radius: 50%;
-    margin: -5px -12px;
-    cursor: pointer;
-    pointer-events: none;
-    background-color: white;
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border: solid 4px black;
+  box-shadow: none;
+  border-radius: 50%;
+  margin: -5px -12px;
+  cursor: pointer;
+  pointer-events: none;
+  background-color: white;
 }
 
 .custom-sliderg {
-    position: relative;
+  position: relative;
 }
 
 .custom-sliderg::after {
-    content: '';
-    background-color: inherit;
-    position: absolute;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    border: solid 4px #D8D8D8;
-    box-shadow: none;
-    border-radius: 50%;
-    margin: -5px -12px;
-    cursor: pointer;
-    pointer-events: none;
-    background-color: white;
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border: solid 4px #D8D8D8;
+  box-shadow: none;
+  border-radius: 50%;
+  margin: -5px -12px;
+  cursor: pointer;
+  pointer-events: none;
+  background-color: white;
 
 }
 
 .multi-range-slider .caption {
-    display: none !important;
+  display: none !important;
 }
 
 .multi-range-slider .thumb-left {
-    margin-right: -2px;
+  margin-right: -2px;
 }
 
 .multi-range-slider .thumb-left::before {
-    margin-right: 1px;
+  margin-right: 1px;
 }
 
 .customthumbsright .multi-range-slider .thumb-right {
-    z-index: 9;
+  z-index: 9;
 }
 
 .customthumbsright .multi-range-slider .thumb-right::before {
-    z-index: 9;
+  z-index: 9;
 }
 
 .customthumbsleft .multi-range-slider .thumb-left {
-    z-index: 9;
+  z-index: 9;
 
 }
 
 .customthumbsleft .multi-range-slider .thumb-left::before {
-    z-index: 9;
+  z-index: 9;
 
 }
 
 @keyframes slide {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
   }
 
-  .infowindowcustom{
-    display: none !important;
-  }
-  
-  .animate-slide {
-    animation: slide 2s ease-in-out infinite;
+  50% {
+    transform: translateY(-10px);
   }
 
-  .gm-style-iw-chr{
-    display: none !important;
+  100% {
+    transform: translateY(0);
   }
+}
 
-  .gm-style-iw-d{
-    padding: 0 !important;
-    overflow: hidden !important;
-  }
+.infowindowcustom {
+  display: none !important;
+}
 
-  .gm-style .gm-style-iw-c{
-    padding: 0 !important;
-  }
+.animate-slide {
+  animation: slide 2s ease-in-out infinite;
+}
 
-  .gm-style .gm-style-iw-tc::after{
-    background-color: #002038;
-    top: -60px !important;
+.gm-style-iw-chr {
+  display: none !important;
+}
 
-    height: 20px;
-  }
+.gm-style-iw-d {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
 
-  .gm-style-iw.gm-style-iw-c{
-    top: -60px !important;
-  }
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+  box-shadow: none !important;
+
+}
+
+.gm-style .gm-style-iw-tc::after {
+  background-color: #002038;
+  top: -60px !important;
+  height: 20px;
+}
+
+.gm-style-iw.gm-style-iw-c {
+  top: -60px !important;
+}
+
+.gm-style-iw .gm-style-iw-c {
+  box-shadow: none !important;
+
+}

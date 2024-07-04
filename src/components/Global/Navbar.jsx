@@ -208,18 +208,18 @@ const Navbar = ({ isNavbarFixed }) => {
                                 </div>
                             </div>
 
-                            <div className={`flex flex-col lg:flex-row items-center w-max gap-1 lg:gap-2 2xl:hidden bg-transparent border border-fontdark hover:border-[#A5A5A5] py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer  cursor-pointer transition-colors duration-300 ease-in-out`} onClick={handleContactDropdown}>
-                                <FontAwesomeIcon icon={faPhone} size='md' />
-                                <p className='text-xs md:text-base'>Call Us</p>
+                            <div className={`flex flex-col lg:flex-row items-center w-max gap-1 lg:gap-2 text-[0.6rem] md:text-[0.8rem] lg:text-base 2xl:hidden font-medium bg-transparent border border-fontdark hover:border-[#A5A5A5] py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 rounded-md hover:cursor-pointer  cursor-pointer transition-colors duration-300 ease-in-out`} onClick={handleContactDropdown}>
+                                <FontAwesomeIcon icon={faPhone} />
+                                <p className=''>Call Us</p>
                             </div>
 
-                            <button className="flex flex-col lg:flex-row items-center w-max gap-1 lg:gap-2  font-medium rounded-md py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white  cursor-pointer transition-colors duration-300 ease-in-out">
-                                <FontAwesomeIcon icon={faUser} size='md' />
-                                <span className='text-xs md:text-base'> <span className='hidden lg:inline-block'>My</span> Profile</span>
+                            <button className="flex flex-col lg:flex-row items-center w-max gap-1 lg:gap-2 text-[0.6rem] md:text-[0.8rem] lg:text-base  font-medium rounded-md py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white  cursor-pointer transition-colors duration-300 ease-in-out">
+                                <FontAwesomeIcon icon={faUser} />
+                                <span className=''> <span className='hidden lg:inline-block'>My</span> Profile</span>
                             </button>
-                            <button className="flex flex-col-reverse lg:flex-row items-center w-max gap-1 lg:gap-2 bg-transparent font-medium border border-fontdark hover:border-[#A5A5A5] py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 rounded-md cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => { setIsPopupOpenBM(true) }}>
-                                <span className='text-xs md:text-base'>Menu</span>
-                                <FontAwesomeIcon icon={faBars} size='md' />
+                            <button className="flex flex-col-reverse lg:flex-row items-center w-max gap-1 lg:gap-2 text-[0.6rem] md:text-[0.8rem] lg:text-base bg-transparent font-medium border border-fontdark hover:border-[#A5A5A5] py-1 px-2 md:py-2 md:px-3 lg:py-2 lg:px-4 rounded-md cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => { setIsPopupOpenBM(true) }}>
+                                <span className=''>Menu</span>
+                                <FontAwesomeIcon icon={faBars} />
                             </button>
 
                             <div className="relative hidden lg:block" >

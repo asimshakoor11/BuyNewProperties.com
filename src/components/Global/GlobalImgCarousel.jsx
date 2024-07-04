@@ -12,19 +12,23 @@ const images = [
     '/images/pages/homepage/bgiamge.webp',
     '/images/pages/homepage/herosection.svg',
     '/images/pages/homepage/architecture.jpg',
+    '/images/pages/homepage/verticalimage.jpeg',
     '/images/pages/homepage/kuala-lumpur.jpg',
 ];
 
-const GlobalImgCarousel = ({dark}) => {
+const GlobalImgCarousel = ({ dark, handlepopupcarousel }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const NextArrow = ({ onClick }) => {
         return (
             <div
-                className={`absolute top-1/2 transform -translate-y-1/2 right-4 z-10 cursor-pointer ${ dark ? 'bg-transparent text-black hover:text-white hover:bg-primarycolor' : 'bg-transparent text-white hover:text-primarycolor hover:bg-white'}  border h-8 w-8 md:h-12 md:w-10 flex items-center justify-center rounded-lg`}
+                id='rightarrow'
+                className={`hidden  md:flex items-center absolute top-1/2 h-full transform -translate-y-1/2 right-4 z-10 cursor-pointer`}
                 onClick={onClick}
             >
-                <FontAwesomeIcon icon={faChevronRight} size='sm' />
+                <div className={`flex ${dark ? 'bg-transparent text-black hover:text-white hover:bg-primarycolor' : 'bg-transparent text-white hover:text-primarycolor hover:bg-white'}  border h-8 w-8 md:h-12 md:w-10 items-center justify-center rounded-lg cursor-pointer transition-colors duration-300 ease-in-out`}>
+                    <FontAwesomeIcon icon={faChevronRight} size='sm' />
+                </div>
             </div>
         );
     };
@@ -32,10 +36,13 @@ const GlobalImgCarousel = ({dark}) => {
     const PrevArrow = ({ onClick }) => {
         return (
             <div
-                className={`absolute top-1/2 transform -translate-y-1/2 left-4 z-10 cursor-pointer ${ dark ? 'bg-transparent text-black hover:text-white hover:bg-primarycolor' : 'bg-transparent text-white hover:text-primarycolor hover:bg-white'} border h-8 w-8 md:h-12 md:w-10 flex items-center justify-center rounded-lg`}
+                id='leftarrow'
+                className={`hidden md:flex items-center absolute top-1/2 h-full transform -translate-y-1/2 left-4 z-10 cursor-pointer`}
                 onClick={onClick}
             >
-                <FontAwesomeIcon icon={faChevronLeft} size='sm' />
+                <div className={`flex ${dark ? 'bg-transparent text-black hover:text-white hover:bg-primarycolor' : 'bg-transparent text-white hover:text-primarycolor hover:bg-white'}  border h-8 w-8 md:h-12 md:w-10 items-center justify-center rounded-lg cursor-pointer transition-colors duration-300 ease-in-out`}>
+                    <FontAwesomeIcon icon={faChevronLeft} size='sm' />
+                </div>
             </div>
         );
     };
@@ -53,17 +60,17 @@ const GlobalImgCarousel = ({dark}) => {
     };
 
     return (
-        <div className="container mx-auto h-full">
+        <div className="container flex flex-col justify-between mx-auto relative " >
             <Slider {...settings}>
                 {images.map((img, index) => (
-                    <div key={index} className="slick-slide">
-                        <div className={`flex justify-center ${dark ? 'h-full' : 'h-[70vh]'} items-center px-[10%]`}>
-                            <img src={img} alt={`Slide ${index}`} className="object-cover h-full w-full" />
+                    <div key={index} className="slick-slide  h-[100%] ">
+                        <div className={`flex justify-center ${dark ? 'h-[70vh]' : 'h-[70vh]'} items-center px-0 md:px-[10%]`}>
+                            <img src={img} alt={`Slide ${index}`} className=" object-contain h-full w-full" onClick={handlepopupcarousel}/>
                         </div>
                     </div>
                 ))}
             </Slider>
-            <div className={`text-center mt-8 ${dark ? 'text-gray-700' : 'text-gray-500'}  font-semibold text-lg`}>
+            <div className={` text-center  mt-8 ${dark ? 'text-gray-700' : 'text-gray-500'}  font-medium text-base`}>
                 <span className={`${dark ? 'text-black' : 'text-white'}`}> 0{currentSlide + 1} / </span>  0{images.length}
             </div>
         </div>

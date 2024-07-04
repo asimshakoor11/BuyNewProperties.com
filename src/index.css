@@ -20,79 +20,6 @@
   src: url('/Playfair_Displayfont/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
 }
 
-/* src/fonts.css */
-/* 
-@font-face {
-  font-family: 'BebasNeueBold';
-  src: url('/public/font/BebasNeuePro-Bold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'BebasNeueBoldItalic';
-  src: url('/public/font/BebasNeuePro-BoldItalic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'BebasNeueBook';
-  src: url('/public/font/BebasNeuePro-Book.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'BebasNeueBookItalic';
-  src: url('/public/font/BebasNeuePro-BookItalic.ttf') format('truetype');
-}
-
-
-@font-face {
-  font-family: 'BebasNeueExpandedBold';
-  src: url('/public/font/BebasNeuePro-ExpandedBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'BebasNeueExpandedExtraBoldItalic';
-  src: url('/public/font/BebasNeuePro-ExpandedBoldItalic.ttf') format('truetype');
-} */
-
-/* 
-@font-face {
-  font-family: 'FuturaExBold';
-  src: url('./assets/font/FuturaCyrillicExtraBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'FuturaBold';
-  src: url('./assets/font/FuturaCyrillicBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'FuturaBook';
-  src: url('./assets/font/FuturaCyrillicBook.ttf') format('truetype'),
-}
-
-@font-face {
-  font-family: 'FuturaDemi';
-  src: url('./assets/font/FuturaCyrillicDemi.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'FuturaHeavy';
-  src: url('./assets/font/FuturaCyrillicHeavy.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'FuturaLight';
-  src: url('./assets/font/FuturaCyrillicLight.ttf') format('truetype');
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'FuturaMedium';
-  src: url('./assets/font/FuturaCyrillicMedium.ttf') format('truetype');
-} */
-
-/* .importantfont {
-  font-family: 'Shippori_Mincho ';
-} */
 
 body {
   font-family: "Poppins", sans-serif;
@@ -191,7 +118,6 @@ body {
     opacity: 0;
   }
 }
-
 
 .buttonShort {
   padding: 12px 20px;

@@ -26,7 +26,7 @@ const TableCardsRows = ({ row, index }) => {
     };
 
     return (
-        <tr className={`border-b border-gray-300 cursor-pointer ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}>
+        <tr className={`border-b border-gray-300 cursor-pointer hover:bg-[#fcfeff] row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-[#f8f9fa]'}`}>
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.beds}</td>
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.interior}</td>
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">{row.price}</td>

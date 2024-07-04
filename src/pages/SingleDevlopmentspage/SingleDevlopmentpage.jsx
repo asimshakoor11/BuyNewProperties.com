@@ -60,12 +60,12 @@ const SingleDevlopmentpage = () => {
     };
 
     useEffect(() => {
-        if (showPopup) {
+        if (showPopup || isLightboxOpen) {
             document.body.classList.add('no-scroll');
         } else {
             document.body.classList.remove('no-scroll');
         }
-    }, [showPopup]);
+    }, [showPopup || isLightboxOpen]);
 
 
     const data = [

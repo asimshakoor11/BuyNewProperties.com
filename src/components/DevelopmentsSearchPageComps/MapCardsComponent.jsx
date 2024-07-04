@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Carousel } from "@material-tailwind/react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope, faSort } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, faSort, faLock } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -53,41 +53,31 @@ const MapCardsComponent = ({ item, index }) => {
         <>
             <div className='w-full flex flex-col'>
 
-                <div className="overflow-hidden flex flex-col xl:flex-row gap-3"
+                <div className="overflow-hidden flex flex-col 2xl:flex-row gap-3"
                 >
-                    <div className='relative w-full xl:w-1/2 rounded-[18px]'>
-                        <Carousel className="rounded-[18px] h-full overflow-hidden"
-                            navigation={false}
-                            loop={true}
-                        >
+                    <div className='relative w-full 2xl:max-w-[300px] 2xl:min-w-[300px] rounded-[18px]'>
+
+                        <div className='relative h-full  overflow-hidden rounded-[18px]'>
                             <img
                                 src="/images/pages/homepage/devcardimage.svg"
                                 alt="image 1"
                                 className={`h-full w-full rounded-[18px] object-cover bg-cover bg-container bg-zoom`}
                             />
-                            <img
-                                src="/images/global/bgimage.jpeg"
-                                alt="image 2"
-                                className={` h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
-
-                            />
-                            <img
-                                src="/images/pages/homepage/devcardimage.svg"
-                                alt="image 3"
-                                className={`h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
-
-                            />
-                        </Carousel>
+                        </div>
 
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 ">
                             <span className="bg-primarycolor text-white font-semibold text-[13px] px-2 py-2  rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
-                        <div className='absolute bottom-0 right-0'>
+                        <div className='absolute bottom-0 flex justify-between items-center w-full'>
+                            <button className='inline-flex items-center gap-2 text-white bg-dangercolor opa font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[23px] rounded-bl-[23px] -ml-1'>
+                                <img src="/images/icons/lock.svg" alt="" className='h-4' />
+                                <p className="">Private Development</p>
+                            </button>
 
                             <div className="flex items-center mr-4 mb-2">
                                 {showTooltip && (
                                     <motion.p
-                                        className={`absolute right-10 w-max mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
+                                        className={`absolute right-10 mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
                                         initial={{ x: -20, opacity: 0 }} // Initial position and opacity
                                         animate={{ x: 0, opacity: 1 }} // Animation properties
                                         transition={{ duration: 0.3 }} // Animation duration
@@ -117,11 +107,14 @@ const MapCardsComponent = ({ item, index }) => {
                         </div>
                     </div>
 
-                    <div className=" w-full xl:w-1/2 ">
+                    <div className=" w-full ">
                         <Link to={"/singledevelopmenpage"}>
-                            <div className="flex flex-col justify-between h-full gap-3 text-black">
+                            <div className="flex flex-col justify-between h-full gap-2 text-black">
                                 <div className='flex justify-between text-sm'>
-                                    <p className='font-semibold'>New Development In Vale do Lobo</p>
+                                    <button className='inline-flex items-center gap-2 rounded-md bg-dangercolor py-1 px-2 text-white'>
+                                        <img src="/images/icons/lock.svg" alt="" className='h-4' />
+                                        <p className='font-semibold'>Private Development</p>
+                                    </button>
                                     <div className='flex items-center gap-1 text-black font-semibold'>
                                         <span>
                                             <img src="/images/icons/locationmarkerblack.svg" alt="location" className='h-4' />
@@ -131,7 +124,7 @@ const MapCardsComponent = ({ item, index }) => {
                                         </span>
                                     </div>
                                 </div>
-                                <p className="font-medium text-xl">{item.title}</p>
+                                <p className="font-medium text-[1.6rem] leading-[1]">{item.title}</p>
                                 <div className="flex flex-wrap gap-3 text-primarycolor">
                                     <div>
                                         <div className="text-xl">D1001</div>
@@ -147,9 +140,9 @@ const MapCardsComponent = ({ item, index }) => {
                                     </div>
 
                                 </div>
-                                <p className="font-semibold text-xl text-black">$500,000 to $800,000</p>
+                                <p className="font-semibold text-[1.6rem] text-black">$500,000 to $800,000</p>
 
-                                <button className="bg-secondrycolor text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
+                                <button className="bg-secondrycolor hover:bg-secondrycolorhover text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
                             </div>
                         </Link>
 
@@ -158,7 +151,7 @@ const MapCardsComponent = ({ item, index }) => {
                 </div>
 
                 <div className="">
-                    <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5" onClick={handleClick}>9 Available Properties</button>
+                    <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 lg:py-3 rounded-lg font-medium w-full mt-5 cursor-pointer transition-colors duration-300 ease-in-out" onClick={handleClick}>9 Available Properties</button>
                 </div>
 
                 {/* table  */}

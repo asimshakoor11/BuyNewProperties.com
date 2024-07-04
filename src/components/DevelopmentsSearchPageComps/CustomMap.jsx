@@ -41,43 +41,7 @@ const clustererOptions = {
   ]
 };
 
-// const locations = [
-//   {
-//     id: 1,
-//     position: { lat: 38.7223, lng: -9.1393 },
-//     info: {
-//       image: '/images/homepage/dreamhomecontact.png',
-//       title: 'New Development Lisbon',
-//       location: 'Estrela, Lisbon',
-//       price: '€650,000',
-//       beds: '2 to 3 Beds from'
-//     }
-//   },
-//   {
-//     id: 2,
-//     position: { lat: 41.1579, lng: -8.6291 },
-//     info: {
-//       image: '/images/homepage/dreamhomecontact.png',
-//       title: 'New Development Porto',
-//       location: 'Porto, Portugal',
-//       price: '€500,000',
-//       beds: '1 to 2 Beds from'
-//     }
-//   },
-//   {
-//     id: 3,
-//     position: { lat: 37.0179, lng: -7.9307 },
-//     info: {
-//       image: '/images/homepage/dreamhomecontact.png',
-//       title: 'New Development Faro',
-//       location: 'Faro, Portugal',
-//       price: '€450,000',
-//       beds: '2 to 4 Beds from'
-//     }
-//   }
-// ];
-
-const CustomMap = ({ mobile, view, locations=[] }) => {
+const CustomMap = ({ locations=[] }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -110,10 +74,10 @@ const CustomMap = ({ mobile, view, locations=[] }) => {
     if (map && clustererRef.current) {
       const markers = locations.map(location => {
         const customIcon = {
-          url: 'https://res.cloudinary.com/do3bw9naj/image/upload/fl_preserve_transparency/v1719647164/mapmarker.jpg?_s=public-apps',
-          scaledSize: new window.google.maps.Size(40, 50),
+          url: 'https://res.cloudinary.com/do3bw9naj/image/upload/fl_preserve_transparency/v1719985427/location_kchcan.jpg?_s=public-apps',
+          scaledSize: new window.google.maps.Size(50, 50),
           origin: new window.google.maps.Point(0, 0),
-          anchor: new window.google.maps.Point(21, 50)
+          anchor: new window.google.maps.Point(25, 50)
         };
 
         const marker = new window.google.maps.Marker({
@@ -157,7 +121,7 @@ const CustomMap = ({ mobile, view, locations=[] }) => {
   };
 
   return isLoaded ? (
-    <div className={` ${mobile ? 'h-[88vh]' : 'h-[100vh]'} ${view? 'h-full' : ''} w-full sticky top-0`}>
+    <div className={`h-[100vh] w-full sticky top-0`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}
@@ -176,26 +140,26 @@ const CustomMap = ({ mobile, view, locations=[] }) => {
             position={selectedMarker.position}
             onCloseClick={handleInfoWindowClose}
           >
-            <div className=' bg-container ' >
+            <div className='max-w-72 lg:min-w-72 bg-container ' >
               <div className='relative ' >
                 <div className='relative overflow-hidden h-48'>
                   <img src="/images/pages/homepage/herosection.svg" alt="" className='h-full w-full object-cover bg-zoom' />
                 </div>
                 <div className='absolute -bottom-2 z-10 h-[45%] w-full' style={{ background: 'linear-gradient(to bottom, transparent, #000000 50%)' }}></div>
 
-                <div className='absolute top-3 right-3 py-1 px-1.5 sm:p-2 cursor-pointer rounded-md border-2 border-black hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white'
+                <div className='absolute top-3 right-3 p-1.5 sm:p-2 rounded-md  hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white cursor-pointer transition-colors duration-300 ease-in-out'
                   onClick={handleInfoWindowClose}>
-                  <FontAwesomeIcon icon={faXmark} className='text-base sm:text-lg' />
+                  <FontAwesomeIcon icon={faXmark} className='text-lg' />
                 </div>
 
                 <Link to={'/singledevelopmenpage'}>
                   <div className="absolute z-20 w-full bottom-0 text-white p-3">
-                    <h2 className='text-base sm:text-lg font-bold my-2 '>{selectedMarker.info.title}</h2>
+                    <h2 className='text-base sm:text-lg font-medium my-2 '>{selectedMarker.info.title}</h2>
                     <div className='flex items-center gap-2 font-medium text-[12px] sm:text-[13px] '>
                       <span>
                         <img src="/images/icons/locationmarkerwhite.svg" alt="location" className='h-4' />
                       </span>
-                      <span>
+                      <span className='font-medium'>
                         {selectedMarker.info.location}
                       </span>
                     </div>
@@ -207,10 +171,10 @@ const CustomMap = ({ mobile, view, locations=[] }) => {
                 <div className='bg-primarycolor text-white flex items-center gap-3 justify-end py-3 px-3 pt-5'>
                   <div className=''>
                     <p className='text-sm sm:text-base text-right'>{selectedMarker.info.beds}</p>
-                    <p className='text-base sm:text-lg font-bold  text-right'>{selectedMarker.info.price}</p>
+                    <p className='text-base sm:text-lg font-medium text-right'>{selectedMarker.info.price}</p>
                   </div>
                   <div className=''>
-                    <span className='p-1.5 pt-2 sm:p-2.5 sm:pt-3 font-semibold  border-2 border-black hover:border-white bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white rounded-md'>
+                    <span className='p-1.5 pt-2 sm:p-2.5 sm:pt-3 font-semibold bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white rounded-md cursor-pointer transition-colors duration-300 ease-in-out'>
                       <FontAwesomeIcon icon={faChevronRight} className='text-sm sm:text-base' />
                     </span>
                   </div>

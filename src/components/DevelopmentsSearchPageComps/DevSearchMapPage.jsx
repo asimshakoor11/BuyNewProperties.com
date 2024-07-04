@@ -76,12 +76,12 @@ const DevSearchMapPage = () => {
 
     return (
         <>
-            <section className='hidden sm:block'>
+            <section className='hidden lg:block'>
                 <Navbar isNavbarFixed={isNavFixed} />
             </section>
-            <section className='custommax540:pt-0 sm:pt-[50px] lg:pt-[100px] pb-0 bg-bggray'>
-                <div className='flex flex-col 2xl:flex-row gap-4'>
-                    <div className='w-full 2xl:w-[50%] sm:mt-10 px-0 lg:px-[1%]'>
+            <section className='p-0 bg-bggray'>
+                <div className='flex flex-col lg:flex-row gap-4'>
+                    <div className='w-full 2xl:w-[50%] lg:pt-[100px] lg:mt-10 px-0 lg:px-[1%]'>
                         <div className={`hidden lg:block`}>
                             <div className={``}>
                                 <h2 className="text-3xl md:text-4xl font-BebasNeueSemiExpBold text-primarycolor text-left">New Developments In Lisbon Area</h2>
@@ -114,17 +114,17 @@ const DevSearchMapPage = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className='w-full 2xl:w-[50%] md:mt-10 block lg:hidden'>
-                            <CustomMap mobile={true} />
-                        </div>
-                        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-5 mt-10 mb-10">
+                        {/* <div className='fixed inset-0 h-screen w-full block lg:hidden'>
+                            <CustomMap />
+                        </div> */}
+                        <div className="hidden lg:grid grid-cols-1 gap-10 mt-10 mb-10">
                             {data.map((item, index) => (
                                 <MapCardsComponent key={index} index={index} item={item} />
                             ))}
                         </div>
                     </div>
 
-                    <div className='w-full 2xl:w-[50%] md:mt-10 hidden lg:block'>
+                    <div className='fixed lg:relative inset-0 w-full 2xl:w-[50%] '>
                         <CustomMap locations={locationareas} />
                     </div>
 

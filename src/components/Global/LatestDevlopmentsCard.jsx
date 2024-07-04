@@ -122,7 +122,7 @@ const Cards = ({ item, index }) => {
                                 className={`h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
 
                             />
-                        </Carousel>
+                        </Carousel>                        
 
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 gap-3">
                             <div className='flex items-center gap-1 text-black bg-white opacity-80 font-semibold text-[13px] px-2 py-2  rounded'>

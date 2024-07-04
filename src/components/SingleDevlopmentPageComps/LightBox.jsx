@@ -5,36 +5,27 @@ import { faXmark, faShare, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GlobalImgCarousel from '../Global/GlobalImgCarousel';
 import { motion } from 'framer-motion';
+import SharePopup from '../Global/SharePopup';
 
 
 const LightBox = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
     const [selectedPopup, setSelectedPopup] = useState('image');
     const [isPopupVisible, setPopupVisible] = useState(false);
+    const [isPopupVisibleSV, setPopupVisibleSV] = useState(false);
 
     useEffect(() => {
-        if (isPopupVisible) {
+        if (isPopupVisible || isOpen) {
             document.body.classList.add('no-scroll');
         } else {
             document.body.classList.remove('no-scroll');
         }
-    }, [isPopupVisible]);
-
-    const [copied, setCopied] = useState(false);
-    const inputRef = useRef(null);
-
-    const copyToClipboard = () => {
-        if (inputRef.current) {
-            inputRef.current.select();
-            document.execCommand('copy');
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
-        }
-    };
+    }, [isPopupVisible || isOpen]);
 
     const handleOutsideClick = (e) => {
         if (e.target.id === 'popup-container') {
             setPopupVisible(false);
+            setPopupVisibleSV(false)
         }
     };
 
@@ -42,11 +33,19 @@ const LightBox = ({ isOpen, onClose }) => {
         setPopupVisible(true);
     };
 
+    const handleScrollView = () => {
+        setPopupVisibleSV(true)
+    }
+
+    const closeSharePopup = () => {
+        setPopupVisible(false);
+    };
+
     return (
         <>
             <div className="fixed min-h-screen inset-0 bg-black z-50">
                 <div className="min-h-screen bg-zinc-100 p-6 text-white">
-                    <div className='h-full'>
+                    <div className='h-full '>
                         <div className="flex flex-row gap-4 items-center justify-between p-0 md:p-4 bg-black">
                             <div className="flex space-x-2">
                                 <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'image' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full  cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('image')}>
@@ -64,14 +63,16 @@ const LightBox = ({ isOpen, onClose }) => {
                                 </button>
                             </div>
                             <div className="flex items-center space-x-4">
-                                <div className='relative'>
-                                    <button className="flex items-center px-4 py-4 md:px-8 md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={handleSubmit}>
-                                        <span className='hidden md:block mr-3'>Share</span>
-                                        <img src="/images/icons/sharewhite.svg" className='h-27 min-w-25' style={{ maxWidth: "20px" }} alt="" />
+                                <button className="flex items-center" onClick={handleScrollView}>
+                                    <img src="/images/icons/arrow-square-down.svg" className='max-w-[25px]' alt="" />
+                                    <span className='hidden md:block ml-3'>Scroll View</span>
+                                </button>
 
-                                    </button>
+                                <button className="flex items-center px-4 py-4 md:px-8 md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={handleSubmit}>
+                                    <span className='hidden md:block mr-3'>Share</span>
+                                    <img src="/images/icons/sharewhite.svg" className='h-27 min-w-25' style={{ maxWidth: "20px" }} alt="" />
+                                </button>
 
-                                </div>
 
                                 <button
                                     className="bg-transparent text-white border border-[#FFFFFF3D] rounded-full px-4 py-3"
@@ -82,7 +83,7 @@ const LightBox = ({ isOpen, onClose }) => {
                             </div>
                         </div>
                         {selectedPopup === 'image' && (
-                            <div className="h-full w-full mt-10">
+                            <div className="h-full w-full mt-10 ">
                                 <GlobalImgCarousel dark={false} />
                             </div>
                         )}
@@ -105,55 +106,34 @@ const LightBox = ({ isOpen, onClose }) => {
 
             {
                 isPopupVisible && (
-                    <div id="popup-container" class="fixed inset-0 z-[1000] bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
-                        onClick={handleOutsideClick}
-                    >
-                        <div id="popup-content" class="bg-white rounded-lg w-[300px] md:w-[500px] mx-auto relative"
+                   <SharePopup onCloseShare={closeSharePopup} handleOutsideClick={handleOutsideClick}/>
+                )
+            }
+
+            {
+                isPopupVisibleSV && (
+                    <div id="popup-container" class="fixed inset-0 z-[1000] bg-gray-800 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
+                        onClick={handleOutsideClick}>
+                        <div id="popup-content" class="relative w-full h-full overflow-y-scroll scrollbar-custom"
                         >
-                            <div className="flex justify-between items-center md:p-3 p-6 mb-8 w-full border-b-2 border-gray-300">
-                                <h2 className="text-xl font-semibold">Share Development</h2>
-                                <button className="text-2xl font-bold text-black" onClick={() => { setPopupVisible(false); }}>
+                            <div className='bg-gray-800 md:bg-transparent sticky top-0 p-3 w-full flex items-center justify-between md:justify-end gap-4'>
+                                <button className="flex items-center px-4 py-4 md:px-8 md:py-2 " onClick={() => { setPopupVisibleSV(false); }}>
+                                    <img src="/images/icons/exchange-alt.svg" className='h-27 max-w-[25px]'  alt="" />
+                                    <span className=' ml-3 text-white'>Scroll View</span>
+                                </button>
+                                <button className="text-2xl font-bold text-white" onClick={() => { setPopupVisibleSV(false); }}>
                                     <FontAwesomeIcon icon={faXmark} size='md' />
                                 </button>
                             </div>
-                            <div className='px-6 pb-6 md:px-3 md:pb-3 '>
-                                <div className="mb-8">
-                                    <input
-                                        type="text"
-                                        readOnly
-                                        className="w-full p-2 border rounded-md bg-gray-100"
-                                        value="https://newbuilds.com/listings/confidence?property=()"
-                                        ref={inputRef}
-                                    />
-                                </div>
-                                <div className="mb-8">
-                                    <button
-                                        className="w-full py-3 md:py-4 bg-primarycolor font-medium rounded-md text-white flex items-center gap-3 justify-center"
-                                        onClick={copyToClipboard}
-                                    >
-                                        <img src="/images/icons/copywhite.svg" alt="" className="h-5" />
-                                        Copy link
-                                    </button>
-                                    {copied && <p className="text-green-500 mt-2">Copied!</p>}
-                                </div>
-                                <div className="flex flex-col md:flex-row gap-4">
-                                    <button className="flex-1 py-3 md:py-4  border border-primarycolor rounded-md flex items-center justify-center ">
-                                        <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-3 ' />
 
-                                        Email
-                                    </button>
-                                    <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
 
-                                        <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-3' />
-                                        Sms
-                                    </button>
-                                    <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
-                                        <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-3' />
-                                        WhatsApp
-                                    </button>
-                                </div>
-
+                            <div className="max-w-[80%] lg:max-w-[50%] flex flex-col gap-10 md:gap-20 mx-auto py-[40px]">
+                                <img src="/images/pages/homepage/bgiamge.webp" alt="" />
+                                <img src="/images/pages/homepage/herosection.svg" alt="" />
+                                <img src="/images/pages/homepage/architecture.jpg" alt="" />
+                                <img src="/images/pages/homepage/kuala-lumpur.jpg" alt="" />
                             </div>
+
                         </div>
                     </div>
                 )
