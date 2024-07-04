@@ -12,7 +12,6 @@ const images = [
     '/images/pages/homepage/bgiamge.webp',
     '/images/pages/homepage/herosection.svg',
     '/images/pages/homepage/architecture.jpg',
-    '/images/pages/homepage/verticalimage.jpeg',
     '/images/pages/homepage/kuala-lumpur.jpg',
 ];
 
@@ -60,17 +59,17 @@ const GlobalImgCarousel = ({ dark, handlepopupcarousel }) => {
     };
 
     return (
-        <div className="container flex flex-col justify-between mx-auto relative " >
+        <div className="container flex flex-col xl:justify-between mx-auto relative" >
             <Slider {...settings}>
                 {images.map((img, index) => (
-                    <div key={index} className="slick-slide  h-[100%] ">
-                        <div className={`flex justify-center ${dark ? 'h-[70vh]' : 'h-[70vh]'} items-center px-0 md:px-[10%]`}>
+                    <div key={index} className="slick-slide xl:h-[100%] ">
+                        <div className={`flex justify-center ${dark ? 'xl:h-[70vh]' : 'xl:h-[70vh]'} items-center px-0 md:px-[10%]`}>
                             <img src={img} alt={`Slide ${index}`} className=" object-contain h-full w-full" onClick={handlepopupcarousel} />
                         </div>
                     </div>
                 ))}
             </Slider>
-            <div className={` text-center  mt-8 ${dark ? 'text-gray-800' : 'text-gray-600'}  font-medium text-base`}>
+            <div className={`text-center mt-8 ${dark ? 'text-gray-800' : 'text-gray-600'}  font-medium text-base`}>
                 <span className=' '>
                     <span className={`${dark ? 'text-black' : 'text-white'}`}> 0{currentSlide + 1} / </span>
                     0{images.length}

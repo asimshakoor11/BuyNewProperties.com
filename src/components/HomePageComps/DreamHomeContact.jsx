@@ -19,7 +19,7 @@ const DreamHomeContact = () => {
                 </div>
             </div>
             <div className={`flex-1 z-10 flex items-center ${isSubmit ? 'justify-center xl:justify-start': 'xl:justify-left'}  mt-10 xl:mt-0`}>     
-                <GlobalForm onStateChange={handleStateChange} />
+                <GlobalForm colorwhite={false} onStateChange={handleStateChange} />
             </div>
 
         </section>

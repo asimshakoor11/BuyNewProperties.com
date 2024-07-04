@@ -41,7 +41,7 @@ const clustererOptions = {
   ]
 };
 
-const CustomMap = ({ locations=[] }) => {
+const CustomMap = ({ locations=[], customview }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -121,7 +121,7 @@ const CustomMap = ({ locations=[] }) => {
   };
 
   return isLoaded ? (
-    <div className={`h-[100vh] w-full sticky top-0`}>
+    <div className={`${customview? 'h-[50vh] xl:h-[100vh] ': 'h-[100vh]'} w-full sticky top-0`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}

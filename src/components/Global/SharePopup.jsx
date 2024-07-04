@@ -19,7 +19,7 @@ const SharePopup = ({ onCloseShare, handleOutsideClick }) => {
     };
     return (
         <>
-            <div id="popup-container" class="fixed inset-0 z-[1000] bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
+            <div id="popup-container" class="fixed inset-0 z-50 bg-gray-800 p-4 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
                 onClick={handleOutsideClick}
             >
                 <div id="popup-content" class="bg-white rounded-lg w-[300px] md:w-[500px] mx-auto relative"

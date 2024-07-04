@@ -13,6 +13,7 @@ import './SingleDevelopmentPage.css'
 import VideoPopup from '../../components/SingleDevlopmentPageComps/VideoPopup';
 import PropertyDetails from '../../components/SingleDevlopmentPageComps/PropertyDetails';
 import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
+import CustomMap from '../../components/DevelopmentsSearchPageComps/CustomMap';
 
 const SingleDevlopmentpage = () => {
     const [isSaved, setIsSaved] = useState(false);
@@ -72,6 +73,42 @@ const SingleDevlopmentpage = () => {
         { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 1' },
         { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 2' },
         { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 3' },
+    ];
+
+    const locationareas = [
+        {
+            id: 1,
+            position: { lat: 38.7223, lng: -9.1393 },
+            info: {
+                image: '/images/homepage/dreamhomecontact.png',
+                title: 'New Development Lisbon',
+                location: 'Estrela, Lisbon',
+                price: '€650,000',
+                beds: '2 to 3 Beds from'
+            }
+        },
+        {
+            id: 2,
+            position: { lat: 41.1579, lng: -8.6291 },
+            info: {
+                image: '/images/homepage/dreamhomecontact.png',
+                title: 'New Development Porto',
+                location: 'Porto, Portugal',
+                price: '€500,000',
+                beds: '1 to 2 Beds from'
+            }
+        },
+        {
+            id: 3,
+            position: { lat: 37.0179, lng: -7.9307 },
+            info: {
+                image: '/images/homepage/dreamhomecontact.png',
+                title: 'New Development Faro',
+                location: 'Faro, Portugal',
+                price: '€450,000',
+                beds: '2 to 4 Beds from'
+            }
+        }
     ];
 
 
@@ -165,7 +202,7 @@ const SingleDevlopmentpage = () => {
                 <TabSection />
             </section> */}
 
-            <section section id='videoplay' className='section bg-white rounded-xl' >
+            <section section id='videoplay' className='section bg-bggray rounded-xl' >
                 <div className='section bg-cover bg-center h-[350px] md:h-[600px] flex items-center justify-center relative rounded-xl' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                     <div className='absolute inset-0 bg-black opacity-50 z-10 rounded-xl'></div>
                     <div className='relative z-20 p-8 flex flex-col items-center gap-3 text-white'>
@@ -184,6 +221,44 @@ const SingleDevlopmentpage = () => {
                 </div>
                 {showPopup && <VideoPopup id="popup-container" videoUrl='https://www.youtube.com/embed/dQw4w9WgXcQ' onClose={handleClosePopup} />}
             </section >
+
+            <section className='py-[80px] bg-white'>
+                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Sold or Rented Residences</h2>
+
+                <div className='mt-10 px-[7%] relative'>
+                    <div className="flex space-x-2 w-full overflow-x-scroll scrollbar-hide">
+                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white font-medium px-4 py-2 rounded-md cursor-pointer transition-colors duration-300 ease-in-out">All</button>
+                        <button className=" flex items-center space-x-2 bg-white font-medium border border-bggray px-6 py-2 rounded-md">
+                            <img undefinedhidden="true" alt="school-icon" src="/images/icons/school.svg" className='w-[25px]' />
+                            <span className=''>Schools </span>
+                        </button>
+                        <button className="min-w-[180px] lg:w-auto flex items-center space-x-2 bg-white font-medium border border-bggray px-4 py-2 rounded-md">
+                            <img alt="shopping-icon" src="/images/icons/bags-shopping.svg" className='w-[25px]' />
+                            <span>Shopping</span>
+                        </button>
+                        <button className="min-w-[180px] lg:w-auto flex items-center space-x-2 bg-white font-medium border border-bggray px-4 py-2 rounded-md">
+                            <img undefinedhidden="true" alt="transportation-icon" src="/images/icons/subway.svg" className='w-[25px]' />
+                            <span>Transportation </span>
+                        </button>
+                        <button className="min-w-[180px] lg:w-auto flex items-center space-x-2 bg-white font-medium border border-bggray px-4 py-2 rounded-md">
+                            <img undefinedhidden="true" alt="transportation-icon" src="/images/icons/doctor.svg" className='w-[25px]' />
+
+                            <span>Health</span>
+                        </button>
+                        <button className="min-w-[180px] lg:w-auto flex items-center space-x-2 bg-white font-medium border border-bggray  px-4 py-2 rounded-r-lg">
+                            <img undefinedhidden="true" alt="transportation-icon" src="/images/icons/rocket-lunch.svg" className='w-[25px]' />
+
+                            <span>Activities</span>
+                        </button>
+                        <div className='hidden custommaxforSDP:block fade-right'></div>
+
+                    </div>
+
+                </div>
+                <div className='mt-10'>
+                    <CustomMap customview={true} locations={locationareas} />
+                </div>
+            </section>
 
             <section id='neighborhood' className='section bg-cover bg-center h-screen flex items-end relative' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50 z-10'></div>

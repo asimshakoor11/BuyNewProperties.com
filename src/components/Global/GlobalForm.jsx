@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-const GlobalForm = ({ onStateChange }) => {
+const GlobalForm = ({ onStateChange, colorwhite }) => {
 
     const [isContactPreference, setIsContactPreference] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
@@ -68,7 +68,6 @@ const GlobalForm = ({ onStateChange }) => {
         if (validateForm()) {
             setIsSubmitted(true);
             onStateChange(true);
-
         }
     };
 
@@ -76,7 +75,7 @@ const GlobalForm = ({ onStateChange }) => {
     return (
         <>
             {isSubmitted ? (
-                <div className="bg-bggray p-6 rounded-lg flex flex-col justify-between items-center max-w-md">
+                <div className={`${colorwhite ? 'bg-white w-full' : 'bg-bggray max-w-md'} p-6 rounded-lg flex flex-col justify-between items-center `}>
                     <h2 className="text-center text-3xl font-BebasNeueSemiExpBold">Thank You For Getting In Touch!</h2>
                     <p className="text-center mt-4">One of our experts will reach out to you very shortly.</p>
                     <button className='buttonShort mt-4 bg-transparent border-2 border-black font-semibold'>
@@ -84,7 +83,7 @@ const GlobalForm = ({ onStateChange }) => {
                     </button>
                 </div>
             ) : (
-                <form className="bg-bggray p-6 rounded-lg  w-full xl:max-w-md" onSubmit={handleSubmit}>
+                <form className={`${colorwhite ? 'bg-white w-full' : 'bg-bggray w-full xl:max-w-md'} p-6 rounded-lg  `} onSubmit={handleSubmit}>
                     <div className='flex flex-col lg:flex-row xl:flex-col gap-0 lg:gap-4 xl:gap-0'>
                         <div className="mb-4 w-full lg:w-[49%] xl:w-full">
                             <label htmlFor="name" className='text-sm font-medium'>Full Name</label>
