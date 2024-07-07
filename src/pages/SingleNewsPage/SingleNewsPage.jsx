@@ -67,103 +67,10 @@ const SingleNewsPage = () => {
                 </div>
             </section>
 
-            {/* <section className='section relative z-20 bg-white -mt-10 rounded-tr-[40px] rounded-tl-[40px]'>
-
-                <div className="flex flex-col md:flex-row ">
-
-                    <aside className="w-full lg:w-1/4 p-4 pl-0 ">
-                        <nav className='sticky top-20 mt-16'>
-                            <ul className="space-y-2">
-                                <li>
-                                    <a href="buyportugal" className="flex items-center p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded">
-                                        <span className="mr-2 border border-bggray h-10 w-10 flex items-center justify-center rounded-md">1</span> How to buy a property in Portugal
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="sellortugal" className="flex items-center p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded">
-                                        <span className="mr-2  border border-bggray h-10 w-10 flex items-center justify-center rounded-md">2</span> How to sell a property in Portugal
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="buyporto" className="flex items-center p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded">
-                                        <span className="mr-2  border border-bggray h-10 w-10 flex items-center justify-center rounded-md">3</span> How to buy a property in Porto
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="sellporto" className="flex items-center p-2 text-muted-foreground hover:bg-muted hover:text-foreground rounded">
-                                        <span className="mr-2  border border-bggray h-10 w-10 flex items-center justify-center rounded-md">4</span> How to sell a property in Porto
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </aside>
-
-                    <div className='w-full lg:w-3/4 p-4'>
-                        <h1 className="text-2xl font-bold mb-4">{decodeURIComponent(title)}</h1>
-
-                        <div className="mt-8" id='buyportugal'>
-                            <h2 className="text-2xl font-bold mb-4">Buy Property In Portugal</h2>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                        </div>
-
-                        <div className="" id='sellportugal'>
-                            <h2 className="text-2xl font-bold mb-4">Sell Property In Portugal</h2>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-
-                        </div>
-
-                        <div className="" id='buyporto'>
-                            <h2 className="text-2xl font-bold mb-4">Buy Property In Porto</h2>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-
-                        </div>
-
-                        <div className="" id='sellporto'>
-                            <h2 className="text-2xl font-bold mb-4">Sell Property In Porto</h2>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-                            <p className="mb-4">
-                                Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area. Join the best team and brokerage in Europe. We make sure you get a minimum amount of leads so you can crush your goals and become the best in your area.
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section> */}
-
             <section className='section relative z-50 bg-white -mt-10 rounded-tr-[40px] rounded-tl-[40px]'>
-                <div className="flex flex-col md:flex-row">
-                    <aside className="hidden lg:block w-full lg:w-1/4 p-4 pl-0">
-                        <nav className='sticky top-20 mt-16'>
+                <div className="flex flex-col md:flex-row gap-6">
+                    <aside className="hidden lg:block w-full lg:w-1/4 mt-4 ">
+                        <nav className='sticky top-20 p-4  bg-bggray rounded-lg'>
                             <ul className="space-y-2">
                                 <li
                                     onMouseEnter={() => { setHoverTab("buyportugal") }}
@@ -177,7 +84,7 @@ const SingleNewsPage = () => {
                                         }}
                                         className={`flex items-center p-2 ${activeTab === 'buyportugal' ? 'text-primarycolor font-semibold ' : 'text-black hover:text-primarycolor font-medium'} rounded  cursor-pointer transition-colors duration-300 ease-in-out`}
                                     >
-                                        <span className={`mr-2 border ${activeTab === 'buyportugal' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'buyportugal' ? 'border-primarycolor' : 'border-bggray'} h-10 w-10 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
+                                        <span className={`mr-2 border ${activeTab === 'buyportugal' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'buyportugal' ? 'border-primarycolor' : 'border-bggray'} h-10 w-12 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
                                             1
                                         </span>
                                         How to buy a property in Portugal
@@ -194,7 +101,7 @@ const SingleNewsPage = () => {
                                         }}
                                         className={`flex items-center p-2 ${activeTab === 'sellportugal' ? 'text-primarycolor font-semibold ' : 'text-black hover:text-primarycolor font-medium'} rounded cursor-pointer transition-colors duration-300 ease-in-out`}
                                     >
-                                        <span className={`mr-2 border ${activeTab === 'sellportugal' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'sellportugal' ? 'border-primarycolor' : 'border-bggray'} h-10 w-10 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
+                                        <span className={`mr-2 border ${activeTab === 'sellportugal' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'sellportugal' ? 'border-primarycolor' : 'border-bggray'} h-10 w-12 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
                                             2
                                         </span>
                                         How to sell a property in Portugal
@@ -211,7 +118,7 @@ const SingleNewsPage = () => {
                                         }}
                                         className={`flex items-center p-2 ${activeTab === 'buyporto' ? 'text-primarycolor font-semibold ' : 'text-black hover:text-primarycolor font-medium'} rounded  cursor-pointer transition-colors duration-300 ease-in-out`}
                                     >
-                                        <span className={`mr-2 border ${activeTab === 'buyporto' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'buyporto' ? 'border-primarycolor' : 'border-bggray'} h-10 w-10 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
+                                        <span className={`mr-2 border ${activeTab === 'buyporto' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'buyporto' ? 'border-primarycolor' : 'border-bggray'} h-10 w-12 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
                                             3
                                         </span>
                                         How to buy a property in Porto
@@ -228,7 +135,7 @@ const SingleNewsPage = () => {
                                         }}
                                         className={`flex items-center p-2 ${activeTab === 'sellporto' ? 'text-primarycolor font-semibold ' : 'text-black hover:text-primarycolor font-medium'} rounded  cursor-pointer transition-colors duration-300 ease-in-out`}
                                     >
-                                        <span className={`mr-2 border ${activeTab === 'sellporto' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'sellporto' ? 'border-primarycolor' : 'border-bggray'} h-10 w-10 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
+                                        <span className={`mr-2 border ${activeTab === 'sellporto' ? 'border-primarycolor' : 'border-bggray'} ${hoverTab === 'sellporto' ? 'border-primarycolor' : 'border-bggray'} h-10 w-12 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 ease-in-out`}>
                                             4
                                         </span>
                                         How to sell a property in Porto
