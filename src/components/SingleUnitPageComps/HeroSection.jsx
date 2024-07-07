@@ -92,7 +92,7 @@ const HeroSection = ({imagessingleunitpage}) => {
                                 </div>
                             </div>
                             <div className="flex xl:hidden absolute inset-0 bg-black  bg-opacity-50 items-center justify-center rounded-lg">
-                                <div className='px-2 py-1 text-white '>
+                                <div className='px-2 py-1 text-white ' onClick={() => {setIsPopupOpen(true);}}>
                                     <span className="text-base mr-2">+{imagessingleunitpage.length - 4}</span>
                                 </div>
                             </div>
