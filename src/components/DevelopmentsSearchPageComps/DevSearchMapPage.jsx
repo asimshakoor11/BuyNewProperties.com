@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
 import CustomMap from './CustomMap';
 import SearchPageFilter from './SearchPageFilter';
 import Navbar from '../Global/Navbar';
 import { Link, useLocation } from 'react-router-dom';
-import MapCardsComponent from './MapCardsComponent';
+import MapCardsComponent from './MapPageCardComp/MapCardsComponent';
 
 
 const DevSearchMapPage = () => {

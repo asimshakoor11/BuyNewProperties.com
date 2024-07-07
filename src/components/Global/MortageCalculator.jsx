@@ -20,7 +20,7 @@ const MortageCalculator = () => {
     return (
         <>
 
-            <section className='w-full bg-bggray flex flex-col xl:flex-row gap-4 py-10 px-[5%]'>
+            <section className='w-full bg-white flex flex-col xl:flex-row gap-4 '>
 
                 <div className="bg-zinc-100 w-full lg:w-[60%]">
                     <h1 className="text-4xl font-FuturaBold text-primarycolor">Mortgage Calculator</h1>

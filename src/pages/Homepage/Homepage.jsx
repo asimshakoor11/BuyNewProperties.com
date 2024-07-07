@@ -1,7 +1,7 @@
 import React, {  useEffect, useRef } from 'react'
 
 import '/src/assets/Fontawesome';
-import LatestDevelopmentCard from '../../components/Global/LatestDevlopmentsCard';
+import LatestDevelopmentCard from '../../components/Global/LatestDevelopmentCard/LatestDevlopmentsCard';
 import LatestUpdatesCarousel from '../../components/HomePageComps/LatestUpdatesCarousel';
 import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
 import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsCarousel';

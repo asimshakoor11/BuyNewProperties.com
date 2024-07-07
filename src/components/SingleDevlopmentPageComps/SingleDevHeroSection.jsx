@@ -10,17 +10,16 @@ import './Styles/HeroSec.css'
 import SharePopup from '../Global/SharePopup';
 
 
-const SingleDevHeroSection = () => {
+const SingleDevHeroSection = ({images}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
-
 
     const closeLightbox = () => {
         setIsPopupOpen(false);
     };
 
-    const images = [
+    const imageshero = [
         '/images/pages/homepage/herosection.svg',
         '/images/global/bgimage.jpeg',
         '/images/pages/homepage/herosection.svg',
@@ -29,7 +28,7 @@ const SingleDevHeroSection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % imageshero.length);
         }, 7000);
 
         return () => clearInterval(interval);
@@ -127,11 +126,10 @@ const SingleDevHeroSection = () => {
 
             </section>
 
-            {isPopupOpen && (<LightBox isOpen={isPopupOpen} onClose={closeLightbox} />)}
+            {isPopupOpen && (<LightBox isOpen={isPopupOpen} onClose={closeLightbox} images={images}/>)}
 
             {isPopupVisible && (
                 <SharePopup onCloseShare={closeSharePopup} handleOutsideClick={handleOutsideClick} />
-
             )}
         </>
     )

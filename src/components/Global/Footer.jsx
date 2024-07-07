@@ -215,7 +215,6 @@ const Footer = () => {
                     <a href="#" className="border border-fontdark py-2 px-3 rounded-md">
                         <FontAwesomeIcon icon={faXTwitter} size='lg' />
                     </a>
-
                 </div>
             </section>
 

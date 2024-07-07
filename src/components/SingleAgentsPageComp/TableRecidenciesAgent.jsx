@@ -5,10 +5,10 @@ import { faChevronRight, faSort } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import SingleUnitPopup from './SingleUnitPopup';
+import SingleUnitPopup from '../SingleDevlopmentPageComps/SingleUnitPopup';
 
 
-const TableRecidencies = ({ booking, images }) => {
+const TableRecidenciesAgent = ({ booking, images }) => {
 
     const [sortConfig, setSortConfig] = useState({ key: 'ref', direction: 'asc' });
 
@@ -22,7 +22,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: 'G/F',
             unit: 'B21',
             parking: 2,
-            price: '€1,600,000',
         },
         {
             ref: 'P49025',
@@ -33,7 +32,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: '5/F',
             unit: 'P5',
             parking: 2,
-            price: '€2,500,000',
         },
         {
             ref: 'P49026',
@@ -44,7 +42,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: '2/F',
             unit: 'S2',
             parking: 1,
-            price: '€400,000',
         },
         {
             ref: 'P49027',
@@ -55,7 +52,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: '3/F',
             unit: 'A3',
             parking: 1,
-            price: '€900,000',
         },
         {
             ref: 'P49028',
@@ -66,7 +62,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: 'G-1/F',
             unit: 'D1',
             parking: 2,
-            price: '€3,000,000',
         },
         {
             ref: 'P49029',
@@ -77,7 +72,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: '1/F',
             unit: 'A1',
             parking: 1,
-            price: '€950,000',
         },
         {
             ref: 'P49030',
@@ -88,7 +82,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: '4/F',
             unit: 'P4',
             parking: 2,
-            price: '€2,000,000',
         },
         {
             ref: 'P49031',
@@ -99,7 +92,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: '2/F',
             unit: 'B22',
             parking: 1,
-            price: '€1,400,000',
         },
         {
             ref: 'P49032',
@@ -110,7 +102,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: 'G/F',
             unit: 'S1',
             parking: 1,
-            price: '€450,000',
         },
         {
             ref: 'P49033',
@@ -121,7 +112,6 @@ const TableRecidencies = ({ booking, images }) => {
             floorPlot: 'G-2/F',
             unit: 'D2',
             parking: 3,
-            price: '€3,500,000',
         },
     ];
 
@@ -158,7 +148,6 @@ const TableRecidencies = ({ booking, images }) => {
         { label: 'Floor/Plot', key: 'floorPlot' },
         { label: 'Unit', key: 'unit' },
         { label: 'Parking', key: 'parking' },
-        { label: 'Price', key: 'price' },
     ];
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -191,6 +180,7 @@ const TableRecidencies = ({ booking, images }) => {
                                 </div>
                             </th>
                         ))}
+                        <th className="py-2 px-4 text-center">Price</th>
                         <th className="py-2 px-4 text-center">Plans</th>
                         <th className="py-2 px-4 text-center">Book Now</th>
                         <th className="py-2 px-4 text-center"></th>
@@ -209,7 +199,11 @@ const TableRecidencies = ({ booking, images }) => {
                             <td className="py-2 px-4 text-center">{row.floorPlot}</td>
                             <td className="py-2 px-4 text-center">{row.unit}</td>
                             <td className="py-2 px-4 text-center">{row.parking}</td>
-                            <td className="py-2 px-4 text-center">{row.price}</td>
+                            <td className="py-2 px-4 text-center">
+                                <button className="bg-primarycolor hover:bg-primarycolorhover w-max text-sm text-white px-4 py-2 rounded cursor-pointer transition-colors duration-300 ease-in-out">
+                                    Sold
+                                </button>
+                            </td>
                             <td className="py-2 px-4 text-center">
                                 <button className="bg-transparent">
                                     <img alt="download" src="/images/icons/download.svg" className='h-5' />
@@ -241,4 +235,4 @@ const TableRecidencies = ({ booking, images }) => {
     )
 }
 
-export default TableRecidencies
+export default TableRecidenciesAgent

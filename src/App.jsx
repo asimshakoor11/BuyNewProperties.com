@@ -11,13 +11,17 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import DevSearchMapPage from './components/DevelopmentsSearchPageComps/DevSearchMapPage';
+import SingleUnitPage from './pages/SingleUnitPage/SingleUnitPage';
+import SingleAgentPage from './pages/SingleAgentPage/SingleAgentPage';
+import NewsPage from './pages/NewsPage/NewsPage';
+import SingleNewsPage from './pages/SingleNewsPage/SingleNewsPage';
 
 function App() {
 
   const location = useLocation();
 
   // Define an array of paths where Navbar and Footer should be hidden
-  const pathsToHideNavbarAndFooter = ["/developmentssearchmap"];
+  const pathsToHideNavbarAndFooter = ["/developmentssearchmap", "/singleunitpage", "/singleagentpage"];
 
   // Check if the current path is in the array
   const hideNavbarAndFooter = pathsToHideNavbarAndFooter.includes(location.pathname);
@@ -44,6 +48,10 @@ function App() {
         <Route exact path="/developmentssearchmap" element={<DevSearchMapPage />}></Route>
         <Route exact path="/ouragents" element={<OurAgentpage />}></Route>
         <Route exact path="/singledevelopmenpage" element={<SingleDevlopmentpage />}></Route>
+        <Route exact path="/singleunitpage" element={<SingleUnitPage />}></Route>
+        <Route exact path="/singleagentpage" element={<SingleAgentPage />}></Route>
+        <Route exact path="/newspage" element={<NewsPage />}></Route>
+        <Route exact path="/singlenewspage/:title" element={<SingleNewsPage />}></Route>
         {/* Add more routes as needed */}
       </Routes>
       {!hideNavbarAndFooter && <Footer />}

@@ -7,8 +7,8 @@ import { faPhone, faEnvelope, faSort, faXmark } from '@fortawesome/free-solid-sv
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
-import TableCards from '../HomePageComps/TableCards';
-import GlobalForm from './GlobalForm'
+import TableCards from './TableCards';
+import GlobalForm from '../GlobalForm'
 
 
 const Cards = ({ item, index }) => {

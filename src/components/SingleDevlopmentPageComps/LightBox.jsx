@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import SharePopup from '../Global/SharePopup';
 
 
-const LightBox = ({ isOpen, onClose }) => {
+const LightBox = ({ isOpen, onClose, images }) => {
     if (!isOpen) return null;
     const [selectedPopup, setSelectedPopup] = useState('image');
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -86,7 +86,7 @@ const LightBox = ({ isOpen, onClose }) => {
                         </div>
                         {selectedPopup === 'image' && (
                             <div className="h-full w-full">
-                                <GlobalImgCarousel dark={false} customheight={false} />
+                                <GlobalImgCarousel dark={false} customheight={false} images={images} />
                             </div>
                         )}
 
@@ -130,10 +130,9 @@ const LightBox = ({ isOpen, onClose }) => {
 
 
                             <div className="max-w-[80%] lg:max-w-[50%] flex flex-col gap-10 md:gap-20 mx-auto py-[40px]">
-                                <img src="/images/pages/homepage/bgiamge.webp" alt="" />
-                                <img src="/images/pages/homepage/herosection.svg" alt="" />
-                                <img src="/images/pages/homepage/architecture.jpg" alt="" />
-                                <img src="/images/pages/homepage/kuala-lumpur.jpg" alt="" />
+                                {images.map((src, index) => (
+                                    <img key={index} src={src} alt={`Image ${index + 1}`} />
+                                ))}
                             </div>
 
                         </div>

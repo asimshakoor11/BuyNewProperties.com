@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GlobalImgCarousel from '../Global/GlobalImgCarousel';
 import CustomMap from '../DevelopmentsSearchPageComps/CustomMap';
 import SharePopup from '../Global/SharePopup';
+import { Link } from 'react-router-dom';
 
-const SingleUnitPopup = ({ isOpen, onClose }) => {
+const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
     const [selectedPopup, setSelectedPopup] = useState('floor');
     const scrolleddiv = useRef(null);
@@ -219,9 +220,12 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
                                         <span className='hidden md:block'>Location</span>
                                         <img src="/images/icons/locationmarkerblack.svg" alt="" className='block md:hidden' style={{ maxWidth: "23px" }} />
                                     </button>
-                                    <button className={`w-14 py-2 md:py-3  bg-primarycolor text-white  rounded-lg`}>
-                                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='lg' />
-                                    </button>
+                                    <Link to={'/singleunitpage'} target="_blank">
+                                        <button className={`w-14 py-2 md:py-3  bg-primarycolor text-white  rounded-lg`}>
+                                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='lg' />
+                                        </button>
+                                    </Link>
+
                                 </div>
                                 <div className="flex items-center space-x-4">
 
@@ -243,7 +247,7 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
 
                             {selectedPopup === 'photos' && (
                                 <div className=" xl:h-full w-full cursor-zoom-in " >
-                                    <GlobalImgCarousel dark={true} customheight={true} handlepopupcarousel={handlepopupcarousel} />
+                                    <GlobalImgCarousel dark={true} customheight={true} handlepopupcarousel={handlepopupcarousel} images={images} />
                                 </div>
                             )}
 
@@ -296,7 +300,7 @@ const SingleUnitPopup = ({ isOpen, onClose }) => {
                             </div>
 
                             <div className="h-full w-full flex items-center">
-                                <GlobalImgCarousel dark={true} />
+                                <GlobalImgCarousel dark={true} images={images} />
                             </div>
 
                         </div>

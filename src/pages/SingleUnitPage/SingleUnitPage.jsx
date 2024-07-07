@@ -1,26 +1,22 @@
-
 import React, { useState, useEffect } from 'react';
+import HeroSection from '../../components/SingleUnitPageComps/HeroSection'
+import Navbar from '../../components/Global/Navbar'
+import Footer from '../../components/Global/Footer'
+import MortageCalculator from '../../components/Global/MortageCalculator'
+import PropertyDetails from '../../components/SingleDevlopmentPageComps/PropertyDetails'
+import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsCarousel'
+import CustomMap from '../../components/DevelopmentsSearchPageComps/CustomMap'
+import ContactTabsSection from '../../components/SingleDevlopmentPageComps/ContactTabsSection'
+import LatestDevelopmentCard from '../../components/Global/LatestDevelopmentCard/LatestDevlopmentsCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TableRecidencies from '../../components/SingleDevlopmentPageComps/TableRecidencies';
-import TabSection from '../../components/SingleDevlopmentPageComps/TabSection';
-import ContactTabsSection from '../../components/SingleDevlopmentPageComps/ContactTabsSection';
-import SingleDevHeroSection from '../../components/SingleDevlopmentPageComps/SingleDevHeroSection';
-import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsCarousel';
 import { faPlay, faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import LightBox from '../../components/SingleDevlopmentPageComps/LightBox';
-import PropertyDescription from '../../components/SingleDevlopmentPageComps/PropertyDescription';
-import './SingleDevelopmentPage.css'
-import VideoPopup from '../../components/SingleDevlopmentPageComps/VideoPopup';
-import PropertyDetails from '../../components/SingleDevlopmentPageComps/PropertyDetails';
-import LatestDevelopmentCard from '../../components/Global/LatestDevelopmentCard/LatestDevlopmentsCard';
-import CustomMap from '../../components/DevelopmentsSearchPageComps/CustomMap';
 
-const SingleDevlopmentpage = () => {
+const SingleUnitPage = () => {
     const [isSaved, setIsSaved] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [activeSection, setActiveSection] = useState('');
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-    const [isHoverPlay, setIsHoverPlay] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -49,31 +45,6 @@ const SingleDevlopmentpage = () => {
     const closebox = () => {
         setIsLightboxOpen(false);
     };
-
-    const [showPopup, setShowPopup] = useState(false);
-
-    const handlePlayButtonClick = () => {
-        setShowPopup(true);
-    };
-
-    const handleClosePopup = () => {
-        setShowPopup(false);
-    };
-
-    useEffect(() => {
-        if (showPopup || isLightboxOpen) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
-        }
-    }, [showPopup || isLightboxOpen]);
-
-
-    const data = [
-        { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 1' },
-        { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 2' },
-        { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 3' },
-    ];
 
     const locationareas = [
         {
@@ -111,125 +82,92 @@ const SingleDevlopmentpage = () => {
         }
     ];
 
-    const imagessingeldevpage = [
-        '/images/pages/homepage/bgiamge.webp',
-        '/images/pages/homepage/herosection.svg',
-        '/images/pages/homepage/architecture.jpg',
-        '/images/pages/homepage/kuala-lumpur.jpg',
+    const data = [
+        { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 1' },
+        { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 2' },
+        { title: 'New Build Apartments In Lapa, Lisbon', description: 'Description 3' },
     ];
 
-
+    const imagessingleunitpage = [
+        '/images/pages/singleunitpage/image1.jpg',
+        '/images/pages/singleunitpage/image2.jpg',
+        '/images/pages/singleunitpage/image3.jpg',
+        '/images/pages/singleunitpage/image4.jpg',
+        '/images/pages/singleunitpage/image5.jpg',
+        '/images/pages/singleunitpage/image6.jpg',
+        '/images/pages/singleunitpage/image7.jpg',
+        '/images/pages/singleunitpage/image8.jpg',
+    ];
     return (
         <>
-            <LightBox isOpen={isLightboxOpen} onClose={closebox} images={imagessingeldevpage} />
+            <LightBox isOpen={isLightboxOpen} onClose={closebox} images={imagessingleunitpage} />
 
-            <section id='herosection' >
-                <SingleDevHeroSection images={imagessingeldevpage} />
+            <Navbar themewhite={true} />
+
+            <section id='overview' className='section bg-white mt-5'>
+                <HeroSection imagessingleunitpage={imagessingleunitpage}/>
             </section>
 
-            <section id='overview' className="bg-black">
-                <div className='section bg-white w-full rounded-tl-[40px] rounded-tr-[40px]'>
-                    <h2 className="text-3xl mb-10 md:text-5xl text-primarycolor dark:text-zinc-200 font-BebasNeueSemiExpBold">
-                        Details
-                    </h2>
-                    <div className='relative'>
-                        <div className="scroll-container flex w-full overflow-x-scroll scrollbar-hideSDP">
-                            <div className="custommaxforSDP:min-w-[500px] customminforSDP:w-[40%] flex flex-col py-4 px-6 gap-4 items-start justify-center space-x-2 border border-[#D3D3D3] rounded-tl-3xl rounded-bl-3xl ">
-                                <img src="/images/icons/home.svg" className='ml-2' alt="" />
-                                <div className='flex flex-col gap-1'>
-                                    <p className="text-2xl md:text-3xl font-bold text-primarycolor">€300,000 - €2,000,000</p>
-                                    <p className="text-lg text-Black font-semibold">Price</p>
-                                </div>
-                            </div>
-                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border-t  border-b border-[#D3D3D3]">
-                                <img src="/images/icons/double-bed.svg" className='ml-2' alt="" />
-                                <div className='flex flex-col gap-1'>
-                                    <p className="text-2xl md:text-3xl font-bold text-primarycolor">2 - 3</p>
-                                    <p className="text-lg text-Black font-semibold text-right">Beds</p>
-                                </div>
-                            </div>
-                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border border-[#D3D3D3] ">
-                                <img src="/images/icons/bath.svg" className='ml-2' alt="" />
+            <section id='features'>
+                <PropertyDetails SingleUnitPage={true} />
+            </section>
 
-                                <div className='flex flex-col gap-1'>
-                                    <p className="text-2xl md:text-3xl font-bold text-primarycolor">2.0 - 3.5</p>
-                                    <p className="text-lg text-Black font-semibold text-right">Baths</p>
-                                </div>
-                            </div>
-                            <div className="custommaxforSDP:min-w-[200px] customminforSDP:w-[20%] flex flex-col py-4 px-6 gap-4 items-end justify-center space-x-2 border-t  border-b border-r  border-[#D3D3D3] rounded-tr-3xl rounded-br-3xl mr-0 custommaxforSDP:mr-14">
-                                <img src="/images/icons/home.svg" className='ml-2' alt="" />
+            <section className='section'>
+                <div className="overflow-hidden flex flex-col xl:flex-row gap-0"
+                >
+                    <div className='relative w-full rounded-tl-[18px] rounded-tr-[18px] xl:rounded-tr-[0px] rounded-bl-[0px] xl:rounded-bl-[18px] '>
 
-                                <div className='flex flex-col gap-1'>
-                                    <p className="text-2xl md:text-3xl font-bold text-primarycolor text-right">39</p>
-                                    <p className="text-lg text-Black font-semibold text-right">Residences</p>
-                                </div>
-                            </div>
+                        <div className='relative h-full  overflow-hidden rounded-tl-[18px]  rounded-tr-[18px] xl:rounded-tr-[0px] rounded-bl-[0px] xl:rounded-bl-[18px]'>
+                            <img
+                                src="/images/pages/homepage/herosection.svg"
+                                alt="image 1"
+                                className={`h-full w-full rounded-tl-[18px]  rounded-tr-[18px] xl:rounded-tr-[0px] rounded-bl-[0px] xl:rounded-bl-[18px] object-cover bg-cover bg-container bg-zoom`}
+                            />
                         </div>
-                        <div className='hidden custommaxforSDP:block fade-right'></div>
+
+                    </div>
+                    <div className="w-full bg-primarycolor p-6 rounded-tr-[0px] xl:rounded-tr-[18px] rounded-br-[18px] rounded-bl-[18px] xl:rounded-bl-[0px] ">
+                        <div className="flex flex-col justify-between h-full gap-6 text-white">
+
+                            <div className='flex items-center gap-1 font-semibold'>
+                                <span>
+                                    <img src="/images/icons/locationmarkerwhite.svg" alt="location" className='h-4 mr-2' />
+                                </span>
+                                <span>
+                                    Lisbon, Portugal
+                                </span>
+                            </div>
+                            <p className="font-medium text-[1.6rem] leading-[1]">Spectacular Development With Ocean Views In Cascais, Lisbon</p>
+                            <div className="flex flex-wrap gap-10 ">
+                                <div>
+                                    <div className="text-xl">D1001</div>
+                                    <div className="text-sm font-semibold" >Reference</div>
+                                </div>
+                                <div>
+                                    <div className="text-xl">2 to 5</div>
+                                    <div className="text-sm font-semibold">Bedsrooms</div>
+                                </div>
+                                <div>
+                                    <div className="text-xl">68m<sup>2</sup> to 304m<sup>2</sup></div>
+                                    <div className="text-sm font-semibold">Interior Build</div>
+                                </div>
+
+                            </div>
+                            <p className="font-semibold text-[1.6rem]">$500,000 to $800,000</p>
+
+                            <button className=" w-fit bg-transparent hover:bg-white  border border-white text-white hover:text-primarycolor px-4 sm:px-12 py-2 lg:py-3 rounded-lg  font-medium cursor-pointer transition-colors duration-300 ease-in-out" >See Project</button>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id='features'>
-                <PropertyDetails />
-            </section>
-
-            <section className='section  bg-bggray' style={{ padding: "80px 0% 80px 0%" }}>
+            <section className='section  bg-white' style={{ padding: "80px 0% 80px 0%" }}>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
 
                 <WhyWorkWithUsCarousel />
             </section>
 
-            <section id="Units" className="section bg-white">
-                <div className="">
-                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Available Residences</h2>
-                    <div className='relative'>
-                        <div className="overflow-x-auto mt-14 md:scrollbar-hide">
-                            <TableRecidencies booking={true} images={imagessingeldevpage}/>
-                        </div>
-
-                        <div className='hidden custommaxforSDPTable:block fade-right'></div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="section bg-white">
-                <div className="">
-                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Sold or Rented Residences</h2>
-                    <div className='relative'>
-                        <div className="overflow-x-auto mt-14 md:scrollbar-hide">
-                            <TableRecidencies booking={false} images={imagessingeldevpage} />
-                        </div>
-                        <div className='hidden custommaxforSDPTable:block fade-right'></div>
-                    </div>
-                </div>
-            </section >
-
-            {/* <section id='lifestyle'>
-                <TabSection />
-            </section> */}
-
-            <section section id='videoplay' className='section bg-bggray rounded-xl' >
-                <div className='section bg-cover bg-center h-[350px] md:h-[600px] flex items-center justify-center relative rounded-xl' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
-                    <div className='absolute inset-0 bg-black opacity-50 z-10 rounded-xl'></div>
-                    <div className='relative z-20 p-8 flex flex-col items-center gap-3 text-white'>
-                        <p className='font-regular text-medium '>Play The Video</p>
-                        <div className='w-full h-20 flex items-center justify-center'>
-                            <button className={`border border-[#A5A5A5] hover:border-bggray rounded-full ${isHoverPlay ? ' w-16 h-16' : ' w-14 h-14'}  flex items-center justify-center transition-all cursor-pointer duration-300 ease-in-out`}
-                                onClick={handlePlayButtonClick}
-                                onMouseEnter={() => { setIsHoverPlay(true) }}
-                                onMouseLeave={() => { setIsHoverPlay(false) }}
-                            >
-                                <img src="/images/icons/playicon.svg" alt="" className='h-4 w-4' />
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                {showPopup && <VideoPopup id="popup-container" videoUrl='https://www.youtube.com/embed/dQw4w9WgXcQ' onClose={handleClosePopup} />}
-            </section >
-
-            <section className='py-[80px] bg-white'>
+            <section className='py-[80px] bg-bggray'>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Location</h2>
 
                 <div className='mt-10 px-[7%] relative'>
@@ -267,6 +205,11 @@ const SingleDevlopmentpage = () => {
                 </div>
             </section>
 
+            <section className='section bg-white'>
+                <MortageCalculator />
+
+            </section>
+
             <section id='neighborhood' className='section bg-cover bg-center h-screen flex items-end relative' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                 <div className='absolute inset-0 bg-black opacity-50 z-10'></div>
                 <div className='relative z-20 w-[500px] p-8 flex flex-col gap-3 text-white border border-bggray rounded-xl'>
@@ -293,7 +236,7 @@ const SingleDevlopmentpage = () => {
                 </div>
             </section>
 
-            {/* sticky bottombar  */}
+            <Footer />
 
             <section className={`md:flex fixed bottom-4 w-full z-30  justify-center transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-[120px]'}`}>
                 <div className='w-fit md:w-xl mx-auto bg-[#242323] text-white flex gap-2 py-3 px-3 rounded-3xl'>
@@ -309,14 +252,7 @@ const SingleDevlopmentpage = () => {
                     >
                         <span> Features</span>
                     </button>
-                    <button
-                        className={`bg-transparent border ${activeSection === 'Units' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-3 px-3 md:py-4 md:px-8 rounded-xl cursor-pointer transition-colors duration-300 ease-in-out`}
-                        onClick={() => handleScrollToSection('Units')}
-                    >
-                        <span className='hidden md:block'> Units</span>
-                        <img src="/images/icons/icons8-home-24.svg" alt="" className='block md:hidden min-h-27 min-w-25' style={{ maxWidth: "25px" }} />
 
-                    </button>
                     <button
                         className={`bg-transparent border border-[#434343] ${activeSection === 'herosection' ? 'border-[#A5A5A5]' : 'border-[#434343]'} hover:border-[#A5A5A5] py-3 px-4 md:py-4 md:px-5  rounded-xl cursor-pointer transition-colors duration-300 ease-in-out`}
                         onClick={() => { openLightbox(); setActiveSection('herosection') }}
@@ -351,4 +287,4 @@ const SingleDevlopmentpage = () => {
     )
 }
 
-export default SingleDevlopmentpage
+export default SingleUnitPage

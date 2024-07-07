@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, motion } from 'framer-motion';
-import DevSrchMapComp from './DevSrchMapComp';
 import DevSrchListPagination from './DevSrchListPagination';
 import './Styles/DevSearchSec.css'
 import { Link, useLocation  } from 'react-router-dom';

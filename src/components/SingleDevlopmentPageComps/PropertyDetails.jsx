@@ -6,7 +6,7 @@ import './Styles/PropertyDetails.css'
 import RequestATour from './RequestATour';
 
 
-const PropertyDetails = () => {
+const PropertyDetails = ({ SingleUnitPage }) => {
     const [showMore, setShowMore] = useState(false);
 
     const handleReadMore = (e) => {
@@ -47,6 +47,67 @@ const PropertyDetails = () => {
                                         <FontAwesomeIcon icon={faChevronDown} size="xs" className={`font-semibold cursor-pointer ml-2 ${showMore ? 'rotate' : ''}`} />
                                     </a>
                                 </div>
+
+                                {
+                                    SingleUnitPage ? (
+                                        <div className="w-full my-10">
+
+                                            <div className="border border-primarycolor text-white bg-primarycolor rounded-xl py-6 px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">N1001</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Reference ID</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">Apartment</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Type</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">2</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Bed Rooms</p>
+                                                </div>
+                                                <div className="text-center ">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">3</p>
+                                                    <p className="w-fit mx-auto ">Bath Rooms</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">103m²</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Living area</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">130m²</p>
+                                                    <p className="w-fit mx-auto ">Exterior area</p>
+                                                </div>
+
+                                                <div className="text-center ">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">5</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Floor</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">2</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Parking</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">10 Years</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Construction Warranty</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">-</p>
+                                                    <p className="w-fit mx-auto ">Energy Rating</p>
+                                                </div>
+
+                                                <div className="text-center ">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">Save €3,000</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">On Legal Fees</p>
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="w-fit  mx-auto text-xl font-bold">Q3 2024</p>
+                                                    <p className="w-fit  mx-auto text-sm font-semibold">Completion Time</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    ) : null
+                                }
 
                                 <div className='mt-16' >
                                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left">Payment Schedule</h2>

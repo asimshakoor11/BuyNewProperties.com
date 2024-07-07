@@ -7,15 +7,7 @@ import './Styles/Global.css';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-const images = [
-    '/images/pages/homepage/bgiamge.webp',
-    '/images/pages/homepage/herosection.svg',
-    '/images/pages/homepage/architecture.jpg',
-    '/images/pages/homepage/kuala-lumpur.jpg',
-];
-
-const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight }) => {
+const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight, images }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const NextArrow = ({ onClick }) => {

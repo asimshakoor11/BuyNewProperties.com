@@ -30,6 +30,7 @@ export default withMT({
       },
       colors: {
         'bggray': '#F7F7F7',
+        'bggrayhover': '#E8E8E8',
         'primarycolor': "#002038",
         'primarycolorhover': "#003DA5",
         'secondrycolor': "#00703C",

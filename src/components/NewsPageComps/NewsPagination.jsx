@@ -1,43 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
-import LatestDevelopmentCard from '../Global/LatestDevelopmentCard/LatestDevlopmentsCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import NewsPaginationCard from './NewsPaginationCard';
 
-const DevSrchListPagination = () => {
-    let itemsPerPage = 8;
-    const data = [
-        { title: 'MONTISNAVIA 1', description: 'Description 1' },
-        { title: 'MONTISNAVIA 2', description: 'Description 2' },
-        { title: 'MONTISNAVIA 3', description: 'Description 3' },
-        { title: 'MONTISNAVIA 4', description: 'Description 4' },
-        { title: 'MONTISNAVIA 5', description: 'Description 5' },
-        { title: 'MONTISNAVIA 6', description: 'Description 6' },
-        { title: 'MONTISNAVIA 7', description: 'Description 7' },
-        { title: 'MONTISNAVIA 8', description: 'Description 8' },
-        { title: 'MONTISNAVIA 9', description: 'Description 9' },
-        { title: 'MONTISNAVIA 11', description: 'Description 10' },
-        { title: 'MONTISNAVIA 12', description: 'Description 10' },
-        { title: 'MONTISNAVIA 13', description: 'Description 10' },
-        { title: 'MONTISNAVIA 14', description: 'Description 10' },
-        { title: 'MONTISNAVIA 15', description: 'Description 10' },
-        { title: 'MONTISNAVIA 16', description: 'Description 10' },
-        { title: 'MONTISNAVIA 17', description: 'Description 10' },
-        { title: 'MONTISNAVIA 18', description: 'Description 10' },
-        { title: 'MONTISNAVIA 19', description: 'Description 10' },
-        { title: 'MONTISNAVIA 20', description: 'Description 10' },
-    ];
+const NewsPagination = ({CardData = []}) => {
+    let itemsPerPage = 10;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [isInitialMount, setIsInitialMount] = useState(true);
     const devCardsRef = useRef(null);
 
     // Calculate the total number of pages
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const totalPages = Math.ceil(CardData.length / itemsPerPage);
 
     // Calculate the index of the first and last item of the current page
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = CardData.slice(indexOfFirstItem, indexOfLastItem);
 
 
     // Function to change the page
@@ -72,16 +51,21 @@ const DevSrchListPagination = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col">
                 {/* Render the current items */}
-                <div ref={devCardsRef} id="devcards" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 mb-10">
-                    {currentItems.map((item, index) => (
-                        <LatestDevelopmentCard key={index} index={index} item={item} />
+                <div ref={devCardsRef} id="devcards" className="grid grid-cols-1 herohommd:grid-cols-2 gap-4 mt-10 mb-10">
+                    {/* {currentItems.map(agentdata => (
+                        <OurAgentPagCard key={agentdata.id} agentdata={agentdata} />
                     ))}
+                     */}
+                    {currentItems.map((data, index) => (
+                        <NewsPaginationCard key={index} carddata={data} />
+                    ))}
+
                 </div>
 
                 {/* Pagination Controls */}
-                <ul className="flex flex-row items-center gap-2 list-none mt-4">
+                <ul className="flex flex-row items-center justify-center gap-2 list-none mt-4">
                     <li>
                         <button
                             onClick={prevPage}
@@ -95,7 +79,8 @@ const DevSrchListPagination = () => {
                         <li key={index}>
                             <button
                                 onClick={() => paginate(index + 1)}
-                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor hover:bg-primarycolorhover text-white' : 'bg-transparent'} cursor-pointer transition-colors duration-300 ease-in-out`}
+                                className={`h-10 lg:h-12 w-8 font-medium rounded-lg hover:bg-primarycolor hover:text-white ${currentPage === index + 1 ? 'bg-primarycolor hover:bg-primarycolorhover text-white ' : 'bg-transparent'} cursor-pointer transition-colors duration-300 ease-in-out`}
+
                             >
                                 {index + 1}
                             </button>
@@ -116,4 +101,4 @@ const DevSrchListPagination = () => {
     );
 };
 
-export default DevSrchListPagination;
+export default NewsPagination;
