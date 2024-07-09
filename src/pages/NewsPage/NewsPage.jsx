@@ -534,11 +534,11 @@ const NewsPage = () => {
                         <div className='w-full xl:w-[35%] flex items-start justify-center pb-[80px]  '>
 
                             <div class="relative z-40 w-full xl:w-64 bg-card text-card-foreground mt-10 xl:-mt-14">
-                                <div class="px-4 py-3 font-bold font-Shippori_Mincho text-2xl text-white bg-secondrycolor hover:bg-secondrycolorhover rounded-tr-md rounded-tl-md  transition-colors duration-300 ease-in-out">News</div>
+                                <div class="px-4 py-3 font-bold font-Shippori_Mincho text-2xl text-white bg-secondrycolor rounded-tr-md rounded-tl-md  transition-colors duration-300 ease-in-out">News</div>
                                 <nav class="flex flex-col">
                                     <button class={`px-4 py-3 text-left  border border-transparent border-b-[#D1D1D1] ${selectedNews === 'Building & Renovation' ? 'font-semibold bg-primarycolor  text-white' : 'font-medium bg-bggray hover:bg-bggrayhover text-black'} cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => { setSelectedNews('Building & Renovation') }}>Building & Renovation</button>
                                     <button class={`px-4 py-3 text-left border border-transparent border-b-[#D1D1D1] ${selectedNews === 'Business' ? 'font-semibold bg-primarycolor  text-white' : 'font-medium bg-bggray hover:bg-bggrayhover text-black'} cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => { setSelectedNews('Business') }}>Business</button>
-                                    <button class={`px-4 py-3 text-left border border-transparent border-b-[#D1D1D1] rounded-br-md rounded-bl-md ${selectedNews === 'Portuguese Life' ? 'font-semibold bg-primarycolor  text-white' : 'font-medium bg-bggray hover:bg-bggrayhover text-black'} cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => { setSelectedNews('Portuguese Life') }}>Portuguese Life</button>
+                                    <button class={`px-4 py-3 text-left rounded-br-md rounded-bl-md ${selectedNews === 'Portuguese Life' ? 'font-semibold bg-primarycolor  text-white' : 'font-medium bg-bggray hover:bg-bggrayhover text-black'} cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => { setSelectedNews('Portuguese Life') }}>Portuguese Life</button>
 
                                 </nav>
                             </div>

@@ -70,7 +70,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
     return (
         <>
-            <div id="popup-container" class="fixed inset-0 z-50 h-screen bg-gray-800 p-4  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 "
+            <div id="popup-container" class="fixed inset-0 z-50 h-screen bg-gray-800  p-4 pb-2 xl:pb-4 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 "
             >
                 <div id="popup-content" class="relative bg-white max-w-[1420px] h-full w-full rounded-3xl mx-auto overflow-y-scroll scrollbar-custom xl:overflow-hidden"
                 >
@@ -144,23 +144,23 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     <div className="p-6 rounded-lg mb-4 bg-white grid gap-2 grid-cols-2">
                                         <div className="flex items-center">
                                             <img undefinedhidden="true" alt="roof-terrace-icon" src="/images/icons/terrace.svg" className="h-5 mr-2" />
-                                            <span className='text-base sm:text-lg font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Roof terrace</span>
+                                            <span className='text-sm  font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Roof terrace</span>
                                         </div>
                                         <div className="flex items-center">
                                             <img undefinedhidden="true" alt="parking-icon" src="/images/icons/car.svg" className="h-5 mr-2" />
-                                            <span className='text-base sm:text-lg font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Parking</span>
+                                            <span className='text-sm  font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Parking</span>
                                         </div>
                                         <div className="flex items-center">
                                             <img undefinedhidden="true" alt="fireplace-icon" src="/images/icons/flame.svg" className="h-5 mr-2" />
-                                            <span className='text-base sm:text-lg font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Fireplace</span>
+                                            <span className='text-sm  font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Fireplace</span>
                                         </div>
                                         <div className="flex items-center">
                                             <img undefinedhidden="true" alt="storage-room-icon" src="/images/icons/box.svg" className="h-5 mr-2" />
-                                            <span className='text-base sm:text-lg font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Storage room</span>
+                                            <span className='text-sm  font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Storage room</span>
                                         </div>
                                         <div className="flex items-center">
                                             <img undefinedhidden="true" alt="pool-icon" src="/images/icons/swimming-pool.svg" className="h-5 mr-2" />
-                                            <span className=' text-base sm:text-lg font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Pool</span>
+                                            <span className=' text-sm  font-normal whitespace-nowrap overflow-hidden text-ellipsis'>Pool</span>
                                         </div>
                                     </div>
                                 </section>
@@ -199,7 +199,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     </div>
                                 </section>
                             </div>
-                            <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium py-2 md:py-3 ">Register Interest</button>
+                            <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
 
                         </div>
 
@@ -289,18 +289,18 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
             {
                 isPopupPhotos && (
-                    <div id="popup-container" class="fixed inset-0 z-[1000] bg-gray-800 md:p-0  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
+                    <div id="popup-container" class="fixed inset-0 z-[1000] bg-gray-800 p-4  bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300"
                     >
                         <div id="popup-content" class="relative w-full h-full overflow-y-scroll scrollbar-custom"
                         >
-                            <div className='absolute top-4 right-4'>
+                            <div className='absolute top-4 right-4 z-50'>
                                 <button className="text-2xl font-bold text-white" onClick={() => { setIsPopupPhotos(false); }}>
                                     <FontAwesomeIcon icon={faXmark} size='md' />
                                 </button>
                             </div>
 
-                            <div className="h-full w-full flex items-center">
-                                <GlobalImgCarousel dark={true} images={images} />
+                            <div className="h-full w-full flex items-center ">
+                                <GlobalImgCarousel dark={true} isPopup={true} images={images} />
                             </div>
 
                         </div>

@@ -144,51 +144,19 @@ const PropertyDetails = ({ SingleUnitPage }) => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
                                     <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
                                         <img src="/images/icons/broucher.svg" alt="Brochure" className="mb-4" />
-                                        <h3 className=" text-xl mb-2  font-bold">Brochure</h3>
+                                        <h3 className=" text-xl mb-2  font-semibold">Brochure</h3>
                                         <p className="text-center mb-4 font-medium">
                                             Access all in-depth information, latest price lists, floor plans, brochures & more.
                                         </p>
-                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>
+                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>
                                     </div>
                                     <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
                                         <img src="/images/icons/price-list 2.svg" alt="Pricelist" className="mb-4" />
-                                        <h3 className=" text-xl mb-2 font-bold">Pricelist</h3>
+                                        <h3 className=" text-xl mb-2 font-semibold">Pricelist</h3>
                                         <p className="text-center mb-4 font-medium">
                                             Access all in-depth information, latest price lists, floor plans, brochures & more.
                                         </p>
-                                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-bold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>
-                                    </div>
-                                </div>
-
-                                <div className="mt-16">
-                                    <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Extra Details</h2>
-                                    <div className=" mt-10 border border-primarycolor text-primarycolor rounded-lg py-6 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                        <div className="flex flex-col justify-center">
-                                            <p className="w-fit  mx-auto text-xl font-bold">N1001</p>
-                                            <p className="w-fit  mx-auto text-sm font-semibold">Reference ID</p>
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-                                            <p className="w-fit  mx-auto  text-xl font-bold">Apartment</p>
-                                            <p className="w-fit  mx-auto  text-sm font-semibold">Type</p>
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-                                            <p className="w-fit  mx-auto  text-xl font-bold">€15,000</p>
-                                            <p className="w-fit  mx-auto text-sm font-semibold">Save up to</p>
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-                                            <p className="w-fit  mx-auto text-center  text-xl font-bold">103m² - 450m²</p>
-                                            <p className="w-fit  mx-auto  text-sm font-semibold">Living area</p>
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-
-                                            <p className="w-fit  mx-auto text-center text-xl font-bold">0m² - 130m²</p>
-                                            <p className="w-fit mx-auto  text-sm font-semibold">Exterior area</p>
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-                                            <p className="w-fit  mx-auto  text-xl font-bold">10 years</p>
-                                            <p className="w-fit  mx-auto text-sm font-semibold ">warranty</p>
-                                        </div>
-
+                                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>
                                     </div>
                                 </div>
 

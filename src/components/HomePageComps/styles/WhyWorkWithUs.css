@@ -1,0 +1,13 @@
+.golden-list-item {
+  font-size: 16px;
+}
+
+/* If you are not using Tailwind, you can add this CSS rule in a <style> tag or an external stylesheet */
+.golden-list-item::before {
+  content: counter(list-item);
+  color: #f5a623;
+  margin-right: 0.5em;
+  /* Adjust as needed */
+  font-size: 20px;
+  font-weight: bold;
+}

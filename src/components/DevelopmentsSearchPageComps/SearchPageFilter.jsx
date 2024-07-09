@@ -223,7 +223,7 @@ const SearchPageFilter = ({ closeDropdown }) => {
 
             <div
                 id="popup-container"
-                className="fixed z-50 h-screen w-full inset-0 px-[2%] pt-[5%] bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll "
+                className="fixed z-[1000] h-screen w-full inset-0 px-[2%] pt-[5%] bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll "
                 onClick={handleOutsideClick}>
                 <AnimatePresence>
                     <motion.div

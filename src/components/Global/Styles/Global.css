@@ -6,8 +6,8 @@
   justify-content: center;
   align-items: center;
   outline: none; /* Remove outline on focus */
+  height: calc(100vh - 170px);
 }
-
 
 .slick-prev:before,
 .slick-next:before {
@@ -27,4 +27,9 @@
 
 .slick-dots li.slick-active button:before {
   color: black;
+}
+
+
+.customheightglobalimg{
+  height: calc(100% - 500px);
 }

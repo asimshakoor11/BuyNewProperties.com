@@ -55,21 +55,26 @@ const SingleAgentPage = () => {
                             <span className="ml-2 text-[#B69474] text-xl">5.0</span>
                         </div>
                         <div className='flex gap-2 -mt-2'>
-                            <img src="/images/global/flag1.png" alt="" className='h-5' />
-                            <img src="/images/global/flag2.png" alt="" className='h-5' />
+                            <img src="/images/global/flag1.png" alt="" className='h-6' />
+                            <img src="/images/global/flag2.png" alt="" className='h-6' />
                         </div>
                         <div className='space-y-2 mt-2'>
-                            <span className='flex items-center gap-2  font-semibold'>
+                            <span className='flex items-center gap-2 font-semibold'>
                                 <img src="/images/icons/phone-call.svg" alt="" className='h-5' />
-                                <span>+351 919 931 440</span>
+                                <a href="tel:+351919931440" title='Call' className='flex items-center gap-2'>
+                                    <span className='hover-underline-animationbm'>+351 919 931 440</span>
+                                </a>
                             </span>
                             <span className='flex items-center gap-2 font-semibold'>
                                 <img src="/images/icons/envelope.svg" alt="" className='h-5' />
-                                <span>russell@buy.re</span>
+                                <a href="mailto:russell@buy.re" title='Email'  className='flex items-center gap-2'>
+                                    <span className='hover-underline-animationbm'>russell@buy.re</span>
+                                </a>
                             </span>
                         </div>
+
                         <div className='mt-2'>
-                            <button className='bg-primarycolor hover:bg-primarycolorhover text-white rounded-lg py-2 px-12 cursor-pointer transition-colors duration-300 ease-in-out'>Contact</button>
+                            <button className='bg-secondrycolor hover:bg-secondrycolorhover text-white rounded-lg py-2 px-12 cursor-pointer transition-colors duration-300 ease-in-out'>Contact</button>
                         </div>
 
                         <div className="flex space-x-2 mt-2">
@@ -116,19 +121,19 @@ const SingleAgentPage = () => {
                     <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Past Sales</h2>
                     <div className='relative'>
                         <div className="overflow-x-auto mt-14 md:scrollbar-hide">
-                            <TableRecidenciesAgent booking={false} images={imagessingelagentpage}/>
+                            <TableRecidenciesAgent booking={false} images={imagessingelagentpage} />
                         </div>
                         <div className='hidden custommaxforSDPTable:block fade-right'></div>
                     </div>
                 </div>
             </section >
 
-            <section className='section bg-white'>
+            <section className='section bg-white border border-black'>
                 <Testimonials />
             </section>
 
             <section>
-                <DreamHomeContact/>
+                <DreamHomeContact />
             </section>
 
 

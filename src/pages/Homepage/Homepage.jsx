@@ -55,14 +55,14 @@ const Homepage = () => {
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={overlayRef} className='absolute hidden inset-0 bg-black opacity-0 transition-opacity duration-300 z-20'></div>
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-start justify-center herohomlg:justify-end h-full text-white pb-0 lg:pb-[30px]">
-                    <h1 className="text-left text-[1.1rem] sm:text-[1.3rem] herohommd:text-[2rem] herohomlg:text-[3rem] leading-[1.2em] font-semibold">THE #1 SOURCE FOR</h1>
-                    <h1 className="text-left text-[2.8rem] sm:text-[3.5rem] herohommd:text-[7rem] herohomlg:text-[9rem] font-normal font-Shippori_Mincho leading-[1]">NEW HOMES</h1>
-                    <h1 className="text-left text-[1.1rem] sm:text-[1.3rem] herohommd:text-[2rem] herohomlg:text-[3rem] leading-[1.2em] font-semibold">NEW DEVELOPMENTS IN <span className='bg-[#B69D74]'>PORTUGAL.</span> </h1>
-                    <h1 className="text-left text-[0.8rem] herohommd:text-[0.9rem] herohomlg:text-[1.2rem] font-medium mt-3 herohommd:mt-4">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
+                    <h1 className="text-left text-[1.2rem] sm:text-[1.3rem] herohommd:text-[2rem] herohomlg:text-[3rem] leading-[1.2em] font-semibold">THE #1 SOURCE FOR</h1>
+                    <h1 className="text-left text-[3rem] sm:text-[3.5rem] herohommd:text-[7rem] herohomlg:text-[9rem] font-normal font-Shippori_Mincho leading-[1]">NEW HOMES</h1>
+                    <h1 className="text-left text-[1.2rem] sm:text-[1.3rem] herohommd:text-[2rem] herohomlg:text-[3rem] leading-[1.2em] font-semibold">NEW DEVELOPMENTS IN PORTUGAL. </h1>
+                    <h1 className="text-left text-[0.65rem] herohommd:text-[0.9rem] herohomlg:text-[1.2rem] font-medium mt-3 herohommd:mt-4">Voted the best way to buy new developments 2023-2024 according to Simple Expat  </h1>
                 </div>
             </section>
 
-            <div className='relative z-30'>
+            <div className=''>
                 <section >
                     <DevelopmentLocations title={"Development Locations"} />
                 </section>

@@ -64,6 +64,14 @@ body {
   height: calc(100vh + 40px);
 }
 
+@media (max-width: 770px) {
+  .customheight {
+    height: calc(70vh + 40px);
+  }
+}
+
+
+
 #popup-container {
   animation: fadeIn 0.3s forwards;
 }

@@ -5,12 +5,12 @@ import Footer from '../../components/Global/Footer'
 import MortageCalculator from '../../components/Global/MortageCalculator'
 import PropertyDetails from '../../components/SingleDevlopmentPageComps/PropertyDetails'
 import WhyWorkWithUsCarousel from '../../components/HomePageComps/WhyWorkWithUsCarousel'
-import CustomMap from '../../components/DevelopmentsSearchPageComps/CustomMap'
 import ContactTabsSection from '../../components/SingleDevlopmentPageComps/ContactTabsSection'
 import LatestDevelopmentCard from '../../components/Global/LatestDevelopmentCard/LatestDevlopmentsCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import LightBox from '../../components/SingleDevlopmentPageComps/LightBox';
+import CustomMapComp from '../../components/Global/CustomMapComp';
 
 const SingleUnitPage = () => {
     const [isSaved, setIsSaved] = useState(false);
@@ -56,28 +56,6 @@ const SingleUnitPage = () => {
                 location: 'Estrela, Lisbon',
                 price: '€650,000',
                 beds: '2 to 3 Beds from'
-            }
-        },
-        {
-            id: 2,
-            position: { lat: 41.1579, lng: -8.6291 },
-            info: {
-                image: '/images/homepage/dreamhomecontact.png',
-                title: 'New Development Porto',
-                location: 'Porto, Portugal',
-                price: '€500,000',
-                beds: '1 to 2 Beds from'
-            }
-        },
-        {
-            id: 3,
-            position: { lat: 37.0179, lng: -7.9307 },
-            info: {
-                image: '/images/homepage/dreamhomecontact.png',
-                title: 'New Development Faro',
-                location: 'Faro, Portugal',
-                price: '€450,000',
-                beds: '2 to 4 Beds from'
             }
         }
     ];
@@ -137,7 +115,7 @@ const SingleUnitPage = () => {
                                     Lisbon, Portugal
                                 </span>
                             </div>
-                            <p className="font-medium text-[1.6rem] leading-[1]">Spectacular Development With Ocean Views In Cascais, Lisbon</p>
+                            <p className="font-medium text-[1.6rem] ">Spectacular Development With Ocean Views In Cascais, Lisbon</p>
                             <div className="flex flex-wrap gap-10 ">
                                 <div>
                                     <div className="text-xl">D1001</div>
@@ -164,11 +142,11 @@ const SingleUnitPage = () => {
             <section className='section  bg-white' style={{ padding: "80px 0% 80px 0%" }}>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left pl-[7%]">Why Work With Us?</h2>
 
-                <WhyWorkWithUsCarousel />
+                <WhyWorkWithUsCarousel themegray={true} />
             </section>
 
-            <section className='py-[80px] bg-bggray'>
-                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Location</h2>
+            <section className=''>
+                {/* <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Location</h2>
 
                 <div className='mt-10 px-[7%] relative'>
                     <div className="flex space-x-2 w-full overflow-x-scroll scrollbar-hide">
@@ -199,9 +177,9 @@ const SingleUnitPage = () => {
 
                     </div>
 
-                </div>
-                <div className='mt-10'>
-                    <CustomMap customview={true} locations={locationareas} />
+                </div> */}
+                <div >
+                    <CustomMapComp customview={true} locations={locationareas} />
                 </div>
             </section>
 

@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import LightBox from '../SingleDevlopmentPageComps/LightBox';
 
-const HeroSection = ({imagessingleunitpage}) => {
+const HeroSection = ({ imagessingleunitpage }) => {
     const [isHoverPlay, setIsHoverPlay] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-    
+
     const closeLightbox = () => {
         setIsPopupOpen(false);
     };
@@ -16,7 +16,7 @@ const HeroSection = ({imagessingleunitpage}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [fadeClass, setFadeClass] = useState('');
 
-    
+
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % imagessingleunitpage.length);
@@ -46,58 +46,58 @@ const HeroSection = ({imagessingleunitpage}) => {
 
     const currentImages = getCurrentImages();
 
-    
+
     useEffect(() => {
-        if ( isPopupOpen) {
+        if (isPopupOpen) {
             document.body.classList.add('no-scroll');
         } else {
             document.body.classList.remove('no-scroll');
         }
-    }, [ isPopupOpen]);
+    }, [isPopupOpen]);
 
     return (
         <>
             <section className="">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
-                    <div className="col-span-1 lg:col-span-2 bg-container rounded-lg">
-                        <div className="relative rounded-lg">
-                            <div className='rounded-lg'>
-                                <img key={currentImages[0]} src={currentImages[0]} alt="Main view of the property" className={`rounded-lg w-full bg-zoom ${fadeClass}`} />
-                            </div>
-                            <button className="absolute top-4 right-4 bg-bggray text-primarycolor font-medium px-3 py-1 rounded-full">FOR SALE</button>
+                <div className="herosection ">
+                    {/* <div className="col-span-1 lg:col-span-2 bg-container rounded-lg"> */}
+                    <div className="relative rounded-lg cursor-pointer" onClick={() => { setIsPopupOpen(true); }}>
+                        <div className='relative overflow-hidden h-full w-full rounded-lg ' >
+                            <img key={currentImages[0]} src={currentImages[0]} alt="Main view of the property" className={`rounded-lg w-full h-full bg-zoom object-cover object-center ${fadeClass}`} />
                         </div>
+                        <button className="absolute top-4 right-4 bg-bggray text-primarycolor font-medium px-3 py-1 rounded-full">For Sale</button>
                     </div>
+                    {/* </div> */}
 
-                    <div className="w-full grid grid-cols-4 lg:grid-cols-1 xl:grid-cols-2 gap-4">
-                        <div className='aspect-square lg:aspect-auto bg-container rounded-lg'>
-                            <img key={currentImages[1]} src={currentImages[1]} alt="Thumbnail 1" className={`rounded-lg w-full h-full object-cover bg-zoom ${fadeClass}`} />
+                    {/* <div className="w-full grid grid-cols-4 lg:grid-cols-1 xl:grid-cols-2 gap-4"> */}
+                    <div className='bg-container rounded-lg aspect-square herosingdevpag:aspect-auto  cursor-pointer' onClick={() => { setIsPopupOpen(true); }}>
+                        <img key={currentImages[1]} src={currentImages[1]} alt="Thumbnail 1" className={`rounded-lg w-full h-full object-cover bg-zoom ${fadeClass}`} />
+                    </div>
+                    <div className='aspect-square herosingdevpag:aspect-auto  bg-container rounded-lg  cursor-pointer' onClick={() => { setIsPopupOpen(true); }}>
+                        <img key={currentImages[2]} src={currentImages[2]} alt="Thumbnail 2" className={`rounded-lg w-full h-full  object-cover  bg-zoom ${fadeClass}`} />
+                    </div>
+                    <div className='block herosingdevpag:hidden aspect-square herosingdevpag:aspect-auto  bg-container rounded-lg  cursor-pointer' onClick={() => { setIsPopupOpen(true); }}>
+                        <img key={currentImages[3]} src={currentImages[3]} alt="Thumbnail 3" className={`rounded-lg w-full h-full  object-cover  bg-zoom ${fadeClass}`} />
+                    </div>
+                    <div className="relative block herosingdevpag:hidden bg-container rounded-lg  cursor-pointer" onClick={() => { setIsPopupOpen(true); }}>
+                        <div className='h-full aspect-square herosingdevpag:aspect-auto  '>
+                            <img key={currentImages[3]} src={currentImages[3]} alt="Thumbnail 4" className={`rounded-lg w-full h-full  object-cover  bg-zoom ${fadeClass}`} />
                         </div>
-                        <div className='aspect-square lg:aspect-auto  bg-container rounded-lg'>
-                            <img key={currentImages[2]} src={currentImages[2]} alt="Thumbnail 2" className={`rounded-lg w-full h-full  object-cover  bg-zoom ${fadeClass}`} />
-                        </div>
-                        <div className='block lg:hidden xl:block aspect-square lg:aspect-auto  bg-container rounded-lg'>
-                            <img key={currentImages[3]} src={currentImages[3]} alt="Thumbnail 3" className={`rounded-lg w-full h-full  object-cover  bg-zoom ${fadeClass}`} />
-                        </div>
-                        <div className="relative block lg:hidden xl:block bg-container rounded-lg">
-                            <div className='h-full aspect-square lg:aspect-auto  '>
-                                <img key={currentImages[3]} src={currentImages[3]} alt="Thumbnail 4" className={`rounded-lg w-full h-full  object-cover  bg-zoom ${fadeClass}`} />
+                        <div className="hidden xl:flex absolute inset-0 bg-black  bg-opacity-50 items-center justify-center rounded-lg">
+                            <div className={`${isHoverPlay ? 'px-3.5 py-1.5' : 'px-2 py-1'} row-hover px-3 py-1 text-white border border-[#ACACAC] hover:border-white rounded-full transition-all cursor-pointer duration-300 ease-in-out`}
+                                onClick={() => { setIsPopupOpen(true); }}
+                                onMouseEnter={() => { setIsHoverPlay(true) }}
+                                onMouseLeave={() => { setIsHoverPlay(false) }}>
+                                <span className="text-base mr-2">View All Photos</span>
+                                <FontAwesomeIcon icon={faChevronRight} size='xs' className='icon-slide' />
                             </div>
-                            <div className="hidden xl:flex absolute inset-0 bg-black  bg-opacity-50 items-center justify-center rounded-lg">
-                                <div className={`${isHoverPlay ? 'px-3.5 py-1.5' : 'px-2 py-1'} row-hover px-3 py-1 text-white border border-[#ACACAC] hover:border-white rounded-full transition-all cursor-pointer duration-300 ease-in-out`}
-                                    onClick={() => {setIsPopupOpen(true);}}
-                                    onMouseEnter={() => { setIsHoverPlay(true) }}
-                                    onMouseLeave={() => { setIsHoverPlay(false) }}>
-                                    <span className="text-base mr-2">View All Photos</span>
-                                    <FontAwesomeIcon icon={faChevronRight} size='xs' className='icon-slide' />
-                                </div>
-                            </div>
-                            <div className="flex xl:hidden absolute inset-0 bg-black  bg-opacity-50 items-center justify-center rounded-lg">
-                                <div className='px-2 py-1 text-white ' onClick={() => {setIsPopupOpen(true);}}>
-                                    <span className="text-base mr-2">+{imagessingleunitpage.length - 4}</span>
-                                </div>
+                        </div>
+                        <div className="flex xl:hidden absolute inset-0 bg-black  bg-opacity-50 items-center justify-center rounded-lg">
+                            <div className='px-2 py-1 text-white ' >
+                                <span className="text-base mr-2">+{imagessingleunitpage.length - 4}</span>
                             </div>
                         </div>
                     </div>
+                    {/* </div> */}
                 </div>
 
                 <div className='flex items-center justify-between gap-3 mt-6'>
@@ -116,7 +116,7 @@ const HeroSection = ({imagessingleunitpage}) => {
                     </div>
                 </div>
             </section>
-            {isPopupOpen && (<LightBox isOpen={isPopupOpen} onClose={closeLightbox} images={imagessingleunitpage}/>)}
+            {isPopupOpen && (<LightBox isOpen={isPopupOpen} onClose={closeLightbox} images={imagessingleunitpage} />)}
 
         </>
     );

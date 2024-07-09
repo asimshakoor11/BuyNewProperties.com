@@ -58,18 +58,40 @@ const MapCardsComponent = ({ item, index }) => {
                     <div className='relative w-full 2xl:max-w-[300px] 2xl:min-w-[300px] rounded-[18px]'>
 
                         <div className='relative h-full  overflow-hidden rounded-[18px]'>
-                            <img
+                            {/* <img
                                 src="/images/pages/homepage/devcardimage.svg"
                                 alt="image 1"
                                 className={`h-full w-full rounded-[18px] object-cover bg-cover bg-container bg-zoom`}
-                            />
+                            /> */}
+                            <Carousel className="rounded-[18px] h-full overflow-hidden"
+                                navigation={false}
+                                loop={true}
+                            >
+                                <img
+                                    src="/images/pages/homepage/devcardimage.svg"
+                                    alt="image 1"
+                                    className={`h-full w-full rounded-[18px] object-cover bg-cover bg-container bg-zoom`}
+                                />
+                                <img
+                                    src="/images/global/bgimage.jpeg"
+                                    alt="image 2"
+                                    className={` h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
+
+                                />
+                                <img
+                                    src="/images/pages/homepage/devcardimage.svg"
+                                    alt="image 3"
+                                    className={`h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
+
+                                />
+                            </Carousel>
                         </div>
 
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 ">
                             <span className="bg-primarycolor text-white font-semibold text-[13px] px-2 py-2  rounded">Delivery: 3rd Quarter 2024</span>
                         </div>
                         <div className='absolute bottom-0 flex justify-between items-center w-full'>
-                            
+
                             <div className={`flex items-center mr-4 mb-2 absolute bottom-1 right-1`}>
                                 {showTooltip && (
                                     <motion.p
@@ -102,10 +124,10 @@ const MapCardsComponent = ({ item, index }) => {
                             </div>
                         </div>
 
-                        <div className={`${item.type === 'private' ? 'block':'hidden'} h-full w-full absolute inset-0 z-50 bg-opacity-50 backdrop-blur-lg flex items-center justify-center rounded-[18px]`}>
+                        <div className={`${item.type === 'private' ? 'block' : 'hidden'} h-full w-full absolute inset-0 z-50 bg-opacity-50 backdrop-blur-lg flex items-center justify-center rounded-[18px]`}>
                             <img src="/images/icons/lock.svg" alt="" className='h-24' />
 
-                            <button className={`absolute left-0 bottom-0 inline-flex items-center gap-2 text-white bg-[#FF4949] opacity-80 font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[23px] rounded-bl-[23px] -ml-1`}>
+                            <button className={`absolute left-0 bottom-0 inline-flex items-center gap-2 text-white bg-[#FF4949] opacity-80 font-semibold text-[13px] py-2 md:py-3 px-6 w-fit rounded-tr-[18px] rounded-bl-[18px]`}>
                                 <img src="/images/icons/lock.svg" alt="" className='h-4' />
                                 <p className="">Private Development</p>
                             </button>
@@ -142,7 +164,7 @@ const MapCardsComponent = ({ item, index }) => {
                                     </div>
 
                                 </div>
-                                <p className="font-semibold text-[1.6rem] text-black">$500,000 to $800,000</p>
+                                <p className="font-semibold text-[1.3rem] text-black">$500,000 to $800,000</p>
 
                                 <button className="bg-secondrycolor hover:bg-secondrycolorhover text-white px-4 py-2 lg:py-3 rounded-lg  font-medium w-full cursor-pointer transition-colors duration-300 ease-in-out" onClick={() => { setIsPopupOpen(true); handleScrollDown(); }}>Contact</button>
                             </div>

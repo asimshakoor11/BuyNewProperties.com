@@ -227,7 +227,7 @@ const Cards = ({ item, index }) => {
             {isPopupOpen && (
 
                 <div id='popup-container'
-                    className="fixed inset-0 z-[1000] h-screen p-10 bg-gray-800 bg-opacity-50 backdrop-blur-lg  flex justify-center items-center transition-opacity duration-300 overflow-y-scroll"
+                    className="fixed inset-0 z-[1000] h-screen p-10 bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 overflow-y-scroll"
 
                     onClick={() => { setIsPopupOpen(false) }}
 
@@ -286,7 +286,7 @@ const Cards = ({ item, index }) => {
                                         <div className=" w-full ">
                                             <div className="flex flex-col justify-between h-full gap-3 text-black">
 
-                                                <p className="font-medium text-[1.6rem] text-black">$500,000 to $800,000</p>
+                                                <p className="font-medium text-[1.3rem] text-black">$500,000 to $800,000</p>
 
                                                 <p className="font-semibold text-[1.6rem] leading-[1]">{item.title}</p>
                                                 <div className="flex flex-wrap justify-between gap-3 text-primarycolor">
@@ -310,6 +310,9 @@ const Cards = ({ item, index }) => {
 
                                             </div>
                                         </div>
+
+                                        <button className="bg-primarycolor hover:bg-primarycolorhover text-white px-4 py-2 md:py-3 rounded-lg font-medium w-full mt-5 transition-colors duration-300 ease-in-out pointer-events-none">9 Available Properties</button>
+
                                     </div>
                                 </div>
                                 <div className='w-full xl:w-1/2 p-6 h-full flex flex-col items-center justify-center  '>
@@ -319,17 +322,17 @@ const Cards = ({ item, index }) => {
                                             <GlobalForm colorwhite={true} />
                                         </div>
                                         <div className="flex flex-col md:flex-row gap-2 px-6 font-medium ">
-                                            <button className=" flex-1 py-3 md:py-4  border border-primarycolor rounded-md flex items-center justify-center ">
-                                                <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-2 ' />
+                                            <button className=" flex-1 py-2 md:py-3 text-sm  border border-primarycolor rounded-md flex items-center justify-center ">
+                                                <img src="/images/icons/envelope.svg" alt="" className='h-4 mr-2 ' />
 
                                                 Email
                                             </button>
-                                            <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
+                                            <button className="flex-1 py-2 md:py-3 text-sm border border-primarycolor rounded-md flex items-center justify-center ">
 
-                                                <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-2' />
-                                                Sms
+                                                <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-4 mr-2' />
+                                                SMS
                                             </button>
-                                            <button className="flex-1 py-3 md:py-4 text-white border border-primarycolor rounded-md flex items-center justify-center bg-secondrycolor hover:bg-secondrycolorhover cursor-pointer transition-colors duration-300 ease-in-out">
+                                            <button className="flex-1 py-2 md:py-3 text-sm text-white border border-primarycolor rounded-md flex items-center justify-center bg-secondrycolor hover:bg-secondrycolorhover cursor-pointer transition-colors duration-300 ease-in-out">
                                                 <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-2' />
                                                 WhatsApp
                                             </button>

@@ -13,7 +13,7 @@ import './SingleDevelopmentPage.css'
 import VideoPopup from '../../components/SingleDevlopmentPageComps/VideoPopup';
 import PropertyDetails from '../../components/SingleDevlopmentPageComps/PropertyDetails';
 import LatestDevelopmentCard from '../../components/Global/LatestDevelopmentCard/LatestDevlopmentsCard';
-import CustomMap from '../../components/DevelopmentsSearchPageComps/CustomMap';
+import CustomMapComp from '../../components/Global/CustomMapComp';
 
 const SingleDevlopmentpage = () => {
     const [isSaved, setIsSaved] = useState(false);
@@ -229,8 +229,8 @@ const SingleDevlopmentpage = () => {
                 {showPopup && <VideoPopup id="popup-container" videoUrl='https://www.youtube.com/embed/dQw4w9WgXcQ' onClose={handleClosePopup} />}
             </section >
 
-            <section className='py-[80px] bg-white'>
-                <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Location</h2>
+            <section className='pb-[80px] '>
+                {/* <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Location</h2>
 
                 <div className='mt-10 px-[7%] relative'>
                     <div className="flex space-x-2 w-full overflow-x-scroll scrollbar-hide">
@@ -261,9 +261,9 @@ const SingleDevlopmentpage = () => {
 
                     </div>
 
-                </div>
-                <div className='mt-10'>
-                    <CustomMap customview={true} locations={locationareas} />
+                </div> */}
+                <div >
+                    <CustomMapComp customview={true} locations={locationareas} />
                 </div>
             </section>
 

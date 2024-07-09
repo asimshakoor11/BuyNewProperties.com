@@ -44,9 +44,9 @@ const LightBox = ({ isOpen, onClose, images }) => {
     return (
         <>
             <div className="fixed min-h-screen inset-0 bg-black z-50">
-                <div className="min-h-screen bg-zinc-100 p-6 text-white">
-                    <div className='h-full '>
-                        <div className="flex flex-row gap-4 items-center justify-between p-0 md:p-4 bg-black">
+                <div className="min-h-screen text-white">
+                    <div className='h-screen  p-6 '>
+                        <div className="flex flex-row gap-4 items-center justify-between p-0 md:px-4 md:py-2 bg-black ">
                             <div className="flex space-x-2">
                                 <button className={`px-4 py-4 md:px-8 md:py-2 border ${selectedPopup === 'image' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}   hover:border-[#A5A5A5] rounded-full  cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('image')}>
                                     <span className='hidden md:block'>Photos</span>
@@ -57,21 +57,20 @@ const LightBox = ({ isOpen, onClose, images }) => {
                                     <img src="/images/icons/mapwhite.svg" alt="" className='block md:hidden ' style={{ maxWidth: "20px" }} />
 
                                 </button>
-                                <button className={`px-3.5 py-3.5 md:px-8  md:py-2 border ${selectedPopup === 'streetview' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'} ]  hover:border-[#A5A5A5] rounded-full cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('streetview')}>
+                                <button className={`px-3.5 py-3.5 md:px-8  md:py-2 border ${selectedPopup === 'streetview' ? 'border-[#A5A5A5]' : 'border-[#FFFFFF3D]'}  hover:border-[#A5A5A5] rounded-full cursor-pointer transition-colors duration-300 ease-in-out`} onClick={() => setSelectedPopup('streetview')}>
                                     <span className='hidden md:block'>Photos</span>
                                     <img src="/images/icons/street-view.svg" alt="" className='block md:hidden' style={{ maxWidth: "25px" }} />
                                 </button>
                             </div>
 
-                            <div className="flex items-center space-x-4">
+                            <div className="flex items-center space-x-8">
 
-                                <button className="flex items-center px-4 py-4 md:px-8 md:py-2 border border-[#FFFFFF3D] rounded-full" onClick={handleSubmit}>
-                                    <span className='hidden md:block mr-3'>Share</span>
-                                    <img src="/images/icons/sharewhite.svg" className='h-27 min-w-25' style={{ maxWidth: "20px" }} alt="" />
+                                <button className={`px-3.5 pr-4 py-2.5 md:px-3 md:pr-3.5 md:py-2 border  hover:border-[#A5A5A5] rounded-lg cursor-pointer transition-colors duration-300 ease-in-out`} onClick={handleSubmit}>
+                                    <img src="/images/icons/sharewhite.svg" className='' style={{ maxWidth: "20px" }} alt="" />
                                 </button>
 
                                 <button
-                                    className="bg-transparent text-white border border-[#FFFFFF3D] rounded-full px-4 py-3"
+                                    className="bg-transparent text-white "
                                     onClick={onClose}
                                 >
                                     <FontAwesomeIcon icon={faXmark} size='lg' />
@@ -80,12 +79,12 @@ const LightBox = ({ isOpen, onClose, images }) => {
                         </div>
                         <div className='flex justify-end mt-2 px-[2%]'>
                             <button className="flex items-center" onClick={handleScrollView}>
-                                <img src="/images/icons/arrow-square-down.svg" className='max-w-[25px]' alt="" />
+                                <img src="/images/icons/arrow-square-down.svg" className='max-w-[20px]' alt="" />
                                 <span className='ml-3'>Scroll View</span>
                             </button>
                         </div>
                         {selectedPopup === 'image' && (
-                            <div className="h-full w-full">
+                            <div className="customheightlighbox w-full ">
                                 <GlobalImgCarousel dark={false} customheight={false} images={images} />
                             </div>
                         )}
@@ -120,8 +119,8 @@ const LightBox = ({ isOpen, onClose, images }) => {
                         >
                             <div className='bg-gray-800 md:bg-transparent sticky top-0 p-3 w-full flex items-center justify-between md:justify-end gap-4'>
                                 <button className="flex items-center px-4 py-4 md:px-8 md:py-2 " onClick={() => { setPopupVisibleSV(false); }}>
-                                    <img src="/images/icons/exchange-alt.svg" className='h-27 max-w-[25px]' alt="" />
-                                    <span className=' ml-3 text-white'>Scroll View</span>
+                                    <img src="/images/icons/exchange-alt.svg" className='h-27 max-w-[20px]' alt="" />
+                                    <span className=' ml-3 text-white'>Slide View</span>
                                 </button>
                                 <button className="text-2xl font-bold text-white" onClick={() => { setPopupVisibleSV(false); }}>
                                     <FontAwesomeIcon icon={faXmark} size='md' />

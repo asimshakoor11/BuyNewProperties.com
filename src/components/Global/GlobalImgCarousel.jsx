@@ -7,7 +7,7 @@ import './Styles/Global.css';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight, images }) => {
+const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight, images, isPopup }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const NextArrow = ({ onClick }) => {
@@ -51,19 +51,19 @@ const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight, images }) 
     };
 
     return (
-        <div className="container flex flex-col xl:justify-between mx-auto relative" >
+        <div className={` w-full h-full flex flex-col ${isPopup  ? 'justify-center' : 'justify-between'}  mx-auto relative`} >
             <Slider {...settings}>
                 {images.map((img, index) => (
-                    <div key={index} className="slick-slide xl:h-[100%] ">
-                        <div className={`flex justify-center ${customheight ? 'xl:h-[70vh]' : 'h-[70vh]'} items-center px-0 md:px-[10%]`}>
+                    <div key={index} className={`slick-slide `}>
+                        <div className={`flex justify-center  h-full items-center `}>
                             <img src={img} alt={`Slide ${index}`} className="object-contain h-full w-full" onClick={handlepopupcarousel} />
                         </div>
                     </div>
                 ))}
             </Slider>
-            <div className={`text-center mt-8 ${dark ? 'text-gray-800' : 'text-gray-600'}  font-medium text-base`}>
-                <span className=' '>
-                    <span className={`${dark ? 'text-black' : 'text-white'}`}> 0{currentSlide + 1} / </span>
+            <div className={`text-center mt-2  ${dark ? 'text-gray-900' : 'text-gray-600'}  font-medium text-base`}>
+                <span >
+                    <span className={`${dark ? 'text-black ' : 'text-white'}`}> 0{currentSlide + 1} / </span>
                     0{images.length}
                 </span>
 

@@ -41,7 +41,7 @@ const clustererOptions = {
   ]
 };
 
-const CustomMap = ({ locations=[], customview }) => {
+const CustomMapComp = ({ locations=[], customview }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -103,7 +103,7 @@ const CustomMap = ({ locations=[], customview }) => {
 
 
   const handleMarkerClick = (location) => {
-    setSelectedMarker(location);
+    // setSelectedMarker(location);
     const adjustedPosition = getAdjustedPosition(location.position);
     map.panTo(adjustedPosition); // Smoothly pan to the selected marker
   };
@@ -113,15 +113,15 @@ const CustomMap = ({ locations=[], customview }) => {
   };
 
   const getAdjustedPosition = (position) => {
-    const offset = 1.5; // Adjust this value to move the InfoWindow higher or lower
     return {
-      lat: position.lat + offset,
+    //   lat: position.lat + offset,
+      lat: position.lat,
       lng: position.lng
     };
   };
 
   return isLoaded ? (
-    <div className={`${customview ? 'h-[50vh] xl:h-[100vh] ': 'h-[100vh]'} w-full sticky top-0`}>
+    <div className={`${customview ? 'h-[70vh]': 'h-[100vh]'} w-full sticky top-0`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}
@@ -188,4 +188,4 @@ const CustomMap = ({ locations=[], customview }) => {
   ) : <></>;
 }
 
-export default React.memo(CustomMap);
+export default React.memo(CustomMapComp);

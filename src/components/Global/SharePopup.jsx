@@ -51,18 +51,18 @@ const SharePopup = ({ onCloseShare, handleOutsideClick }) => {
                             {copied && <p className="text-green-500 mt-2">Copied!</p>}
                         </div>
                         <div className="flex flex-col md:flex-row gap-4">
-                            <button className="flex-1 py-3 md:py-4  border border-primarycolor rounded-md flex items-center justify-center ">
-                                <img src="/images/icons/envelope.svg" alt="" className='h-5 mr-3 ' />
+                            <button className=" flex-1 py-2 md:py-3 text-sm  border border-primarycolor rounded-md flex items-center justify-center ">
+                                <img src="/images/icons/envelope.svg" alt="" className='h-4 mr-2 ' />
 
                                 Email
                             </button>
-                            <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
+                            <button className="flex-1 py-2 md:py-3 text-sm border border-primarycolor rounded-md flex items-center justify-center ">
 
-                                <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-5 mr-3' />
-                                Sms
+                                <img src="/images/icons/comment-alt-dots.svg" alt="" className='h-4 mr-2' />
+                                SMS
                             </button>
-                            <button className="flex-1 py-3 md:py-4 border border-primarycolor rounded-md flex items-center justify-center ">
-                                <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-3' />
+                            <button className="flex-1 py-2 md:py-3 text-sm text-white border border-primarycolor rounded-md flex items-center justify-center bg-secondrycolor hover:bg-secondrycolorhover cursor-pointer transition-colors duration-300 ease-in-out">
+                                <FontAwesomeIcon icon={faWhatsapp} size='lg' className='mr-2' />
                                 WhatsApp
                             </button>
                         </div>
