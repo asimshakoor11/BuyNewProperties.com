@@ -593,7 +593,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="flex space-x-4 mt-6">
+                                                            <div className="flex flex-col lg:flex-row gap-4 mt-6">
                                                                 <button className="flex flex-row items-center rounded-lg font-medium bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white px-5 lg:min-w-[200px] py-2 lg:py-3 space-x-2 cursor-pointer transition-colors duration-300 ease-in-out">
                                                                     <FontAwesomeIcon icon={faUser} size='md' />
                                                                     <span className='w-full text-center'>Create An Account</span>
@@ -743,7 +743,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                                 <p className="mb-4">
                                                                     We want you to feel at home straight away so please let us know if there is anything we can do to help make this happen.
                                                                 </p>
-                                                                <div className="flex space-x-4 mt-6">
+                                                                <div className="flex flex-col lg:flex-row gap-4 mt-6">
                                                                     <button className="flex flex-row items-center rounded-lg font-medium bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white px-5 lg:min-w-[200px] py-2 lg:py-3 space-x-2 cursor-pointer transition-colors duration-300 ease-in-out">
                                                                         <FontAwesomeIcon icon={faUser} size='md' />
                                                                         <span className='w-full text-center'>Create An Account</span>
