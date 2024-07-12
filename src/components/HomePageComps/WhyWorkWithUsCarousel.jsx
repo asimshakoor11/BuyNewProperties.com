@@ -504,7 +504,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                 <div className='relative z-30'>
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-primarycolor text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out">1</div>
+                                                        <div className="absolute -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg bg-primarycolor text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out">1</div>
 
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
@@ -534,7 +534,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                     </div>
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 15 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>2</div>
+                                                        <div className={`absolute -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight > 15 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>2</div>
 
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
@@ -607,7 +607,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 32 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>3</div>
+                                                        <div className={`absolute -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight > 32 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>3</div>
 
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
@@ -637,7 +637,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 44 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>4</div>
+                                                        <div className={`absolute -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight > 44 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>4</div>
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -674,7 +674,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 65 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>5</div>
+                                                        <div className={`absolute -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight > 65 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>5</div>
                                                         <div className="px-6 ">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -698,7 +698,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 76 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>6</div>
+                                                        <div className={`absolute -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight > 76 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>6</div>
                                                         <div className="px-6 ">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -724,7 +724,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                         <div className="absolute left-3.5  top-0 z-20 h-[100%] border-l-[7px] border-[#ffffff]"> </div>
 
 
-                                                        <div className={`absolute z-30 -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight >85 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>7</div>
+                                                        <div className={`absolute z-30 -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight >85 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>7</div>
                                                         <div className="flex flex-col lg:flex-row gap-10 px-6">
                                                             <div className="flex-1">
                                                                 <div className="flex flex-col justify-center mb-4">
