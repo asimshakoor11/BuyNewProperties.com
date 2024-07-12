@@ -11,7 +11,7 @@ import DreamHomeContact from './DreamHomeContact';
 
 const WhyWorkWithUsCarousel = ({ themegray }) => {
     const carouselRef = useRef(null);
-    const divRef = useRef(null);
+    const divRefM = useRef(null);
     const additionalPixels = 20;
     const [divWidth, setDivWidth] = useState(0);
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -19,14 +19,14 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
     const scrollLeft = () => {
         if (carouselRef.current) {
-            setDivWidth(divRef.current.offsetWidth);
+            setDivWidth(divRefM.current.offsetWidth);
             carouselRef.current.scrollBy({ left: -(divWidth + additionalPixels), behavior: 'smooth' });
         }
     };
 
     const scrollRight = () => {
         if (carouselRef.current) {
-            setDivWidth(divRef.current.offsetWidth);
+            setDivWidth(divRefM.current.offsetWidth);
             const maxScrollLeft = carouselRef.current.scrollWidth - carouselRef.current.clientWidth + 300;
             const scrollAmount = divWidth + additionalPixels;
 
@@ -39,8 +39,8 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
     };
 
     useEffect(() => {
-        if (divRef.current) {
-            setDivWidth(divRef.current.offsetWidth);
+        if (divRefM.current) {
+            setDivWidth(divRefM.current.offsetWidth);
         }
     }, []);
 
@@ -149,32 +149,35 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
         },
     ];
 
+    const [progressHeight, setProgressHeight] = useState(0);
     const popupRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
+
+    const handleScroll = () => {
+        if (popupRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = popupRef.current;
+            const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
+            setProgressHeight(scrolled);
+        }
+    };
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (popupRef.current) {
-                const { scrollTop, scrollHeight, clientHeight } = popupRef.current;
-                const totalScroll = scrollHeight - clientHeight;
-                const scrollPercentage = (scrollTop / totalScroll) * 100;
-                setScrollProgress(scrollPercentage);
-                console.log(`ScrollTop: ${scrollTop}, ScrollHeight: ${scrollHeight}, ClientHeight: ${clientHeight}, ScrollPercentage: ${scrollPercentage}`);
-            }
-        };
-
         const popupElement = popupRef.current;
-        if (popupElement) {
+        if (isPopupVisible && popupElement) {
             popupElement.addEventListener('scroll', handleScroll);
-        }
 
-        return () => {
-            if (popupElement) {
+            // Clean up the event listener on unmount or when isOpen changes
+            return () => {
                 popupElement.removeEventListener('scroll', handleScroll);
-            }
-        };
-    }, []);
+            };
+        }
+    }, [isPopupVisible, popupRef.current]);
 
+    useEffect(() => {
+        if (isPopupVisible) {
+            // Reset the scroll progress when the popup is opened
+            setProgressHeight(0);
+        }
+    }, [isPopupVisible]);
 
     return (
         <>
@@ -184,7 +187,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                         data-aos-delay={index * 100} className='trnasformscale cursor-pointer' onClick={() => { handlePlusClick(item); }}>
                         <div
                             key={index}
-                            ref={divRef}
+                            ref={divRefM}
                             className={`  ${themegray ? 'bg-bggray' : 'bg-white'}  dark:bg-zinc-800 rounded-3xl overflow-hidden
                        min-w-[320px] max-w-[320px] md:min-w-[390px] md:max-w-[390px] h-full`}
                         >
@@ -225,6 +228,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
                 <div
                     id="popup-container"
+                    ref={popupRef}
                     className="fixed z-50 h-screen w-full inset-0 px-[2%] pt-[5%] bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll "
                     onClick={handleOutsideClick}>
                     <AnimatePresence>
@@ -490,23 +494,18 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                         <div className="p-6">
                                             <div className="relative ">
 
-                                                <div className="absolute left-4 top-0 z-10 h-full  border-l-4 border-[#E5E5E5]">
-
-                                                    <div className=" absolute -left-1 z-20 h-[10%] border-l-4 border-primarycolor">
-
-                                                    </div>
+                                                <div className="absolute left-4 top-0 z-10 h-[85%] border-l-4 border-[#E5E5E5]">
+                                                    <div
+                                                        className="absolute -left-1 z-20 border-l-4 border-primarycolor"
+                                                        style={{ height: `${progressHeight}%`, transition: 'height 0.2s ease' }}
+                                                    />
                                                 </div>
 
-                                                {/* <div className="absolute left-4 top-0 z-10 h-full border-l-4 border-[#E5E5E5]">
-                                                    <div
-                                                        className="absolute -left-1 z-20 border-l-4 border-primarycolor transition-all duration-300"
-                                                        style={{ height: `${scrollProgress}%` }}
-                                                    ></div>
-                                                </div> */}
                                                 <div className='relative z-30'>
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-primarycolor text-white flex items-center justify-center text-xl font-bold">1</div>
+                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-primarycolor text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out">1</div>
+
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -535,7 +534,8 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                     </div>
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-[#E5E5E5] text-white flex items-center justify-center text-xl font-bold">2</div>
+                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 18 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>2</div>
+
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -607,7 +607,8 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-[#E5E5E5] text-white flex items-center justify-center text-xl font-bold">3</div>
+                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 37 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>3</div>
+
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -636,7 +637,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-[#E5E5E5] text-white flex items-center justify-center text-xl font-bold">4</div>
+                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 52 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>4</div>
                                                         <div className="px-6">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -673,7 +674,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-[#E5E5E5] text-white flex items-center justify-center text-xl font-bold">5</div>
+                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 76 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>5</div>
                                                         <div className="px-6 ">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -697,7 +698,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-[#E5E5E5] text-white flex items-center justify-center text-xl font-bold">6</div>
+                                                        <div className={`absolute -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 89 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>6</div>
                                                         <div className="px-6 ">
                                                             <div className="flex flex-col justify-center mb-4">
                                                                 <img
@@ -720,8 +721,11 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                     </div>
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute -left-3 top-0 w-14 h-14 rounded-lg bg-[#E5E5E5] text-white flex items-center justify-center text-xl font-bold">7</div>
-                                                        <div className="flex flex-col md:flex-row gap-10 px-6">
+                                                        <div className="absolute left-4 top-0 z-20 h-[78%] lg:h-[100%] border-l-4 border-[#ffffff]"> </div>
+
+
+                                                        <div className={`absolute z-30 -left-3 top-0 w-14 h-14 rounded-lg ${progressHeight > 99 ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>7</div>
+                                                        <div className="flex flex-col lg:flex-row gap-10 px-6">
                                                             <div className="flex-1">
                                                                 <div className="flex flex-col justify-center mb-4">
                                                                     <img
@@ -754,8 +758,8 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                                 </div>
                                                             </div>
                                                             <div className="flex-1 flex items-center justify-center">
-                                                                <div className='relative overflow-hidden'>
-                                                                    <img src="images/pages/workwithussection/img8.png" alt="Illustration of a new home with champagne glasses" className="rounded-lg h-[300px]" />
+                                                                <div className='relative overflow-hidden max-w-xs'>
+                                                                    <img src="images/pages/workwithussection/img8.png" alt="Illustration of a new home with champagne glasses" className="rounded-lg" />
 
                                                                 </div>
                                                             </div>
