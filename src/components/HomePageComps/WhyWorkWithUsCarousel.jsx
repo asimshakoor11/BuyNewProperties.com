@@ -721,7 +721,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                     </div>
 
                                                     <div className="relative mb-8 pl-12">
-                                                        <div className="absolute left-3.5  top-0 z-20 h-[105%] border-l-[7px] border-[#ffffff]"> </div>
+                                                        <div className="absolute left-3.5  top-0 z-20 h-[106%] border-l-[7px] border-[#ffffff]"> </div>
 
 
                                                         <div className={`absolute z-30 -left-1 md:-left-3 top-0 w-10 h-10 md:w-14 md:h-14 rounded-lg ${progressHeight >(window.innerWidth < 350 ? 88.5 : 85) ? 'bg-primarycolor' : 'bg-[#E5E5E5]'}  text-white flex items-center justify-center text-xl font-bold cursor-pointer transition-colors duration-300 ease-in-out`}>7</div>

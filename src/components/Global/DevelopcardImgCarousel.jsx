@@ -13,10 +13,10 @@ const DevelopcardImgCarousel = ({ images }) => {
         return (
             <div
                 id='rightarrow'
-                className={`hidden  md:flex items-center absolute top-1/2 h-full transform -translate-y-1/2 right-4 z-10 cursor-pointer`}
+                className={`hidden  md:flex items-center absolute top-1/2  transform -translate-y-1/2 right-4 z-10 cursor-pointer`}
                 onClick={onClick}
             >
-                <div className={`flex bg-transparent opacity-80 text-white hover:text-primarycolor hover:bg-white h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full cursor-pointer transition-colors duration-300 ease-in-out`}>
+                <div className={`flex bg-transparent hover:bg-opacity-30 text-white hover:bg-white h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full cursor-pointer transition-colors duration-300 ease-in-out`}>
                     <FontAwesomeIcon icon={faChevronRight} size='base' />
                 </div>
             </div>
@@ -27,10 +27,10 @@ const DevelopcardImgCarousel = ({ images }) => {
         return (
             <div
                 id='leftarrow'
-                className={`hidden md:flex items-center absolute top-1/2 h-full transform -translate-y-1/2 left-4 z-10 cursor-pointer`}
+                className={`hidden md:flex items-center absolute top-1/2 transform -translate-y-1/2 left-4 z-10 cursor-pointer`}
                 onClick={onClick}
             >
-                <div className={`flex bg-transparent opacity-80 text-white hover:text-primarycolor hover:bg-white  h-7 w-7 md:h-8 md:w-8  items-center justify-center rounded-full  cursor-pointer transition-colors duration-300 ease-in-out`}>
+                <div className={`flex bg-transparent hover:bg-opacity-30 text-white hover:bg-white h-7 w-7 md:h-8 md:w-8  items-center justify-center rounded-full  cursor-pointer transition-colors duration-300 ease-in-out`}>
                     <FontAwesomeIcon icon={faChevronLeft} size='base' />
                 </div>
             </div>
