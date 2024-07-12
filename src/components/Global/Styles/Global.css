@@ -1,7 +1,7 @@
 /* src/carousel.css */
 
 
-.slick-slide {
+.slick-slid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,9 +27,4 @@
 
 .slick-dots li.slick-active button:before {
   color: black;
-}
-
-
-.customheightglobalimg{
-  height: calc(100% - 500px);
 }

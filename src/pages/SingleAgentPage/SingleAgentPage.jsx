@@ -128,7 +128,7 @@ const SingleAgentPage = () => {
                 </div>
             </section >
 
-            <section className='section bg-white border border-black'>
+            <section className='section bg-white'>
                 <Testimonials />
             </section>
 

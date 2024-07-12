@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
 
     const [inputValue, setInputValue] = useState('');
+    const [inputValueFN, setInputValueFN] = useState('');
+    const [inputValueSN, setInputValueSN] = useState('');
 
     // Function to validate if the input is an email
     const isValidEmail = (email) => {
@@ -19,6 +21,12 @@ const Footer = () => {
     // Handle input change
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
+    };
+    const handleInputChangeFN = (e) => {
+        setInputValueFN(e.target.value);
+    };
+    const handleInputChangeSN = (e) => {
+        setInputValueSN(e.target.value);
     };
 
     // Determine the background color of the arrow
@@ -32,23 +40,51 @@ const Footer = () => {
                         Get The Latest Updates though Our Newsletter.
                     </div>
                     <div className="flex flex-col space-y-2 w-full xl:w-1/2">
-                        <div className='bg-white border-2 border-black rounded-lg relative p-1'>
-                            <input
-                                type="text"
-                                placeholder="Contact Preference"
-                                className="outline-none rounded-lg p-2 w-full"
-                                value={inputValue}
-                                onChange={handleInputChange}
-                            />
-                            <span className={`absolute right-1 py-2 px-4 rounded-lg ${arrowBgColor}`}>
-                                <FontAwesomeIcon icon={faChevronRight} size='base' />
-                            </span>
+
+                        <div className='flex gap-2'>
+                            <div className='w-1/2'>
+                                <input
+                                    type="text"
+                                    placeholder="First Name"
+                                    className="w-full p-3 mt-2 border-black border-2 placeholder:text-fontdark rounded-lg"
+                                    
+                                    onChange={handleInputChangeFN}
+                                />
+
+                            </div>
+                            <div className='w-1/2'>
+                                <input
+                                    type="text"
+                                    placeholder="Second Name"
+                                    className="w-full p-3 mt-2 border-black border-2 placeholder:text-fontdark rounded-lg"
+                                    
+                                    onChange={handleInputChangeSN}
+                                />
+
+                            </div>
+
+
+                        </div>
+                        <div className='space-y-2'>
+                            <div className='bg-white border-2 border-black rounded-lg relative p-1'>
+                                <input
+                                    type="text"
+                                    placeholder="Contact Preference"
+                                    className="outline-none rounded-lg p-2 w-full"
+                                    value={inputValue}
+                                    onChange={handleInputChange}
+                                />
+                                <span className={`absolute right-1 py-2 px-4 rounded-lg ${arrowBgColor}`}>
+                                    <FontAwesomeIcon icon={faChevronRight} size='base' />
+                                </span>
+                            </div>
+
+                            <div className="mb-4 flex items-center">
+
+                                <label htmlFor="agreef" className="text-sm text-fontdark">I authorize BuyDevelopments.com and its branches to store my personal data in order to inform me whenever an opportunity to sell, buy, or rent a property arises.</label>
+                            </div>
                         </div>
 
-                        <div className="mb-4 flex items-center">
-
-                            <label htmlFor="agreef" className="text-sm text-fontdark">I authorize BuyDevelopments.com and its branches to store my personal data in order to inform me whenever an opportunity to sell, buy, or rent a property arises.</label>
-                        </div>
                     </div>
                 </div>
 

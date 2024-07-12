@@ -23,11 +23,11 @@ const OurAgentPagCard = ({ agentdata }) => {
                         </div>
                         <div className="flex justify-center space-x-2 my-2">
                             {agentdata.colors.map((color, index) => (
-                                <img key={index} src={color} className={`w-10 h-6 ${color} rounded-xs`}></img>
+                                <img key={index} src={color} className={`w-10 h-7 ${color} rounded-xs`}></img>
                             ))}
                         </div>
                         <button className={`${agentdata.openForagentdatas ? "bg-primarycolor hover:bg-primarycolorhover" : "bg-dangercolor"} text-white font-medium text-base w-full py-2 lg:py-3 rounded-lg my-1 font-FuturaMedium cursor-pointer transition-colors duration-300 ease-in-out`}>
-                            {agentdata.openForagentdatas ? "Open For Clients" : "Bussy With Clients"}
+                            {agentdata.openForagentdatas ? "Open For Clients" : "Busy With Clients"}
                         </button>
                         <div className="flex justify-between gap-2 my-1">
                             <button className="bg-primarycolor hover:bg-primarycolorhover text-base text-white w-1/2 py-2 lg:py-3 font-medium rounded-lg cursor-pointer transition-colors duration-300 ease-in-out ">Contact</button>

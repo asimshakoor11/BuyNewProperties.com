@@ -54,9 +54,9 @@ const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight, images, is
         <div className={` w-full h-full flex flex-col ${isPopup  ? 'justify-center' : 'justify-between'}  mx-auto relative`} >
             <Slider {...settings}>
                 {images.map((img, index) => (
-                    <div key={index} className={`slick-slide `}>
-                        <div className={`flex justify-center  h-full items-center `}>
-                            <img src={img} alt={`Slide ${index}`} className="object-contain h-full w-full" onClick={handlepopupcarousel} />
+                    <div key={index} className={`slick-slid`}>
+                        <div className={`flex justify-center h-full items-center `}>
+                            <img src={img} alt={`Slide ${index}`} className="object-contain h-full w-full px-6" onClick={handlepopupcarousel} />
                         </div>
                     </div>
                 ))}

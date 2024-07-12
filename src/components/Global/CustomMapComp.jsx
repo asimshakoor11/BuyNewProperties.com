@@ -56,6 +56,7 @@ const CustomMapComp = ({ locations=[], customview }) => {
     const bounds = new window.google.maps.LatLngBounds();
     locations.forEach(location => bounds.extend(location.position));
     map.fitBounds(bounds);
+    map.setZoom(13);
     setMap(map);
 
     // Initialize the MarkerClusterer
@@ -125,13 +126,13 @@ const CustomMapComp = ({ locations=[], customview }) => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}
-        zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{
           streetViewControl: false,
           mapTypeControl: false,
-          gestureHandling: 'auto'
+          gestureHandling: 'auto',
+          zoom: 13
         }}
       >
 

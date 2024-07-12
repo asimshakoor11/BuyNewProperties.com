@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import TableCards from './TableCards';
 import GlobalForm from '../GlobalForm'
+import DevelopcardImgCarousel from '../DevelopcardImgCarousel';
 
 
 const Cards = ({ item, index }) => {
@@ -95,6 +96,12 @@ const Cards = ({ item, index }) => {
         }
     }
 
+    const cardimages = [
+        '/images/pages/homepage/devcardimage.svg',
+        '/images/global/bgimage.jpeg',
+        '/images/pages/homepage/devcardimage.svg'
+    ]
+
     return (
         <>
             <div data-aos="fade-up" data-aos-delay={delay} className='flex flex-col'>
@@ -102,7 +109,7 @@ const Cards = ({ item, index }) => {
                 <div className="rounded-[18px] overflow-hidden"
                 >
                     <div className='relative-container  w-full rounded-[18px]'>
-                        <Carousel className="rounded-[18px] h-full overflow-hidden"
+                        {/* <Carousel className="rounded-[18px] h-full overflow-hidden"
                             navigation={false}
                             loop={true}
                         >
@@ -123,7 +130,8 @@ const Cards = ({ item, index }) => {
                                 className={`h-full w-full rounded-[18px] object-cover bg-container bg-zoom`}
 
                             />
-                        </Carousel>
+                        </Carousel> */}
+                        <DevelopcardImgCarousel images={cardimages} />
 
                         <div className="absolute top-4 w-full flex justify-between items-center px-4 gap-3">
                             <div className='flex items-center gap-1 text-black bg-white opacity-80 font-semibold text-[13px] px-2 py-2  rounded'>

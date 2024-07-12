@@ -1,4 +1,3 @@
-// src/Carousel.js
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -6,9 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const GlobalImgCarousel = () => {
+const Testimonials = () => {
 
-    const dark=true;
+    const dark = true;
 
 
     const testimonialsData = [
@@ -73,13 +72,15 @@ const GlobalImgCarousel = () => {
     return (
         <div className="">
             <h2 className="text-3xl font-bold text-center text-primarycolor mb-8">What Russell Henderson Clients Say</h2>
-            <div className="max-w-4xl mx-auto">
-                <Slider {...settings} className=''>
+            <div className="max-w-4xl mx-auto mt-10 ">
+                <Slider {...settings} className='h-[30vh]'>
                     {testimonialsData.map((testimonial, index) => (
-                        <div key={index} className="p-6">
-                            <div className="bg-bggray p-12 rounded-lg">
-                                <p className="italic text-lg">"{testimonial.quote}"</p>
-                                <p className="mt-4 text-black font-semibold">- {testimonial.name}, <span className="text-gray-600">{testimonial.title}</span></p>
+                        <div key={index} className="testimonialslider h-[30vh] ">
+                            <div className='h-full w-full flex items-center justify-center '>
+                                <div className="bg-bggray p-12 rounded-lg ">
+                                    <p className="italic text-lg">"{testimonial.quote}"</p>
+                                    <p className="mt-4 text-black font-semibold">- {testimonial.name}, <span className="text-gray-600">{testimonial.title}</span></p>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -89,4 +90,4 @@ const GlobalImgCarousel = () => {
     );
 };
 
-export default GlobalImgCarousel;
+export default Testimonials;

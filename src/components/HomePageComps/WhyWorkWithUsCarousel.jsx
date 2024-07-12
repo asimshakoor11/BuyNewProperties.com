@@ -250,9 +250,9 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
                                         <div className='w-full flex flex-col-reverse lg:flex-row gap-10 mt-10 relative'>
 
-                                            <div className=' w-full lg:w-[40%]  pr-20'>
+                                            <div className=' w-full lg:w-[40%] flex justify-center lg:justify-start'>
 
-                                                <div className='sticky top-0 '>
+                                                <div className='sticky top-0 max-w-sm'>
                                                     <img
                                                         src="/images/pages/workwithussection/img1.png"
                                                         className="about-section__image portrait"
@@ -410,9 +410,9 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
 
                                         <div className='w-full flex flex-col-reverse lg:flex-row gap-10 mt-10 relative'>
 
-                                            <div className=' w-full lg:w-[40%] pr-20'>
+                                            <div className=' w-full lg:w-[40%]  flex justify-center lg:justify-start'>
 
-                                                <div className='sticky top-0 '>
+                                                <div className='sticky top-0 max-w-sm'>
                                                     <img
                                                         src="/images/pages/workwithussection/img3.png"
                                                         className="about-section__image portrait"
@@ -1060,9 +1060,9 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                 </div>
                                             </div>
 
-                                            <div className=' w-full lg:w-[40%]  pr-20'>
+                                            <div className=' w-full lg:w-[40%]  flex justify-center lg:justify-start'>
 
-                                                <div className='sticky top-0 '>
+                                                <div className='sticky top-0 max-w-sm'>
                                                     <img
                                                         src="/images/pages/workwithussection/img7.png"
                                                         className="about-section__image portrait"

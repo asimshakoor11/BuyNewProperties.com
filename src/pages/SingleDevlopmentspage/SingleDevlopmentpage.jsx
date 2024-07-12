@@ -86,28 +86,6 @@ const SingleDevlopmentpage = () => {
                 price: '€650,000',
                 beds: '2 to 3 Beds from'
             }
-        },
-        {
-            id: 2,
-            position: { lat: 41.1579, lng: -8.6291 },
-            info: {
-                image: '/images/homepage/dreamhomecontact.png',
-                title: 'New Development Porto',
-                location: 'Porto, Portugal',
-                price: '€500,000',
-                beds: '1 to 2 Beds from'
-            }
-        },
-        {
-            id: 3,
-            position: { lat: 37.0179, lng: -7.9307 },
-            info: {
-                image: '/images/homepage/dreamhomecontact.png',
-                title: 'New Development Faro',
-                location: 'Faro, Portugal',
-                price: '€450,000',
-                beds: '2 to 4 Beds from'
-            }
         }
     ];
 
@@ -209,7 +187,7 @@ const SingleDevlopmentpage = () => {
                 <TabSection />
             </section> */}
 
-            <section section id='videoplay' className='section bg-bggray rounded-xl' >
+            <section section id='videoplay' className='section  bg-bggray rounded-xl' >
                 <div className='section bg-cover bg-center h-[350px] md:h-[600px] flex items-center justify-center relative rounded-xl' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
                     <div className='absolute inset-0 bg-black opacity-50 z-10 rounded-xl'></div>
                     <div className='relative z-20 p-8 flex flex-col items-center gap-3 text-white'>
@@ -229,7 +207,7 @@ const SingleDevlopmentpage = () => {
                 {showPopup && <VideoPopup id="popup-container" videoUrl='https://www.youtube.com/embed/dQw4w9WgXcQ' onClose={handleClosePopup} />}
             </section >
 
-            <section className='pb-[80px] '>
+            <section className=''>
                 {/* <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left px-[7%]">Location</h2>
 
                 <div className='mt-10 px-[7%] relative'>

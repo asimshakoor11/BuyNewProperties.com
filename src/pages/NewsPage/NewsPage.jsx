@@ -503,11 +503,11 @@ const NewsPage = () => {
                 </div>
             </section>
 
-            <section className='px-[7%] bg-white'>
+            <section className='relative z-20 px-[7%] bg-white rounded-tl-[40px] rounded-tr-[40px] -mt-10'>
 
-                <div className='w-full '>
+                <div className='w-full rounded-tl-[40px] rounded-tr-[40px]'>
 
-                    <div className='flex flex-col xl:flex-row items-center xl:items-start justify-center gap-6 mx-auto  '>
+                    <div className='flex flex-col xl:flex-row items-center xl:items-start justify-center gap-6 mx-auto  rounded-tl-[40px] rounded-tr-[40px]'>
                         <div className='w-full xl:max-w-[750px] pt-[80px] md:pb-[80px]  '>
                             {
                                 selectedNews === 'Building & Renovation' ? (
@@ -545,7 +545,6 @@ const NewsPage = () => {
 
                         </div>
                     </div>
-
                 </div>
             </section>
         </>
