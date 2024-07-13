@@ -41,7 +41,7 @@ const clustererOptions = {
   ]
 };
 
-const CustomMapComp = ({ locations=[], customview }) => {
+const CustomMapComp = ({ locations = [], customview }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -49,14 +49,9 @@ const CustomMapComp = ({ locations=[], customview }) => {
 
   const [map, setMap] = useState(null);
   const [selectedMarker, setSelectedMarker] = useState(null);
-  const [mapCenter, setMapCenter] = useState(center);
   const clustererRef = useRef(null);
 
   const onLoad = useCallback((map) => {
-    const bounds = new window.google.maps.LatLngBounds();
-    locations.forEach(location => bounds.extend(location.position));
-    map.fitBounds(bounds);
-    map.setZoom(13);
     setMap(map);
 
     // Initialize the MarkerClusterer
@@ -65,7 +60,15 @@ const CustomMapComp = ({ locations=[], customview }) => {
     map.addListener('click', () => {
       setSelectedMarker(null);
     });
-  }, []);
+
+    // Calculate and set the center of the map based on the locations
+    if (locations.length > 0) {
+      const bounds = new window.google.maps.LatLngBounds();
+      locations.forEach(location => bounds.extend(location.position));
+      const center = bounds.getCenter();
+      map.setCenter(center);
+    }
+  }, [locations]);
 
   const onUnmount = useCallback((map) => {
     setMap(null);
@@ -100,11 +103,9 @@ const CustomMapComp = ({ locations=[], customview }) => {
       // Add the new markers to the clusterer
       clustererRef.current.addMarkers(markers);
     }
-  }, [map]);
-
+  }, [map, locations]);
 
   const handleMarkerClick = (location) => {
-    // setSelectedMarker(location);
     const adjustedPosition = getAdjustedPosition(location.position);
     map.panTo(adjustedPosition); // Smoothly pan to the selected marker
   };
@@ -115,40 +116,38 @@ const CustomMapComp = ({ locations=[], customview }) => {
 
   const getAdjustedPosition = (position) => {
     return {
-    //   lat: position.lat + offset,
       lat: position.lat,
       lng: position.lng
     };
   };
 
   return isLoaded ? (
-    <div className={`${customview ? 'h-[70vh]': 'h-[100vh]'} w-full sticky top-0`}>
+    <div className={`${customview ? 'h-[70vh]' : 'h-[100vh]'} w-full sticky top-0`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={mapCenter}
+        center={center}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{
           streetViewControl: false,
           mapTypeControl: false,
           gestureHandling: 'auto',
-          zoom: 13
+          zoom: 12 // Set the initial zoom level here
         }}
       >
-
         {selectedMarker && (
           <InfoWindow
             position={selectedMarker.position}
             onCloseClick={handleInfoWindowClose}
           >
-            <div className='max-w-72 lg:min-w-72 bg-container ' >
-              <div className='relative ' >
+            <div className='max-w-72 lg:min-w-72 bg-container'>
+              <div className='relative'>
                 <div className='relative overflow-hidden h-48'>
                   <img src="/images/pages/homepage/herosection.svg" alt="" className='h-full w-full object-cover bg-zoom' />
                 </div>
                 <div className='absolute -bottom-2 z-10 h-[45%] w-full' style={{ background: 'linear-gradient(to bottom, transparent, #000000 50%)' }}></div>
 
-                <div className='absolute top-3 right-3 p-2.5 md:p-2 rounded-md  hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white cursor-pointer transition-colors duration-300 ease-in-out'
+                <div className='absolute top-3 right-3 p-2.5 md:p-2 rounded-md hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white cursor-pointer transition-colors duration-300 ease-in-out'
                   onClick={handleInfoWindowClose}>
                   <FontAwesomeIcon icon={faXmark} className='text-lg' />
                 </div>

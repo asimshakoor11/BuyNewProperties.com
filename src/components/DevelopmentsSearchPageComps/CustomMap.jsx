@@ -15,33 +15,7 @@ const center = {
   lng: -8.2245
 };
 
-const clustererOptions = {
-  imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
-  gridSize: 60,
-  maxZoom: 15,
-  styles: [
-    {
-      textColor: 'white',
-      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png',
-      height: 53,
-      width: 53
-    },
-    {
-      textColor: 'white',
-      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png',
-      height: 56,
-      width: 56
-    },
-    {
-      textColor: 'white',
-      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m3.png',
-      height: 66,
-      width: 66
-    }
-  ]
-};
-
-const CustomMap = ({ locations=[], customview }) => {
+const CustomMap = ({ locations = [], customview }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAz8XY-mr9AEXYq-HoUjLa4q1odrW2Qshw"
@@ -58,8 +32,29 @@ const CustomMap = ({ locations=[], customview }) => {
     map.fitBounds(bounds);
     setMap(map);
 
+
+    const icon = {
+      url: 'https://res.cloudinary.com/do3bw9naj/image/upload/v1720865615/Untitled_design__1_-removebg-preview_jo8kpa.png',
+      // url: 'https://res.cloudinary.com/do3bw9naj/image/upload/v1720866045/output-onlinegiftools_cj6rhr.gif',
+      scaledSize: new window.google.maps.Size(50, 50),
+    };
+
+
+    const renderer = {
+      render({ count, position }) {
+        return new google.maps.Marker({
+          label: { text: String(count), color: "white", fontSize: "12px", fontWeight: 'semibold' },
+          position,
+          icon,
+          // adjust zIndex to be above other markers
+          zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
+        });
+      }
+    }
+
+
     // Initialize the MarkerClusterer
-    clustererRef.current = new MarkerClusterer({ map, markers: [], options: clustererOptions });
+    clustererRef.current = new MarkerClusterer({ map, markers: [], renderer });
 
     map.addListener('click', () => {
       setSelectedMarker(null);
@@ -121,7 +116,8 @@ const CustomMap = ({ locations=[], customview }) => {
   };
 
   return isLoaded ? (
-    <div className={`${customview ? 'h-[50vh] xl:h-[100vh] ': 'h-[100vh]'} w-full sticky top-0`}>
+    <div className={`${customview ? 'h-[50vh] xl:h-[100vh] ' : 'h-[100vh]'} w-full sticky top-0`}
+    >
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapCenter}
