@@ -35,7 +35,6 @@ const CustomMap = ({ locations = [], customview }) => {
 
     const icon = {
       url: 'https://res.cloudinary.com/do3bw9naj/image/upload/v1720865615/Untitled_design__1_-removebg-preview_jo8kpa.png',
-      // url: 'https://res.cloudinary.com/do3bw9naj/image/upload/v1720866045/output-onlinegiftools_cj6rhr.gif',
       scaledSize: new window.google.maps.Size(50, 50),
     };
 
