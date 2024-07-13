@@ -497,7 +497,7 @@ const WhyWorkWithUsCarousel = ({ themegray }) => {
                                                 <div className="absolute left-4 top-0 z-10 h-[100%] border-l-4 border-[#E5E5E5]">
                                                     <div
                                                         className="absolute -left-1 z-20 border-l-4 border-primarycolor"
-                                                        style={{ height: `${progressHeight}%`, transition: 'height 0.2s ease' }}
+                                                        style={{ height: `${progressHeight}%`, }}
                                                     />
                                                 </div>
 
