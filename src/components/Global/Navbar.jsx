@@ -143,7 +143,7 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                             {/* Your navbar content goes here */}
                             <div className="w-full px-2 md:px-4 flex justify-between items-center">
                                 <div className="flex">
-                                    <Link to="/"><img src="/images/icons/navbar/logodark.svg" className='w-[250px]' alt="Logo Light" /></Link>
+                                    <Link to="/"><img src="/images/icons/navbar/weblogodark.svg" className='w-[250px]' alt="Logo Light" /></Link>
 
                                 </div>
                                 <div className="hidden 2xl:flex xl:space-x-6 font-semibold">
@@ -308,12 +308,12 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                             <div className="w-full px-2 md:px-4 flex justify-between items-center">
                                 <div className="flex">
                                     {scrollPosition > newscrollThreshold ? (
-                                        <Link to="/"><img src="/images/icons/navbar/logodark.svg" className='w-[250px]' alt="Logo Light" /></Link>
+                                        <Link to="/"><img src="/images/icons/navbar/weblogodark.svg" className='w-[250px]' alt="Logo Light" /></Link>
                                     ) : (
                                         isDropdownOpenContact || isNavbarFixed ? (
-                                            <Link to="/"><img src="/images/icons/navbar/logodark.svg" className='w-[250px]' alt="Logo Dark" /></Link>
+                                            <Link to="/"><img src="/images/icons/navbar/weblogodark.svg" className='w-[250px]' alt="Logo Dark" /></Link>
                                         ) : (
-                                            <Link to="/"><img src="/images/icons/navbar/logo.svg" className='w-[250px]' alt="Logo Dark" /></Link>
+                                            <Link to="/"><img src="/images/icons/navbar/weblogo.svg" className='w-[250px]' alt="Logo Dark" /></Link>
                                         )
                                     )}
                                 </div>
@@ -484,7 +484,7 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                             <div className="bg-white h-full pb-5 rounded-lg overflow-y-scroll scrollbar-hide relative">
                                 <div className="flex items-center justify-between p-6 ">
                                     <div className="w-full flex flex-col items-start xl-[800px]:flex-row xl:items-center xl:justify-between space-y-4 xl:space-y-0 xl:space-x-4">
-                                        <img src="/images/icons/navbar/logodark.svg" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
+                                        <img src="/images/icons/navbar/weblogodark.svg" alt="Logo" className="w-[250px] md:w-[300px] mt-6 md:mt-0" />
                                         <div className="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 lg:space-x-6">
                                             <div className='flex flex-col sm:flex-row  gap-3 sm:gap-6 w-full'>
                                                 <button className="flex flex-row items-center rounded-lg font-medium bg-primarycolor hover:bg-primarycolorhover border border-primarycolor hover:border-primarycolorhover text-white py-2 px-5 lg:py-3 md:px-8 space-x-2 cursor-pointer transition-colors duration-300 ease-in-out">

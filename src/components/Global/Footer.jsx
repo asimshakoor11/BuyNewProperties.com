@@ -230,7 +230,7 @@ const Footer = () => {
             <section className="border-b border-zinc-300 px-[7%] py-[40px] flex flex-col md:flex-row md:justify-between items-center">
                 <div className="flex items-center space-x-2">
                     <Link to={"/"}>
-                        <img src="/images/icons/navbar/logodark.svg" style={{ width: "250px" }} alt="" />
+                        <img src="/images/icons/navbar/weblogodark.svg" style={{ width: "250px" }} alt="" />
                     </Link>
 
                 </div>
