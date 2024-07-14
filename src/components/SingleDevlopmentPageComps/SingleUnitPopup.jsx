@@ -200,12 +200,15 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     </div>
                                 </section>
                             </div>
-                            <div className='block xl:hidden sticky bottom-0 z-50'>
-                                <button className="bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
+                            {/* <div className='block xl:hidden sticky bottom-0 z-50'>
+                                <button className=" w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
+                            </div> */}
+                            <div className="block sm:block md:block lg:block xl:hidden sticky bottom-0 z-50">
+                                <button className="w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">
+                                    Register Interest
+                                </button>
                             </div>
-
                         </div>
-
 
                         <div className='flex flex-col gap-4 w-full xl:w-[72%] p-8  xl:overflow-hidden'>
 
