@@ -106,14 +106,20 @@ const CustomMap = ({ locations = [], customview }) => {
     setSelectedMarker(null);
   };
 
-   const getAdjustedPosition = (position) => {
+  const getAdjustedPosition = (position) => {
     if (!map) return position;
 
     const bounds = map.getBounds();
     if (!bounds) return position;
 
     const span = bounds.toSpan();
-    const latOffset = span.lat() * 0.25; // Adjust this value to move the InfoWindow higher or lower
+    let latOffset
+    if (window.innerWidth > 700) {
+      latOffset = span.lat() * 0.25; // Adjust this value to move the InfoWindow higher or lower
+    }
+    else {
+      latOffset = span.lat() * 0.15; // Adjust this value to move the InfoWindow higher or lower
+    }
     return {
       lat: position.lat + latOffset,
       lng: position.lng

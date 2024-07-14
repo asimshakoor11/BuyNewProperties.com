@@ -7,6 +7,7 @@ import GlobalImgCarousel from '../Global/GlobalImgCarousel';
 import CustomMap from '../DevelopmentsSearchPageComps/CustomMap';
 import SharePopup from '../Global/SharePopup';
 import { Link } from 'react-router-dom';
+import CustomMapComp from '../Global/CustomMapComp';
 
 const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
@@ -76,7 +77,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                 >
                     <div className="flex flex-col-reverse xl:flex-row xl:h-full w-full rounded-3xl ">
 
-                        <div className='flex flex-col h-auto xl:h-full w-full xl:min-w-[400px] xl:max-w-[400px] bg-bggray rounded-tl-3xl rounded-bl-3xl'>
+                        <div className='flex flex-col mb-10 h-auto xl:h-full w-full xl:min-w-[400px] xl:max-w-[400px] bg-bggray rounded-tl-3xl rounded-bl-3xl'>
                             <div className='p-8 xl:overflow-y-scroll scrollbar-custom relative'>
                                 <div className="flex justify-between items-center mb-6">
                                     <h2 className="text-2xl font-medium">Unit B14</h2>
@@ -199,8 +200,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     </div>
                                 </section>
                             </div>
-                            <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
-
+                            {/* <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button> */}
                         </div>
 
 
@@ -221,7 +221,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                         <img src="/images/icons/locationmarkerblack.svg" alt="" className='block md:hidden' style={{ maxWidth: "23px" }} />
                                     </button>
                                     <Link to={'/singleunitpage'} target="_blank">
-                                        <button className={`w-14 py-2 md:py-3  bg-primarycolor text-white  rounded-lg`}>
+                                        <button className={`w-14 py-2 md:py-3 aspect-square  bg-primarycolor text-white  rounded-lg`}>
                                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='lg' />
                                         </button>
                                     </Link>
@@ -246,18 +246,20 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                             )}
 
                             {selectedPopup === 'photos' && (
-                                <div className=" xl:h-full w-full cursor-zoom-in " >
+                                <div className=" xl:h-full w-full cursor-zoom-in" >
                                     <GlobalImgCarousel dark={true} customheight={true} handlepopupcarousel={handlepopupcarousel} images={images} />
                                 </div>
                             )}
 
                             {selectedPopup === 'location' && (
                                 <div className=" xl:h-full w-full overflow-hidden">
-                                    <CustomMap customview={true} locations={locations} />
+                                    <CustomMapComp locations={locations} />
                                 </div>
                             )}
                         </div>
                     </div>
+                    <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
+
                 </div>
             </div>
 

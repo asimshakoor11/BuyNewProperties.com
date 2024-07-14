@@ -38,11 +38,11 @@ body {
 @media only screen and (max-width: 1024px) {
 
   .buttonShort {
-    padding: 8px 20px !important;
+    padding: 8px 10px !important;
   }
 
   .buttonLong {
-    padding: 8px 80px !important;
+    padding: 8px 40px !important;
   }
 
 }

@@ -15,31 +15,6 @@ const center = {
   lng: -8.2245
 };
 
-const clustererOptions = {
-  imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
-  gridSize: 60,
-  maxZoom: 15,
-  styles: [
-    {
-      textColor: 'white',
-      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png',
-      height: 53,
-      width: 53
-    },
-    {
-      textColor: 'white',
-      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2.png',
-      height: 56,
-      width: 56
-    },
-    {
-      textColor: 'white',
-      url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m3.png',
-      height: 66,
-      width: 66
-    }
-  ]
-};
 
 const CustomMapComp = ({ locations = [], customview }) => {
   const { isLoaded } = useJsApiLoader({
@@ -55,7 +30,7 @@ const CustomMapComp = ({ locations = [], customview }) => {
     setMap(map);
 
     // Initialize the MarkerClusterer
-    clustererRef.current = new MarkerClusterer({ map, markers: [], options: clustererOptions });
+    clustererRef.current = new MarkerClusterer({ map, markers: [] });
 
     map.addListener('click', () => {
       setSelectedMarker(null);
