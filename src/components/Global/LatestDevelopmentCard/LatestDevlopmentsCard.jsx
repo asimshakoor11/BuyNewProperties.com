@@ -253,7 +253,7 @@ const Cards = ({ item, index }) => {
             {isPopupOpen && (
 
                 <div id='popup-container'
-                    className="fixed inset-0 z-[1000] h-screen p-10 bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 overflow-y-scroll"
+                    className="fixed inset-0 z-[1000] h-screen pb-20 md:p-10  bg-gray-800 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 overflow-y-scroll"
 
                     onClick={() => { setIsPopupOpen(false) }}
 
@@ -281,7 +281,7 @@ const Cards = ({ item, index }) => {
                             </div>
 
                             <div className='bg-white w-full flex flex-col-reverse xl:flex-row gap-3'>
-                                <div className='w-full h-auto xl:w-1/2 p-6 flex justify-center bg-bggray'>
+                                <div className='w-full h-auto xl:w-1/2 p-2 md:p-6 flex justify-center bg-bggray'>
 
                                     <div className="overflow-hidden flex flex-col gap-3 p-6 max-w-[500px]"
                                     >
@@ -341,7 +341,7 @@ const Cards = ({ item, index }) => {
 
                                     </div>
                                 </div>
-                                <div className='w-full xl:w-1/2 p-6 h-full flex flex-col items-center justify-center  '>
+                                <div className='w-full xl:w-1/2 p-2 md:p-6 h-full flex flex-col items-center justify-center  '>
 
                                     <div className='max-w-[500px] '>
                                         <div className=''>

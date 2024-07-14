@@ -478,7 +478,7 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
             {
                 isPopupOpenBM && (
                     <div
-                        className="fixed h-screen w-full inset-0  bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll  z-[1000]"
+                        className="fixed h-screen w-full inset-0  bg-gray-800 bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 overflow-y-scroll z-[1000] pb-20 md:pb-0"
                     >
                         <div className="min-h-screen bg-zinc-100 p-6  z-[1001]">
                             <div className="bg-white h-full pb-5 rounded-lg overflow-y-scroll scrollbar-hide relative">
