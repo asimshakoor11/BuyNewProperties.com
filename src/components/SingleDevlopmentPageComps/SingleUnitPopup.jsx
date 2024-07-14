@@ -71,7 +71,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
     return (
         <>
-            <div id="popup-container" class="fixed inset-0 z-50 h-screen bg-gray-800  p-4 pb-2 xl:pb-4 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 "
+            <div id="popup-container" class="fixed inset-0 z-50 h-screen bg-gray-800  p-4 pb-8 xl:pb-4 bg-opacity-50 backdrop-blur-lg flex justify-center items-center transition-opacity duration-300 "
             >
                 <div id="popup-content" class="relative bg-white max-w-[1420px] h-full w-full rounded-3xl mx-auto overflow-y-scroll scrollbar-custom xl:overflow-hidden"
                 >
@@ -200,13 +200,8 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     </div>
                                 </section>
                             </div>
-                            {/* <div className='block xl:hidden sticky bottom-0 z-50'>
+                            <div className='block xl:hidden sticky bottom-0 z-50'>
                                 <button className=" w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
-                            </div> */}
-                            <div className="block sm:block md:block lg:block xl:hidden sticky bottom-0 z-50">
-                                <button className="w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">
-                                    Register Interest
-                                </button>
                             </div>
                         </div>
 
