@@ -148,7 +148,7 @@ const CustomMap = ({ locations = [], customview }) => {
                 </div>
                 <div className='absolute -bottom-2 z-10 h-[45%] w-full' style={{ background: 'linear-gradient(to bottom, transparent, #000000 50%)' }}></div>
 
-                <div className='absolute top-3 right-3 p-2.5 md:p-2 rounded-md  hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white cursor-pointer transition-colors duration-300 ease-in-out'
+                <div className='absolute top-3 right-3 p-2.5 rounded-md  hover:border-primarycolor bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white cursor-pointer transition-colors duration-300 ease-in-out'
                   onClick={handleInfoWindowClose}>
                   <FontAwesomeIcon icon={faXmark} className='text-lg' />
                 </div>
@@ -175,7 +175,7 @@ const CustomMap = ({ locations = [], customview }) => {
                     <p className='text-base sm:text-lg font-medium text-right'>{selectedMarker.info.price}</p>
                   </div>
                   <div className=''>
-                    <span className='p-1.5 pt-2 sm:p-2.5 sm:pt-3 font-semibold bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white rounded-md cursor-pointer transition-colors duration-300 ease-in-out'>
+                    <span className='p-2.5 pt-3 font-semibold bg-bggray hover:bg-primarycolor hover:opacity-100 opacity-80 text-black hover:text-white rounded-md cursor-pointer transition-colors duration-300 ease-in-out'>
                       <FontAwesomeIcon icon={faChevronRight} className='text-sm sm:text-base' />
                     </span>
                   </div>
