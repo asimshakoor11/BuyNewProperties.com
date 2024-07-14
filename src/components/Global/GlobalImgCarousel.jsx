@@ -56,7 +56,7 @@ const GlobalImgCarousel = ({ dark, handlepopupcarousel, customheight, images, is
                 {images.map((img, index) => (
                     <div key={index} className={`slick-slid `}>
                         <div className={`flex justify-center h-full items-center `}>
-                            <img src={img} alt={`Slide ${index}`} className="object-contain h-full w-full px-6" onClick={handlepopupcarousel} />
+                            <img src={img} alt={`Slide ${index}`} className="object-contain h-full w-full px-2 md:px-6" onClick={handlepopupcarousel} />
                         </div>
                     </div>
                 ))}
