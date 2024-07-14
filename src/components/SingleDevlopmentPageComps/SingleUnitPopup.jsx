@@ -77,7 +77,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                 >
                     <div className="flex flex-col-reverse xl:flex-row xl:h-full w-full rounded-3xl ">
 
-                        <div className='flex flex-col mb-10 h-auto xl:h-full w-full xl:min-w-[400px] xl:max-w-[400px] bg-bggray rounded-tl-3xl rounded-bl-3xl'>
+                        <div className='flex flex-col h-auto xl:h-full w-full xl:min-w-[400px] xl:max-w-[400px] bg-bggray rounded-tl-3xl rounded-bl-3xl'>
                             <div className='p-8 xl:overflow-y-scroll scrollbar-custom relative'>
                                 <div className="flex justify-between items-center mb-6">
                                     <h2 className="text-2xl font-medium">Unit B14</h2>
@@ -200,7 +200,10 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     </div>
                                 </section>
                             </div>
-                            {/* <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button> */}
+                            <div className='block xl:hidden sticky bottom-0 z-50'>
+                                <button className=" w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
+                            </div>
+
                         </div>
 
 
@@ -258,8 +261,6 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                             )}
                         </div>
                     </div>
-                    <button className="block xl:hidden sticky bottom-0 z-50 w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
-
                 </div>
             </div>
 
