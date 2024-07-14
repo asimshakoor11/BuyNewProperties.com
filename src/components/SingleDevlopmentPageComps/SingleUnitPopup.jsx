@@ -200,7 +200,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                     </div>
                                 </section>
                             </div>
-                            <div className='block xl:hidden sticky bottom-0 z-50'>
+                            <div className=''>
                                 <button className=" w-full bg-primarycolor text-white font-medium rounded-br-3xl rounded-bl-3xl py-3">Register Interest</button>
                             </div>
 
