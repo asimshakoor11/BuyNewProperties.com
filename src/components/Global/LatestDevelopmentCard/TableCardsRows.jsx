@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 // import { Checkbox } from "@material-tailwind/react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -33,16 +33,33 @@ const TableCardsRows = ({ row, index }) => {
             <td className="py-2 lg:py-3 px-2 lg:px-4 text-center">
                 <div className="relative w-fit flex items-center ">
                     {showTooltip && (
-                        <motion.p
-                            className={`absolute w-max right-8 mb-1 border lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
-                            initial={{ x: -20, opacity: 0 }} // Initial position and opacity
-                            animate={{ x: 0, opacity: 1 }} // Animation properties
-                            transition={{ duration: 0.3 }} // Animation duration
-                        >
-                            {isSaved ? "Remove from favourites" : "Add to favourites"}
-                        </motion.p>
-                    )}
+                        <AnimatePresence>
+                            {isSaved ? (
+                                <motion.p
+                                    key="remove" // Unique key for the element
+                                    className={`absolute w-max right-8 mb-1 lowercase text-xs bg-white shadow-lg py-1.5 px-2 text-black rounded-lg`}
+                                    initial={{ x: -20, opacity: 0 }} // Initial position and opacity
+                                    animate={{ x: 0, opacity: 1 }} // Animation properties
+                                    exit={{ x: -20, opacity: 0 }} // Exit animation properties
+                                    transition={{ duration: 0.3 }} // Animation duration
 
+                                >
+                                    Remove from favourites
+                                </motion.p>
+                            ) : (
+                                <motion.p
+                                    key="add" // Unique key for the element
+                                    className={`absolute w-max right-8 mb-1 lowercase text-xs bg-white shadow-lg py-1.5 px-2 text-black rounded-lg`}
+                                    initial={{ x: -20, opacity: 0 }} // Initial position and opacity
+                                    animate={{ x: 0, opacity: 1 }} // Animation properties
+                                    exit={{ x: -20, opacity: 0 }} // Exit animation properties
+                                    transition={{ duration: 0.3 }} // Animation duration
+                                >
+                                    Add to favourites
+                                </motion.p>
+                            )}
+                        </AnimatePresence>
+                    )}
                     <button
                         onClick={handleSaveClick}
                         className="bg-transparent border-none cursor-pointer"
@@ -53,16 +70,21 @@ const TableCardsRows = ({ row, index }) => {
                         <FontAwesomeIcon
                             icon={solidBookmark}
                             style={{
-                                color: isSaved ? 'green' : 'silver',
+                                color: isSaved ? '#00703C' : '#c7c7c7',
                                 stroke: 'black',
                                 strokeWidth: '40px'
                             }}
-                            className="text-xl"
+                            className="text-xl "
                         />
                     </button>
                 </div>
             </td>
-        </tr>
+            <td className="py-2 px-4 text-center">
+                <button className="bg-transparent icon-slide">
+                    <FontAwesomeIcon icon={faChevronRight} size='sm' />
+                </button>
+            </td>
+        </tr >
     );
 }
 

@@ -23,6 +23,8 @@ export default withMT({
         'herohommd': { 'min': '790px' },
         'herohomlg': { 'min': '1010px' },
         'herosingdevpag': { 'min': '767px' },
+        'customminforDEVCARDS': { 'min': '1300px' },
+
       },
       fontFamily: {
         BebasNeueSemiExpBold: ['BebasNeueSemiExpBold'],

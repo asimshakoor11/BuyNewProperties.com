@@ -73,11 +73,11 @@ const Testimonials = () => {
         <div className="">
             <h2 className="text-3xl font-bold text-center text-primarycolor mb-8">What Russell Henderson Clients Say</h2>
             <div className="max-w-4xl mx-auto mt-10 ">
-                <Slider {...settings} className='h-[30vh]'>
+                <Slider {...settings} className='h-full'>
                     {testimonialsData.map((testimonial, index) => (
-                        <div key={index} className="testimonialslider h-[30vh] ">
+                        <div key={index} className=" h-full ">
                             <div className='h-full w-full flex items-center justify-center '>
-                                <div className="bg-bggray p-12 rounded-lg ">
+                                <div className="bg-bggray p-12 rounded-lg mx-2">
                                     <p className="italic text-lg">"{testimonial.quote}"</p>
                                     <p className="mt-4 text-black font-semibold">- {testimonial.name}, <span className="text-gray-600">{testimonial.title}</span></p>
                                 </div>

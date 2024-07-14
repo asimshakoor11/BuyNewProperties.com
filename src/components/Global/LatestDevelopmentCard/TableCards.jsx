@@ -87,7 +87,7 @@ const TableCards = () => {
                         {tableHeaders.map((col, index) => (
                             <th
                                 key={index}
-                                className={`py-2 lg:py-3 px-2 lg:px-4 font-medium text-center cursor-pointer ${index === 0 ? 'rounded-tl-[18px] ' : ''}`}
+                                className={`py-2 lg:py-3 px-2 lg:px-4 font-semibold text-center cursor-pointer ${index === 0 ? 'rounded-tl-lg ' : ''}`}
                                 onClick={col.key ? () => requestSort(col.key) : undefined}
                             >
                                 {/* <span >{col.label}</span> */}
@@ -95,13 +95,14 @@ const TableCards = () => {
                                 <div className='w-full flex justify-center'>
                                     <div className='w-max '>
                                         <span >{col.label}</span>
-                                        <FontAwesomeIcon icon={faSort} size="sm" className='text-gray-400 ml-2 my-auto' />
+                                        <FontAwesomeIcon icon={faSort} size="sm" className='text-white ml-2 my-auto' />
                                     </div>
                                 </div>
 
                             </th>
                         ))}
-                        <th className='rounded-tr-[18px]'></th>
+                        <th className=''></th>
+                        <th className='rounded-tr-lg'></th>
                     </tr>
                 </thead>
                 <tbody className="text-sm md:text-md text-primarycolor">
@@ -109,8 +110,8 @@ const TableCards = () => {
                         <TableCardsRows key={index} row={row} index={index} />
                     ))}
                     <tr >
-                        <td colspan={4} className="bg-primarycolor font-medium w-full text-white text-center py-2 lg:py-3 rounded-bl-[18px] rounded-br-[18px]">
-                            <button className="font-medium">See the Development</button>
+                        <td colspan={5} className="bg-primarycolor hover:bg-primarycolorhover font-semibold w-full text-white text-center py-2 lg:py-3 rounded-bl-lg rounded-br-lg cursor-pointer transition-colors duration-300 ease-in-out">
+                            <button className="font-semibold">See The Development</button>
                         </td>
                     </tr>
 

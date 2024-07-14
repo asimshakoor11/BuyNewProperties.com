@@ -150,14 +150,32 @@ const Cards = ({ item, index }) => {
 
                             <div className="flex items-center mr-4 mb-2">
                                 {showTooltip && (
-                                    <motion.p
-                                        className={`absolute right-10 mr-2 mb-1 lowercase text-xs bg-white py-1 px-2 text-black rounded-lg`}
-                                        initial={{ x: -20, opacity: 0 }} // Initial position and opacity
-                                        animate={{ x: 0, opacity: 1 }} // Animation properties
-                                        transition={{ duration: 0.3 }} // Animation duration
-                                    >
-                                        {isSaved ? "Remove from favourites" : "Add to favourites"}
-                                    </motion.p>
+                                     <AnimatePresence>
+                                     {isSaved ? (
+                                         <motion.p
+                                             key="remove" // Unique key for the element
+                                             className={`absolute w-max right-10 mr-2 mb-1 lowercase text-xs bg-white shadow-lg py-1.5 px-2 text-black rounded-lg`}
+                                             initial={{ x: -20, opacity: 0 }} // Initial position and opacity
+                                             animate={{ x: 0, opacity: 1 }} // Animation properties
+                                             exit={{ x: -20, opacity: 0 }} // Exit animation properties
+                                             transition={{ duration: 0.3 }} // Animation duration
+         
+                                         >
+                                             Remove from favourites
+                                         </motion.p>
+                                     ) : (
+                                         <motion.p
+                                             key="add" // Unique key for the element
+                                             className={`absolute w-max right-10 mr-1 mb-1 lowercase text-xs bg-white shadow-lg py-1.5 px-2 text-black rounded-lg`}
+                                             initial={{ x: -20, opacity: 0 }} // Initial position and opacity
+                                             animate={{ x: 0, opacity: 1 }} // Animation properties
+                                             exit={{ x: -20, opacity: 0 }} // Exit animation properties
+                                             transition={{ duration: 0.3 }} // Animation duration
+                                         >
+                                             Add to favourites
+                                         </motion.p>
+                                     )}
+                                 </AnimatePresence>
                                 )}
 
                                 <button
@@ -170,7 +188,7 @@ const Cards = ({ item, index }) => {
                                     <FontAwesomeIcon
                                         icon={solidBookmark}
                                         style={{
-                                            color: isSaved ? 'green' : 'silver',
+                                            color: isSaved ? '#00703C' : '#c7c7c7',
                                             stroke: 'black',
                                             strokeWidth: '40px'
                                         }}
@@ -223,7 +241,7 @@ const Cards = ({ item, index }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                id='devtable' className={`w-full mx-auto overflow-x-scroll rounded-[18px] scrollbar-hide mt-2`}
+                                id='devtable' className={`w-full mx-auto overflow-x-scroll rounded-lg scrollbar-hide mt-2`}
                             >
                                 <TableCards />
                             </motion.div>

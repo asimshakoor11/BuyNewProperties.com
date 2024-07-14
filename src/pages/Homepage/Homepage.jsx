@@ -69,7 +69,7 @@ const Homepage = () => {
 
                 <section className='section bg-white'>
                     <h2 className="text-4xl md:text-5xl font-BebasNeueSemiExpBold text-primarycolor text-left">Latest Developments</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-10 mb-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 customminforDEVCARDS:grid-cols-3 gap-8 mt-10 mb-10">
                         {data.map((item, index) => (
                             <LatestDevelopmentCard key={index} index={index} item={item} />
                         ))}
