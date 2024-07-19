@@ -15,19 +15,32 @@ import envelope from '/images/icons/envelope.png'
 import pictureblack from '/images/icons/pictureblack.png'
 import { Page, Text, Image, Document, StyleSheet, View, Svg } from "@react-pdf/renderer";
 
-import { Font } from '@react-pdf/renderer';
-import BebasNeuePro from '/font/BebasNeuePro-SemiExpBold.ttf';
 
-// Font.register({
-//     family: 'BebasNeuePro',
-//     src: BebasNeuePro,
-//     fontWeight: 700,
-// })
+import { Font } from '@react-pdf/renderer';
+import popExtraBold from '/Poppins/Poppins-ExtraBold.ttf';
+import popBold from '/Poppins/Poppins-Bold.ttf';
+import popSemiBold from '/Poppins/Poppins-SemiBold.ttf';
+import popRegular from '/Poppins/Poppins-Regular.ttf';
+import popLight from '/Poppins/Poppins-Light.ttf';
+
+Font.register({
+    family: 'Poppins',
+    fonts: [
+        { src: popExtraBold, fontWeight: 800 },
+        { src: popBold, fontWeight: 700 },
+        { src: popSemiBold, fontWeight: 600 },
+        { src: popRegular, fontWeight: 400 },
+        { src: popLight, fontWeight: 300 },
+    ],
+})
+
 
 // Define styles
 const styles = StyleSheet.create({
     body: {
         backgroundColor: 'white',
+        fontFamily: 'Poppins',
+        fontWeight: 400
     },
     containerheadermain: {
         position: 'relative',
@@ -77,7 +90,7 @@ const styles = StyleSheet.create({
 
     container: {
         width: '97%',
-        marginVertical: 20,
+        marginVertical: 10,
         marginHorizontal: 10,
         border: '1px solid black',
         borderRadius: '10px',
@@ -98,11 +111,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 10,
-        fontWeight: 'extrabold',
+        fontWeight: 700,
     },
     subtitle: {
         fontSize: 8,
-        fontWeight: 'semibold',
+        fontWeight: 600,
     },
 
     containerfooter: {
@@ -122,7 +135,7 @@ const styles = StyleSheet.create({
     },
     footerText: {
         fontSize: 12,
-        fontWeight: 'extrabold',
+        fontWeight: 700,
         marginBottom: 5,
     },
     disclaimer: {
@@ -143,7 +156,7 @@ const styles = StyleSheet.create({
 
     heading1: {
         fontSize: '16px',
-        fontWeight: 'extrabold',
+        fontWeight: 700,
         marginBottom: '10px'
     },
     heading1text: {
@@ -206,7 +219,7 @@ const styles = StyleSheet.create({
     },
     readmoretitle: {
         fontSize: 12,
-        fontWeight: 'bold',
+        fontWeight: 700,
         marginBottom: 5,
     },
     readmoredescription: {
@@ -238,7 +251,7 @@ const styles = StyleSheet.create({
     },
     tableCellHeader: {
         fontSize: 10,
-        fontWeight: "bold",
+        fontWeight: 700,
         textAlign: 'center'
     },
     tableCell: {
@@ -264,29 +277,30 @@ const styles = StyleSheet.create({
         width: '48%',
     },
     lastpagecard: {
-        border: '1 solid black',
+        border: '1px solid #000',
         padding: 20,
         borderRadius: 5,
-        margin: 20,
+        margin: 10,
     },
     lastpagesubHeader: {
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: 700,
+        marginBottom: 6,
     },
     lastpagetext: {
-        marginBottom: 10,
+        marginBottom: 5,
         fontSize: 12
     },
     lastpagelist: {
         marginLeft: 20,
-        marginBottom: 10,
+        marginBottom: 5,
     },
     lastpagelistItem: {
         marginBottom: 5,
         fontSize: 12
     },
     lastpagecontactInfo: {
-        marginTop: 10,
+        marginTop: 5,
         display: 'flex',
         flexDirection: 'row',
         gap: 10
@@ -310,18 +324,21 @@ const styles = StyleSheet.create({
     },
     linksitems: {
         fontSize: 12,
-        textDecoration: 'underline'
+        textDecoration: 'underline',
+        fontWeight: 600
     },
     cardcontainer: {
         display: 'flex',
         flexDirection: 'row',
         border: '1px solid black',
         borderRadius: 10,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        height: '180px',
+
     },
     cardimagecontainer: {
         width: '50%',
-        height: '220px',
+        height: '178px',
         borderRadius: 10,
 
     },
@@ -339,11 +356,13 @@ const styles = StyleSheet.create({
     },
     cardtitle: {
         fontSize: 12,
-        fontWeight: 'bold',
+        fontWeight: 600,
     },
     cardsubtitle: {
         fontSize: 14,
         marginVertical: 5,
+        fontWeight: 600,
+
     },
     carddescription: {
         fontSize: 8,
@@ -359,7 +378,7 @@ const styles = StyleSheet.create({
 
     cardprice: {
         fontSize: 12,
-        fontWeight: 'bold',
+        fontWeight: 700,
         textAlign: 'left',
         marginTop: 10,
     }
@@ -407,7 +426,7 @@ const PriceListPDF = () => {
                     <Text style={styles.lastpagetext}>
                         Kind regards,
                     </Text>
-                    <Text style={{ ...styles.lastpagetext, fontWeight: 'bold' }}>
+                    <Text style={{ ...styles.lastpagetext, fontWeight: 700 }}>
                         The BuyDevelopments.com Team
                     </Text>
                     <Text style={{ ...styles.lastpagetext, color: '#828282' }}>
@@ -533,7 +552,7 @@ const PriceListPDF = () => {
                 </View>
 
                 <View style={{ paddingHorizontal: 10 }}>
-                    <Text style={{ textAlign: 'center', fontWeight: 'heavy' }}>Available Apartments</Text>
+                    <Text style={{ textAlign: 'center', fontWeight: 700 }}>Available Apartments</Text>
 
 
                     <View style={styles.table}>
@@ -638,7 +657,7 @@ const PriceListPDF = () => {
                     <Text style={styles.lastpagetext}>
                         All the best,
                     </Text>
-                    <Text style={{ ...styles.lastpagetext, fontWeight: 'bold' }}>
+                    <Text style={{ ...styles.lastpagetext, fontWeight: 700 }}>
                         The BuyDevelopments.com Team
                     </Text>
                     <Text style={{ ...styles.lastpagetext, color: '#828282' }}>
@@ -661,7 +680,7 @@ const PriceListPDF = () => {
                     <Image src={lastpagecurve} />
                 </View>
 
-                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#002038', color: 'white', height: '300px' }}>
+                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#002038', color: 'white', height: '250px' }}>
                     <Image
                         style={styles.companyLogo}
                         src={logo} // Replace with the actual logo URL

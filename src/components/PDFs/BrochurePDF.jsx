@@ -1,5 +1,5 @@
 import React from "react";
-// import logo from '../../../public/images/global/weblogowhite.png';
+// import logo from '/images/global/weblogowhite.png';
 import logo from '/images/pages/printpdfs/weblogo.png'
 import logodark from '/images/pages/printpdfs/weblogodark.png'
 import section from '/images/pages/printpdfs/section.png'
@@ -15,27 +15,38 @@ import pictureblack from '/images/icons/pictureblack.png'
 import { Page, Text, Image, Document, StyleSheet, View, Svg } from "@react-pdf/renderer";
 
 import { Font } from '@react-pdf/renderer';
-import BebasNeuePro from '/font/BebasNeuePro-SemiExpBold.ttf';
+import popExtraBold from '/Poppins/Poppins-ExtraBold.ttf';
+import popBold from '/Poppins/Poppins-Bold.ttf';
+import popSemiBold from '/Poppins/Poppins-SemiBold.ttf';
+import popRegular from '/Poppins/Poppins-Regular.ttf';
+import popLight from '/Poppins/Poppins-Light.ttf';
 
 Font.register({
-    family: 'BebasNeuePro',
-    src: BebasNeuePro,
-    fontWeight: 700,
+    family: 'Poppins',
+    fonts: [
+        { src: popExtraBold, fontWeight: 800 },
+        { src: popBold, fontWeight: 700 },
+        { src: popSemiBold, fontWeight: 600 },
+        { src: popRegular, fontWeight: 400 },
+        { src: popLight, fontWeight: 300 },
+    ],
 })
 
 // Define styles
 const styles = StyleSheet.create({
     body: {
         backgroundColor: 'white',
+        fontFamily: 'Poppins',
+        fontWeight: 'medium'
     },
     containerheadermain: {
         position: 'relative',
         zIndex: 50,
-        maxHeight: '643px',
+        maxHeight: '660px',
         overflow: 'hidden'
     },
     imageheadermain: {
-        height: '240px',
+        height: '255px',
     },
     headerSection: {
         paddingVertical: 20,
@@ -53,24 +64,23 @@ const styles = StyleSheet.create({
         width: '200px',
     },
     mainTitle: {
-        fontSize: 18,
-        // fontWeight: 'normal',
+        fontSize: 20,
         marginBottom: 5,
-        fontFamily: 'BebasNeuePro'
     },
     location: {
         fontSize: 14,
-        marginBottom: 10,
-        fontStyle: 'normal',
-        fontWeight: 700
+        marginBottom: 5,        
+        fontFamily: 'Poppins',
+        fontWeight: 'bold'
     },
     priceRange: {
-        fontSize: 16,
-        fontWeight: 600,
+        fontSize: 16,              
+        fontFamily: 'Poppins',
+        fontWeight: 'semibold'
     },
     imagesection: {
         position: 'relative',
-        top: '-80px',
+        top: '-70px',
         zIndex: 30,
     },
 
@@ -84,7 +94,7 @@ const styles = StyleSheet.create({
         border: '1px solid black',
         borderRadius: '10px',
         position: 'relative',
-        top: '-40px',
+        top: '-60px',
     },
     grid: {
         display: 'flex',
@@ -101,11 +111,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 10,
-        fontWeight: 'extrabold',
+        fontWeight: 700,
     },
     subtitle: {
         fontSize: 8,
-        fontWeight: 'semibold',
+        fontWeight: 600,
     },
 
     containerfooter: {
@@ -125,7 +135,7 @@ const styles = StyleSheet.create({
     },
     footerText: {
         fontSize: 12,
-        fontWeight: 'extrabold',
+        fontWeight: 700,
         marginBottom: 5,
     },
     disclaimer: {
@@ -146,12 +156,12 @@ const styles = StyleSheet.create({
 
     heading1: {
         fontSize: '16px',
-        fontWeight: 'extrabold',
+        fontWeight: 700,
         marginBottom: '10px'
     },
     heading1text: {
-        fontSize: '14px',
-        marginVertical: '5px'
+        fontSize: '12px',
+        marginVertical: '3px'
     },
     containeroptions: {
         display: 'flex',
@@ -166,7 +176,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingVertical: '20px',
+        paddingVertical: '10px',
         gap: '10px',
         borderBottom: '1px solid gray',
         width: '200px'
@@ -185,7 +195,8 @@ const styles = StyleSheet.create({
         width: '10px'
     },
     icontext: {
-        fontSize: '12px'
+        fontSize: '12px',
+        fontWeight: 600
     },
     readmorecontainer: {
         display: 'flex',
@@ -209,7 +220,7 @@ const styles = StyleSheet.create({
     },
     readmoretitle: {
         fontSize: 12,
-        fontWeight: 'bold',
+        fontWeight: 600,
         marginBottom: 5,
     },
     readmoredescription: {
@@ -241,7 +252,7 @@ const styles = StyleSheet.create({
     },
     tableCellHeader: {
         fontSize: 10,
-        fontWeight: "bold",
+        fontWeight: 600,
         textAlign: 'center'
     },
     tableCell: {
@@ -267,14 +278,14 @@ const styles = StyleSheet.create({
         width: '48%',
     },
     lastpagecard: {
-        border: '1 solid #000',
+        border: '1px solid #000',
         padding: 20,
         borderRadius: 5,
         margin: 20,
     },
     lastpagesubHeader: {
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: 700,
         marginBottom: 10,
     },
     lastpagetext: {
@@ -314,7 +325,8 @@ const styles = StyleSheet.create({
     },
     linksitems: {
         fontSize: 12,
-        textDecoration: 'underline'
+        textDecoration: 'underline',
+        fontWeight: 600
     }
 });
 
@@ -351,11 +363,11 @@ const BrochurePDF = () => {
                     </View>
 
                     <View style={{ flexDirection: 'column', height: '85%', gap: 10, paddingHorizontal: 10, }}>
-                        <View style={{ width: '100%', height: '40%', borderRadius: 10 }}>
+                        <View style={{ width: '100%', height: '44%', borderRadius: 10 }}>
                             <Image style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} src={images[i]} />
                         </View>
                         {images[i + 1] && (
-                            <View style={{ width: '100%', height: '40%', borderRadius: 10 }}>
+                            <View style={{ width: '100%', height: '44%', borderRadius: 10 }}>
                                 <Image style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} src={images[i + 1]} />
                             </View>
                         )}
@@ -365,9 +377,9 @@ const BrochurePDF = () => {
                         <View style={styles.footer}>
                             <View style={styles.row}>
 
-                                <Text style={styles.footerText}>info@buy.re</Text>
+                                <Text style={{...styles.footerText, fontWeight: 600}}>info@buy.re</Text>
 
-                                <Text style={styles.footerText}>www.buydevelopments.com</Text>
+                                <Text style={{...styles.footerText, fontWeight: 600}}>www.buydevelopments.com</Text>
                             </View>
                             <Text style={styles.disclaimer}>
                                 The information provided in this property appeal is for general informational purposes only. While we strive to ensure accuracy, completeness, and timeliness, we cannot guarantee the accuracy of property details, pricing, or availability. The displayed images and floor plans are for illustrative purposes only and may not represent the actual property or current condition.
@@ -402,9 +414,9 @@ const BrochurePDF = () => {
                         <View style={styles.footer}>
                             <View style={styles.row}>
 
-                                <Text style={styles.footerText}>info@buy.re</Text>
+                                <Text style={{...styles.footerText, fontWeight: 600}}>info@buy.re</Text>
 
-                                <Text style={styles.footerText}>www.buydevelopments.com</Text>
+                                <Text style={{...styles.footerText, fontWeight: 600}}>www.buydevelopments.com</Text>
                             </View>
                             <Text style={styles.disclaimer}>
                                 The information provided in this property appeal is for general informational purposes only. While we strive to ensure accuracy, completeness, and timeliness, we cannot guarantee the accuracy of property details, pricing, or availability. The displayed images and floor plans are for illustrative purposes only and may not represent the actual property or current condition.
@@ -558,7 +570,7 @@ const BrochurePDF = () => {
                 </View>
 
                 <View>
-                    <Text style={{ fontSize: 18, fontWeight: 'extrabold', marginBottom: 20, paddingLeft: 10 }}>Read More About</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 700, marginBottom: 20, paddingLeft: 10 }}>Read More About</Text>
 
                     <View style={styles.readmorecontainer}>
                         <View style={styles.readmoresection}>
@@ -613,7 +625,7 @@ const BrochurePDF = () => {
                 </View>
 
                 <View style={{ paddingHorizontal: 10 }}>
-                    <Text style={{ textAlign: 'center', fontWeight: 'heavy' }}>Available Apartments</Text>
+                    <Text style={{ textAlign: 'center', fontWeight: 700 }}>Available Apartments</Text>
 
 
                     <View style={styles.table}>
@@ -739,11 +751,11 @@ const BrochurePDF = () => {
                     </View>
                 </View>
 
-                <View style={{position: 'relative' , top: 2, width: '101%'}}>
+                <View style={{ position: 'relative', top: 2, width: '101%' }}>
                     <Image src={lastpagecurve} />
                 </View>
 
-                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center',  backgroundColor: '#002038', color: 'white', height: '300px' }}>
+                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#002038', color: 'white', height: '200px' }}>
                     <Image
                         style={styles.companyLogo}
                         src={logo} // Replace with the actual logo URL

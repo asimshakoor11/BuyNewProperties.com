@@ -187,7 +187,7 @@ const PropertyDetails = ({ SingleUnitPage }) => {
                                                 {({ loading }) => (loading ?
                                                     <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
                                                         Loading..</button> :
-                                                    <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Brochure</button>)}
+                                                    <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Broucher</button>)}
                                             </PDFDownloadLink>
                                         </div>
                                         <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
