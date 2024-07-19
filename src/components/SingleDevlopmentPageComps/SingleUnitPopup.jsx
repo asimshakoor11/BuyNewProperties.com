@@ -11,7 +11,7 @@ import CustomMapComp from '../Global/CustomMapComp';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import SingleUnitBroucherPDF from '../PDFs/SingleUnitBroucherPDF';
 import SingleUnitFloorPlanPDF from '../PDFs/SingleUnitFloorplanPDF';
-import { Bars } from 'react-loader-spinner';
+// import { Bars } from 'react-loader-spinner';
 
 const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
