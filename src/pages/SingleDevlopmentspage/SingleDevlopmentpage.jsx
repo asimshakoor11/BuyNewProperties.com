@@ -95,6 +95,10 @@ const SingleDevlopmentpage = () => {
         '/images/pages/homepage/architecture.jpg',
         '/images/pages/homepage/kuala-lumpur.jpg',
     ];
+    useEffect(() => {
+        console.log('Component is fully loaded');
+      }, []); 
+    
 
 
     return (

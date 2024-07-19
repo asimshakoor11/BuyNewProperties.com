@@ -8,6 +8,10 @@ import CustomMap from '../DevelopmentsSearchPageComps/CustomMap';
 import SharePopup from '../Global/SharePopup';
 import { Link } from 'react-router-dom';
 import CustomMapComp from '../Global/CustomMapComp';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import SingleUnitBroucherPDF from '../PDFs/SingleUnitBroucherPDF';
+import SingleUnitFloorPlanPDF from '../PDFs/SingleUnitFloorplanPDF';
+import { Bars } from 'react-loader-spinner';
 
 const SingleUnitPopup = ({ isOpen, onClose, images }) => {
 
@@ -68,6 +72,7 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
     const handlepopupcarousel = (e) => {
         setIsPopupPhotos(true);
     }
+
 
     return (
         <>
@@ -189,14 +194,29 @@ const SingleUnitPopup = ({ isOpen, onClose, images }) => {
                                 <section>
                                     <h3 className="text-sm font-medium mb-2">Downloads</h3>
                                     <div className="rounded-lg grid grid-cols-2 gap-4">
-                                        <button className="flex items-center justify-center gap-2 bg-white text-black font-medium py-2 md:py-3 rounded-lg">
-                                            <img src="/images/icons/download.svg" alt="" className='h-5' />
-                                            <span>Brochure</span>
-                                        </button>
-                                        <button className="flex items-center justify-center gap-2 bg-white text-black font-medium py-2 md:py-3 rounded-lg">
-                                            <img src="/images/icons/download.svg" alt="" className='h-5' />
-                                            <span>Brochure</span>
-                                        </button>
+                                        <PDFDownloadLink document={<SingleUnitBroucherPDF />} fileName="SingleUnitBroucher">
+                                            {({ loading }) => (loading ?
+                                                <button className="w-full flex items-center justify-center gap-2 bg-white text-black font-medium py-2 md:py-3 rounded-lg pointer-events-none">
+                                                    <img src="/images/icons/download.svg" alt="" className='h-5' />
+                                                    <span>Loading..</span>
+                                                </button> :
+                                                <button className="w-full flex items-center justify-center gap-2 bg-white text-black font-medium py-2 md:py-3 rounded-lg">
+                                                    <img src="/images/icons/download.svg" alt="" className='h-5' />
+                                                    <span>Brochure</span>
+                                                </button>)}
+                                        </PDFDownloadLink>
+
+                                        <PDFDownloadLink document={<SingleUnitFloorPlanPDF />} fileName="FloorPlan">
+                                            {({ loading }) => (loading ?
+                                                <button className="w-full flex items-center justify-center gap-2 bg-white text-black font-medium py-2 md:py-3 rounded-lg pointer-events-none">
+                                                    <img src="/images/icons/download.svg" alt="" className='h-5' />
+                                                    <span>Loading..</span>
+                                                </button> :
+                                                <button className="w-full flex items-center justify-center gap-2 bg-white text-black font-medium py-2 md:py-3 rounded-lg">
+                                                    <img src="/images/icons/download.svg" alt="" className='h-5' />
+                                                    <span>FloorPlan</span>
+                                                </button>)}
+                                        </PDFDownloadLink>
                                     </div>
                                 </section>
                             </div>
