@@ -7,7 +7,7 @@ import RequestATour from './RequestATour';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import BrochurePDF from '../PDFs/BrochurePDF';
 import PriceListPDF from '../PDFs/PriceListPDF';
-import { Bars } from 'react-loader-spinner';
+// import { Bars } from 'react-loader-spinner';
 
 
 const PropertyDetails = ({ SingleUnitPage }) => {
