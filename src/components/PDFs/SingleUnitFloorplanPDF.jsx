@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: "#003421",
         color: "white",
-        padding: 20,
+        padding: 15,
         textAlign: "center",
     },
     footerText: {
@@ -135,8 +135,8 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     disclaimer: {
-        fontSize: 8,
-        marginTop: 10,
+        fontSize: 6,
+        marginTop: 5,
     },
     row: {
         width: '100%',
@@ -144,7 +144,10 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     headerimage: {
-        width: '100%',
+        position: 'relative',
+        width: '101%',
+        top: '-2px',
+        left: '-2px',
     },
     container1: {
         paddingHorizontal: 10
@@ -259,11 +262,6 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal: 10
     },
-    imagesimage: {
-        width: '100%',
-        height: 150,
-        marginBottom: 10,
-    },
     imagesrow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -272,15 +270,17 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: '48%',
     },
+    
     lastpagecard: {
-        border: '1 solid black',
-        padding: 10,
+        border: '1px solid #000',
+        padding: 20,
         borderRadius: 5,
         margin: 10,
     },
     lastpagesubHeader: {
         fontSize: 14,
         fontWeight: 700,
+        marginBottom: 6,
     },
     lastpagetext: {
         marginBottom: 5,
@@ -321,17 +321,17 @@ const styles = StyleSheet.create({
         fontSize: 12,
         textDecoration: 'underline'
     },
+    
     cardcontainer: {
         display: 'flex',
         flexDirection: 'row',
         border: '1px solid black',
         borderRadius: 10,
         marginHorizontal: 10,
-        height: '200px',
+        height: '220px'
     },
     cardimagecontainer: {
         width: '50%',
-        height: '198px',
         borderRadius: 10,
     },
     cardimage: {
@@ -347,30 +347,27 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     cardtitle: {
-        fontSize: 12,
-        fontWeight: 700,
+        fontSize: 11,
+        fontWeight: 600,
     },
     cardsubtitle: {
         fontSize: 14,
-        marginVertical: 5,
+        fontWeight: 600,
     },
     carddescription: {
         fontSize: 8,
-        marginVertical: 5,
     },
     cardbuttonContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         gap: 10,
-        marginVertical: 10,
     },
 
     cardprice: {
         fontSize: 12,
         fontWeight: 700,
         textAlign: 'left',
-        marginTop: 10,
     }
 });
 
@@ -391,7 +388,7 @@ const PriceListPDF = () => {
         // First four images (2 per page)
         for (let i = 0; i < 4 && i < images.length; i += 2) {
             pages.push(
-                <Page key={`first-four-${i}`}>
+                <Page key={`first-four-${i}`} style={styles.body}>
                     <View>
                         <Image
                             style={styles.headerimage}
@@ -400,11 +397,11 @@ const PriceListPDF = () => {
                     </View>
 
                     <View style={{ flexDirection: 'column', height: '85%', gap: 10, paddingHorizontal: 10, }}>
-                        <View style={{ width: '100%', height: '44%', borderRadius: 10 }}>
+                        <View style={{ width: '100%', height: '46.5%', borderRadius: 10 }}>
                             <Image style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} src={images[i]} />
                         </View>
                         {images[i + 1] && (
-                            <View style={{ width: '100%', height: '44%', borderRadius: 10 }}>
+                            <View style={{ width: '100%', height: '46%', borderRadius: 10 }}>
                                 <Image style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} src={images[i + 1]} />
                             </View>
                         )}
@@ -414,9 +411,9 @@ const PriceListPDF = () => {
                         <View style={styles.footer}>
                             <View style={styles.row}>
 
-                                <Text style={styles.footerText}>info@buy.re</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>info@buy.re</Text>
 
-                                <Text style={styles.footerText}>www.buydevelopments.com</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>www.buydevelopments.com</Text>
                             </View>
                             <Text style={styles.disclaimer}>
                                 The information provided in this property appeal is for general informational purposes only. While we strive to ensure accuracy, completeness, and timeliness, we cannot guarantee the accuracy of property details, pricing, or availability. The displayed images and floor plans are for illustrative purposes only and may not represent the actual property or current condition.
@@ -431,7 +428,7 @@ const PriceListPDF = () => {
         let remainingImages = images.slice(4);
         for (let i = 0; i < remainingImages.length; i += 8) {
             pages.push(
-                <Page style={styles.page} key={`more-images-${i}`}>
+                <Page style={styles.body} key={`more-images-${i}`}>
                     <View>
                         <Image
                             style={styles.headerimage}
@@ -442,7 +439,10 @@ const PriceListPDF = () => {
                     <View style={styles.imagessection}>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10, }}>
                             {remainingImages.slice(i, i + 8).map((img, index) => (
-                                <Image style={[styles.imagesimage, { width: '48%', marginBottom: 10, borderRadius: 10 }]} src={img} key={index} />
+                                <View style={{ width: '49%', height: 162,  borderRadius: 10 }}>
+                                    <Image style={[styles.imagesimage, { width: '100%', height: '100%', objectFit: 'cover',  borderRadius: 10 }]} src={img} key={index} />
+
+                                </View>
                             ))}
                         </View>
                     </View>
@@ -451,9 +451,9 @@ const PriceListPDF = () => {
                         <View style={styles.footer}>
                             <View style={styles.row}>
 
-                                <Text style={styles.footerText}>info@buy.re</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>info@buy.re</Text>
 
-                                <Text style={styles.footerText}>www.buydevelopments.com</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>www.buydevelopments.com</Text>
                             </View>
                             <Text style={styles.disclaimer}>
                                 The information provided in this property appeal is for general informational purposes only. While we strive to ensure accuracy, completeness, and timeliness, we cannot guarantee the accuracy of property details, pricing, or availability. The displayed images and floor plans are for illustrative purposes only and may not represent the actual property or current condition.

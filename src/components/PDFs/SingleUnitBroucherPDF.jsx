@@ -44,11 +44,17 @@ const styles = StyleSheet.create({
     containerheadermain: {
         position: 'relative',
         zIndex: 50,
-        maxHeight: '660px',
-        overflow: 'hidden'
+        maxHeight: '710px',
+        overflow: 'hidden',
+        width: '101%',
+        top: '-3px',
+        left: '-1px',
+        // border: '1px solid red'
     },
     imageheadermain: {
-        height: '255px',
+        height: '320px',
+        // border: '1px solid red'
+
     },
     headerSection: {
         paddingVertical: 20,
@@ -59,7 +65,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: '0',
         right: '0',
-        left: '0'
+        left: '0',
+        // border: '1px solid red'
+
     },
     companyLogo: {
         marginBottom: 10,
@@ -70,37 +78,45 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     location: {
-        fontSize: 14,
-        marginBottom: 5,
+        fontSize: 12,
+        marginBottom: 15,
         fontFamily: 'Poppins',
         fontWeight: 'bold'
     },
     priceRange: {
         fontSize: 16,
         fontFamily: 'Poppins',
-        fontWeight: 'semibold'
+        fontWeight: 'semibold',
+        color: '#B69C70',
     },
     imagesection: {
         position: 'relative',
-        top: '-70px',
+        top: '-60px',
         zIndex: 30,
+        // border: '1px solid red'
+
     },
 
     imagesectionimage: {
+        // border: '1px solid red'
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover'
+
     },
 
     container: {
-        width: '97%',
+        width: '96.5%',
         marginVertical: 10,
         marginHorizontal: 10,
         border: '1px solid black',
         borderRadius: '10px',
         position: 'relative',
-        top: '-60px',
+        top: '-67.5px',
     },
     pg2container: {
         width: '97%',
-        marginVertical: 20,
+        marginVertical: 8,
         marginHorizontal: 10,
         border: '1px solid black',
         borderRadius: '10px',
@@ -117,6 +133,8 @@ const styles = StyleSheet.create({
         width: '90px',
         marginVertical: '5px',
         textAlign: 'center',
+        // border: '1px solid red'
+
     },
     title: {
         fontSize: 10,
@@ -139,7 +157,7 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: "#003421",
         color: "white",
-        padding: 20,
+        padding: 15,
         textAlign: "center",
     },
     footerText: {
@@ -148,29 +166,39 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     disclaimer: {
-        fontSize: 8,
-        marginTop: 10,
+        fontSize: 6,
+        marginTop: 5,
     },
     row: {
         width: '100%',
         flexDirection: "row",
         justifyContent: "space-between",
     },
+
     headerimage: {
-        width: '100%',
+        width: '101%',
+        position: 'relative',
+        top: '-2px',
+        left: '-2px',
     },
+
+
     container1: {
-        paddingHorizontal: 10
+        paddingHorizontal: 40
     },
 
     heading1: {
-        fontSize: '16px',
+        fontSize: '19px',
         fontWeight: 700,
-        marginBottom: '10px'
+        marginBottom: '5px',
+        textAlign: 'center',
+        marginTop: 5
     },
     heading1text: {
-        fontSize: '12px',
-        marginVertical: '3px'
+        fontSize: '10px',
+        marginVertical: '3px',
+        textAlign: 'justify'
+
     },
     containeroptions: {
         display: 'flex',
@@ -178,7 +206,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingVertical: '10px',
         gap: '10px',
-        paddingHorizontal: 10
+        paddingHorizontal: 40,
+        marginBottom: 20,
+        marginTop: 10
     },
     contentoptions: {
         display: 'flex',
@@ -198,7 +228,7 @@ const styles = StyleSheet.create({
         gap: '5px',
         padding: '10px',
         backgroundColor: '#f7f7f7f7',
-        borderRadius: '5px'
+        borderRadius: '10px'
     },
     icon: {
         width: '10px'
@@ -210,8 +240,8 @@ const styles = StyleSheet.create({
     readmorecontainer: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        paddingHorizontal: 10
+        gap: 5,
+        paddingHorizontal: 40
     },
     readmoresection: {
         display: 'flex',
@@ -221,7 +251,6 @@ const styles = StyleSheet.create({
     readmoreimage: {
         width: '100%',
         marginBottom: 5,
-
     },
     readmoretextContainer: {
         flexDirection: 'column',
@@ -233,7 +262,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     readmoredescription: {
-        fontSize: 10,
+        fontSize: 8,
     },
     table: {
         display: "table",
@@ -269,14 +298,15 @@ const styles = StyleSheet.create({
         textAlign: 'center'
 
     },
+    bgWhite: {
+        backgroundColor: '#ffffff',
+    },
+    bgGray: {
+        backgroundColor: '#f8f9fa',
+    },
     imagessection: {
         marginBottom: 10,
         paddingHorizontal: 10
-    },
-    imagesimage: {
-        width: '100%',
-        height: 150,
-        marginBottom: 10,
     },
     imagesrow: {
         flexDirection: 'row',
@@ -290,7 +320,7 @@ const styles = StyleSheet.create({
         border: '1px solid #000',
         padding: 20,
         borderRadius: 5,
-        margin: 20,
+        margin: 10,
     },
     lastpagesubHeader: {
         fontSize: 14,
@@ -298,7 +328,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     lastpagetext: {
-        marginBottom: 5,
+        marginBottom: 10,
         fontSize: 12
     },
     lastpagelist: {
@@ -343,14 +373,12 @@ const styles = StyleSheet.create({
         border: '1px solid black',
         borderRadius: 10,
         marginHorizontal: 10,
-        height: '200px',
-
+        marginVertical: 8,
+        height: '225px'
     },
     cardimagecontainer: {
         width: '50%',
-        height: '198px',
         borderRadius: 10,
-
     },
     cardimage: {
         width: '100%',
@@ -362,45 +390,30 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '50%',
         display: 'flex',
-        
+        justifyContent: 'space-between'
     },
     cardtitle: {
-        fontSize: 12,
+        fontSize: 11,
         fontWeight: 600,
-        marginBottom: 10,
-        
-
     },
     cardsubtitle: {
         fontSize: 14,
-        marginBottom: 10,
         fontWeight: 600,
-        
-
     },
     carddescription: {
         fontSize: 8,
-        marginBottom: 10,
-        
-
     },
     cardbuttonContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         gap: 10,
-        marginVertical: 10,
-        
-
     },
 
     cardprice: {
         fontSize: 12,
         fontWeight: 700,
         textAlign: 'left',
-        marginTop: 10,
-        
-
     }
 
 });
@@ -429,7 +442,7 @@ const BrochurePDF = () => {
         // First four images (2 per page)
         for (let i = 0; i < 4 && i < images.length; i += 2) {
             pages.push(
-                <Page key={`first-four-${i}`}>
+                <Page key={`first-four-${i}`} style={styles.body}>
                     <View>
                         <Image
                             style={styles.headerimage}
@@ -438,11 +451,11 @@ const BrochurePDF = () => {
                     </View>
 
                     <View style={{ flexDirection: 'column', height: '85%', gap: 10, paddingHorizontal: 10, }}>
-                        <View style={{ width: '100%', height: '44%', borderRadius: 10 }}>
+                        <View style={{ width: '100%', height: '46.5%', borderRadius: 10 }}>
                             <Image style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} src={images[i]} />
                         </View>
                         {images[i + 1] && (
-                            <View style={{ width: '100%', height: '44%', borderRadius: 10 }}>
+                            <View style={{ width: '100%', height: '46%', borderRadius: 10 }}>
                                 <Image style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} src={images[i + 1]} />
                             </View>
                         )}
@@ -452,9 +465,9 @@ const BrochurePDF = () => {
                         <View style={styles.footer}>
                             <View style={styles.row}>
 
-                                <Text style={styles.footerText}>info@buy.re</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>info@buy.re</Text>
 
-                                <Text style={styles.footerText}>www.buydevelopments.com</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>www.buydevelopments.com</Text>
                             </View>
                             <Text style={styles.disclaimer}>
                                 The information provided in this property appeal is for general informational purposes only. While we strive to ensure accuracy, completeness, and timeliness, we cannot guarantee the accuracy of property details, pricing, or availability. The displayed images and floor plans are for illustrative purposes only and may not represent the actual property or current condition.
@@ -469,7 +482,7 @@ const BrochurePDF = () => {
         let remainingImages = images.slice(4);
         for (let i = 0; i < remainingImages.length; i += 8) {
             pages.push(
-                <Page style={styles.page} key={`more-images-${i}`}>
+                <Page style={styles.body} key={`more-images-${i}`}>
                     <View>
                         <Image
                             style={styles.headerimage}
@@ -480,7 +493,10 @@ const BrochurePDF = () => {
                     <View style={styles.imagessection}>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10, }}>
                             {remainingImages.slice(i, i + 8).map((img, index) => (
-                                <Image style={[styles.imagesimage, { width: '48%', marginBottom: 10, borderRadius: 10 }]} src={img} key={index} />
+                                <View style={{ width: '49%', height: 162,  borderRadius: 10 }}>
+                                    <Image style={[styles.imagesimage, { width: '100%', height: '100%', objectFit: 'cover',  borderRadius: 10 }]} src={img} key={index} />
+
+                                </View>
                             ))}
                         </View>
                     </View>
@@ -489,9 +505,9 @@ const BrochurePDF = () => {
                         <View style={styles.footer}>
                             <View style={styles.row}>
 
-                                <Text style={styles.footerText}>info@buy.re</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>info@buy.re</Text>
 
-                                <Text style={styles.footerText}>www.buydevelopments.com</Text>
+                                <Text style={{ ...styles.footerText, fontWeight: 600 }}>www.buydevelopments.com</Text>
                             </View>
                             <Text style={styles.disclaimer}>
                                 The information provided in this property appeal is for general informational purposes only. While we strive to ensure accuracy, completeness, and timeliness, we cannot guarantee the accuracy of property details, pricing, or availability. The displayed images and floor plans are for illustrative purposes only and may not represent the actual property or current condition.
@@ -610,7 +626,7 @@ const BrochurePDF = () => {
                     />
                 </View>
 
-                <View style={{...styles.lastpagecard, marginTop: 0}}>
+                <View style={{ ...styles.lastpagecard, marginTop: 5 }}>
                     <Text style={styles.lastpagetext}>
                         Hi [Name],
                     </Text>
@@ -789,7 +805,7 @@ const BrochurePDF = () => {
                 </View>
 
                 <View>
-                    <Text style={{ fontSize: 18, fontWeight: 'extrabold', marginBottom: 20, paddingLeft: 10 }}>Read More About</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 'extrabold', marginBottom: 20, paddingLeft: 40 }}>Read More About</Text>
 
                     <View style={styles.readmorecontainer}>
                         <View style={styles.readmoresection}>
@@ -843,8 +859,8 @@ const BrochurePDF = () => {
                     />
                 </View>
 
-                <View style={{ paddingHorizontal: 10 }}>
-                    <Text style={{ textAlign: 'center', fontWeight: 'heavy' }}>Available Apartments</Text>
+                <View style={{ paddingHorizontal: 10, marginTop: 5 }}>
+                    <Text style={{ textAlign: 'center', fontWeight: 700 }}>Available Apartments</Text>
 
 
                     <View style={styles.table}>
@@ -878,7 +894,10 @@ const BrochurePDF = () => {
 
                         {/* Table Rows */}
                         {[...Array(7)].map((_, index) => (
-                            <View style={styles.tableRow} key={index}>
+                            <View style={[
+                                styles.tableRow,
+                                index % 2 === 0 ? styles.bgWhite : styles.bgGray,
+                            ]}>
                                 <View style={styles.tableCol}>
                                     <Text style={styles.tableCell}>Apartment</Text>
                                 </View>
@@ -974,7 +993,7 @@ const BrochurePDF = () => {
                     <Image src={lastpagecurve} />
                 </View>
 
-                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#003421', color: 'white', height: '220px' }}>
+                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#003421', color: 'white', height: '240px' }}>
                     <Image
                         style={styles.companyLogo}
                         src={logo} // Replace with the actual logo URL

@@ -7,6 +7,8 @@ import RequestATour from './RequestATour';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import BrochurePDF from '../PDFs/BrochurePDF';
 import PriceListPDF from '../PDFs/PriceListPDF';
+import SingleUnitBroucherPDF from '../PDFs/SingleUnitBroucherPDF';
+import SingleUnitFloorPlanPDF from '../PDFs/SingleUnitFloorplanPDF';
 // import { Bars } from 'react-loader-spinner';
 
 
@@ -176,34 +178,65 @@ const PropertyDetails = ({ SingleUnitPage }) => {
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
-                                        <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                                            <img src="/images/icons/broucher.svg" alt="Brochure" className="mb-4" />
-                                            <h3 className=" text-xl mb-2  font-semibold">Brochure</h3>
-                                            <p className="text-center mb-4 font-medium">
-                                                Access all in-depth information, latest price lists, floor plans, brochures & more.
-                                            </p>
-                                            <PDFDownloadLink document={<BrochurePDF />} fileName="BrochurePDF">
-                                                {({ loading }) => (loading ?
-                                                    <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
-                                                        Loading..</button> :
-                                                    <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Broucher</button>)}
-                                            </PDFDownloadLink>
-                                        </div>
-                                        <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
-                                            <img src="/images/icons/price-list 2.svg" alt="Pricelist" className="mb-4" />
-                                            <h3 className=" text-xl mb-2 font-semibold">Pricelist</h3>
-                                            <p className="text-center mb-4 font-medium">
-                                                Access all in-depth information, latest price lists, floor plans, brochures & more.
-                                            </p>
-                                            <PDFDownloadLink document={<PriceListPDF />} fileName="PriceListPDF">
-                                                {({ loading }) => (loading ?
-                                                    <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
-                                                        Loading..</button> :
-                                                    <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View PriceList</button>)}
-                                            </PDFDownloadLink>
-                                        </div>
-                                    </div>
+                                    {
+                                        SingleUnitPage ? (
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
+                                                <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
+                                                    <img src="/images/icons/broucher.svg" alt="Brochure" className="mb-4" />
+                                                    <h3 className=" text-xl mb-2  font-semibold">Brochure</h3>
+                                                    <p className="text-center mb-4 font-medium">
+                                                        Access all in-depth information, latest price lists, floor plans, brochures & more.
+                                                    </p>
+                                                    <PDFDownloadLink document={<SingleUnitBroucherPDF />} fileName="SUBroucherPDF">
+                                                        {({ loading }) => (loading ?
+                                                            <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
+                                                                Loading..</button> :
+                                                            <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Broucher</button>)}
+                                                    </PDFDownloadLink>
+                                                </div>
+                                                <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
+                                                    <img src="/images/icons/price-list 2.svg" alt="Pricelist" className="mb-4" />
+                                                    <h3 className=" text-xl mb-2 font-semibold">Floor Plan</h3>
+                                                    <p className="text-center mb-4 font-medium">
+                                                        Access all in-depth information, latest price lists, floor plans, brochures & more.
+                                                    </p>
+                                                    <PDFDownloadLink document={<SingleUnitFloorPlanPDF />} fileName="SUFloorplanPDF">
+                                                        {({ loading }) => (loading ?
+                                                            <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
+                                                                Loading..</button> :
+                                                            <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">Floor Plan</button>)}
+                                                    </PDFDownloadLink>
+                                                </div>
+                                            </div>
+                                        ) : (<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
+                                            <div className="border border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
+                                                <img src="/images/icons/broucher.svg" alt="Brochure" className="mb-4" />
+                                                <h3 className=" text-xl mb-2  font-semibold">Brochure</h3>
+                                                <p className="text-center mb-4 font-medium">
+                                                    Access all in-depth information, latest price lists, floor plans, brochures & more.
+                                                </p>
+                                                <PDFDownloadLink document={<BrochurePDF />} fileName="BrochurePDF">
+                                                    {({ loading }) => (loading ?
+                                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
+                                                            Loading..</button> :
+                                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View Broucher</button>)}
+                                                </PDFDownloadLink>
+                                            </div>
+                                            <div className="border  border-primarycolor text-primarycolor p-6 rounded-lg flex flex-col items-center">
+                                                <img src="/images/icons/price-list 2.svg" alt="Pricelist" className="mb-4" />
+                                                <h3 className=" text-xl mb-2 font-semibold">Pricelist</h3>
+                                                <p className="text-center mb-4 font-medium">
+                                                    Access all in-depth information, latest price lists, floor plans, brochures & more.
+                                                </p>
+                                                <PDFDownloadLink document={<PriceListPDF />} fileName="PriceListPDF">
+                                                    {({ loading }) => (loading ?
+                                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out pointer-events-none">
+                                                            Loading..</button> :
+                                                        <button className="bg-primarycolor  hover:bg-primarycolorhover text-white py-3 px-8 rounded-lg font-semibold cursor-pointer transition-colors duration-300 ease-in-out">View PriceList</button>)}
+                                                </PDFDownloadLink>
+                                            </div>
+                                        </div>)
+                                    }
 
                                     <div className="mt-16">
                                         <h2 className="font-BebasNeueSemiExpBold text-3xl md:text-5xl text-primarycolor text-left ">Construction Status</h2>

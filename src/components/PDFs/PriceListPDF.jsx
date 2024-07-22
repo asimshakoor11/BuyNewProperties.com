@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
     containerheadermain: {
         position: 'relative',
         zIndex: 50,
+        width: '101%',
+        top: '-3px',
+        left: '-1px',
     },
     imageheadermain: {
         width: '101%'
@@ -64,30 +67,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width: '180px',
     },
-    mainTitle: {
-        fontSize: 18,
-        marginBottom: 5,
-        // fontFamily: 'BebasNeuePro'
-    },
-    location: {
-        fontSize: 14,
-        marginBottom: 10,
-        fontStyle: 'normal',
-        fontWeight: 700
-    },
-    priceRange: {
-        fontSize: 16,
-        fontWeight: 600,
-    },
-    imagesection: {
-        position: 'relative',
-        top: '-80px',
-        zIndex: 30,
-    },
-
-    imagesectionimage: {
-    },
-
+   
     container: {
         width: '97%',
         marginVertical: 10,
@@ -130,7 +110,7 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: "#002038",
         color: "white",
-        padding: 20,
+        padding: 15,
         textAlign: "center",
     },
     footerText: {
@@ -139,8 +119,8 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     disclaimer: {
-        fontSize: 8,
-        marginTop: 10,
+        fontSize: 6,
+        marginTop: 5,
     },
     row: {
         width: '100%',
@@ -148,7 +128,10 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
     },
     headerimage: {
-        width: '100%',
+        position: 'relative',
+        width: '101%',
+        top: '-2px',
+        left: '-2px',
     },
     container1: {
         paddingHorizontal: 10
@@ -197,31 +180,6 @@ const styles = StyleSheet.create({
     icontext: {
         fontSize: '12px'
     },
-    readmorecontainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        paddingHorizontal: 10
-    },
-    readmoresection: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '32%'
-    },
-    readmoreimage: {
-        width: '100%',
-        marginBottom: 5,
-
-    },
-    readmoretextContainer: {
-        flexDirection: 'column',
-        flexGrow: 1,
-    },
-    readmoretitle: {
-        fontSize: 12,
-        fontWeight: 700,
-        marginBottom: 5,
-    },
     readmoredescription: {
         fontSize: 10,
     },
@@ -251,7 +209,7 @@ const styles = StyleSheet.create({
     },
     tableCellHeader: {
         fontSize: 10,
-        fontWeight: 700,
+        fontWeight: 600,
         textAlign: 'center'
     },
     tableCell: {
@@ -259,23 +217,13 @@ const styles = StyleSheet.create({
         textAlign: 'center'
 
     },
-    imagessection: {
-        marginBottom: 10,
-        paddingHorizontal: 10
+    bgWhite: {
+        backgroundColor: '#ffffff',
     },
-    imagesimage: {
-        width: '100%',
-        height: 150,
-        marginBottom: 10,
+    bgGray: {
+        backgroundColor: '#f8f9fa',
     },
-    imagesrow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    imagescolumn: {
-        flexDirection: 'column',
-        width: '48%',
-    },
+    
     lastpagecard: {
         border: '1px solid #000',
         padding: 20,
@@ -333,14 +281,11 @@ const styles = StyleSheet.create({
         border: '1px solid black',
         borderRadius: 10,
         marginHorizontal: 10,
-        height: '180px',
-
+        height: '220px'
     },
     cardimagecontainer: {
         width: '50%',
-        height: '178px',
         borderRadius: 10,
-
     },
     cardimage: {
         width: '100%',
@@ -355,32 +300,27 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     cardtitle: {
-        fontSize: 12,
+        fontSize: 11,
         fontWeight: 600,
     },
     cardsubtitle: {
         fontSize: 14,
-        marginVertical: 5,
         fontWeight: 600,
-
     },
     carddescription: {
         fontSize: 8,
-        marginVertical: 5,
     },
     cardbuttonContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         gap: 10,
-        marginVertical: 10,
     },
 
     cardprice: {
         fontSize: 12,
         fontWeight: 700,
         textAlign: 'left',
-        marginTop: 10,
     }
 });
 
@@ -406,7 +346,7 @@ const PriceListPDF = () => {
                 </View>
 
                 <View >
-                    <Text style={{ ...styles.lastpagesubHeader, textAlign: 'center', fontSize: 16 }}>PriceList</Text>
+                    <Text style={{ fontWeight: 700, textAlign: 'center', fontSize: 16, marginTop: 5 }}>PriceList</Text>
                 </View>
 
                 <View style={styles.lastpagecard}>
@@ -551,7 +491,7 @@ const PriceListPDF = () => {
                     />
                 </View>
 
-                <View style={{ paddingHorizontal: 10 }}>
+                <View style={{ paddingHorizontal: 10, marginTop: 5 }}>
                     <Text style={{ textAlign: 'center', fontWeight: 700 }}>Available Apartments</Text>
 
 
@@ -586,7 +526,10 @@ const PriceListPDF = () => {
 
                         {/* Table Rows */}
                         {[...Array(7)].map((_, index) => (
-                            <View style={styles.tableRow} key={index}>
+                            <View style={[
+                                styles.tableRow,
+                                index % 2 === 0 ? styles.bgWhite : styles.bgGray,
+                            ]}>
                                 <View style={styles.tableCol}>
                                     <Text style={styles.tableCell}>Apartment</Text>
                                 </View>
@@ -680,7 +623,7 @@ const PriceListPDF = () => {
                     <Image src={lastpagecurve} />
                 </View>
 
-                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#002038', color: 'white', height: '250px' }}>
+                <View style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: '#002038', color: 'white', height: '270px' }}>
                     <Image
                         style={styles.companyLogo}
                         src={logo} // Replace with the actual logo URL
