@@ -41,6 +41,9 @@ const styles = StyleSheet.create({
     containerheadermain: {
         position: 'relative',
         zIndex: 50,
+        width: '101%',
+        top: '-3px',
+        left: '-1px',
     },
     imageheadermain: {
         width: '101%'
@@ -186,15 +189,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         gap: '5px',
-        padding: '10px',
+        padding: '8px',
         backgroundColor: '#f7f7f7f7',
-        borderRadius: '10px'
+        borderRadius: '5px'
     },
     icon: {
-        width: '10px'
+        height: '10px'
     },
     icontext: {
-        fontSize: '12px'
+        fontSize: '10px',
+        fontWeight: 600
     },
     readmorecontainer: {
         display: 'flex',
@@ -270,7 +274,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: '48%',
     },
-    
+
     lastpagecard: {
         border: '1px solid #000',
         padding: 20,
@@ -321,11 +325,10 @@ const styles = StyleSheet.create({
         fontSize: 12,
         textDecoration: 'underline'
     },
-    
+
     cardcontainer: {
         display: 'flex',
         flexDirection: 'row',
-        border: '1px solid black',
         borderRadius: 10,
         marginHorizontal: 10,
         height: '220px'
@@ -344,7 +347,11 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '50%',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        border: '1px solid black',
+        borderLeft: 'none',
+        borderBottomRightRadius: 10,
+        borderTopRightRadius: 10,
     },
     cardtitle: {
         fontSize: 11,
@@ -439,8 +446,8 @@ const PriceListPDF = () => {
                     <View style={styles.imagessection}>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10, }}>
                             {remainingImages.slice(i, i + 8).map((img, index) => (
-                                <View style={{ width: '49%', height: 162,  borderRadius: 10 }}>
-                                    <Image style={[styles.imagesimage, { width: '100%', height: '100%', objectFit: 'cover',  borderRadius: 10 }]} src={img} key={index} />
+                                <View style={{ width: '49%', height: 162, borderRadius: 10 }}>
+                                    <Image style={[styles.imagesimage, { width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }]} src={img} key={index} />
 
                                 </View>
                             ))}
@@ -485,7 +492,7 @@ const PriceListPDF = () => {
                 </View>
 
                 <View >
-                    <Text style={{ ...styles.lastpagesubHeader, textAlign: 'center', fontSize: 16 }}>FLoor Plan</Text>
+                    <Text style={{ ...styles.lastpagesubHeader, textAlign: 'center', fontWeight: 700, fontSize: '19px', }}>FLoor Plan</Text>
                 </View>
 
                 <View style={styles.lastpagecard}>

@@ -231,17 +231,17 @@ const styles = StyleSheet.create({
         borderRadius: '10px'
     },
     icon: {
-        width: '10px'
+        height: '10px'
     },
     icontext: {
-        fontSize: '12px',
+        fontSize: '10px',
         fontWeight: 600
     },
     readmorecontainer: {
         display: 'flex',
         flexDirection: 'row',
-        gap: 5,
-        paddingHorizontal: 40
+        gap: 10,
+        paddingHorizontal: 10
     },
     readmoresection: {
         display: 'flex',
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     readmoretitle: {
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: 600,
         marginBottom: 5,
     },
@@ -370,7 +370,6 @@ const styles = StyleSheet.create({
     cardcontainer: {
         display: 'flex',
         flexDirection: 'row',
-        border: '1px solid black',
         borderRadius: 10,
         marginHorizontal: 10,
         marginVertical: 8,
@@ -390,7 +389,11 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '50%',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        border: '1px solid black',
+        borderLeft: 'none',
+        borderBottomRightRadius: 10,
+        borderTopRightRadius: 10,
     },
     cardtitle: {
         fontSize: 11,
@@ -677,12 +680,14 @@ const BrochurePDF = () => {
                         <View style={styles.cardbuttonContainer}>
                             <View style={styles.iconcontainer}>
                                 <Image style={styles.icon}
-                                    src={locationmarkerblack} />
+                                    src={pictureblack} />
+
                                 <Text style={styles.icontext} >Photos</Text>
                             </View>
                             <View style={styles.iconcontainer}>
                                 <Image style={styles.icon}
-                                    src={pictureblack} />
+                                    src={locationmarkerblack} />
+
                                 <Text style={styles.icontext}>Location</Text>
                             </View>
 

@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width: '180px',
     },
-   
+
     container: {
         width: '97%',
         marginVertical: 10,
@@ -170,15 +170,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         gap: '5px',
-        padding: '10px',
+        padding: '8px',
         backgroundColor: '#f7f7f7f7',
-        borderRadius: '10px'
+        borderRadius: '5px'
     },
     icon: {
-        width: '10px'
+        height: '10px'
     },
     icontext: {
-        fontSize: '12px'
+        fontSize: '10px',
+        fontWeight: 600
     },
     readmoredescription: {
         fontSize: 10,
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
     bgGray: {
         backgroundColor: '#f8f9fa',
     },
-    
+
     lastpagecard: {
         border: '1px solid #000',
         padding: 20,
@@ -278,7 +279,6 @@ const styles = StyleSheet.create({
     cardcontainer: {
         display: 'flex',
         flexDirection: 'row',
-        border: '1px solid black',
         borderRadius: 10,
         marginHorizontal: 10,
         height: '220px'
@@ -297,7 +297,11 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '50%',
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        border: '1px solid black',
+        borderLeft: 'none',
+        borderBottomRightRadius: 10,
+        borderTopRightRadius: 10,
     },
     cardtitle: {
         fontSize: 11,
@@ -400,12 +404,12 @@ const PriceListPDF = () => {
                         <View style={styles.cardbuttonContainer}>
                             <View style={styles.iconcontainer}>
                                 <Image style={styles.icon}
-                                    src={locationmarkerblack} />
-                                <Text style={styles.icontext} >Photos</Text>
+                                    src={pictureblack} />
+                                <Text style={styles.icontext}>Photos</Text>
                             </View>
                             <View style={styles.iconcontainer}>
                                 <Image style={styles.icon}
-                                    src={pictureblack} />
+                                    src={locationmarkerblack} />
                                 <Text style={styles.icontext}>Location</Text>
                             </View>
 
