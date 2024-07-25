@@ -492,10 +492,10 @@ const PriceListPDF = () => {
                 </View>
 
                 <View >
-                    <Text style={{ ...styles.lastpagesubHeader, textAlign: 'center', fontWeight: 700, fontSize: '19px', }}>FLoor Plan</Text>
+                    <Text style={{ ...styles.lastpagesubHeader, textAlign: 'center', fontWeight: 700, fontSize: '18px', }}>FLoor Plan</Text>
                 </View>
 
-                <View style={styles.lastpagecard}>
+                <View style={{...styles.lastpagecard, margin: 8}}>
                     <Text style={styles.lastpagetext}>
                         Hi [Name],
                     </Text>
