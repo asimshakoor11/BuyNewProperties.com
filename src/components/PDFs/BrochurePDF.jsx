@@ -607,7 +607,7 @@ const BrochurePDF = () => {
                 </View>
 
                 <View>
-                    <Text style={{ fontWeight: 700, marginBottom: 20, paddingLeft: 40 }}>Read More About</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 700, marginBottom: 20, textAlign: 'center'  }}>Read More About</Text>
 
                     <View style={styles.readmorecontainer}>
                         <View style={styles.readmoresection}>

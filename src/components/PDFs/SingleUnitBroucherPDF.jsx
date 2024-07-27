@@ -496,8 +496,8 @@ const BrochurePDF = () => {
                     <View style={styles.imagessection}>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10, }}>
                             {remainingImages.slice(i, i + 8).map((img, index) => (
-                                <View style={{ width: '49%', height: 162,  borderRadius: 10 }}>
-                                    <Image style={[styles.imagesimage, { width: '100%', height: '100%', objectFit: 'cover',  borderRadius: 10 }]} src={img} key={index} />
+                                <View style={{ width: '49%', height: 162, borderRadius: 10 }}>
+                                    <Image style={[styles.imagesimage, { width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }]} src={img} key={index} />
 
                                 </View>
                             ))}
@@ -797,12 +797,12 @@ const BrochurePDF = () => {
                     <View style={styles.contentoptions}>
                         <View style={styles.iconcontainer}>
                             <Image style={styles.icon}
-                                src={locationmarkerblack} />
+                                src={pictureblack} />
                             <Text style={styles.icontext} >Photos</Text>
                         </View>
                         <View style={styles.iconcontainer}>
                             <Image style={styles.icon}
-                                src={pictureblack} />
+                                src={locationmarkerblack} />
                             <Text style={styles.icontext}>Location</Text>
                         </View>
 
@@ -810,7 +810,7 @@ const BrochurePDF = () => {
                 </View>
 
                 <View>
-                    <Text style={{ fontSize: 18, fontWeight: 'extrabold', marginBottom: 20, paddingLeft: 40 }}>Read More About</Text>
+                    <Text style={{ fontSize: 18, fontWeight: 700, marginBottom: 20, textAlign: 'center' }}>Read More About</Text>
 
                     <View style={styles.readmorecontainer}>
                         <View style={styles.readmoresection}>
