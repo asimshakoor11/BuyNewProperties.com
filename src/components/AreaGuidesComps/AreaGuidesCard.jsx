@@ -31,7 +31,10 @@ const AreaGuidesCard = ({ title, imgSrc, showPlayButton, text }) => {
                             className='flex items-center gap-1 text-black hover:text-white bg-white hover:bg-primarycolorhover opacity-80 font-semibold text-[13px] px-2 py-2 rounded cursor-pointer transition-colors duration-300 ease-in-out'
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
-                            onClick={handleClick}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleClick();
+                            }}
                         >
                             <span>Play</span>
                             <img
