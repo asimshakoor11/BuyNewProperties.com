@@ -103,7 +103,7 @@ const AreaGudiesPage = () => {
             </section>
 
             <section className='px-[7%] pb-[80px] pt-[40px] bg-bggray relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
-                <div className='w-full flex flex-col lg:flex-col gap-10'>
+                <div className='w-full flex flex-col lg:flex-row gap-10'>
                     <div className='w-full lg:w-[40%]'>
                         <h1 className='font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left '>A guide to Portugal’s <br /> prime locations</h1>
                     </div>

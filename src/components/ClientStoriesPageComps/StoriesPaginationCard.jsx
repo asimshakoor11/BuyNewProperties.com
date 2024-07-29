@@ -1,6 +1,6 @@
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import VideoPopup from '../SingleDevlopmentPageComps/VideoPopup';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ const StoriesPaginationCard = ({ title, imgSrc, showPlayButton }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const navigate = useNavigate()
-
 
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -19,14 +18,24 @@ const StoriesPaginationCard = ({ title, imgSrc, showPlayButton }) => {
     };
 
     const handleClickCard = () => {
+
         navigate(`/singlestoriespage/${encodeURIComponent(title)}`);
     }
 
+    useEffect(() => {
+        if (showPopup ) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [showPopup ]);
+
 
     return (
-        <div className="card rounded-[18px]" onClick={handleClickCard}>
+        <div className="card rounded-[18px]">
             <div className='relative overflow-hidden bg-container rounded-[18px]'>
                 <img src={imgSrc} alt={title} className="w-full card-image bg-zoom" />
+                <div className='absolute top-0 left-0 right-0 h-[80%]' onClick={handleClickCard}></div>
                 {showPlayButton && (
                     <div className='absolute bottom-4 left-4'>
                         <button
@@ -35,6 +44,7 @@ const StoriesPaginationCard = ({ title, imgSrc, showPlayButton }) => {
                             onMouseLeave={() => setIsHovered(false)}
                             onClick={(e) => {
                                 e.stopPropagation();
+                                e.preventDefault();
                                 handleClick();
                             }}
                         >

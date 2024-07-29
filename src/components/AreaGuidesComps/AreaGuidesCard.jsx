@@ -1,6 +1,6 @@
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import VideoPopup from '../SingleDevlopmentPageComps/VideoPopup';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,11 +20,21 @@ const AreaGuidesCard = ({ title, imgSrc, showPlayButton, text }) => {
     const handleClickCard = () => {
         navigate(`/singleareaguidepage/${encodeURIComponent(title)}`);
     }
+
+    useEffect(() => {
+        if (showPopup ) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+    }, [showPopup ]);
     
     return (
-        <div className="card rounded-[18px]" onClick={handleClickCard}>
+        <div className="card rounded-[18px]" >
             <div className='relative overflow-hidden bg-container rounded-[18px] aspect-square'>
                 <img src={imgSrc} alt={title} className="w-full h-full card-image bg-zoom object-cover" />
+                <div className='absolute top-0 left-0 right-0 h-[80%]' onClick={handleClickCard}></div>
+
                 {showPlayButton && (
                     <div className='absolute bottom-4 left-4'>
                         <button
