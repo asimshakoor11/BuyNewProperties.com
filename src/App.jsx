@@ -15,6 +15,10 @@ import SingleUnitPage from './pages/SingleUnitPage/SingleUnitPage';
 import SingleAgentPage from './pages/SingleAgentPage/SingleAgentPage';
 import NewsPage from './pages/NewsPage/NewsPage';
 import SingleNewsPage from './pages/SingleNewsPage/SingleNewsPage';
+import StoriesPage from './pages/ClientStories/StoriesPage';
+import SingleStoriesPage from './pages/SingleStories/SingleStoriesPage';
+import AreaGudiesPage from './pages/AreaGudiesPage/AreaGudiesPage';
+import SingleAreaGuidePage from './pages/SingleAreaGuidePage/SingleAreaGuidePage';
 
 function App() {
 
@@ -52,6 +56,10 @@ function App() {
         <Route exact path="/singleagentpage" element={<SingleAgentPage />}></Route>
         <Route exact path="/newspage" element={<NewsPage />}></Route>
         <Route exact path="/singlenewspage/:title" element={<SingleNewsPage />}></Route>
+        <Route exact path="/storiespage" element={<StoriesPage />}></Route>
+        <Route exact path="/singlestoriespage/:title" element={<SingleStoriesPage />}></Route>
+        <Route exact path="/areaguides" element={<AreaGudiesPage />}></Route>
+        <Route exact path="/singleareaguidepage/:title" element={<SingleAreaGuidePage />}></Route>
         {/* Add more routes as needed */}
       </Routes>
       {!hideNavbarAndFooter && <Footer />}

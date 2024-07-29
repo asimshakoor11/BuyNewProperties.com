@@ -191,8 +191,9 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                                         )}
                                     </div>
                                     <Link to={'/newspage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>News</span></Link>
-                                    {/* <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></a> */}
-                                    <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Contact</span></a>
+                                    <Link to={'/storiespage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Stories</span></Link>
+                                    <Link to={'/areaguides'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></Link>
+                                    
                                 </div>
 
                                 <div className="flex items-center space-x-2 lg:space-x-3 py-4">
@@ -362,7 +363,8 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                                         )}
                                     </div>
                                     <Link to={'/newspage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>News</span></Link>
-                                    <a href="#" className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Contact</span></a>
+                                    <Link to={'/storiespage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Stories</span></Link>
+                                    <Link to={'/areaguides'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></Link>
                                 </div>
 
                                 <div className="flex items-center space-x-2 lg:space-x-3 py-4">
@@ -597,11 +599,11 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                                             <Link to={"/newspage"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
                                                 <span className='hover-underline-animationbm '>News</span>
                                             </Link>
-                                            <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
-                                                <span className='hover-underline-animationbm '>Guides</span>
+                                            <Link to={"/storiespage"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
+                                                <span className='hover-underline-animationbm '>Stories</span>
                                             </Link>
-                                            <Link to={"/"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
-                                                <span className='hover-underline-animationbm '>Contact</span>
+                                            <Link to={"/areaguides"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
+                                                <span className='hover-underline-animationbm '>Guides</span>
                                             </Link>
 
                                             <a href="#" className="font-bold flex items-center ">
