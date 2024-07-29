@@ -45,8 +45,8 @@ const SingleStoriesPage = () => {
                 </div>
             </section>
 
-            <section className='section bg-white relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
-                <div className='relative mx-20'>
+            <section className='px-[7%] pb-[80px] pt-[40px] bg-white relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
+                <div className='relative mx-0 lg:mx-20'>
                     <div className='relative overflow-hidden max-h-[400px] flex items-center justify-center rounded-xl'>
                         <img src="/images/pages/homepage/herosection.svg" alt="" className='max-w-full max-h-full' />
                     </div>

@@ -43,7 +43,7 @@ const StoriesPage = () => {
                 </div>
             </section>
 
-            <section className='section bg-white relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
+            <section className='px-[7%] pb-[80px] pt-[40px] bg-white relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
                 <StoriesPagination />
             </section>
 
