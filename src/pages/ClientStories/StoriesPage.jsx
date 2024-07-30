@@ -54,10 +54,10 @@ const StoriesPage = () => {
                 <p className="text-[#2A2A2A] my-8 max-w-md mx-auto">
                     Contact us today to speak with one of our experienced experts. They will guide you seamlessly through the entire process, ensuring a stress-free move. Click the button below to get started!
                 </p>
+
                 <button
-                    className="flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover font-medium  text-white px-6 py-3 rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
+                    className="buttonShort flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover font-medium  text-white rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
                     <span> Contact Us Today</span>
-                    <FontAwesomeIcon icon={'chevron-right'} size='lg' className='ml-5' /> 
                 </button>
             </section >
 

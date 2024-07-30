@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import DreamHomeContact from '../../components/HomePageComps/DreamHomeContact';
 
 const SingleStoriesPage = () => {
 
     const { title } = useParams();
+    const [isHoverPlay, setIsHoverPlay] = useState(false);
+
 
 
     const heroContentRef = useRef(null);
@@ -45,14 +47,25 @@ const SingleStoriesPage = () => {
                 </div>
             </section>
 
-            <section className='px-[7%] pb-[80px] pt-[40px] bg-white relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
+            <section className='px-[7%] py-[80px] bg-white relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
                 <div className='relative mx-0 lg:mx-20'>
-                    <div className='relative overflow-hidden max-h-[400px] flex items-center justify-center rounded-xl'>
-                        <img src="/images/pages/homepage/herosection.svg" alt="" className='max-w-full max-h-full' />
+                    <div className='bg-cover bg-center h-[350px] md:h-[400px] flex items-center justify-center relative rounded-xl' style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)", backgroundRepeat: "no-repeat" }}>
+                        <div className='absolute inset-0 bg-black opacity-50 z-10 rounded-xl'></div>
+                        <div className='relative z-20 p-8 flex flex-col items-center gap-3 text-white'>
+                            <p className='font-regular text-medium '>Play The Video</p>
+                            <div className='w-full h-20 flex items-center justify-center'>
+                                <button className={`border border-[#A5A5A5] hover:border-bggray rounded-full ${isHoverPlay ? ' w-16 h-16' : ' w-14 h-14'}  flex items-center justify-center transition-all cursor-pointer duration-300 ease-in-out`}
+                                    onMouseEnter={() => { setIsHoverPlay(true) }}
+                                    onMouseLeave={() => { setIsHoverPlay(false) }}
+                                >
+                                    <img src="/images/icons/playicon.svg" alt="" className='h-4 w-4' />
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="relative flex flex-col lg:flex-row mt-20 w-full min-h-screen">
+                <div className="relative flex flex-col lg:flex-row mt-20 w-full ">
                     <div className="w-full lg:w-[500px] mr-20 rounded-xl">
                         <div className="sticky top-20 overflow-hidden h-[350px] rounded-xl">
                             <img
@@ -99,9 +112,8 @@ const SingleStoriesPage = () => {
                     Contact us today to speak with one of our experienced experts. They will guide you seamlessly through the entire process, ensuring a stress-free move. Click the button below to get started!
                 </p>
                 <button
-                    className="flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover font-medium  text-white px-6 py-3 rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
+                    className="buttonShort flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover font-medium  text-white rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
                     <span> Contact Us Today</span>
-                    <FontAwesomeIcon icon={'chevron-right'} size='lg' className='ml-5' />
                 </button>
             </section >
 

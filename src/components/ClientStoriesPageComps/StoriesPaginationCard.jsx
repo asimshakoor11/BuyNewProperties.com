@@ -1,56 +1,53 @@
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import VideoPopup from '../SingleDevlopmentPageComps/VideoPopup';
 import { useNavigate } from 'react-router-dom';
 
 const StoriesPaginationCard = ({ title, imgSrc, showPlayButton }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleClosePopup = () => {
         setShowPopup(false);
     };
 
-    const handleClick = () => {
+    const handlePlayButtonClick = (e) => {
+        e.stopPropagation(); // Prevents the click event from bubbling up
         setShowPopup(true);
     };
 
     const handleClickCard = () => {
-
-        navigate(`/singlestoriespage/${encodeURIComponent(title)}`);
-    }
+        if (!showPopup) { // Only navigate if the popup is not open
+            navigate(`/singlestoriespage/${encodeURIComponent(title)}`);
+        }
+    };
 
     useEffect(() => {
-        if (showPopup ) {
+        if (showPopup) {
             document.body.classList.add('no-scroll');
         } else {
             document.body.classList.remove('no-scroll');
         }
-    }, [showPopup ]);
-
+    }, [showPopup]);
 
     return (
-        <div className="card rounded-[18px]">
-            <div className='relative overflow-hidden bg-container rounded-[18px]'>
+        <div
+            className="card rounded-[18px] cursor-pointer"
+            onClick={handleClickCard}
+        >
+            <div className='relative overflow-hidden bg-container rounded-[18px] '>
                 <img src={imgSrc} alt={title} className="w-full card-image bg-zoom" />
-                <div className='absolute top-0 left-0 right-0 h-[80%]' onClick={handleClickCard}></div>
                 {showPlayButton && (
                     <div className='absolute bottom-4 left-4'>
                         <button
-                            className='flex items-center gap-1 text-black hover:text-white bg-white hover:bg-primarycolorhover opacity-80 font-semibold text-[13px] px-2 py-2 rounded cursor-pointer transition-colors duration-300 ease-in-out'
+                            className='flex items-center gap-1 text-black bg-white hover:bg-gray-500 opacity-80 font-semibold text-[14px] px-3 py-3 rounded cursor-pointer transition-colors duration-300 ease-in-out'
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                handleClick();
-                            }}
+                            onClick={handlePlayButtonClick} // Handle click to show popup
                         >
                             <span>Play</span>
                             <img
-                                src={isHovered ? "/images/icons/playicon.svg" : "/images/icons/playblack.svg"}
+                                src={isHovered ? "/images/icons/playblack.svg" : "/images/icons/playblack.svg"}
                                 alt="Play Icon"
                                 className='h-4'
                             />
@@ -58,12 +55,11 @@ const StoriesPaginationCard = ({ title, imgSrc, showPlayButton }) => {
                     </div>
                 )}
             </div>
-            <p className="card-title mt-5 font-bold text-2xl">{title}</p>
+            <p className="card-title pt-5 font-semibold text-2xl">{title}</p>
 
             {showPopup && <VideoPopup id="popup-container" videoUrl='https://www.youtube.com/embed/dQw4w9WgXcQ' onClose={handleClosePopup} />}
-
         </div>
-    )
-}
+    );
+};
 
-export default StoriesPaginationCard
+export default StoriesPaginationCard;

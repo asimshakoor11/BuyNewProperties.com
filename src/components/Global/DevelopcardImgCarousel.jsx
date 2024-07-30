@@ -17,7 +17,7 @@ const DevelopcardImgCarousel = ({ images }) => {
                 onClick={onClick}
             >
                 <div className={`flex bg-transparent hover:bg-opacity-30 text-white hover:bg-white h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full cursor-pointer transition-colors duration-300 ease-in-out`}>
-                    <FontAwesomeIcon icon={faChevronRight} size='base' />
+                    <FontAwesomeIcon icon={faChevronRight} size='xl' />
                 </div>
             </div>
         );
@@ -31,7 +31,7 @@ const DevelopcardImgCarousel = ({ images }) => {
                 onClick={onClick}
             >
                 <div className={`flex bg-transparent hover:bg-opacity-30 text-white hover:bg-white h-7 w-7 md:h-8 md:w-8  items-center justify-center rounded-full  cursor-pointer transition-colors duration-300 ease-in-out`}>
-                    <FontAwesomeIcon icon={faChevronLeft} size='base' />
+                    <FontAwesomeIcon icon={faChevronLeft} size='xl' />
                 </div>
             </div>
         );

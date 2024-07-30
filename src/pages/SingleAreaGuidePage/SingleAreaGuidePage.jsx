@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom';
 import CustomMapComp from '../../components/Global/CustomMapComp';
 import LatestDevelopmentCard from '../../components/Global/LatestDevelopmentCard/LatestDevlopmentsCard';
+import SingleAreaGuidesMapComp from '../../components/AreaGuidesComps/SingleAreaGuidesMapComp';
 
 
 const SingleAreaGuidePage = () => {
@@ -58,7 +59,7 @@ const SingleAreaGuidePage = () => {
 
     return (
         <>
-            <section className="section parallax-bg lg:bg-fixed bg-cover  relative"
+            <section className="section parallax-bg lg:bg-fixed bg-cover relative"
                 style={{ backgroundImage: "url(/images/pages/homepage/herosection.svg)" }}>
                 <div className='absolute inset-0 bg-black opacity-50'></div>
                 <div ref={heroContentRef} className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center py-40">
@@ -142,7 +143,7 @@ const SingleAreaGuidePage = () => {
 
             <section className=''>
                 <div >
-                    <CustomMapComp customview={true} locations={locationareas} />
+                    <SingleAreaGuidesMapComp />
                 </div>
             </section>
 

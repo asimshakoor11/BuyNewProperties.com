@@ -102,7 +102,7 @@ const AreaGudiesPage = () => {
                 </div>
             </section>
 
-            <section className='px-[7%] pb-[80px] pt-[40px] bg-bggray relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
+            <section className='px-[7%] pb-[80px] pt-[80px] bg-bggray relative z-30 -mt-10 rounded-tl-[40px] rounded-tr-[40px]'>
                 <div className='w-full flex flex-col lg:flex-row gap-10'>
                     <div className='w-full lg:w-[40%]'>
                         <h1 className='font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left '>A guide to Portugal’s <br /> prime locations</h1>
@@ -113,7 +113,7 @@ const AreaGudiesPage = () => {
                 </div>
             </section>
 
-            <section className='px-[7%] pt-[40px] bg-white '>
+            <section className='px-[7%] pt-[80px] bg-white '>
                 <div className='relative mx-0 lg:mx-20'>
                     <div className='relative overflow-hidden max-h-[500px] flex items-center justify-center rounded-xl'>
                         <AreaGuidesMapComp locations={locationareas} />

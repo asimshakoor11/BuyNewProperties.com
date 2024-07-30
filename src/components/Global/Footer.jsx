@@ -47,7 +47,7 @@ const Footer = () => {
                                     type="text"
                                     placeholder="First Name"
                                     className="w-full p-3 mt-2 border-black border-2 placeholder:text-fontdark rounded-lg"
-                                    
+
                                     onChange={handleInputChangeFN}
                                 />
 
@@ -57,7 +57,7 @@ const Footer = () => {
                                     type="text"
                                     placeholder="Second Name"
                                     className="w-full p-3 mt-2 border-black border-2 placeholder:text-fontdark rounded-lg"
-                                    
+
                                     onChange={handleInputChangeSN}
                                 />
 
@@ -66,11 +66,11 @@ const Footer = () => {
 
                         </div>
                         <div className='space-y-2'>
-                            <div className='bg-white border-2 border-black rounded-lg relative p-1'>
+                            <div className='bg-white border-[2px] border-black rounded-lg relative p-1 focus-within:border-[3px]'>
                                 <input
                                     type="text"
-                                    placeholder="Contact Preference"
-                                    className="outline-none rounded-lg p-2 w-full"
+                                    placeholder="Email"
+                                    className="outline-none placeholder:text-fontdark  rounded-lg p-2 w-full"
                                     value={inputValue}
                                     onChange={handleInputChange}
                                 />

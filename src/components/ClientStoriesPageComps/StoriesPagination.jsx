@@ -6,7 +6,7 @@ import StoriesPaginationCard from './StoriesPaginationCard';
 const StoriesPagination = () => {
     let itemsPerPage = 9;
     const agentsdata = [
-        { id: 1, title: "Natalia & Russell", imgSrc: "/images/pages/homepage/devcardimage.svg", showPlayButton: true },
+        { id: 1, title: "Natalia & Russell", imgSrc: "/images/global/bgimage.jpeg", showPlayButton: true },
         { id: 2, title: "Henderson Family", imgSrc: "/images/pages/homepage/devcardimage.svg", showPlayButton: false },
         { id: 3, title: "Loginova Family", imgSrc: "/images/pages/homepage/devcardimage.svg", showPlayButton: false },
         { id: 4, title: "Natalia & Russell", imgSrc: "/images/pages/homepage/devcardimage.svg", showPlayButton: false },
