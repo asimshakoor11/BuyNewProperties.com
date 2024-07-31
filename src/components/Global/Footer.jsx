@@ -46,7 +46,7 @@ const Footer = () => {
                                 <input
                                     type="text"
                                     placeholder="First Name"
-                                    className="w-full p-3 mt-2 border-black border-2 placeholder:text-fontdark rounded-lg"
+                                    className="w-full p-3 mt-2 border-black border-2 outline-none placeholder:text-fontdark rounded-lg focus-within:border-blue-800"
 
                                     onChange={handleInputChangeFN}
                                 />
@@ -56,7 +56,7 @@ const Footer = () => {
                                 <input
                                     type="text"
                                     placeholder="Second Name"
-                                    className="w-full p-3 mt-2 border-black border-2 placeholder:text-fontdark rounded-lg"
+                                    className="w-full p-3 mt-2 border-black border-2  outline-none placeholder:text-fontdark rounded-lg focus-within:border-blue-800"
 
                                     onChange={handleInputChangeSN}
                                 />
@@ -66,7 +66,7 @@ const Footer = () => {
 
                         </div>
                         <div className='space-y-2'>
-                            <div className='bg-white border-[2px] border-black rounded-lg relative p-1 focus-within:border-[3px]'>
+                            <div className='bg-white border-[2px] border-black rounded-lg relative p-1 focus-within:border-blue-800'>
                                 <input
                                     type="text"
                                     placeholder="Email"
