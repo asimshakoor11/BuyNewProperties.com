@@ -2117,7 +2117,7 @@ const AreaGuidesMapComp = ({ customview }) => {
   }, [map, highlightedArea]);
 
   return isLoaded ? (
-    <div className={`${customview ? 'h-[50vh] xl:h-[100vh] ' : 'h-[75vh]'} w-full relative`}>
+    <div className={`h-full w-full relative`}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

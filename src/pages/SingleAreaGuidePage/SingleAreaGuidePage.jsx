@@ -104,18 +104,18 @@ const SingleAreaGuidePage = () => {
                             <div className='mt-5'>
                                 <h3 className='font-bold text-xl text-primarycolor'>Algarve Prime Areas</h3>
                                 <div className="space-y-4 mt-5">
-                                    <div className=" flex items-start rounded-lg ">
-                                        <div className='relative overflow-hidden w-[150px] h-[100px]  mr-4 flex items-center'>
-                                            <img alt="Property image" src="/images/pages/homepage/devcardimage.svg" className="h-full object-cover rounded-xl" />
+                                    <div className=" flex items-start rounded-lg cursor-pointer">
+                                        <div className='relative overflow-hidden w-[150px] h-[100px] bg-container mr-4 flex items-center rounded-xl'>
+                                            <img alt="Property image" src="/images/pages/homepage/devcardimage.svg" className="h-full object-cover bg-zoom rounded-xl" />
                                         </div>
                                         <div>
                                             <h4 className="font-bold">Vale do Lobo</h4>
                                             <p className="text-lg">Everything by your doorstep</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-start rounded-lg ">
-                                        <div className='relative overflow-hidden w-[150px] h-[100px]  mr-4 flex items-center'>
-                                            <img alt="Property image" src="/images/pages/homepage/devcardimage.svg" className="h-full object-cover rounded-xl" />
+                                    <div className="flex items-start rounded-lg  cursor-pointer">
+                                        <div className='relative overflow-hidden w-[150px] h-[100px] bg-container mr-4 flex items-center rounded-xl'>
+                                            <img alt="Property image" src="/images/pages/homepage/devcardimage.svg" className="h-full object-cover bg-zoom rounded-xl" />
                                         </div>
                                         <div >
                                             <h4 className="font-bold">Vale do Lobo</h4>
@@ -124,9 +124,9 @@ const SingleAreaGuidePage = () => {
                                     </div>
 
 
-                                    <div className="flex items-start rounded-lg ">
-                                        <div className='relative overflow-hidden w-[150px] h-[100px]  mr-4 flex items-center'>
-                                            <img alt="Property image" src="/images/pages/homepage/devcardimage.svg" className="h-full object-cover rounded-xl" />
+                                    <div className="flex items-start rounded-lg cursor-pointer ">
+                                        <div className='relative overflow-hidden w-[150px] h-[100px]  bg-container  mr-4 flex items-center rounded-xl'>
+                                            <img alt="Property image" src="/images/pages/homepage/devcardimage.svg" className="h-full object-cover bg-zoom rounded-xl" />
                                         </div>
                                         <div>
                                             <h4 className="font-bold">Vale do Lobo</h4>

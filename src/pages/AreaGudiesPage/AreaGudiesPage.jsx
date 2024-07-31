@@ -115,7 +115,7 @@ const AreaGudiesPage = () => {
 
             <section className='px-[7%] pt-[80px] bg-white '>
                 <div className='relative mx-0 lg:mx-20'>
-                    <div className='relative overflow-hidden max-h-[500px] flex items-center justify-center rounded-xl'>
+                    <div className='relative overflow-hidden h-[500px] flex items-center justify-center rounded-xl'>
                         <AreaGuidesMapComp locations={locationareas} />
                     </div>
                 </div>
@@ -123,7 +123,7 @@ const AreaGudiesPage = () => {
 
             <section className='section bg-white '>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Algarve’s Key Areas</h2>
-                <p className='font-normal text-justify'>We have tailored our bespoke guides on Marbella’s key areas, highlighting all there is to know about the most sought-after and desirable locations.</p>
+                <p className='font-normal text-justify mt-3'>We have tailored our bespoke guides on Marbella’s key areas, highlighting all there is to know about the most sought-after and desirable locations.</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10 mb-10">
 
@@ -136,7 +136,7 @@ const AreaGudiesPage = () => {
 
             <section className='px-[7%] pb-[80px] bg-white '>
                 <h2 className="font-BebasNeueSemiExpBold text-4xl md:text-5xl text-primarycolor text-left ">Lisbon’s Key Areas</h2>
-                <p className='font-normal text-justify'>We have tailored our bespoke guides on Marbella’s key areas, highlighting all there is to know about the most sought-after and desirable locations.</p>
+                <p className='font-normal text-justify  mt-3'>We have tailored our bespoke guides on Marbella’s key areas, highlighting all there is to know about the most sought-after and desirable locations.</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10 mb-10">
 

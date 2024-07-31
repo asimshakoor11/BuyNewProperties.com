@@ -40,14 +40,14 @@ const StoriesPaginationCard = ({ title, imgSrc, showPlayButton }) => {
                 {showPlayButton && (
                     <div className='absolute bottom-4 left-4'>
                         <button
-                            className='flex items-center gap-1 text-black bg-white hover:bg-gray-500 opacity-80 font-semibold text-[14px] px-3 py-3 rounded cursor-pointer transition-colors duration-300 ease-in-out'
+                            className='flex items-center gap-1 text-white bg-primarycolor hover:bg-primarycolorhover font-semibold text-[14px] px-3 py-3 rounded cursor-pointer transition-colors duration-300 ease-in-out'
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                             onClick={handlePlayButtonClick} // Handle click to show popup
                         >
                             <span>Play</span>
                             <img
-                                src={isHovered ? "/images/icons/playblack.svg" : "/images/icons/playblack.svg"}
+                                src={isHovered ? "/images/icons/playicon.svg" : "/images/icons/playicon.svg"}
                                 alt="Play Icon"
                                 className='h-4'
                             />

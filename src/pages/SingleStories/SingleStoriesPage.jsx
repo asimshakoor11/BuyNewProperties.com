@@ -112,7 +112,7 @@ const SingleStoriesPage = () => {
                     Contact us today to speak with one of our experienced experts. They will guide you seamlessly through the entire process, ensuring a stress-free move. Click the button below to get started!
                 </p>
                 <button
-                    className="buttonShort flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover font-medium  text-white rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
+                    className="buttonLong flex items-center mx-auto bg-primarycolor hover:bg-primarycolorhover font-medium  text-white rounded-lg shadow cursor-pointer transition-colors duration-300 ease-in-out">
                     <span> Contact Us Today</span>
                 </button>
             </section >
