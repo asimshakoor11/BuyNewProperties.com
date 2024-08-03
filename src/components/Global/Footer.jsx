@@ -60,9 +60,7 @@ const Footer = () => {
 
                                     onChange={handleInputChangeSN}
                                 />
-
                             </div>
-
 
                         </div>
                         <div className='space-y-2'>

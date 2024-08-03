@@ -19,13 +19,16 @@ import StoriesPage from './pages/ClientStories/StoriesPage';
 import SingleStoriesPage from './pages/SingleStories/SingleStoriesPage';
 import AreaGudiesPage from './pages/AreaGudiesPage/AreaGudiesPage';
 import SingleAreaGuidePage from './pages/SingleAreaGuidePage/SingleAreaGuidePage';
+import CareersPage from './pages/CareersPage/CareersPage';
+import SoldDevelopmentsPage from './pages/SoldDevelopmentsPage/SoldDevelopmentsPage';
+import SingleSoldDevelopmentPage from './pages/SingleSoldDevelopmentPage/SingleSoldDevelopmentPage';
 
 function App() {
 
   const location = useLocation();
 
   // Define an array of paths where Navbar and Footer should be hidden
-  const pathsToHideNavbarAndFooter = ["/developmentssearchmap", "/singleunitpage", "/singleagentpage"];
+  const pathsToHideNavbarAndFooter = ["/developmentssearchmap", "/singleunitpage", "/singleagentpage", '/solddevelopments'];
 
   // Check if the current path is in the array
   const hideNavbarAndFooter = pathsToHideNavbarAndFooter.includes(location.pathname);
@@ -60,6 +63,9 @@ function App() {
         <Route exact path="/singlestoriespage/:title" element={<SingleStoriesPage />}></Route>
         <Route exact path="/areaguides" element={<AreaGudiesPage />}></Route>
         <Route exact path="/singleareaguidepage/:title" element={<SingleAreaGuidePage />}></Route>
+        <Route exact path="/careerspage" element={<CareersPage />}></Route>
+        <Route exact path="/solddevelopments" element={<SoldDevelopmentsPage />}></Route>
+        <Route exact path="/singlesloddevelopment" element={<SingleSoldDevelopmentPage />}></Route>
         {/* Add more routes as needed */}
       </Routes>
       {!hideNavbarAndFooter && <Footer />}

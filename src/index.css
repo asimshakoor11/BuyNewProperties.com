@@ -216,7 +216,24 @@ body {
   transform-origin: bottom left;
 }
 
+.hover-underline-animationper {
+  position: relative;
+  /* Adjust as needed */
+}
 
+.hover-underline-animationper::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(1);
+  height: 1px;
+  /* Adjust the height of the line */
+  bottom: -2px;
+  left: 0;
+  background-color: #002038;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
 
 .hover-underline-animationbm {
   position: relative;
@@ -238,6 +255,32 @@ body {
 }
 
 .hover-underline-animationbm:hover::after,
+.active-underlinebm::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+.hover-underline-animationcar {
+  position: relative;
+  /* Adjust as needed */
+}
+
+.hover-underline-animationcar::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  /* Adjust the height of the line */
+  bottom: -2px;
+  left: 0;
+  background-color: gray;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-underline-animationcar:hover::after,
 .active-underlinebm::after {
   transform: scaleX(1);
   transform-origin: bottom left;

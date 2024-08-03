@@ -5,10 +5,9 @@ import { faChevronRight, faSort } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import SingleUnitPopup from './SingleUnitPopup';
 
 
-const TableRecidencies = ({ booking, images, sold }) => {
+const TableRecidenciesSold = ({ booking }) => {
 
     const [sortConfig, setSortConfig] = useState({ key: 'ref', direction: 'asc' });
 
@@ -161,18 +160,6 @@ const TableRecidencies = ({ booking, images, sold }) => {
         { label: 'Price', key: 'price' },
     ];
 
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-
-    useEffect(() => {
-        if (isPopupOpen) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
-        }
-    }, [isPopupOpen]);
-
-
     return (
 
         <>
@@ -199,7 +186,7 @@ const TableRecidencies = ({ booking, images, sold }) => {
                 <tbody className='text-md text-primarycolor font-FuturaDemi'>
                     {sortedData.map((row, index) => (
                         <tr key={index} className={`border-b border-gray-300 cursor-pointer hover:bg-[#fcfeff] row-hover ${index % 2 === 0 ? 'bg-white' : 'bg-[#f8f9fa]'}`}
-                            onClick={() => { setIsPopupOpen(true) }}
+                            
                         >
                             <td className="py-2 px-4 text-center">{row.ref}</td>
                             <td className="py-2 px-4 text-center">{row.propertyType}</td>
@@ -209,7 +196,7 @@ const TableRecidencies = ({ booking, images, sold }) => {
                             <td className="py-2 px-4 text-center">{row.floorPlot}</td>
                             <td className="py-2 px-4 text-center">{row.unit}</td>
                             <td className="py-2 px-4 text-center">{row.parking}</td>
-                            <td className="py-2 px-4 text-center">{row.price}</td>
+                            <td className="py-2 px-4 text-center">Sold</td>
                             <td className="py-2 px-4 text-center">
                                 <button className="bg-transparent">
                                     <img alt="download" src="/images/icons/download.svg" className='h-5' />
@@ -233,12 +220,8 @@ const TableRecidencies = ({ booking, images, sold }) => {
                     ))}
                 </tbody>
             </table>
-
-            {isPopupOpen (
-                <SingleUnitPopup isOpen={isPopupOpen} images={images} onClose={() => setIsPopupOpen(false)} />
-            )}
         </>
     )
 }
 
-export default TableRecidencies
+export default TableRecidenciesSold

@@ -193,6 +193,7 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                                     <Link to={'/newspage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>News</span></Link>
                                     <Link to={'/storiespage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Stories</span></Link>
                                     <Link to={'/areaguides'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></Link>
+                                    <Link to={'/careerspage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Careers</span></Link>
                                     
                                 </div>
 
@@ -365,6 +366,7 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                                     <Link to={'/newspage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>News</span></Link>
                                     <Link to={'/storiespage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Stories</span></Link>
                                     <Link to={'/areaguides'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Guides</span></Link>
+                                    <Link to={'/careerspage'} className="py-6"> <span className={`hover-underline-animation ${scrollPosition > scrollThreshold ? ' after:bg-primarycolor' : ' after:bg-white'}`}>Careers</span></Link>
                                 </div>
 
                                 <div className="flex items-center space-x-2 lg:space-x-3 py-4">
@@ -604,6 +606,12 @@ const Navbar = ({ isNavbarFixed, themewhite }) => {
                                             </Link>
                                             <Link to={"/areaguides"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
                                                 <span className='hover-underline-animationbm '>Guides</span>
+                                            </Link>
+                                            <Link to={"/careerspage"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
+                                                <span className='hover-underline-animationbm '>Careers</span>
+                                            </Link>
+                                            <Link to={"/solddevelopments"} className='font-bold' onClick={() => { setIsPopupOpenBM(false) }}>
+                                                <span className='hover-underline-animationbm '>Sold Development</span>
                                             </Link>
 
                                             <a href="#" className="font-bold flex items-center ">
