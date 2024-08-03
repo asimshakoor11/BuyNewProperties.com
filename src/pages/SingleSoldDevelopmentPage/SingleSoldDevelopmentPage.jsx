@@ -224,7 +224,7 @@ const SingleSoldDevelopmentPage = () => {
             {/* sticky bottombar  */}
 
             <section className={`md:flex fixed bottom-4 w-full z-30  justify-center transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-[120px]'}`}>
-                <div className='w-[300px] md:min-w-[600px] mx-auto bg-dangercolor opacity-80 text-white flex gap-2 py-3 px-8 rounded-lg'>
+                <div className='w-max sm:w-[500px] md:w-[600px] mx-auto bg-dangercolor opacity-80 text-white flex gap-2 py-3 px-20 rounded-lg'>
                     <p className='w-full text-center'>Recently Sold</p>
                 </div>
             </section>

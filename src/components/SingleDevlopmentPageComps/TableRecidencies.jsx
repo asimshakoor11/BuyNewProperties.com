@@ -234,7 +234,7 @@ const TableRecidencies = ({ booking, images, sold }) => {
                 </tbody>
             </table>
 
-            {isPopupOpen (
+            {isPopupOpen && (
                 <SingleUnitPopup isOpen={isPopupOpen} images={images} onClose={() => setIsPopupOpen(false)} />
             )}
         </>
